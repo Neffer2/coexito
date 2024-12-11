@@ -10,9 +10,10 @@
         @guest
             <div>
                 <h2>Iniciar sesión</h2>
-                <form>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
                     <input type="text" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password"> 
                     <button type="submit">Iniciar</button>
                 </form>
             </div>
@@ -53,5 +54,9 @@
                 @endif
             </div>
         @endguest
+        @auth
+            <h2>Registro de codigos</h2>
+            <livewire:registro-codigos>
+        @endauth
     </body>
 </html>

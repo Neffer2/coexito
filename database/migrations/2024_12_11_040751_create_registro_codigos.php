@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registro_premios', function (Blueprint $table) {
+        Schema::create('registro_codigos', function (Blueprint $table) {
             $table->id();
-            $table->foreign('premio_id')->references('id')->on('premios');
-            $table->foreignId('premio_id');
+            $table->foreign('codigo_id')->references('id')->on('codigos');
+            $table->foreignId('codigo_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('user_id');
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registro_premios');
+        Schema::dropIfExists('registro_codigos');
     }
 };
