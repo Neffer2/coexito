@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #000;
+}
+
+canvas {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#game-container {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    #game-container-desk {
+        display: none;
+    }
+
+    #game-container-mobile {
+        display: block;
+    }
+
+    body {
+        background-image: url('../../assets/mobile/bg.jpg');
+        background-size: cover;
+    }
+}
+
+@media (min-width: 769px) {
+    #game-container-desk {
+        display: block;
+    }
+
+    #game-container-mobile {
+        display: none;
+    }
+
+    body {
+        background-image: url('../../assets/desk/bg.jpg');
+        background-size: cover;
+    }
+}
