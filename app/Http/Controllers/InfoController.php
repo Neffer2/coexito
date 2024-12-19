@@ -34,6 +34,26 @@ class InfoController extends Controller
         return response()->json($recomendador);
     }
 
+    public function validateCelular($celular, $rol){
+        if($rol == 'recomendador'){
+            $user = Recomendadores::where('celular', $celular)->first();
+            if($user){
+                return response()->json(['message' => 'Celular ya registrado'], 404);
+            }
+
+            return response()->json(['message' => 'Celular disponible'], 200);
+        }elseif($rol == 'agente'){
+            // $user = Agente::where('celular', $celular)->first();
+            // if($user){
+            //     return response()->json(['message' => 'Celular ya registrado'], 404);
+            // }
+
+            // return response()->json(['message' => 'Celular disponible'], 200);
+        }
+
+        return response()->json(['message' => 'Celular disponible'], 200);
+    }
+
     //Registrar recomendador
     public function setRecomendador(Request $request){
 
@@ -45,7 +65,7 @@ class InfoController extends Controller
             'correo' => 'required | unique:recomendadores',
             'ciudad' => 'required'
         ]);
-        
+
         $recomendador = Recomendadores::create([
             'pdv_id' => $request->pdv_id,
             'nombre' => $request->nombre,
@@ -53,13 +73,9 @@ class InfoController extends Controller
             'celular' => $request->celular,
             'correo' => $request->correo,
             'ciudad' => $request->ciudad,
-            'puntos' => 0           
+            'puntos' => 0
         ]);
 
         return response()->json($recomendador);
     }
-
-    
-
-
 }
