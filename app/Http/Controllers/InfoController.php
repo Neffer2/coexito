@@ -36,6 +36,16 @@ class InfoController extends Controller
 
     //Registrar recomendador
     public function setRecomendador(Request $request){
+
+        $request->validate([
+            'pdv_id' => 'required',
+            'nombre' => 'required',
+            'cedula' => 'required | unique:recomendadores',
+            'celular' => 'required | unique:recomendadores',
+            'correo' => 'required | unique:recomendadores',
+            'ciudad' => 'required'
+        ]);
+        
         $recomendador = Recomendadores::create([
             'pdv_id' => $request->pdv_id,
             'nombre' => $request->nombre,
