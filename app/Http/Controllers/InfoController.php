@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Agente;
 use App\Models\User;
+use App\Models\Agente;
+use App\Models\PuntosVenta;
 
 class InfoController extends Controller
 {
@@ -13,8 +14,15 @@ class InfoController extends Controller
         if(!$agente){
             return response()->json(['message' => 'Agente no encontrado'], 404);
         }
-
         return response()->json($agente);
+    }
+
+    public function getPuntoVenta($nit){
+        $puntoVenta = PuntosVenta::select('id', 'nit', 'nom_cliente')->where('nit', $nit)->first();
+        if(!$puntoVenta){
+            return response()->json(['message' => 'Punto de venta no encontrado'], 404);
+        }
+        return response()->json($puntoVenta);
     }
 
 }
