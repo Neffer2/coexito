@@ -9,6 +9,8 @@ use App\Models\PuntosVenta;
 use App\Models\Recomendadores;
 use App\Models\RegistroServicio;
 use App\Models\Codigo;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class InfoController extends Controller
 {
@@ -97,10 +99,12 @@ class InfoController extends Controller
         $codigo->estado_serial = 3;
         $codigo->save();
 
+        $foto_factura = (!is_null($request->foto_factura)) ? $this->uploadFile($request->foto_factura) : null;
+
         $servicio = new RegistroServicio;
         $servicio->recomendador_id = $request->recomendador_id;
         $servicio->codigo_id = $codigo->id;
-        $servicio->foto_factura = $request->foto_factura;
+        $servicio->foto_factura = $foto_factura;
 
         if ($servicio->save()){
             return response()->json(['message' => 'Registro exitoso', 'status' => 200], 200);
@@ -135,4 +139,14 @@ class InfoController extends Controller
         return response()->json($recomendador);
     }
     /* ** */
+
+    public function uploadFile($url){
+        $imageContent = file_get_contents($url);
+
+        // Crea un nombre único para la imagen
+        $path = "public/photos/".Str::uuid().".jpg";
+        Storage::disk('local')->put($path, $imageContent);
+
+        return $path;
+    }
 }
