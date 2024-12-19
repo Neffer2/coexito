@@ -99,7 +99,7 @@ class InfoController extends Controller
 
         $servicio = new RegistroServicio;
         $servicio->recomendador_id = $request->recomendador_id;
-        $servicio->cod_id = $codigo->id;
+        $servicio->codigo_id = $codigo->id;
         $servicio->foto_factura = $request->foto_factura;
 
         if ($servicio->save()){
