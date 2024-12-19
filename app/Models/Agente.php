@@ -14,5 +14,6 @@ class Agente extends Model
     protected $fillable = [
         'nombre',
         'cedula',
+        'puntos',
     ];
 }
