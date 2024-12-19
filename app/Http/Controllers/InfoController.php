@@ -27,11 +27,29 @@ class InfoController extends Controller
     }
 
     public function getRecomendador($documento){
-        $recomendadores = Recomendadores::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->get();
-        if(!$recomendadores){
+        $recomendador = Recomendadores::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->get();
+        if(!$recomendador){
             return response()->json(['message' => 'Recomendadores no encontrados'], 404);
         }
-        return response()->json($recomendadores);
+        return response()->json($recomendador);
     }
+
+    //Registrar recomendador
+    public function setRecomendador(Request $request){
+        $recomendador = Recomendadores::create([
+            'pdv_id' => $request->pdv_id,
+            'nombre' => $request->nombre,
+            'cedula' => $request->cedula,
+            'celular' => $request->celular,
+            'correo' => $request->correo,
+            'ciudad' => $request->ciudad,
+            'puntos' => 0           
+        ]);
+        
+        return response()->json(['message' => 'Recomendador registrado'], 201);
+    }
+
+    
+
 
 }
