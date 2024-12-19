@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('cedula');
             $table->string('celular')->unique();
-            $table->integer('correo')->unique();
-            $table->integer('ciudad');
+            $table->string('correo')->unique();
+            $table->string('ciudad');
             $table->foreign('pdv_id')->references('id')->on('puntos_venta');
             $table->foreignId('pdv_id');
             $table->integer('puntos');
