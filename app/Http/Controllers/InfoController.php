@@ -95,8 +95,8 @@ class InfoController extends Controller
 
 
         $codigo = Codigo::select('id')->where([['serial', $request->serial],['estado_serial', 1]])->first();
-        $codigo->estado_serial = 3;
-        $codigo->save();
+        // $codigo->estado_serial = 3;
+        // $codigo->save();
 
         return response()->json($codigo);
 
