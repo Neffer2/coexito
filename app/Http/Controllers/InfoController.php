@@ -51,7 +51,7 @@ class InfoController extends Controller
             // return response()->json(['message' => 'Celular disponible'], 200);
         }
 
-        return response()->json(['message' => 'Celular disponible'], 200);
+        return response()->json(['message' => 'Rol inválido'], 404);
     }
 
     //Registrar recomendador
