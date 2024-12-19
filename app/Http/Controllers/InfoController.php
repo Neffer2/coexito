@@ -96,10 +96,10 @@ class InfoController extends Controller
         ]);
 
         $codigo = Codigo::select('id')->where([['serial', 'LIKE', "%$request->serial%"],['estado_serial', 1]])->first();
+        if (!$codigo){ return response()->json(['message' => 'Codigo ya registrado', 'status' => 404], 404); }
         $codigo->estado_serial = 3;
-        if (!$codigo->save()){
-            return response()->json(['message' => 'Codigo ya registrado', 'status' => 404], 404);
-        }
+        $codigo->save()
+
 
         $foto_factura = (!is_null($request->foto_factura)) ? $this->uploadFile($request->foto_factura) : null;
 
