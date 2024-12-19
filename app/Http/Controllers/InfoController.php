@@ -46,10 +46,6 @@ class InfoController extends Controller
             'puntos' => 0           
         ]);
 
-        if(!$recomendador){
-            return response()->json(['message' => 'Error al registrar el recomendador'], 500);
-        }
-        
         return response()->json($recomendador);
     }
 
