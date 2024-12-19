@@ -97,8 +97,6 @@ class InfoController extends Controller
         $codigo->estado_serial = 3;
         $codigo->save();
 
-        return response()->json($codigo);
-
         $servicio = new RegistroServicio;
         $servicio->recomendador_id = $request->recomendador_id;
         $servicio->codigo_id = $codigo->id;
