@@ -7,23 +7,17 @@ use App\Models\User;
 use App\Models\Agente;
 use App\Models\PuntosVenta;
 use App\Models\Recomendadores;
+use App\Models\RegistroServicio;
 
 class InfoController extends Controller
 {
+    /* GETTERS */
     public function getAgente($documento){
         $agente = Agente::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->first();
         if(!$agente){
             return response()->json(['message' => 'Agente no encontrado'], 404);
         }
         return response()->json($agente);
-    }
-
-    public function getPuntoVenta($nit){
-        $puntoVenta = PuntosVenta::select('id', 'nit', 'nom_cliente')->where('nit', $nit)->first();
-        if(!$puntoVenta){
-            return response()->json(['message' => 'Punto de venta no encontrado'], 404);
-        }
-        return response()->json($puntoVenta);
     }
 
     public function getRecomendador($documento){
@@ -33,6 +27,15 @@ class InfoController extends Controller
         }
         return response()->json($recomendador);
     }
+
+    public function getPuntoVenta($nit){
+        $puntoVenta = PuntosVenta::select('id', 'nit', 'nom_cliente')->where('nit', $nit)->first();
+        if(!$puntoVenta){
+            return response()->json(['message' => 'Punto de venta no encontrado'], 404);
+        }
+        return response()->json($puntoVenta);
+    }
+    /* ** */
 
     /* VALIDATIONS */
     public function validateCedula($cedula, $rol){
@@ -81,7 +84,28 @@ class InfoController extends Controller
     }
     /* ** */
 
-    //Registrar recomendador
+    /* REGISTROS SERVICIOS/VENTAS/VISITAS */
+    public function registratServicio(Request $request){
+        $request->validate([
+            'asesor_id' => 'required',
+            'serial' => 'required',
+            'foto_factura' => 'required'
+        ]);
+
+        $servicio = new RegistroServicio;
+        $servicio->asesor_id = $request->asesor_id;
+        $servicio->serial = $request->serial;
+        $servicio->foto_factura = $request->foto_factura;
+
+        if ($servicio->save()){
+            return response()->json(['message' => 'Registro exitoso', 'status' => 200], 200);
+        }else{
+            return response()->json(['message' => 'Error en el registro', 'status' => 404], 404);
+        }
+    }
+    /* ** */
+
+    /* REGISTROS */
     public function setRecomendador(Request $request){
 
         $request->validate([
@@ -105,4 +129,5 @@ class InfoController extends Controller
 
         return response()->json($recomendador);
     }
+    /* ** */
 }

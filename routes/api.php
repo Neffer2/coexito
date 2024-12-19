@@ -24,6 +24,7 @@ Route::get('/get-agente/{documento?}', [InfoController::class, 'getAgente']);
 Route::get('get-punto-venta/{nit?}', [InfoController::class, 'getPuntoVenta']);
 Route::get('get-recomendador/{documento?}', [InfoController::class, 'getRecomendador']);
 Route::post('set-recomendador', [InfoController::class, 'setRecomendador']);
+Route::post('registro-servicio', [InfoController::class, 'registratServicio']);
 
 // Validaciones
 Route::get('validate-cedula/{cedula}/{rol}', [InfoController::class, 'validateCedula']);
