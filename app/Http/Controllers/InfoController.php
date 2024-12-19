@@ -26,7 +26,7 @@ class InfoController extends Controller
         return response()->json($puntoVenta);
     }
 
-    public function getRecomendadores($documento){
+    public function getRecomendador($documento){
         $recomendadores = Recomendadores::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->get();
         if(!$recomendadores){
             return response()->json(['message' => 'Recomendadores no encontrados'], 404);
