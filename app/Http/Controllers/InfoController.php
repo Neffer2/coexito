@@ -8,6 +8,7 @@ use App\Models\Agente;
 use App\Models\PuntosVenta;
 use App\Models\Recomendadores;
 use App\Models\RegistroServicio;
+use App\Models\Codigo;
 
 class InfoController extends Controller
 {
@@ -92,9 +93,13 @@ class InfoController extends Controller
             'foto_factura' => 'required'
         ]);
 
+        $codigo = Codigo::select('id')->where([['serial', $request->serial],['estado_serial', 1]])->first();
+        $codigo->estado_serial = 3;
+        $codigo->save();
+
         $servicio = new RegistroServicio;
         $servicio->recomendador_id = $request->recomendador_id;
-        $servicio->serial = $request->serial;
+        $servicio->cod_id = $codigo->id;
         $servicio->foto_factura = $request->foto_factura;
 
         if ($servicio->save()){
