@@ -87,13 +87,13 @@ class InfoController extends Controller
     /* REGISTROS SERVICIOS/VENTAS/VISITAS */
     public function registratServicio(Request $request){
         $request->validate([
-            'asesor_id' => 'required',
+            'recomendador_id' => 'required',
             'serial' => 'required',
             'foto_factura' => 'required'
         ]);
 
         $servicio = new RegistroServicio;
-        $servicio->asesor_id = $request->asesor_id;
+        $servicio->recomendador_id = $request->recomendador_id;
         $servicio->serial = $request->serial;
         $servicio->foto_factura = $request->foto_factura;
 

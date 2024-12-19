@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreign('codigo_id')->references('id')->on('codigos');
             $table->foreignId('codigo_id');
             $table->string('foto_factura');
+            $table->foreign('estado_id')->references('id')->on('estados');
+            $table->foreignId('estado_id')->default(2);
             $table->timestamps();
         });
     }
