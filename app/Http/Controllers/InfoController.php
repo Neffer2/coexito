@@ -99,7 +99,8 @@ class InfoController extends Controller
         $codigo->estado_serial = 3;
         $codigo->save();
 
-        $foto_factura = (!is_null($request->foto_factura)) ? $this->uploadFile($request->foto_factura) : null;
+        $foto_factura = 11;
+        // (!is_null($request->foto_factura)) ? $this->uploadFile($request->foto_factura) : null;
 
         $servicio = new RegistroServicio;
         $servicio->recomendador_id = $request->recomendador_id;
