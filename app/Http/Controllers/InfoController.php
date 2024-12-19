@@ -46,7 +46,7 @@ class InfoController extends Controller
             'puntos' => 0           
         ]);
         
-        return response()->json(['message' => 'Recomendador registrado'], 201);
+        return response()->json($recomendador, 201);
     }
 
     
