@@ -34,6 +34,7 @@ class InfoController extends Controller
         return response()->json($recomendador);
     }
 
+    /* VALIDATIONS */
     public function validateCedula($cedula, $rol){
         if($rol == 'recomendador'){
             $user = Recomendadores::where('cedula', $cedula)->first();
@@ -63,6 +64,22 @@ class InfoController extends Controller
 
         return response()->json(['message' => 'Rol invalido', 'status' => 404], 404);
     }
+
+    public function validateCorreo($correo, $rol){
+        if($rol == 'recomendador'){
+            $user = Recomendadores::where('correo', $correo)->first();
+            if($user){
+                return response()->json(['message' => 'Correo ya registrado', 'status' => 404], 404);
+            }
+
+            return response()->json(['message' => 'Correo disponible', 'status' => 200], 200);
+        }elseif($rol == 'agente'){
+
+        }
+
+        return response()->json(['message' => 'Rol invalido', 'status' => 404], 404);
+    }
+    /* ** */
 
     //Registrar recomendador
     public function setRecomendador(Request $request){

@@ -28,3 +28,4 @@ Route::post('set-recomendador', [InfoController::class, 'setRecomendador']);
 // Validaciones
 Route::get('validate-cedula/{cedula}/{rol}', [InfoController::class, 'validateCedula']);
 Route::get('validate-celular/{celular}/{rol}', [InfoController::class, 'validateCelular']);
+Route::get('validate-correo/{correo}/{rol}', [InfoController::class, 'validateEmail']);
