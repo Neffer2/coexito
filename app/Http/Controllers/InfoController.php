@@ -34,6 +34,21 @@ class InfoController extends Controller
         return response()->json($recomendador);
     }
 
+    public function validateCedula($cedula, $rol){
+        if($rol == 'recomendador'){
+            $user = Recomendadores::where('cedula', $cedula)->first();
+            if($user){
+                return response()->json(['message' => 'Cedula ya registrada'], 404);
+            }
+
+            return response()->json(['message' => 'Cedula disponible'], 200);
+        }elseif($rol == 'agente'){
+
+        }
+
+        return response()->json(['message' => 'Rol invalido'], 404);
+    }
+
     public function validateCelular($celular, $rol){
         if($rol == 'recomendador'){
             $user = Recomendadores::where('celular', $celular)->first();
@@ -43,15 +58,10 @@ class InfoController extends Controller
 
             return response()->json(['message' => 'Celular disponible'], 200);
         }elseif($rol == 'agente'){
-            // $user = Agente::where('celular', $celular)->first();
-            // if($user){
-            //     return response()->json(['message' => 'Celular ya registrado'], 404);
-            // }
 
-            // return response()->json(['message' => 'Celular disponible'], 200);
         }
 
-        return response()->json(['message' => 'Rol inválido'], 404);
+        return response()->json(['message' => 'Rol invalido'], 404);
     }
 
     //Registrar recomendador
