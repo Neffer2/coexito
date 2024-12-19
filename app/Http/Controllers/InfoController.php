@@ -93,7 +93,7 @@ class InfoController extends Controller
             'foto_factura' => 'required'
         ]);
 
-        $codigo = Codigo::select('id')->where([['serial', $request->serial],['estado_serial', 1]])->first();
+        $codigo = Codigo::select('id')->where([['serial', 'LIKE', "%$request->serial%"],['estado_serial', 1]])->first();
         $codigo->estado_serial = 3;
         $codigo->save();
 
