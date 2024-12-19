@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Endpoints for the API
 Route::get('/get-agente/{documento?}', [InfoController::class, 'getAgente']); 
 Route::get('get-punto-venta/{nit?}', [InfoController::class, 'getPuntoVenta']);
+Route::get('get-recomendadores/{documento?}', [InfoController::class, 'getRecomendadores']);

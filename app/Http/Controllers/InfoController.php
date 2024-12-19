@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Agente;
 use App\Models\PuntosVenta;
+use App\Models\Recomendadores;
 
 class InfoController extends Controller
 {
@@ -23,6 +24,14 @@ class InfoController extends Controller
             return response()->json(['message' => 'Punto de venta no encontrado'], 404);
         }
         return response()->json($puntoVenta);
+    }
+
+    public function getRecomendadores($documento){
+        $recomendadores = Recomendadores::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->get();
+        if(!$recomendadores){
+            return response()->json(['message' => 'Recomendadores no encontrados'], 404);
+        }
+        return response()->json($recomendadores);
     }
 
 }
