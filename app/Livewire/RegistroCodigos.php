@@ -38,7 +38,7 @@ class RegistroCodigos extends Component
             $codigo->save();
 
             // Registro Codigos
-            $registro_codigo = new RegistroCodigo(); 
+            $registro_codigo = new RegistroCodigo();
             $registro_codigo->codigo_id = $codigo->id;
             $registro_codigo->user_id = auth()->user()->id;
             $registro_codigo->save();
