@@ -14,7 +14,7 @@ let rotate = false;
 let enablePost = true;
 
 /* Velocidad */
-let velocidad = 3;
+let velocidad = 10;
 let valocity_handler = true;
 let limite;
 /* --- */
@@ -33,7 +33,7 @@ export class Game extends Phaser.Scene {
         {
             spinButton.setScale(1.2);
             if (!rotate){
-                mContext.rotar();
+                mContext.rotarConstante();
                 setTimeout(() => {
                     spinButton.disableInteractive();
                 }, 500);
