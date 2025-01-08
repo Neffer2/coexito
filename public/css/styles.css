@@ -2,6 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'MyriadPro Regular';
+    /* color: #fff; */
+}
+
+@font-face {
+    font-family: 'MyriadPro Regular';
+    src: url('../fonts/MyriadPro-Regular.otf');
+}
+
+@font-face {
+    font-family: 'NeueMontreal Regular';
+    src: url('../fonts/NeueMontreal-Regular.otf');
+}
+
+@font-face {
+    font-family: 'NeueMontreal Bold';
+    src: url('../fonts/NeueMontreal-Bold.otf');
 }
 
 .main-container {
@@ -87,7 +104,7 @@
     margin-bottom: 50px;
 }
 
-.login-form {
+.login-form, .register-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,17 +112,66 @@
     width: 100%;
 }
 
-.login-form h2 {
+.login-form h2, .register-form h2 {
     color: #fff;
+    font-family: 'MyriadPro Regular';
     margin-bottom: 10px;
+    font-size: 2rem;
 }
 
-.login-form form {
+.login-form form, .register-form form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
+}
+
+.login-form form label, .register-form form label {
+    align-self: flex-start;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.login-form form input, .register-form form input, .register-form form select {
+    width: 100%;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    background: none;
+    margin-bottom: 20px;
+}
+
+.login-form form input:focus, .register-form form input:focus {
+    border: #FF6700 2px solid;
+}
+
+.login-form form button, .register-form form button {
+    width: 25%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6700;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.login-form form p {
+    color: #fff;
+}
+
+.register-show {
+    color:rgb(0, 255, 255);
+}
+
+.login-form form button:hover, .register-form form button:hover {
+    background-color: #fff;
+    color: #FF6700;
 }
 
 .register-show {

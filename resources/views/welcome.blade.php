@@ -35,7 +35,7 @@
                         <input type="text" id="email_login" name="email" placeholder="Email">
                         <label for="password_login">Contraseña</label>
                         <input type="password" id="password_login" name="password" placeholder="Password">
-                        {{-- <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate aquí</span></p> --}}
+                        <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate aquí</span></p>
                         <button type="submit">Aceptar</button>
                     </form>
                 </div>
@@ -43,25 +43,34 @@
                     <h2>Registro</h2>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                        <input id="nombre" name="nombre" :value="old('nombre')" placeholder="Nombre" />
-                        <input id="email" name="email" :value="old('nombre')" placeholder="Correo" />
-                        <input id="documento" name="documento" :value="old('documento')" placeholder="Documento" />
-                        <input id="telefono" name="telefono" :value="old('telefono')" placeholder="Telefono" />
-                        <input id="direccion" name="direccion" :value="old('direccion')" placeholder="Direccion" />
-                        <select id="" name="" placeholder="Departamento">
+                        <label for="nombre_register">Nombre</label>
+                        <input id="nombre_register" name="nombre" :value="old('nombre')" placeholder="Nombre" />
+                        <label for="email_registe">Correo electrónico</label>
+                        <input id="email_registe" name="email" :value="old('nombre')" placeholder="Correo" />
+                        <label for="documento_register">Documento</label>
+                        <input id="documento_register" name="documento" :value="old('documento')" placeholder="Documento" />
+                        <label for="telefono_register">Teléfono</label>
+                        <input id="telefono_register" name="télefono" :value="old('telefono')" placeholder="Telefono" />
+                        <label for="direccion_register">Dirección</label>
+                        <input id="direccion_register" name="direccion" :value="old('direccion')" placeholder="Dirección" />
+                        <label for="departamento_register">Departamento</label>
+                        <select id="departamento_register" name="" placeholder="Departamento">
                             <option value="1">Departamento</option>
                             <option value="2">Proveedor</option>
                         </select>
-                        <select id="ciudad" name="ciudad" placeholder="Ciudad">
+                        <label for="ciudad_register">Ciudad</label>
+                        <select id="ciudad_register" name="ciudad" placeholder="Ciudad">
                             <option value="1">Ciudad</option>
                             <option value="2">Proveedor</option>
                         </select>
-                        <input id="password" type="password" name="password" placeholder="Confirmar contraseña" />
-                        <input id="password_confirmation" type="password" name="password_confirmation"
+                        <label for="password_register">Contraseña</label>
+                        <input id="password_register" type="password" name="password" placeholder="Confirmar contraseña" />
+                        <label for="password_confirmation_register">Confirmar contraseña</label>
+                        <input id="password_confirmation_register" type="password" name="password_confirmation"
                             placeholder="Confirmar contraseña" />
 
-                        <input id="terminos_condiciones" type="radio" name="terminos_condiciones"> Terminos y condiciones
-                        <input id="tratamiento_datos" type="radio" name="tratamiento_datos" /> Tratamiento de datos
+                        <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones"> Terminos y condiciones
+                        <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos" /> Tratamiento de datos
 
                         <button type="submit">Registrar</button>
                     </form>
@@ -86,15 +95,15 @@
 
 </body>
 <script>
-    // const registroShow = document.getElementById('register_show');
+    const registroShow = document.getElementById('register_show');
 
-    // registroShow.addEventListener('click', () => {
-    //     const loginForm = document.querySelector('.login-form');
-    //     const registerForm = document.querySelector('.register-form');
+    registroShow.addEventListener('click', () => {
+        const loginForm = document.querySelector('.login-form');
+        const registerForm = document.querySelector('.register-form');
 
-    //     loginForm.style.display = 'none';
-    //     registerForm.style.display = 'flex';
-    // });
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'flex';
+    });
 </script>
 
 </html>
