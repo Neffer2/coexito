@@ -32,7 +32,7 @@ canvas {
     }
 
     body {
-        background-image: url('../../assets/mobile/bg.jpg');
+        background-image: url('../../assets/ruleta/mobile/bg.png');
         background-size: cover;
     }
 }
@@ -47,7 +47,7 @@ canvas {
     }
 
     body {
-        background-image: url('../../assets/desk/bg.jpg');
+        background-image: url('../../assets/ruleta/desk/bg.png');
         background-size: cover;
     }
 }

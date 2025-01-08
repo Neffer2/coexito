@@ -1,14 +1,19 @@
 let width, height, mContext;
-let ruleta, puntero, spinButton,tempButton, bars, bglight;
+let ruleta, puntero, spinButton, tempButton, bars, bglight;
 // Divisiones de la ruleta
-let divisiones = 20, circumference = 280;
+let divisiones = 20, circumference = 260;
 
 let premios = [
-    '1', '2', '3', '4', '5',
-    '6', '7', '8', '9', '10',
-    '11', '12', '13', '14', 'Ganador 1',
-    '16', '17', '18', '19', '20'
+    '1', '2', '3', '104', '5',
+    '6', '7', '8', '9', '103',
+    '11', '102', '13', '14', '15',
+    '101', '17', '18', '19', '20'
 ];
+
+// '1', '2', '3', 'Ganador 4', '5',
+// '6', '7', '8', '9', 'Ganador 3',
+// '11', 'Ganador 2', '13', '14', '15',
+// 'Ganador 1', '17', '18', '19', '20'
 
 let rotate = false;
 let enablePost = true;
@@ -33,18 +38,11 @@ export class Game extends Phaser.Scene {
         {
             spinButton.setScale(1.2);
             if (!rotate){
-                mContext.rotarConstante();
+                mContext.rotar();
                 setTimeout(() => {
                     spinButton.disableInteractive();
                 }, 500);
             }
-        });
-
-
-        tempButton.on('pointerdown', function (pointer)
-        {
-            mContext.detener();
-            spinButton.disableInteractive();
         });
 
         spinButton.on('pointerup', function(){
@@ -71,27 +69,25 @@ export class Game extends Phaser.Scene {
                 Hasta el límmite.
                 Luego resta la velocidad hasta cero.
              */
-            // if (valocity_handler && velocidad > limite){
-            //     valocity_handler = !valocity_handler;
-            // }
+            if (valocity_handler && velocidad > limite){
+                valocity_handler = !valocity_handler;
+            }
 
-            // if (valocity_handler && !(velocidad == 0)){
-            //     velocidad += 1;
-            // }
+            if (valocity_handler && !(velocidad == 0)){
+                velocidad += 1;
+            }
 
-            // if (!valocity_handler && !(velocidad <= 0)){
-            //     velocidad -= .1;
-            // }
-            // ruleta.angle += velocidad;
-
-            // if (velocidad < 0){
-            //     rotate = !rotate;
-            //     valocity_handler = !valocity_handler;
-            //     puntero.setAngle(0);
-            //     this.getPremio();
-            // }
-
+            if (!valocity_handler && !(velocidad <= 0)){
+                velocidad -= .1;
+            }
             ruleta.angle += velocidad;
+
+            if (velocidad < 0){
+                rotate = !rotate;
+                valocity_handler = !valocity_handler;
+                puntero.setAngle(0);
+                this.getPremio();
+            }
         }
 
         if (bglight){bglight.angle += 0.5;}
@@ -129,12 +125,12 @@ export class Game extends Phaser.Scene {
         bars.forEach((elem) => {
             this.physics.add.collider(elem, puntero, function(bar = elem){
                 bar.disableBody(true, true);
-                console.log(bar.premio);
+                alert(bar.premio);
                 setTimeout(() => {
-                    if (enablePost){
+                    if (enablePost){ 
                         enablePost = false;
-                        axios.post('/storePremio', {
-                            puntos: player.score
+                        axios.post('/store-premio', {
+                            premio: bar.premio
                         })
                         .then(function (response) {
                             let data = response.data;
@@ -149,7 +145,7 @@ export class Game extends Phaser.Scene {
                             console.log(error);
                         });
                     }
-                }, 500)
+                }, 500);
             });
         });
     }
@@ -183,14 +179,13 @@ export class Game extends Phaser.Scene {
         width = this.game.config.width;
         height = this.game.config.height;
 
-        let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
+        // let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
         let luces = this.add.sprite((width/2), (height/2) - 1.5, 'luces');
         ruleta = this.add.sprite((width/2), (height/2), 'ruleta');
 
         puntero = this.physics.add.sprite((width/2), (height/4) + 73, 'puntero');
         puntero.setSize(true, 100, 120);
         spinButton = this.physics.add.sprite((width/2), (height - 200), 'girarBtn').setScale(1).setInteractive();
-        tempButton = this.physics.add.sprite((width/2) + 400, (height - 200), 'girarBtn').setScale(1).setInteractive();
 
         bars = this.setBars(divisiones, this);
         const circle = new Phaser.Geom.Circle((width/2), (height/2), circumference);

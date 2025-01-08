@@ -42,7 +42,7 @@ class RegistroCodigos extends Component
             $registro_codigo->codigo_id = $codigo->id;
             $registro_codigo->user_id = auth()->user()->id;
             $registro_codigo->save();
-
+ 
             // User
             $this->user->estado_id = 4;
             $this->user->save();
