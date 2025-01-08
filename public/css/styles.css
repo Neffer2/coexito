@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #004A99;
+}
+
+/* Top Container */
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.top-logos-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 25px 100px;
+    width: 100%;
+}
+
+.top-logos-images img {
+    width: 200px;
+}
+
+/* Top Container Info */
+
+.top-container-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.top-container-left-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    padding: 50px;
+}
+
+.top-container-left-info img {
+    width: 100%;
+}
+
+.top-container-right-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    padding: 50px;
+}
+
+.top-container-right-info img {
+    width: 70%;
+}
+
+
+/* Login - register */
+
+.login-register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    padding: 50px;
+    background-color: #004A99;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 2);
+    margin-bottom: 50px;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-form h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.login-form form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.register-show {
+    cursor: pointer;
+}
+
+.register-form {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
