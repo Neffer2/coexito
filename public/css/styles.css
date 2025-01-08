@@ -199,7 +199,7 @@
     align-items: center;
     width: 460px;
     padding: 50px;
-    background-color: #004A99;
+    background: linear-gradient(to bottom, #004A99, #007FC8);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 2);
     margin-bottom: 50px;
 }
