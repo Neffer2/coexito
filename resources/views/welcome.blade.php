@@ -25,6 +25,7 @@
                 </div>
             </div>
         </div>
+        <div class="bottom-line"></div>
         <div class="pasos-container">
             <img src="{{ asset('assets/pasos1.png') }}" alt="Paso 1">
             <img src="{{ asset('assets/pasos2.png') }}" alt="Paso 2">
