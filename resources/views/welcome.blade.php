@@ -25,6 +25,18 @@
                 </div>
             </div>
         </div>
+        <div class="pasos-container">
+            <img src="{{ asset('assets/pasos1.png') }}" alt="Paso 1">
+            <img src="{{ asset('assets/pasos2.png') }}" alt="Paso 2">
+            <img src="{{ asset('assets/pasos3.png') }}" alt="Paso 3">
+        </div>
+        <div class="info-video-container"></div>
+        <div class="aliados-container">
+            <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
+            <img src="{{ asset('assets/mac-logo.png') }}" alt="">
+            <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
+            <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+        </div>
         @guest
             <div class="login-register-container">
                 <div class="login-form">
@@ -85,13 +97,39 @@
                     </div>
                 @endif --}}
             </div>
-
         @endguest
         @auth
             <h2>Registro de codigos</h2>
             <livewire:registro-codigos>
-            @endauth
+        @endauth
+
+        <div class="info-promo-container">
+            <img src="{{ asset('assets/info1.png') }}" alt="">
+            <div class="info-promo-text">
+                <h2>Más de 400.000 millones</h2>
+                <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos para ti.</p>
+            </div>
+        </div>
+
+        <div class="info-promo-container-second">
+            <img src="{{ asset('assets/info2.png') }}" alt="">
+            <div class="info-promo-text-second">
+                <h2>Gana una de las 6</h2>
+                <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
+                <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo una renovación de las mejores sport de Honda.</p>
+            </div>
+        </div>
+
+        <div class="info-promo-container">
+            <img src="{{ asset('assets/info3.png') }}" alt="">
+            <div class="info-promo-text">
+                <h2>Gana una de las 3</h2>
+                <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
+            </div>
+        </div>
     </div>
+
+    <div class="bottom-line"></div>
 
 </body>
 <script>
