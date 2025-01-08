@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('codigo_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('user_id');
+            $table->string('foto_factura');
+            $table->string('tipo_producto');
             $table->timestamps();
         });
     }

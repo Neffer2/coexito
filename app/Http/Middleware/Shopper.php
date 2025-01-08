@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class Ruleta
+class Shopper
 {
     /**
      * Handle an incoming request.
@@ -18,9 +18,9 @@ class Ruleta
     {
         $user = Auth::user();
         if ($user->estado_id == 4) {
-            return $next($request);
+            return redirect()->route('ruleta');
         }
 
-        return redirect()->route('home');
+        return $next($request);
     }
 }

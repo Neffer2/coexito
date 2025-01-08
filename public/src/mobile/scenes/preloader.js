@@ -16,7 +16,7 @@ export class Preloader extends Phaser.Scene {
         this.load.spritesheet('luces', 'luces-spritesheet.png', { frameWidth: 662, frameHeight: 662 });
 
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
-        rect2.generateTexture('rectangle', 80, 25);
+        rect2.generateTexture('rectangle', 90, 25);
     }
 
     create ()

@@ -119,33 +119,38 @@ export class Game extends Phaser.Scene {
         // Hace rotar las barras al ángulo del a ruleta (RotateAroundDistance funciona con radianes)
         Phaser.Actions.RotateAroundDistance(bars, { x: (width/2), y: (height/2)}, ruleta.rotation, circumference);
         /*
-            El comportamiento normal del evento es ser ejecutado todo el tiempo mientrras este se cumpla.
+            El comportamiento normal del evento es ser ejecutado todo el tiempo mientras este se cumpla.
             Con esto logro ejecutarlo solo una vez.
         */
         bars.forEach((elem) => {
             this.physics.add.collider(elem, puntero, function(bar = elem){
                 bar.disableBody(true, true);
-                alert(bar.premio);
-                setTimeout(() => {
-                    if (enablePost){ 
-                        enablePost = false;
-                        axios.post('/store-premio', {
-                            premio: bar.premio
-                        })
-                        .then(function (response) {
-                            let data = response.data;
-                            if (data.status === 200){
-                                location.reload();
-                            }else {
-                                alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
-                                location.reload();
-                            }
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                    }
-                }, 500);
+                puntero.disableBody(true, true);
+                if (bar.premio){
+                    alert(bar.premio);
+                    setTimeout(() => {
+                        if (enablePost){
+                            enablePost = false;
+                            axios.post('/store-premio', {
+                                premio: bar.premio
+                            })
+                            .then(function (response) {
+                                let data = response.data;
+                                if (data.status === 200){
+                                    location.reload();
+                                }else {
+                                    alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
+                                    location.reload();
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                        }
+                    }, 500);
+                }else {
+                    location.reload();
+                }
             });
         });
     }

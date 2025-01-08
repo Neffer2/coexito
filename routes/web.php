@@ -17,13 +17,10 @@ use App\Http\Controllers\ShopperController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('home')->middleware(['auth', 'shopper']);
 
-Route::get('ruleta', function () {
-    return view('ruleta');
-})->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
-
-Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified']);
+Route::get('ruleta', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
+Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

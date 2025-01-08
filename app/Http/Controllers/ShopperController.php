@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\RegistroCodigo;
+use App\Models\RegistroPremio;
 use App\Models\Premio;
 
 class ShopperController extends Controller
 {
     public function index(){
-        return;
+        return view('ruleta');
     }
 
     public function storePremio(Request $request){
@@ -20,21 +21,21 @@ class ShopperController extends Controller
 
         $premio = Premio::find($request->premio);
         if ($premio){
-            // Registro Codigos
-            $registro_codigo = new RegistroCodigo();
-            $registro_codigo->user_id = auth()->user()->id;
-            $registro_codigo->premio_id = $premio->id;
-            $registro_codigo->save();
+            // Registro Premio
+            $registro_premio = new RegistroPremio();
+            $registro_premio->premio_id = $premio->id;
+            $registro_premio->user_id = auth()->user()->id;
+            $registro_premio->save();
 
             // Stock
             $premio->stock -=1;
             $premio->save();
+
+            // User
+            $user = User::where('id', auth()->user()->id)->first();
+            $user->estado_id = 1;
+            $user->save();
         }
-        
-        // User
-        $user = User::where('id', auth()->user()->id)->first();
-        $user->estado_id = 1;
-        $user->save();
 
         return json_encode([
             'status' => 200,
