@@ -12,7 +12,7 @@
     <div class="main-container">
         <div class="top-container">
             <div class="top-logos-images">
-                <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
+                <img src="{{ asset('assets/coexito-logo-white.png') }}" alt="">
                 <img src="{{ asset('assets/coljuegos.png') }}" alt="">
             </div>
             <div class="top-container-info">

@@ -47,12 +47,12 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding: 25px 100px;
+    padding: 20px 80px;
     width: 100%;
 }
 
 .top-logos-images img {
-    width: 200px;
+    width: 300px;
 }
 
 /* Top Container Info */
