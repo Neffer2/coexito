@@ -17,7 +17,7 @@ class Shopper
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-        if ($user->estado_id == 4) {
+        if ($user && $user->estado_id == 4) {
             return redirect()->route('ruleta');
         }
 
