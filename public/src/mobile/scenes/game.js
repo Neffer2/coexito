@@ -4,10 +4,10 @@ let ruleta, puntero, spinButton, tempButton, bars, bglight;
 let divisiones = 20, circumference = 260;
 
 let premios = [
-    '1', '2', '3', '104', '5',
-    '6', '7', '8', '9', '103',
-    '11', '102', '13', '14', '15',
-    '101', '17', '18', '19', '20'
+    '1', '2', '3', '103', '5',
+    '102', '7', '8', '9', '101',
+    '11', '12', '13', '14', '15',
+    '16', '17', '18', '104', '20'
 ];
 
 // '1', '2', '3', 'Ganador 4', '5',
@@ -50,14 +50,14 @@ export class Game extends Phaser.Scene {
         });
 
         spinButton.on('pointerout', () => {
-            spinButton.setScale(1.1);
+            spinButton.setScale(1);
         });
 
-        bars.forEach((elem) => {
-            elem.on('pointerdown', function (pointer){
-                console.log(elem.premio);
-            });
-        });
+        // bars.forEach((elem) => {
+        //     elem.on('pointerdown', function (pointer){
+        //         alert(elem.premio);
+        //     });
+        // });
 
     }
 
@@ -188,8 +188,8 @@ export class Game extends Phaser.Scene {
         let luces = this.add.sprite((width/2), (height/2) - 1.5, 'luces');
         ruleta = this.add.sprite((width/2), (height/2), 'ruleta');
 
-        puntero = this.physics.add.sprite((width/2), (height/4) + 73, 'puntero');
-        puntero.setSize(true, 100, 120);
+        puntero = this.physics.add.sprite((width/2), (height/4) + 70, 'puntero');
+        puntero.setSize(true, 80, 10);
         spinButton = this.physics.add.sprite((width/2), (height - 200), 'girarBtn').setScale(1).setInteractive();
 
         bars = this.setBars(divisiones, this);
