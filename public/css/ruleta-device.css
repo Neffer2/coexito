@@ -39,7 +39,8 @@ canvas {
 
 @media (min-width: 769px) {
     #game-container-desk {
-        display: block;
+        display: flex;
+        justify-content: center;
     }
 
     #game-container-mobile {
@@ -47,7 +48,14 @@ canvas {
     }
 
     body {
-        background-image: url('../../assets/ruleta/desk/bg.png');
-        background-size: cover;
+        /* background-image: url('../../assets/ruleta/desk/bg.png');
+        background-size: cover; */
+        background-color: #000;
+    }
+
+    canvas {
+        height: 100% !important;
+        width: 85% !important;
     }
 }
+ 

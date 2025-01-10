@@ -30,12 +30,12 @@ class ShopperController extends Controller
             // Stock
             $premio->stock -=1;
             $premio->save();
-
-            // User
-            $user = User::where('id', auth()->user()->id)->first();
-            $user->estado_id = 1;
-            $user->save();
         }
+        
+        // User
+        $user = User::where('id', auth()->user()->id)->first();
+        $user->estado_id = 1;
+        $user->save();
 
         return json_encode([
             'status' => 200,

@@ -4,10 +4,22 @@ let ruleta, puntero, spinButton, tempButton, bars, bglight;
 let divisiones = 20, circumference = 260;
 
 let premios = [
-    '1', '2', '3', '103', '5',
-    '102', '7', '8', '9', '101',
-    '11', '12', '13', '14', '15',
-    '16', '17', '18', '104', '20'
+    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $50.000', 'codigo': 103},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $30.000', 'codigo': 102},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $100.000', 'codigo': 104},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
+    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $20.000', 'codigo': 101},
 ];
 
 let rotate = false;
@@ -112,22 +124,22 @@ export class Game extends Phaser.Scene {
 
     getPremio(){
         // Hace rotar las barras al ángulo del a ruleta (RotateAroundDistance funciona con radianes)
-        Phaser.Actions.RotateAroundDistance(bars, { x: (width/2), y: (height/2)}, ruleta.rotation, circumference);
+        Phaser.Actions.RotateAroundDistance(bars, { x: (width/2) + 321, y: (height/2)}, ruleta.rotation, circumference);
         /*
             El comportamiento normal del evento es ser ejecutado todo el tiempo mientras este se cumpla.
             Con esto logro ejecutarlo solo una vez.
-        */
+        */ 
         bars.forEach((elem) => {
             this.physics.add.collider(elem, puntero, function(bar = elem){
                 bar.disableBody(true, true);
                 puntero.disableBody(true, true);
                 if (bar.premio){
-                    alert(bar.premio);
+                    alert(bar.premio.mensaje);
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
                             axios.post('/store-premio', {
-                                premio: bar.premio
+                                premio: bar.premio.codigo
                             })
                             .then(function (response) {
                                 let data = response.data;
@@ -178,17 +190,22 @@ export class Game extends Phaser.Scene {
     init(){
         width = this.game.config.width;
         height = this.game.config.height;
+        let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
+        let base = this.add.image((width/2) + 321, (height - 140), 'base');
+        let logo = this.add.image(300, 110, 'logo');
+        let coljuegos = this.add.image((width) - 280, 110, 'coljuegos');
+        let copy1 = this.add.image((logo.x) + 178, (logo.y) + 300, 'copy1');
+        let copy2 = this.add.image((logo.x) + 148, (copy1.y) + 270, 'copy2');
 
-        // let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
-        let luces = this.add.sprite((width/2), (height/2) - 1.5, 'luces');
-        ruleta = this.add.sprite((width/2), (height/2), 'ruleta');
+        let luces = this.add.sprite((width/2) + 320, (height/2), 'luces');
+        ruleta = this.add.sprite((width/2) + 321, (height/2), 'ruleta');
 
-        puntero = this.physics.add.sprite((width/2), (height/4) + 20, 'puntero');
+        puntero = this.physics.add.sprite((width/2) + 321, (height/4) + 22, 'puntero');
         puntero.setSize(true, 80, 10);
-        spinButton = this.physics.add.sprite((width/2), (height - 110), 'girarBtn').setScale(1).setInteractive();
-
+        spinButton = this.physics.add.sprite((logo.x) - 38, (height - 210), 'girarBtn').setScale(1).setInteractive();
+ 
         bars = this.setBars(divisiones, this);
-        const circle = new Phaser.Geom.Circle((width/2), (height/2), circumference);
+        const circle = new Phaser.Geom.Circle((width/2) + 321, (height/2), circumference);
         Phaser.Actions.PlaceOnCircle(bars, circle, 0);
 
         this.anims.create({
