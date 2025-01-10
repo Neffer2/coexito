@@ -193,7 +193,7 @@
                 <div class="cta-text">
                     <h2>¡Haz parte de nuestros clientes!</h2>
                     <p>Regístrate y conoce las mejores marcas</p>
-                    <button aria-label="Regístrarme">Regístrarme</button>
+                    <button aria-label="Regístrarme" id="registrame_btn">Regístrarme</button>
                 </div>
                 <button class="slider-button left-button" aria-label="Anterior">
                     <i class="fa-solid fa-circle-chevron-left"></i>
@@ -207,7 +207,7 @@
                 <div class="cta-text">
                     <h2>¡Haz parte de nuestros clientes!</h2>
                     <p>Regístrate y empieza a vender las mejores marcas</p>
-                    <button aria-label="Quiero ser cliente">Quiero ser cliente</button>
+                    <button aria-label="Quiero ser cliente" id="cliente_btn">Quiero ser cliente</button>
                 </div>
                 <button class="slider-button left-button" aria-label="Anterior">
                     <i class="fa-solid fa-circle-chevron-left"></i>
@@ -257,6 +257,22 @@
             registerForm.style.display = 'none';
         });
 
+    }
+
+    const registrameBtn = document.getElementById('registrame_btn');
+
+    if (registrameBtn) {
+        registrameBtn.addEventListener('click', () => {
+            window.location.href = 'https://www.coexito.com.co/';
+        });
+    }
+
+    const clienteBtn = document.getElementById('cliente_btn');
+
+    if (clienteBtn) {
+        clienteBtn.addEventListener('click', () => {
+            window.location.href = 'https://www.coexito.com.co/contacto';
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
