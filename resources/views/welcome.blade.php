@@ -151,11 +151,11 @@
                 @endif --}}
                 @endguest
                 @auth
-                <div class="main-registro-codigos">
-                    <h2>Registro de codigos</h2>
-                    <livewire:registro-codigos>
+                    <div class="main-registro-codigos">
+                        <h2>Registro de codigos</h2>
+                        <livewire:registro-codigos>
 
-                </div>
+                    </div>
                 @endauth
             </div>
         </div>
@@ -235,23 +235,29 @@
 <script>
     const registroShow = document.getElementById('register_show');
 
-    registroShow.addEventListener('click', () => {
-        const loginForm = document.querySelector('.login-form');
-        const registerForm = document.querySelector('.register-form');
+    if (registroShow) {
+        registroShow.addEventListener('click', () => {
+            const loginForm = document.querySelector('.login-form');
+            const registerForm = document.querySelector('.register-form');
 
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'flex';
-    });
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'flex';
+        });
+    }
 
     const loginShow = document.getElementById('login_show');
 
-    loginShow.addEventListener('click', () => {
-        const loginForm = document.querySelector('.login-form');
-        const registerForm = document.querySelector('.register-form');
+    if (loginShow) {
 
-        loginForm.style.display = 'flex';
-        registerForm.style.display = 'none';
-    });
+        loginShow.addEventListener('click', () => {
+            const loginForm = document.querySelector('.login-form');
+            const registerForm = document.querySelector('.register-form');
+
+            loginForm.style.display = 'flex';
+            registerForm.style.display = 'none';
+        });
+
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
         const containers = document.querySelectorAll('.cta-container');
