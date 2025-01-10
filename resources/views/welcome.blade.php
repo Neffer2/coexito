@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Coexitocontigo</title>
 </head>
 
@@ -164,7 +165,46 @@
                     <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
                 </div>
             </div>
+            <div class="slider-cta">
+                <div class="cta-container cta-container-1">
+                    <div class="cta-text">
+                        <h2>¡Haz parte de nuestros clientes!</h2>
+                        <p>Regístrate y conoce las mejores marcas</p>
+                        <button aria-label="Regístrarme">Regístrarme</button>
+                    </div>
+                    <button class="slider-button left-button" aria-label="Anterior">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </button>
+                    <button class="slider-button right-button" aria-label="Siguiente">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </button>
+                </div>
+            
+                <div class="cta-container cta-container-2">
+                    <div class="cta-text">
+                        <h2>¡Haz parte de nuestros clientes!</h2>
+                        <p>Regístrate y empieza a vender las mejores marcas</p>
+                        <button aria-label="Quiero ser cliente">Quiero ser cliente</button>
+                    </div>
+                    <button class="slider-button left-button" aria-label="Anterior">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </button>
+                    <button class="slider-button right-button" aria-label="Siguiente">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="aliados-container-bottom">
+                <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
+                <img src="{{ asset('assets/mac-logo.png') }}" alt="">
+                <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
+                <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+            </div>
+
     </div>
+
+
 
     <div class="bottom-line"></div>
 
@@ -179,6 +219,40 @@
         loginForm.style.display = 'none';
         registerForm.style.display = 'flex';
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const containers = document.querySelectorAll('.cta-container');
+    const leftButtons = document.querySelectorAll('.left-button');
+    const rightButtons = document.querySelectorAll('.right-button');
+
+    let currentIndex = 0;
+
+    function showContainer(index) {
+        containers.forEach((container, i) => {
+            if (i === index) {
+                container.classList.add('active');
+            } else {
+                container.classList.remove('active');
+            }
+        });
+    }
+
+    leftButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? containers.length - 1 : currentIndex - 1;
+            showContainer(currentIndex);
+        });
+    });
+
+    rightButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            currentIndex = (currentIndex === containers.length - 1) ? 0 : currentIndex + 1;
+            showContainer(currentIndex);
+        });
+    });
+
+    showContainer(currentIndex);
+});
 </script>
 
 </html>
