@@ -152,7 +152,7 @@
                 @endguest
                 @auth
                     <div class="main-registro-codigos">
-                        <h2>Registro de codigos</h2>
+                        <h2>Registro de códigos</h2>
                         <livewire:registro-codigos>
 
                     </div>

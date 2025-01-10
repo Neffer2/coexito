@@ -189,15 +189,12 @@
     padding: 10px 50px;
     background-color: #fff;
     margin-bottom: 50px;
+    gap: 20px;
 }
 
 .aliados-container img {
-    width: 400px;
-    margin: 0 50px;
+    width: 20%;
 }
-
-
-
 
 /* Info promo */
 
