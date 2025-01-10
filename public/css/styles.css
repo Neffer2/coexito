@@ -112,6 +112,13 @@
     width: 23%;
 }
 
+.flecha-pasos {
+    width: 6% !important;
+    margin-left: -200px;
+    margin-right: -200px;
+    margin-top: 120px;
+}
+
 /* Info video container */
 
 .info-video-main-container {

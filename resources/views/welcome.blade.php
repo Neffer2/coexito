@@ -29,7 +29,9 @@
         <div class="bottom-line"></div>
         <div class="pasos-container">
             <img src="{{ asset('assets/pasos1.png') }}" alt="Paso 1">
+            <img class="flecha-pasos" src="{{ asset('assets/flecha.png') }}" alt="Paso 1">
             <img src="{{ asset('assets/pasos2.png') }}" alt="Paso 2">
+            <img class="flecha-pasos" src="{{ asset('assets/flecha.png') }}" alt="Paso 1">
             <img src="{{ asset('assets/pasos3.png') }}" alt="Paso 3">
         </div>
         <div class="info-video-main-container">
