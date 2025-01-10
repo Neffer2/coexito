@@ -447,6 +447,7 @@
 }
 
 .register-form form .checkbox-container {
+    align-self: flex-start;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -471,6 +472,7 @@
     font-size: 1.1rem;
     color: #fff;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 /* Cta container */
