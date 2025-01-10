@@ -1,5 +1,6 @@
-<div>
-    <select wire:model.change="tipo_producto">
+<div class="registro-codigos">
+    <label for="productos">Selecciona tu producto</label>
+    <select id="productos" wire:model.change="tipo_producto">
         <option value="">Seleccionar</option>
         <option value="Bater&iacute;as para auto">Bater&iacute;as para auto</option>
         <option value="Bater&iacute;as para mot">Bater&iacute;as para moto</option>
@@ -11,15 +12,21 @@
         {{ $message }}
     @enderror
 
-    <input id="foto_factura" type="file" accept="image/*">
-    @if ($foto_factura)
-        <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
-    @endif
+    <label for="foto_factura">Sube tu factura</label>
+    <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
+        <input id="foto_factura" type="file" accept="image/*" style="display: none;">
+        @if ($foto_factura)
+            <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
+        @else
+            <p>Click aquí para subir tu factura</p>
+        @endif
+    </div>
     @error('foto_factura')
         {{ $message }}
     @enderror
 
-    <input wire:model.lazy="codigo" type="text">
+    <label for="codigo">Ingresa tu código</label>
+    <input id="codigo" wire:model.lazy="codigo" type="text">
     @error('codigo')
         {{ $message }}
     @enderror

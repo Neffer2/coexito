@@ -55,27 +55,29 @@
             <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
             <img src="{{ asset('assets/magna-logo.png') }}" alt="">
         </div>
-        @guest
-            <div class="main-forms-container">
-                <div class="codigos-form-container">
-                    <div class="codigos-form-text">
-                        <h2>Registra <span>tus códigos </span>ahora</h2>
-                    </div>
-                    <div class="codigos-terminos">
-                        <p>Descarga <span>términos y condiciones</span></p>
-                        <button>Aquí</button>
-                    </div>
 
+        <div class="main-forms-container">
+            <div class="codigos-form-container">
+                <div class="codigos-form-text">
+                    <h2>Registra <span>tus códigos </span>ahora</h2>
                 </div>
-                <div class="login-register-container">
+                <div class="codigos-terminos">
+                    <p>Descarga <span>términos y condiciones</span></p>
+                    <button>Aquí</button>
+                </div>
+
+            </div>
+            <div class="login-register-container">
+
+                @guest
                     <div class="login-form">
                         <h2>Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <label for="email_login">Correo electrónico</label>
-                            <input type="text" id="email_login" name="email" placeholder="Email">
+                            <input type="text" id="email_login" name="email" placeholder="Correo">
                             <label for="password_login">Contraseña</label>
-                            <input type="password" id="password_login" name="password" placeholder="Password">
+                            <input type="password" id="password_login" name="password" placeholder="Contraseña">
                             <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate aquí</span>
                             </p>
                             <button type="submit">Aceptar</button>
@@ -86,38 +88,54 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="nombre_register">Nombre</label>
-                            <input id="nombre_register" name="nombre" :value="old('nombre')" placeholder="Nombre" />
-                            <label for="email_registe">Correo electrónico</label>
-                            <input id="email_registe" name="email" :value="old('nombre')" placeholder="Correo" />
+                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="Nombre" />
+
+                            <label for="email_register">Correo electrónico</label>
+                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder="Correo" />
+
                             <label for="documento_register">Documento</label>
-                            <input id="documento_register" name="documento" :value="old('documento')"
+                            <input id="documento_register" name="documento" value="{{ old('documento') }}"
                                 placeholder="Documento" />
+
                             <label for="telefono_register">Teléfono</label>
-                            <input id="telefono_register" name="télefono" :value="old('telefono')" placeholder="Telefono" />
+                            <input id="telefono_register" name="telefono" value="{{ old('telefono') }}"
+                                placeholder="Teléfono" />
+
                             <label for="direccion_register">Dirección</label>
-                            <input id="direccion_register" name="direccion" :value="old('direccion')"
+                            <input id="direccion_register" name="direccion" value="{{ old('direccion') }}"
                                 placeholder="Dirección" />
+
                             <label for="departamento_register">Departamento</label>
-                            <select id="departamento_register" name="" placeholder="Departamento">
+                            <select id="departamento_register" name="departamento" placeholder="Departamento">
                                 <option value="1">Departamento</option>
                                 <option value="2">Proveedor</option>
                             </select>
+
                             <label for="ciudad_register">Ciudad</label>
                             <select id="ciudad_register" name="ciudad" placeholder="Ciudad">
                                 <option value="1">Ciudad</option>
                                 <option value="2">Proveedor</option>
                             </select>
+
                             <label for="password_register">Contraseña</label>
-                            <input id="password_register" type="password" name="password"
-                                placeholder="Confirmar contraseña" />
+                            <input id="password_register" type="password" name="password" placeholder="Contraseña" />
+
                             <label for="password_confirmation_register">Confirmar contraseña</label>
                             <input id="password_confirmation_register" type="password" name="password_confirmation"
                                 placeholder="Confirmar contraseña" />
 
-                            <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones"> Terminos y
-                            condiciones
-                            <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos" /> Tratamiento de
-                            datos
+                            <p>¿Ya tienes una cuenta? <span class="login-show" id="login_show">Inicia sesión</span>
+                            </p>
+
+                            <div class="checkbox-container">
+                                <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
+                                <label for="terminos_condiciones">Términos y condiciones</label>
+                            </div>
+
+                            <div class="checkbox-container">
+                                <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
+                                <label for="tratamiento_datos">Tratamiento de datos</label>
+                            </div>
 
                             <button type="submit">Registrar</button>
                         </form>
@@ -131,76 +149,81 @@
                         </ul>
                     </div>
                 @endif --}}
-                </div>
-            </div>
-        @endguest
-        @auth
-            <h2>Registro de codigos</h2>
-            <livewire:registro-codigos>
-            @endauth
+                @endguest
+                @auth
+                <div class="main-registro-codigos">
+                    <h2>Registro de codigos</h2>
+                    <livewire:registro-codigos>
 
-            <div class="info-promo-container">
-                <img src="{{ asset('assets/info1.png') }}" alt="">
-                <div class="info-promo-text">
-                    <h2>Más de 400.000 millones</h2>
-                    <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
-                        para ti.</p>
                 </div>
+                @endauth
             </div>
+        </div>
 
-            <div class="info-promo-container-second">
-                <img src="{{ asset('assets/info2.png') }}" alt="">
-                <div class="info-promo-text-second">
-                    <h2>Gana una de las 6</h2>
-                    <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
-                    <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo
-                        una renovación de las mejores sport de Honda.</p>
-                </div>
-            </div>
 
-            <div class="info-promo-container">
-                <img src="{{ asset('assets/info3.png') }}" alt="">
-                <div class="info-promo-text">
-                    <h2>Gana una de las 3</h2>
-                    <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
-                </div>
+
+        <div class="info-promo-container">
+            <img src="{{ asset('assets/info1.png') }}" alt="">
+            <div class="info-promo-text">
+                <h2>Más de 400.000 millones</h2>
+                <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
+                    para ti.</p>
             </div>
-            <div class="slider-cta">
-                <div class="cta-container cta-container-1">
-                    <div class="cta-text">
-                        <h2>¡Haz parte de nuestros clientes!</h2>
-                        <p>Regístrate y conoce las mejores marcas</p>
-                        <button aria-label="Regístrarme">Regístrarme</button>
-                    </div>
-                    <button class="slider-button left-button" aria-label="Anterior">
-                        <i class="fa-solid fa-circle-chevron-left"></i>
-                    </button>
-                    <button class="slider-button right-button" aria-label="Siguiente">
-                        <i class="fa-solid fa-circle-chevron-right"></i>
-                    </button>
+        </div>
+
+        <div class="info-promo-container-second">
+            <img src="{{ asset('assets/info2.png') }}" alt="">
+            <div class="info-promo-text-second">
+                <h2>Gana una de las 6</h2>
+                <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
+                <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo
+                    una renovación de las mejores sport de Honda.</p>
+            </div>
+        </div>
+
+        <div class="info-promo-container">
+            <img src="{{ asset('assets/info3.png') }}" alt="">
+            <div class="info-promo-text">
+                <h2>Gana una de las 3</h2>
+                <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
+            </div>
+        </div>
+        <div class="slider-cta">
+            <div class="cta-container cta-container-1">
+                <div class="cta-text">
+                    <h2>¡Haz parte de nuestros clientes!</h2>
+                    <p>Regístrate y conoce las mejores marcas</p>
+                    <button aria-label="Regístrarme">Regístrarme</button>
                 </div>
-            
-                <div class="cta-container cta-container-2">
-                    <div class="cta-text">
-                        <h2>¡Haz parte de nuestros clientes!</h2>
-                        <p>Regístrate y empieza a vender las mejores marcas</p>
-                        <button aria-label="Quiero ser cliente">Quiero ser cliente</button>
-                    </div>
-                    <button class="slider-button left-button" aria-label="Anterior">
-                        <i class="fa-solid fa-circle-chevron-left"></i>
-                    </button>
-                    <button class="slider-button right-button" aria-label="Siguiente">
-                        <i class="fa-solid fa-circle-chevron-right"></i>
-                    </button>
-                </div>
+                <button class="slider-button left-button" aria-label="Anterior">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                </button>
+                <button class="slider-button right-button" aria-label="Siguiente">
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                </button>
             </div>
 
-            <div class="aliados-container-bottom">
-                <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
-                <img src="{{ asset('assets/mac-logo.png') }}" alt="">
-                <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
-                <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+            <div class="cta-container cta-container-2">
+                <div class="cta-text">
+                    <h2>¡Haz parte de nuestros clientes!</h2>
+                    <p>Regístrate y empieza a vender las mejores marcas</p>
+                    <button aria-label="Quiero ser cliente">Quiero ser cliente</button>
+                </div>
+                <button class="slider-button left-button" aria-label="Anterior">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                </button>
+                <button class="slider-button right-button" aria-label="Siguiente">
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                </button>
             </div>
+        </div>
+
+        <div class="aliados-container-bottom">
+            <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
+            <img src="{{ asset('assets/mac-logo.png') }}" alt="">
+            <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
+            <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+        </div>
 
     </div>
 
@@ -220,39 +243,49 @@
         registerForm.style.display = 'flex';
     });
 
+    const loginShow = document.getElementById('login_show');
+
+    loginShow.addEventListener('click', () => {
+        const loginForm = document.querySelector('.login-form');
+        const registerForm = document.querySelector('.register-form');
+
+        loginForm.style.display = 'flex';
+        registerForm.style.display = 'none';
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
-    const containers = document.querySelectorAll('.cta-container');
-    const leftButtons = document.querySelectorAll('.left-button');
-    const rightButtons = document.querySelectorAll('.right-button');
+        const containers = document.querySelectorAll('.cta-container');
+        const leftButtons = document.querySelectorAll('.left-button');
+        const rightButtons = document.querySelectorAll('.right-button');
 
-    let currentIndex = 0;
+        let currentIndex = 0;
 
-    function showContainer(index) {
-        containers.forEach((container, i) => {
-            if (i === index) {
-                container.classList.add('active');
-            } else {
-                container.classList.remove('active');
-            }
+        function showContainer(index) {
+            containers.forEach((container, i) => {
+                if (i === index) {
+                    container.classList.add('active');
+                } else {
+                    container.classList.remove('active');
+                }
+            });
+        }
+
+        leftButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentIndex = (currentIndex === 0) ? containers.length - 1 : currentIndex - 1;
+                showContainer(currentIndex);
+            });
         });
-    }
 
-    leftButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? containers.length - 1 : currentIndex - 1;
-            showContainer(currentIndex);
+        rightButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentIndex = (currentIndex === containers.length - 1) ? 0 : currentIndex + 1;
+                showContainer(currentIndex);
+            });
         });
+
+        showContainer(currentIndex);
     });
-
-    rightButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            currentIndex = (currentIndex === containers.length - 1) ? 0 : currentIndex + 1;
-            showContainer(currentIndex);
-        });
-    });
-
-    showContainer(currentIndex);
-});
 </script>
 
 </html>
