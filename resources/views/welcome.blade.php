@@ -39,6 +39,17 @@
             <img src="{{ asset('assets/magna-logo.png') }}" alt="">
         </div>
         @guest
+        <div class="main-forms-container">
+            <div class="codigos-form-container">
+                <div class="codigos-form-text">
+                    <h2>Registra <span>tus códigos </span>ahora</h2>
+                </div>
+                <div class="codigos-terminos">
+                    <p>Descarga <span>términos y condiciones</span></p>
+                    <button>Aquí</button>
+                </div>
+
+            </div>
             <div class="login-register-container">
                 <div class="login-form">
                     <h2>Iniciar sesión</h2>
@@ -98,6 +109,7 @@
                     </div>
                 @endif --}}
             </div>
+        </div>
         @endguest
         @auth
             <h2>Registro de codigos</h2>
