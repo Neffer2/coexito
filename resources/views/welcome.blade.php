@@ -60,17 +60,17 @@
 
         <div class="main-forms-container">
             @guest
-            <div class="codigos-form-container">
-                <div class="codigos-form-text">
-                    <h2>Registra <span>tus códigos </span>ahora</h2>
-                </div>
-                <div class="codigos-terminos">
-                    <p>Descarga <span>términos y condiciones</span></p>
-                    <button>Aquí</button>
-                </div>
+                <div class="codigos-form-container">
+                    <div class="codigos-form-text">
+                        <h2>Registra <span>tus códigos </span>ahora</h2>
+                    </div>
+                    <div class="codigos-terminos">
+                        <p>Descarga <span>términos y condiciones</span></p>
+                        <button>Aquí</button>
+                    </div>
 
-            </div>
-            <div class="login-register-container">
+                </div>
+                <div class="login-register-container">
 
                     <div class="login-form">
                         <h2>Iniciar sesión</h2>
@@ -155,7 +155,7 @@
                 @auth
                     <div class="main-registro-codigos">
                         {{-- <livewire:registro-codigos> --}}
-                        <livewire:registro-puntos>
+                            <livewire:registro-puntos>
                         <livewire:puntos-registrados>
                     </div>
                 @endauth
