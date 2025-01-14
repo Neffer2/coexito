@@ -19,7 +19,11 @@ class ShopperController extends Controller
             'premio' => 'required|numeric'
         ]);
 
-        $premio = Premio::find($request->premio);
+        $premio = Premio::where([
+            ['id', $request->premio],
+            ['stock', '>', 0]
+        ])->first();
+
         if ($premio){
             // Registro Premio
             $registro_premio = new RegistroPremio();
@@ -31,7 +35,7 @@ class ShopperController extends Controller
             $premio->stock -=1;
             $premio->save();
         }
-        
+
         // User
         $user = User::where('id', auth()->user()->id)->first();
         $user->estado_id = 1;

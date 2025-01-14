@@ -25,6 +25,9 @@ return new class extends Migration
             $table->boolean('tratamiento_datos');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id');
+            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->foreignId('rol_id')->default(1);
+            $table->integer('puntos')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

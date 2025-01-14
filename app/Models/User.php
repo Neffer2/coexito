@@ -27,7 +27,8 @@ class User extends Authenticatable
         'password',
         'terminos_condiciones',
         'tratamiento_datos',
-        'estado_id'
+        'estado_id',
+        'rol_id',
     ];
 
     /**

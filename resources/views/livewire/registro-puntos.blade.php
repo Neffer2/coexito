@@ -1,20 +1,28 @@
 <div class="registro-codigos">
-    <h2>Registro de códigos</h2>
+    <h2>Registro de puntos</h2>
 
-    <label for="productos">Selecciona tu producto</label>
-    <select id="productos" wire:model.change="tipo_producto">
-        <option value="">Seleccionar</option>
-        <option value="Bater&iacute;as para auto">Bater&iacute;as para auto</option>
-        <option value="Bater&iacute;as para mot">Bater&iacute;as para moto</option>
-        <option value="Lubricantes para auto">Lubricantes para auto</option>
-        <option value="Lubricantes para moto">Lubricantes para moto</option>
-        <option value="Productos y servicios en Energiteca y energiteca.com">Productos y servicios en Energiteca y energiteca.com</option>
-    </select>
-    @error('tipo_producto')
+    <label for="nit">Ingresa el Nit del establecimiento: </label>
+    <input id="nit" wire:model.lazy="nit" type="text">
+    @error('nit')
         {{ $message }}
     @enderror
+    @session('nit-error')
+        {{ session('nit-error') }}
+    @endsession
+    @session('success')
+        {{ session('success') }}
+    @endsession
 
-    <label for="foto_factura">Sube tu factura</label>
+
+    {{-- <label for="productos">Selecciona la ciudad del establecimiento</label>
+    <select id="productos" wire:model.change="ciudad">
+        <option value="">Seleccionar</option>
+        <option value="Bater&iacute;as para auto">Bogotá</option>
+        <option value="Bater&iacute;as para auto">Medellín</option>
+        <option value="Bater&iacute;as para auto">Barranquilla</option>
+    </select> --}}
+
+    <label for="foto_factura">Sube una foto de tu factura</label>
     <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
         <input id="foto_factura" type="file" accept="image/*" style="display: none;">
         @if ($foto_factura)
@@ -27,16 +35,20 @@
         {{ $message }}
     @enderror
 
-    <label for="codigo">Ingresa tu código</label>
-    <input id="codigo" wire:model.lazy="codigo" type="text">
-    @error('codigo')
+    <label for="foto_kit">Sube una foto del Kit inicial: </label>
+    <div class="upload-container" onclick="document.getElementById('foto_kit').click()">
+        <input id="foto_kit" type="file" accept="image/*" style="display: none;">
+        @if ($foto_kit)
+            <img src="{{ $foto_kit->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
+        @else
+            <p>Sube una foto del Kit inicial</p>
+        @endif
+    </div>
+    @error('foto_kit')
         {{ $message }}
     @enderror
-    @session('codigo-error')
-        {{ session('codigo-error') }}
-    @endsession
 
-    <button wire:click="register">Registrar</button>
+    <button wire:click="ActivarPunto">Activar punto</button>
     @script
         <script>
             const MAX_WIDTH = 1020;
@@ -45,6 +57,7 @@
             const QUALITY = 0.5;
 
             const foto_factura = document.getElementById("foto_factura");
+            const foto_kit = document.getElementById("foto_kit");
 
             foto_factura.onchange = (ev) => {
                 const file = ev.target.files[0]; // get the file
@@ -74,6 +87,34 @@
                 };
             };
 
+            foto_kit.onchange = (ev) => {
+                const file = ev.target.files[0]; // get the file
+                const blobURL = URL.createObjectURL(file);
+                const img = new Image();
+                img.src = blobURL;
+
+                img.onerror = () => {
+                    URL.revokeObjectURL(this.src);
+                    // Handle the failure properly
+                    console.err("Cannot load image");
+                };
+                img.onload = () => {
+                    URL.revokeObjectURL(this.src);
+                    const [newWidth, newHeight] = calculateSize(img, MAX_WIDTH, MAX_HEIGHT);
+                    const canvas = document.createElement("canvas");
+                    canvas.width = newWidth;
+                    canvas.height = newHeight;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                    canvas.toBlob(
+                        blob => {
+                            upload_foto_kit(blob);
+                        },
+                        MIME_TYPE,
+                        QUALITY);
+                };
+            };
+
             const calculateSize = (img, maxWidth, maxHeight) => {
                 let width = img.width;
                 let height = img.height;
@@ -96,6 +137,10 @@
 
             const upload_foto_factura = (file) => {
                 $wire.upload('foto_factura', file, (uploadedFilename) => {});
+            }
+
+            const upload_foto_kit = (file) => {
+                $wire.upload('foto_kit', file, (uploadedFilename) => {});
             }
         </script>
     @endscript

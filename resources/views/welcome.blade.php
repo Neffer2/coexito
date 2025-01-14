@@ -154,9 +154,8 @@
                 @endguest
                 @auth
                     <div class="main-registro-codigos">
-                        <h2>Registro de códigos</h2>
-                        <livewire:registro-codigos>
-
+                        {{-- <livewire:registro-codigos> --}}
+                        <livewire:registro-puntos>
                     </div>
                 @endauth
             </div>
