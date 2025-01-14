@@ -59,6 +59,7 @@
         </div>
 
         <div class="main-forms-container">
+            @guest
             <div class="codigos-form-container">
                 <div class="codigos-form-text">
                     <h2>Registra <span>tus códigos </span>ahora</h2>
@@ -71,7 +72,6 @@
             </div>
             <div class="login-register-container">
 
-                @guest
                     <div class="login-form">
                         <h2>Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
