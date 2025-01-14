@@ -9,4 +9,9 @@ class RegistroPunto extends Model
 {
     use HasFactory;
     protected $table = 'registro_puntos';
+
+    public function pdv()
+    {
+        return $this->belongsTo(PuntosVenta::class, 'pdv_id');
+    }
 }

@@ -47,9 +47,9 @@ class RegistroPuntos extends Component
             return redirect()->back()->with('nit-error', '!Oops, este nit no se encuentra en nuestra base de datos.');
         }
 
-        if (!$registro_exist){
-            return redirect()->back()->with('nit-error', '!Oops, este punto ya está activado en la promoción.');
-        }
+        // if (!$registro_exist){
+        //     return redirect()->back()->with('nit-error', '!Oops, este punto ya está activado en la promoción.');
+        // }
 
         if ($punto && !$registro_exist) {
             // Registro punto
@@ -65,6 +65,7 @@ class RegistroPuntos extends Component
             $this->user->puntos += 5;
             $this->user->save();
 
+            $this->dispatch('codigo-registrado');
             $this->reset(['nit', 'foto_factura', 'foto_kit', 'ciudad']);
 
             return redirect()->back()->with('success', 'Felicidades! el punto se activó exitósamente.');

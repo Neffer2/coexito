@@ -156,6 +156,7 @@
                     <div class="main-registro-codigos">
                         {{-- <livewire:registro-codigos> --}}
                         <livewire:registro-puntos>
+                        <livewire:puntos-registrados>
                     </div>
                 @endauth
             </div>
