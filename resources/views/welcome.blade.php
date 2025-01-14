@@ -161,9 +161,6 @@
                 @endauth
             </div>
         </div>
-
-
-
         <div class="info-promo-container">
             <img src="{{ asset('assets/info1.png') }}" alt="">
             <div class="info-promo-text">
@@ -226,11 +223,7 @@
             <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
             <img src="{{ asset('assets/magna-logo.png') }}" alt="">
         </div>
-
     </div>
-
-
-
     <div class="bottom-line"></div>
 
 </body>
