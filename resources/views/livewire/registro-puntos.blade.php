@@ -1,4 +1,4 @@
-<div class="registro-codigos">
+<div class="registro-puntos">
     <h2>Registro de puntos</h2>
 
     <label for="nit">Ingresa el Nit del establecimiento: </label>

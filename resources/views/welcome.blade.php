@@ -96,7 +96,8 @@
                             <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="Nombre" />
 
                             <label for="email_register">Correo electrónico</label>
-                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder="Correo" />
+                            <input id="email_register" name="email" value="{{ old('email') }}"
+                                placeholder="Correo" />
 
                             <label for="documento_register">Documento</label>
                             <input id="documento_register" name="documento" value="{{ old('documento') }}"
@@ -147,6 +148,15 @@
             @auth
                 <div class="main-registro-codigos">
                     @if (auth()->user()->rol_id == 1)
+                        <div class="codigos-form-container">
+                            <div class="codigos-form-text">
+                                <h2>Registra <span>tus códigos </span>ahora</h2>
+                            </div>
+                            <div class="codigos-terminos">
+                                <p>Descarga <span>términos y condiciones</span></p>
+                                <button>Aquí</button>
+                            </div>
+                        </div>
                         <livewire:registro-codigos>
                         @elseif(auth()->user()->rol_id == 2)
                             <livewire:registro-puntos>
