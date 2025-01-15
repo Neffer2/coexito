@@ -40,7 +40,8 @@
                 </div>
 
                 <div class="top-mobile-info">
-                    <img class="top-mobile-info-img-first" src="{{ asset('assets/coexito-logo-white.png') }}" alt="">
+                    <img class="top-mobile-info-img-first" src="{{ asset('assets/coexito-logo-white.png') }}"
+                        alt="">
                     <img class="top-mobile-info-img-second" src="{{ asset('assets/img-70.png') }}" alt="">
                 </div>
 
@@ -100,7 +101,9 @@
                     </div>
                     <div class="codigos-terminos">
                         <p>Descarga <span>términos y condiciones</span></p>
-                        <button>Aquí</button>
+                        <a href="{{ asset('legal/coexito-tyc-70.pdf') }}" download>
+                            Aquí
+                        </a>
                     </div>
                 </div>
                 <div class="login-register-container">
@@ -112,7 +115,8 @@
                             <input type="text" id="email_login" name="email" placeholder="">
                             <label for="password_login">Contraseña</label>
                             <input type="password" id="password_login" name="password" placeholder="">
-                            <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate aquí</span>
+                            <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate
+                                    aquí</span>
                             </p>
                             <button type="submit">Aceptar</button>
                         </form>
@@ -154,7 +158,8 @@
                                 <div class="checkbox-container">
                                     <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
                                     <label for="terminos_condiciones">
-                                        <a href="{{ asset('terminos_condiciones.pdf') }}" target="_blank">
+                                        <a class="terminos-a" href="{{ asset('terminos_condiciones.pdf') }}"
+                                            target="_blank">
                                             Términos y condiciones
                                         </a>
                                     </label>
@@ -181,7 +186,9 @@
                             </div>
                             <div class="codigos-terminos">
                                 <p>Descarga <span>términos y condiciones</span></p>
-                                <button>Aquí</button>
+                                <a href="{{ asset('legal/coexito-tyc-70.pdf') }}" download>
+                                    Aquí
+                                </a>
                             </div>
                         </div>
                         <livewire:registro-codigos>
