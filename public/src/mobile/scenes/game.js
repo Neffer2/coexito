@@ -4,16 +4,27 @@ let ruleta, puntero, spinButton, tempButton, bars, bglight;
 let divisiones = 20, circumference = 260;
 
 let premios = [
-    '1', '2', '3', '103', '5',
-    '102', '7', '8', '9', '101',
-    '11', '12', '13', '14', '15',
-    '16', '17', '18', '104', '20'
+    {'arte': '50mil', 'codigo': 103},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': '30mil', 'codigo': 102},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': '100mil', 'codigo': 104},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': '20mil', 'codigo': 101},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
 ];
-
-// '1', '2', '3', 'Ganador 4', '5',
-// '6', '7', '8', '9', 'Ganador 3',
-// '11', 'Ganador 2', '13', '14', '15',
-// 'Ganador 1', '17', '18', '19', '20'
 
 let rotate = false;
 let enablePost = true;
@@ -107,7 +118,7 @@ export class Game extends Phaser.Scene {
             elem = context.physics.add.sprite(0, 0, 'rectangle');
             elem.premio = premios[cont];
             // elem.visible = false;
-            elem.setInteractive();
+            // elem.setInteractive();
             bars.push(elem);
             cont++;
         }
@@ -127,25 +138,27 @@ export class Game extends Phaser.Scene {
                 bar.disableBody(true, true);
                 puntero.disableBody(true, true);
                 if (bar.premio){
-                    alert(bar.premio);
+                    setTimeout(() => {
+                        mContext.popUp(bar.premio.arte);
+                    }, 1000);
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
-                            axios.post('/store-premio', {
-                                premio: bar.premio
-                            })
-                            .then(function (response) {
-                                let data = response.data;
-                                if (data.status === 200){
-                                    location.reload();
-                                }else {
-                                    alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
-                                    location.reload();
-                                }
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
+                            // axios.post('/store-premio', {
+                            //     premio: bar.premio.codigo
+                            // })
+                            // .then(function (response) {
+                            //     let data = response.data;
+                            //     if (data.status === 200){
+
+                            //     }else {
+                            //         alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
+                            //         location.reload();
+                            //     }
+                            // })
+                            // .catch(function (error) {
+                            //     console.log(error);
+                            // });
                         }
                     }, 500);
                 }else {
@@ -206,12 +219,11 @@ export class Game extends Phaser.Scene {
     }
 
     popUp(premio){
-        mContext.add.image((width/2), (height/2), 'bg-pop').setScale(1);
-        mContext.add.image((width/2), (height/2), `bgp-${premio}`).setScale(1);
-        bglight = mContext.add.image((width/2), (height/2), 'bg-light').setScale(1);
-        mContext.add.image((width/2) + 20, (height/2) - 40, `p-${premio}`).setScale(1);
+        // mContext.add.image((width/2), (height/2), 'bg-pop').setScale(1);
+        bglight = mContext.add.image((width/2), (height/2), 'bg-light').setScale(2);
+        mContext.add.image((width/2), (height/2), premio).setScale(1);
         setTimeout(() => {
             location.reload();
-        }, 8000);
+        }, 20000);
     }
 }

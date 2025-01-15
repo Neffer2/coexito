@@ -224,9 +224,6 @@ export class Game extends Phaser.Scene {
     }
 
     popUp(premio){
-        let winSound = mContext.sound.add('win-sound');
-        winSound.set
-        winSound.play();
         // mContext.add.image((width/2), (height/2), 'bg-pop').setScale(1);
         bglight = mContext.add.image((width/2), (height/2), 'bg-light').setScale(2);
         mContext.add.image((width/2), (height/2), premio).setScale(1);

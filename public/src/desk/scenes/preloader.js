@@ -18,6 +18,7 @@ export class Preloader extends Phaser.Scene {
         this.load.image('copy2', 'copy2.png');
         this.load.image('girarBtn', 'button.png');
         this.load.image('x-cj', 'x-cj.png');
+        this.load.spritesheet('luces', 'luces-spritesheet.png', { frameWidth: 662, frameHeight: 662 });
 
         // PopUp
         this.load.image('bg-pop', '/popup/bg-pop.png');
@@ -28,7 +29,6 @@ export class Preloader extends Phaser.Scene {
         this.load.image('100mil', '/popup/100mil.png');
         this.load.image('sigue-intentando', '/popup/sigue_intentando.png');
         this.load.audio('win-sound', '/sound/tada.mp3');
-        this.load.spritesheet('luces', 'luces-spritesheet.png', { frameWidth: 662, frameHeight: 662 });
 
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
         rect2.generateTexture('rectangle', 84, 25);
