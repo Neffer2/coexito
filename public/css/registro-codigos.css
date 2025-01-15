@@ -228,3 +228,20 @@
 .puntos-registrados tr:hover {
     background-color: #ddd;
 }
+
+/* Mobile media query */
+
+@media screen and (max-width: 768px) {
+
+    .main-registro-codigos {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .codigos-form-container {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+}

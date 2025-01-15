@@ -217,3 +217,31 @@
     margin-top: 10px;
     margin-bottom: 15px;
 }
+
+/* Mobile media query */
+
+@media screen and (max-width: 768px) {
+
+    .main-registro-codigos {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .codigos-form-container {
+        width: 100%;
+        padding: 20px; 
+        text-align: center;
+    }
+
+    .codigos-terminos {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 20px;
+        border: none;
+        flex-direction: column;
+    }
+
+}
