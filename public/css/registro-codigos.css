@@ -20,12 +20,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
+    width: 33%;
     padding: 50px;
     background: linear-gradient(to top, #004A99, #007FC8);
 }
 
-.registro-codigos select,
 .registro-codigos input[type="text"],
 .registro-codigos button {
     width: 100%;
@@ -34,7 +33,18 @@
     border-radius: 5px;
     background: none;
     margin-bottom: 20px;
+    color: #fff;
 }
+
+.registro-codigos select {
+    width: 100%;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
 
 .registro-codigos input[type="file"] {
     width: 100%;
@@ -116,7 +126,6 @@
     background: linear-gradient(to top, #004A99, #007FC8);
 }
 
-.registro-puntos select,
 .registro-puntos input[type="text"],
 .registro-puntos button {
     width: 100%;
@@ -125,6 +134,15 @@
     border-radius: 5px;
     background: none;
     margin-bottom: 20px;
+}
+
+.registro-puntos select {
+    width: 100%;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #000;
 }
 
 .registro-puntos input[type="file"] {

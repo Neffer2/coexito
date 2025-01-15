@@ -19,8 +19,8 @@
 }
 
 .codigos-form-text h2 {
-    font-size: 4.2rem;
-    color: #FF6700;
+    font-size: 4.2rem !important;
+    color: #FF6700 !important;
     line-height: 1;
 }
 
@@ -119,14 +119,29 @@
 }
 
 .login-form form input,
-.register-form form input,
-.register-form form select {
+.register-form form input {
     width: 100%;
     padding: 10px;
     border: #fff 2px solid;
     border-radius: 5px;
     background: none;
     margin-bottom: 20px;
+    font-family: 'MyriadPro Regular';
+    color: #fff;
+    font-size: 0.9rem;
+}
+/* Placeholder */
+.input-form form input::placeholder {
+    color: #fff;
+}
+
+.register-form form select {
+    width: 100%;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #000;
 }
 
 .login-form form input:focus,
