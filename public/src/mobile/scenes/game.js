@@ -224,6 +224,6 @@ export class Game extends Phaser.Scene {
         mContext.add.image((width/2), (height/2), premio).setScale(1);
         setTimeout(() => {
             location.reload();
-        }, 20000);
+        }, 8000);
     }
 }

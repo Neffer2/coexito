@@ -144,21 +144,21 @@ export class Game extends Phaser.Scene {
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
-                            // axios.post('/store-premio', {
-                            //     premio: bar.premio.codigo
-                            // })
-                            // .then(function (response) {
-                            //     let data = response.data;
-                            //     if (data.status === 200){
+                            axios.post('/store-premio', {
+                                premio: bar.premio.codigo
+                            })
+                            .then(function (response) {
+                                let data = response.data;
+                                if (data.status === 200){
 
-                            //     }else {
-                            //         alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
-                            //         location.reload();
-                            //     }
-                            // })
-                            // .catch(function (error) {
-                            //     console.log(error);
-                            // });
+                                }else {
+                                    alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
+                                    location.reload();
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
                         }
                     }, 500);
                 }else {
@@ -229,6 +229,6 @@ export class Game extends Phaser.Scene {
         mContext.add.image((width/2), (height/2), premio).setScale(1);
         setTimeout(() => {
             location.reload();
-        }, 20000);
+        }, 8000);
     }
 }
