@@ -222,15 +222,29 @@
 
 @media screen and (max-width: 768px) {
 
+    .main-forms-container {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+
     .main-registro-codigos {
         flex-direction: column;
         padding: 0;
+        width: 100%;
     }
 
     .codigos-form-container {
         width: 100%;
-        padding: 20px; 
+        padding: 20px;
+        gap: 0; 
         text-align: center;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+
+    .codigos-form-text h2 {
+        font-size: 3.5rem !important;
     }
 
     .codigos-terminos {
@@ -238,10 +252,42 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        gap: 20px;
         padding: 20px 20px;
+        gap: 20px;
         border: none;
         flex-direction: column;
+    }
+
+    .codigos-terminos button {
+        width: 50%;
+        border: none;
+        border-radius: 5px;
+        background-color: #FF6700;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.8rem;
+        margin-right: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .codigos-terminos button:hover {
+        background-color: #fff;
+        color: #FF6700;
+    }
+
+    /* Login */
+
+    .login-register-container {
+        width: 90%;
+        padding: 50px;
+        margin-bottom: 20px;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .login-form h2, .register-form h2 {
+        font-size: 2.8rem;
     }
 
 }

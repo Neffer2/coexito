@@ -11,8 +11,8 @@
 
 .main-registro-codigos h2 {
     color: #fff;
-    margin-bottom: 20px;
     font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 .registro-codigos {
@@ -236,12 +236,70 @@
     .main-registro-codigos {
         flex-direction: column;
         padding: 0;
-    }
-
-    .codigos-form-container {
         width: 100%;
-        padding: 20px;
-        text-align: center;
     }
 
+    .registro-codigos {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .registro-puntos {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .puntos-registrados {
+        width: 90%;
+        padding: 20px;
+    }
+
+
+    .registro-codigos input[type="text"],
+    .registro-codigos button,
+    .registro-puntos input[type="text"],
+    .registro-puntos button {
+        width: 100%;
+    }
+
+    .registro-codigos select,
+    .registro-puntos select {
+        width: 100%;
+    }
+
+    .registro-codigos input[type="file"],
+    .registro-puntos input[type="file"] {
+        width: 100%;
+    }
+
+    .registro-codigos button,
+    .registro-puntos button {
+        width: 50%;
+    }
+
+    .upload-container {
+        width: 100%;
+    }
+
+    .puntos-registrados table {
+        width: 100%;
+    }
+
+    .puntos-registrados td {
+        padding: 5px;
+    }
+
+    .puntos-registrados h1 {
+        font-size: 2rem;
+    }
+
+    .registro-codigos h2 {
+        font-size: 2rem;
+    }
+
+    .registro-puntos h2 {
+        font-size: 2rem;
+    }
 }
+
+

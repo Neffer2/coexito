@@ -196,7 +196,7 @@
         <div class="info-promo-container">
             <img src="{{ asset('assets/info1.png') }}" alt="">
             <div class="info-promo-text">
-                <h2>Más de 400 millones</h2>
+                <h2 class="info-promo-text-title">Más de 400 millones</h2>
                 <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
                     para ti.</p>
             </div>
@@ -205,7 +205,7 @@
         <div class="info-promo-container-second">
             <img src="{{ asset('assets/info2.png') }}" alt="">
             <div class="info-promo-text-second">
-                <h2>Gana una de las 6</h2>
+                <h2 class="info-promo-text-title">Gana una de las 6</h2>
                 <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
                 <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo
                     una renovación de las mejores sport de Honda.</p>
@@ -215,7 +215,7 @@
         <div class="info-promo-container">
             <img src="{{ asset('assets/info3.png') }}" alt="">
             <div class="info-promo-text">
-                <h2>Gana una de las 3</h2>
+                <h2 class="info-promo-text-title">Gana una de las 3</h2>
                 <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
             </div>
         </div>

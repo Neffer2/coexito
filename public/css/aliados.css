@@ -33,3 +33,20 @@
 .aliados-container-bottom img {
     width: 25%;
 }
+
+/* mobile media query */
+
+@media screen and (max-width: 768px) {
+
+    .aliados-container {
+        padding: 0;
+        width: 100%;
+    }
+
+    .aliados-container-bottom {
+        flex-direction: row;
+        padding: 0;
+        width: 100%;
+    }
+
+}

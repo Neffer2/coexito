@@ -39,8 +39,7 @@
     width: 50%;
 }
 
-.info-promo-text h2,
-.info-promo-text-second h2 {
+.info-promo-text-title {
     color: #fff;
     font-family: 'MyriadPro Regular';
     font-size: 3.5rem;
@@ -62,4 +61,63 @@
     font-family: 'MyriadPro Regular';
     font-size: 1.5rem;
     margin-bottom: 10px;
+}
+
+/* Mobile media query */
+
+@media screen and (max-width: 768px) {
+
+    .info-promo-container {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+
+    .info-promo-container img {
+        width: 100%;
+    }
+
+    .info-promo-text {
+        width: 100%;
+        padding: 6px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info-promo-text-title {
+        font-size: 3rem;
+    }
+
+    .info-promo-text p {
+        width: 100%;
+    }
+
+    .info-promo-container-second {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+
+    .info-promo-container-second img {
+        width: 100%;
+    }
+
+    .info-promo-text-second {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .info-promo-text-second {
+        align-items: center;
+    }
+
+    .info-promo-text-second h2 {
+        margin-right: 0;
+    }
+
+    .info-promo-text-second p {
+        width: 100%;
+    }
 }
