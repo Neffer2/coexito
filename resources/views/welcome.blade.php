@@ -20,7 +20,7 @@
     <div class="main-container">
         <div class="top-container">
             <div class="top-logos-images">
-                <img src="{{ asset('assets/coexito-logo-white.png') }}" alt="">
+                <img class="coexito-logo" src="{{ asset('assets/coexito-logo-white.png') }}" alt="">
                 <img src="{{ asset('assets/coljuegos.png') }}" alt="">
             </div>
             <div class="top-container-info">
@@ -31,6 +31,28 @@
                 <div class="top-container-right-info">
                     <img src="{{ asset('assets/img-70.png') }}" alt="">
                     <button id="btn_scroll_to_form">Regístrate</button>
+                </div>
+            </div>
+
+            <div class="top-container-info-mobile">
+                <div class="top-mobile-img">
+                    <img src="{{ asset('assets/titulo-top-mobile.png') }}" alt="">
+                </div>
+
+                <div class="top-mobile-info">
+                    <img class="top-mobile-info-img-first" src="{{ asset('assets/coexito-logo-white.png') }}" alt="">
+                    <img class="top-mobile-info-img-second" src="{{ asset('assets/img-70.png') }}" alt="">
+                </div>
+
+                <div class="top-mobile-button">
+                    <div class="car-mobile-img">
+                        <img src="{{ asset('assets/premios-info.png') }}" alt="">
+                    </div>
+                    <div class="button-mobile">
+
+                        <button id="btn_scroll_to_form_mobile">Regístrate</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -50,6 +72,13 @@
                         2024.</p>
                 </div>
                 <div class="info-video">
+                    <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="info-video-mobile">
                     <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -96,8 +125,7 @@
                             <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="" />
 
                             <label for="email_register">Correo electrónico</label>
-                            <input id="email_register" name="email" value="{{ old('email') }}"
-                                placeholder="" />
+                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder="" />
 
                             <label for="documento_register">Documento</label>
                             <input id="documento_register" name="documento" value="{{ old('documento') }}"
@@ -114,8 +142,7 @@
                             <livewire:ciudades-component>
 
                                 <label for="password_register">Contraseña</label>
-                                <input id="password_register" type="password" name="password"
-                                    placeholder="" />
+                                <input id="password_register" type="password" name="password" placeholder="" />
 
                                 <label for="password_confirmation_register">Confirmar contraseña</label>
                                 <input id="password_confirmation_register" type="password" name="password_confirmation"
@@ -234,9 +261,18 @@
 </body>
 <script>
     const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
+    const btnScrolltoFormMobile = document.getElementById('btn_scroll_to_form_mobile');
 
     if (btnScrolltoForm) {
         btnScrolltoForm.addEventListener('click', function() {
+            document.getElementById('main_forms_container').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    if (btnScrolltoFormMobile) {
+        btnScrolltoFormMobile.addEventListener('click', function() {
             document.getElementById('main_forms_container').scrollIntoView({
                 behavior: 'smooth'
             });

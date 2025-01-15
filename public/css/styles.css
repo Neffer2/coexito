@@ -44,3 +44,11 @@
     
 }
 
+/* Mobile media query */
+
+@media screen and (max-width: 768px) {
+    .bottom-line {
+        height: 10px;
+    }
+}
+
