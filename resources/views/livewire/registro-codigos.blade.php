@@ -2,48 +2,57 @@
     <h2>Registro de códigos</h2>
 
     <label for="productos">Selecciona los tipos de producto que compraste:</label>
-    <div>
-        <label for="baterias_auto">Bater&iacute;as para auto</label>
-        <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
+    <div class="checkbox-container-codigos-main">
+        <div class="checkbox-container-codigos">
+            <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
+            <label for="baterias_auto">Bater&iacute;as para auto</label>
+        </div>
+        @error('baterias_auto')
+            {{ $baterias_auto }}
+        @enderror
+        <div class="checkbox-container-codigos">
+            <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
+            <label for="baterias_moto">Bater&iacute;as para moto</label>
+        </div>
     </div>
-    @error('baterias_auto')
-        {{ $baterias_auto }}
-    @enderror
-    <div>
-        <label for="baterias_moto">Bater&iacute;as para moto</label>
-        <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
+    <div class="checkbox-container-codigos-main">
+        <div class="checkbox-container-codigos-main">
+            <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
+            <label for="lubricantes_auto">Lubricantes para auto</label>
+        </div>
+        <div class="checkbox-container-codigos">
+            <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
+            <label for="lubricantes_moto">Lubricantes para moto</label>
+        </div>
     </div>
-    <div>
-        <label for="lubricantes_auto">Lubricantes para auto</label>
-        <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
-    </div>
-    <div>
-        <label for="lubricantes_moto">Lubricantes para moto</label>
-        <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
-    </div>
-    <div>
-        <label for="energiteca">Productos y servicios en Energiteca y energiteca.com</label>
+    
+    <div class="checkbox-container-codigos">
         <input id="energiteca" type="checkbox" wire:model.change="energiteca">
+        <label for="energiteca">Productos y servicios en Energiteca y energiteca.com</label>
     </div>
 
     @error('tipo_producto')
         {{ $message }}
     @enderror
 
-    <label for="foto_factura">Sube tu factura</label>
-    <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
-        <input id="foto_factura" type="file" accept="image/*" style="display: none;">
-        @if ($foto_factura)
-            <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
-        @else
-            <p>Click aquí para subir tu factura</p>
-        @endif
+    <div class="upload-container-codigos">
+        <label for="foto_factura">Sube tu factura:</label>
+        <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
+            <input id="foto_factura" type="file" accept="image/*" style="display: none;">
+            @if ($foto_factura)
+                <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
+            @else
+                <p>Click aquí para subir tu factura</p>
+            @endif
+        </div>
+        @error('foto_factura')
+            {{ $message }}
+        @enderror
     </div>
-    @error('foto_factura')
-        {{ $message }}
-    @enderror
 
-    <label for="codigo">Ingresa tu código</label>
+    
+
+    <label for="codigo">Ingresa tu código:</label>
     <input id="codigo" wire:model.lazy="codigo" type="text">
     @error('codigo')
         {{ $message }}

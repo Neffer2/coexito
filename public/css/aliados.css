@@ -41,12 +41,14 @@
     .aliados-container {
         padding: 0;
         width: 100%;
+        justify-content: center;
     }
 
     .aliados-container-bottom {
         flex-direction: row;
         padding: 0;
         width: 100%;
+        padding: 10px;
     }
 
 }
