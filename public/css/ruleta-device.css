@@ -48,8 +48,8 @@ canvas {
     }
 
     body {
-        /* background-image: url('../../assets/ruleta/desk/bg.png');
-        background-size: cover; */
+        background-image: url('../../assets/ruleta/desk/bg.png');
+        background-size: cover;
         background-color: #000;
     }
 
@@ -58,4 +58,3 @@ canvas {
         width: 85% !important;
     }
 }
- 

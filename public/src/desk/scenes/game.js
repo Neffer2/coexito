@@ -64,11 +64,11 @@ export class Game extends Phaser.Scene {
             spinButton.setScale(1);
         });
 
-        bars.forEach((elem) => {
-            elem.on('pointerdown', function (pointer){
-                alert(elem.premio.arte);
-            });
-        });
+        // bars.forEach((elem) => {
+        //     elem.on('pointerdown', function (pointer){
+        //         alert(elem.premio.arte);
+        //     });
+        // });
 
     }
 
@@ -132,31 +132,33 @@ export class Game extends Phaser.Scene {
         /*
             El comportamiento normal del evento es ser ejecutado todo el tiempo mientras este se cumpla.
             Con esto logro ejecutarlo solo una vez.
-        */ 
+        */
         bars.forEach((elem) => {
             this.physics.add.collider(elem, puntero, function(bar = elem){
                 bar.disableBody(true, true);
                 puntero.disableBody(true, true);
                 if (bar.premio){
-                    mContext.popUp(bar.premio.arte);
+                    setTimeout(() => {
+                        mContext.popUp(bar.premio.arte);
+                    }, 1000);
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
-                            axios.post('/store-premio', {
-                                premio: bar.premio.codigo
-                            })
-                            .then(function (response) {
-                                let data = response.data;
-                                if (data.status === 200){
-                                    location.reload();
-                                }else {
-                                    alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
-                                    location.reload();
-                                }
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
+                            // axios.post('/store-premio', {
+                            //     premio: bar.premio.codigo
+                            // })
+                            // .then(function (response) {
+                            //     let data = response.data;
+                            //     if (data.status === 200){
+
+                            //     }else {
+                            //         alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
+                            //         location.reload();
+                            //     }
+                            // })
+                            // .catch(function (error) {
+                            //     console.log(error);
+                            // });
                         }
                     }, 500);
                 }else {
@@ -194,7 +196,7 @@ export class Game extends Phaser.Scene {
     init(){
         width = this.game.config.width;
         height = this.game.config.height;
-        let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
+        // let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
         let base = this.add.image((width/2) + 321, (height - 140), 'base');
         let logo = this.add.image(300, 110, 'logo');
         let coljuegos = this.add.image((width) - 280, 110, 'coljuegos');
@@ -207,7 +209,7 @@ export class Game extends Phaser.Scene {
         puntero = this.physics.add.sprite((width/2) + 321, (height/4) + 22, 'puntero');
         puntero.setSize(true, 80, 10);
         spinButton = this.physics.add.sprite((logo.x) - 38, (height - 210), 'girarBtn').setScale(1).setInteractive();
- 
+
         bars = this.setBars(divisiones, this);
         const circle = new Phaser.Geom.Circle((width/2) + 321, (height/2), circumference);
         Phaser.Actions.PlaceOnCircle(bars, circle, 0);
@@ -222,11 +224,14 @@ export class Game extends Phaser.Scene {
     }
 
     popUp(premio){
-        mContext.add.image((width/2), (height/2), 'bg-pop').setScale(1);
+        let winSound = mContext.sound.add('win-sound');
+        winSound.set
+        winSound.play();
+        // mContext.add.image((width/2), (height/2), 'bg-pop').setScale(1);
         bglight = mContext.add.image((width/2), (height/2), 'bg-light').setScale(2);
         mContext.add.image((width/2), (height/2), premio).setScale(1);
         setTimeout(() => {
             location.reload();
-        }, 8000);
+        }, 20000);
     }
 }

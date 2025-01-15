@@ -3,13 +3,13 @@ export class Preloader extends Phaser.Scene {
     {
         super('Preloader');
     }
- 
+
     preload ()
     {
         this.load.setPath('../../assets/ruleta/desk');
         this.load.image('background', 'bg.png');
         this.load.image('logo', 'logo-coexito.png');
-        this.load.image('coljuegos', 'logo-coljuegos.png');        
+        this.load.image('coljuegos', 'logo-coljuegos.png');
         this.load.image('bg-light', 'bg-light.png');
         this.load.image('puntero', 'puntero.png');
         this.load.image('ruleta', 'ruleta.png');
@@ -27,14 +27,14 @@ export class Preloader extends Phaser.Scene {
         this.load.image('50mil', '/popup/50mil.png');
         this.load.image('100mil', '/popup/100mil.png');
         this.load.image('sigue-intentando', '/popup/sigue_intentando.png');
-
+        this.load.audio('win-sound', '/sound/tada.mp3');
         this.load.spritesheet('luces', 'luces-spritesheet.png', { frameWidth: 662, frameHeight: 662 });
 
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
         rect2.generateTexture('rectangle', 84, 25);
     }
 
-    create () 
+    create ()
     {
         this.scene.start('Game');
     }
