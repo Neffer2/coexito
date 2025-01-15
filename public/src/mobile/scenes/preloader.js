@@ -15,6 +15,15 @@ export class Preloader extends Phaser.Scene {
         this.load.image('x-cj', 'x-cj.png');
         this.load.spritesheet('luces', 'luces-spritesheet.png', { frameWidth: 662, frameHeight: 662 });
 
+        // PopUp
+        this.load.image('bg-pop', '/popup/bg-pop.png');
+        this.load.image('bg-light', '/popup/bg-light.png');
+        this.load.image('20mil', '/popup/20mil.png');
+        this.load.image('30mil', '/popup/30mil.png');
+        this.load.image('50mil', '/popup/50mil.png');
+        this.load.image('100mil', '/popup/100mil.png');
+        this.load.image('sigue-intentando', '/popup/sigue_intentando.png');
+
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
         rect2.generateTexture('rectangle', 84, 25);
     }
@@ -24,3 +33,5 @@ export class Preloader extends Phaser.Scene {
         this.scene.start('Game');
     }
 }
+
+
