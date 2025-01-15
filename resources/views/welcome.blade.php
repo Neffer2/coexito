@@ -80,7 +80,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <label for="email_login">Correo electrónico</label>
-                            <input type="text" id="email_login" name="email" placeholder="Correo">
+                            <input type="text" id="email_login" name="email" placeholder="">
                             <label for="password_login">Contraseña</label>
                             <input type="password" id="password_login" name="password" placeholder="Contraseña">
                             <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate aquí</span>
