@@ -1,0 +1,204 @@
+/* Login - register */
+
+/* Regista tus codigos */
+.main-forms-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.codigos-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    gap: 50px;
+}
+
+.codigos-form-text h2 {
+    font-size: 4.2rem;
+    color: #FF6700;
+    line-height: 1;
+}
+
+.codigos-form-text span {
+    display: block;
+    color: #fff;
+}
+
+.codigos-terminos {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 20px;
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    border-left: 4px solid #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.codigos-terminos p {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.codigos-terminos span {
+    display: block;
+}
+
+.codigos-terminos button {
+    width: 33%;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6700;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.codigos-terminos button:hover {
+    background-color: #fff;
+    color: #FF6700;
+}
+
+/* Login register container */
+
+.login-register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    min-width: 500px;
+    min-height: 600px;
+    padding: 50px;
+    background: linear-gradient(to top, #004A99, #007FC8);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 2);
+    margin-bottom: 50px;
+}
+
+.login-form,
+.register-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-form h2,
+.register-form h2 {
+    color: #fff;
+    font-family: 'MyriadPro Regular';
+    margin-bottom: 20px;
+    font-size: 3.2rem;
+}
+
+.login-form form,
+.register-form form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-form form label,
+.register-form form label {
+    align-self: flex-start;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.login-form form input,
+.register-form form input,
+.register-form form select {
+    width: 100%;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    background: none;
+    margin-bottom: 20px;
+}
+
+.login-form form input:focus,
+.register-form form input:focus {
+    border: #FF6700 2px solid;
+}
+
+.login-form form button,
+.register-form form button {
+    width: 45%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6700;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-form form p {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.register-show {
+    color: rgb(0, 255, 255);
+    cursor: pointer;
+}
+
+.login-form form button:hover,
+.register-form form button:hover {
+    background-color: #fff;
+    color: #FF6700;
+}
+
+.register-form {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.register-form form .checkbox-container {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.register-form form .checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#terminos_condiciones, #tratamiento_datos {
+    width: 20px;
+}
+
+.login-show {
+    color: rgb(0, 255, 255);
+    cursor: pointer;
+}
+
+.register-form form p {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}

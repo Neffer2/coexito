@@ -1,0 +1,35 @@
+/* Aliados container */
+
+.aliados-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 50px;
+    background-color: #fff;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.aliados-container img {
+    width: 20%;
+}
+
+/* Aliados bottom */
+
+.aliados-container-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    padding: 0 40px;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.aliados-container-bottom img {
+    width: 25%;
+}

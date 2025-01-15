@@ -1,0 +1,143 @@
+/* TODO: registro codigos */
+
+.main-registro-codigos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    padding: 50px;
+}
+
+.main-registro-codigos h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.registro-codigos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.registro-codigos select,
+.registro-codigos input[type="text"],
+.registro-codigos button {
+    width: 100%;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    background: none;
+    margin-bottom: 20px;
+}
+
+.registro-codigos input[type="file"] {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    background: none;
+    margin-bottom: 20px;
+}
+
+.registro-codigos select:focus,
+.registro-codigos input[type="file"]:focus,
+.registro-codigos input[type="text"]:focus {
+    border: #FF6700 2px solid;
+}
+
+.registro-codigos label {
+    align-self: flex-start;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.registro-codigos button {
+    width: 45%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6700;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.registro-codigos button:hover {
+    background-color: #fff;
+    color: #FF6700;
+}
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: #fff 2px solid;
+    border-radius: 5px;
+    background: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.upload-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.upload-container p {
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* puntos-registrados */
+
+.puntos-registrados {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
+
+.puntos-registrados h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.puntos-registrados table {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+.puntos-registrados tr {
+    border: 1px solid #fff;
+    background-color: #f2f2f2;
+}
+
+.puntos-registrados td {
+    border: 1px solid #fff;
+    padding: 8px;
+}
+
+.puntos-registrados tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.puntos-registrados tr:hover {
+    background-color: #ddd;
+}

@@ -4,6 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('css/aliados.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/cta-slider.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/info-promo.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/login-register.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/pasos.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/registro-codigos.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/top-container.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Coexitocontigo</title>
@@ -23,6 +30,7 @@
 
                 <div class="top-container-right-info">
                     <img src="{{ asset('assets/img-70.png') }}" alt="">
+                    <button id="btn_scroll_to_form">Regístrate</button>
                 </div>
             </div>
         </div>
@@ -35,7 +43,6 @@
             <img src="{{ asset('assets/pasos3.png') }}" alt="Paso 3">
         </div>
         <div class="info-video-main-container">
-
             <div class="info-video-container">
                 <div class="info-video-text">
                     <h2>Descubre <span>cómo participar</span></h2>
@@ -49,7 +56,6 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
-
         </div>
         <div class="aliados-container">
             <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
@@ -57,8 +63,7 @@
             <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
             <img src="{{ asset('assets/magna-logo.png') }}" alt="">
         </div>
-
-        <div class="main-forms-container">
+        <div class="main-forms-container" id="main_forms_container">
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-form-text">
@@ -68,10 +73,8 @@
                         <p>Descarga <span>términos y condiciones</span></p>
                         <button>Aquí</button>
                     </div>
-
                 </div>
                 <div class="login-register-container">
-
                     <div class="login-form">
                         <h2>Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
@@ -109,62 +112,54 @@
 
                             <livewire:ciudades-component>
 
-                            <label for="password_register">Contraseña</label>
-                            <input id="password_register" type="password" name="password" placeholder="Contraseña" />
+                                <label for="password_register">Contraseña</label>
+                                <input id="password_register" type="password" name="password"
+                                    placeholder="Contraseña" />
 
-                            <label for="password_confirmation_register">Confirmar contraseña</label>
-                            <input id="password_confirmation_register" type="password" name="password_confirmation"
-                                placeholder="Confirmar contraseña" />
+                                <label for="password_confirmation_register">Confirmar contraseña</label>
+                                <input id="password_confirmation_register" type="password" name="password_confirmation"
+                                    placeholder="Confirmar contraseña" />
 
-                            <p>¿Ya tienes una cuenta? <span class="login-show" id="login_show">Inicia sesión</span>
-                            </p>
+                                <p>¿Ya tienes una cuenta? <span class="login-show" id="login_show">Inicia sesión</span>
+                                </p>
 
-                            <div class="checkbox-container">
-                                <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
-                                <label for="terminos_condiciones">
-                                    <a href="{{ asset('terminos_condiciones.pdf') }}" target="_blank">
-                                        Términos y condiciones
-                                    </a>
-                                </label>
-                            </div>
+                                <div class="checkbox-container">
+                                    <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
+                                    <label for="terminos_condiciones">
+                                        <a href="{{ asset('terminos_condiciones.pdf') }}" target="_blank">
+                                            Términos y condiciones
+                                        </a>
+                                    </label>
+                                </div>
 
-                            <div class="checkbox-container">
-                                <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
-                                <label for="tratamiento_datos">
-                                    Tratamiento de datos
-                                </label>
-                            </div>
+                                <div class="checkbox-container">
+                                    <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
+                                    <label for="tratamiento_datos">
+                                        Tratamiento de datos
+                                    </label>
+                                </div>
 
-                            <button type="submit">Registrar</button>
+                                <button type="submit">Registrar</button>
                         </form>
                     </div>
-                    {{-- @if ($errors->any())
-                    <div>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif --}}
-                @endguest
-                @auth
-                    <div class="main-registro-codigos">
-                        @if (auth()->user()->rol_id == 1)
-                            <livewire:registro-codigos>
+                </div>
+            @endguest
+            @auth
+                <div class="main-registro-codigos">
+                    @if (auth()->user()->rol_id == 1)
+                        <livewire:registro-codigos>
                         @elseif(auth()->user()->rol_id == 2)
                             <livewire:registro-puntos>
-                            <livewire:puntos-registrados>
-                            <livewire:ranking-fuerza-venta>
-                        @endif
-                    </div>
-                @endauth
-            </div>
+                                <livewire:puntos-registrados>
+                                    <livewire:ranking-fuerza-venta>
+                    @endif
+                </div>
+            @endauth
         </div>
         <div class="info-promo-container">
             <img src="{{ asset('assets/info1.png') }}" alt="">
             <div class="info-promo-text">
-                <h2>Más de 400.000 millones</h2>
+                <h2>Más de 400 millones</h2>
                 <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
                     para ti.</p>
             </div>
@@ -228,6 +223,16 @@
 
 </body>
 <script>
+    const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
+
+    if (btnScrolltoForm) {
+        btnScrolltoForm.addEventListener('click', function() {
+            document.getElementById('main_forms_container').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+
     const registroShow = document.getElementById('register_show');
 
     if (registroShow) {
@@ -243,7 +248,6 @@
     const loginShow = document.getElementById('login_show');
 
     if (loginShow) {
-
         loginShow.addEventListener('click', () => {
             const loginForm = document.querySelector('.login-form');
             const registerForm = document.querySelector('.register-form');
@@ -251,7 +255,6 @@
             loginForm.style.display = 'flex';
             registerForm.style.display = 'none';
         });
-
     }
 
     const registrameBtn = document.getElementById('registrame_btn');

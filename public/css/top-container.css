@@ -1,0 +1,79 @@
+/* Top Container */
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    background-image: url('../assets/fondo-top.png');
+    background-size: cover;
+}
+
+.top-logos-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 80px;
+}
+
+.top-logos-images img {
+    width: 280px;
+}
+
+/* Top Container Info */
+
+.top-container-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+    margin-bottom: 110px;
+}
+
+.top-container-left-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.top-container-left-info img {
+    width: 140%;
+    margin-left: -15%;
+}
+
+.top-container-right-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 40%;
+}
+
+.top-container-right-info img {
+    margin-top: -90px;
+    width: 50%;
+}
+
+.top-container-right-info button {
+    padding: 15px 80px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FF6700;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.top-container-right-info button:hover {
+    background-color: #fff;
+    color: #FF6700;
+}
