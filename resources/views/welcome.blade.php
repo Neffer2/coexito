@@ -82,7 +82,7 @@
                             <label for="email_login">Correo electrónico</label>
                             <input type="text" id="email_login" name="email" placeholder="">
                             <label for="password_login">Contraseña</label>
-                            <input type="password" id="password_login" name="password" placeholder="Contraseña">
+                            <input type="password" id="password_login" name="password" placeholder="">
                             <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate aquí</span>
                             </p>
                             <button type="submit">Aceptar</button>
@@ -93,33 +93,33 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="nombre_register">Nombre</label>
-                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="Nombre" />
+                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="" />
 
                             <label for="email_register">Correo electrónico</label>
                             <input id="email_register" name="email" value="{{ old('email') }}"
-                                placeholder="Correo" />
+                                placeholder="" />
 
                             <label for="documento_register">Documento</label>
                             <input id="documento_register" name="documento" value="{{ old('documento') }}"
-                                placeholder="Documento" />
+                                placeholder="" />
 
                             <label for="telefono_register">Teléfono</label>
                             <input id="telefono_register" name="telefono" value="{{ old('telefono') }}"
-                                placeholder="Teléfono" />
+                                placeholder="" />
 
                             <label for="direccion_register">Dirección</label>
                             <input id="direccion_register" name="direccion" value="{{ old('direccion') }}"
-                                placeholder="Dirección" />
+                                placeholder="" />
 
                             <livewire:ciudades-component>
 
                                 <label for="password_register">Contraseña</label>
                                 <input id="password_register" type="password" name="password"
-                                    placeholder="Contraseña" />
+                                    placeholder="" />
 
                                 <label for="password_confirmation_register">Confirmar contraseña</label>
                                 <input id="password_confirmation_register" type="password" name="password_confirmation"
-                                    placeholder="Confirmar contraseña" />
+                                    placeholder="" />
 
                                 <p>¿Ya tienes una cuenta? <span class="login-show" id="login_show">Inicia sesión</span>
                                 </p>
