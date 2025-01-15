@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\PuntosVenta;
 use App\Models\RegistroPunto;
+use App\Models\Departamento;
 use App\Models\User;
 use Livewire\WithFileUploads;
 
@@ -13,10 +14,10 @@ class RegistroPuntos extends Component
     use WithFileUploads;
 
     // Models
-    public $nit, $foto_factura, $foto_kit, $ciudad;
+    public $nit, $foto_factura, $foto_kit, $ciudad, $direccion, $departamento, $departamentos;
 
-    // Useful vars
-    public $user;
+    // Useful vars 
+    public $user; 
 
     public function render()
     {
@@ -24,7 +25,12 @@ class RegistroPuntos extends Component
     }
 
     public function mount(){
-        $this->user = User::where('id', auth()->user()->id)->first();
+        $this->user = User::find(auth()->user()->id);
+        $this->getDepartamentos();
+    }
+
+    public function getDepartamentos(){
+        $this->departamentos = Departamento::all();
     }
 
     public function ActivarPunto()
@@ -34,6 +40,8 @@ class RegistroPuntos extends Component
             'foto_factura' => 'required|image|max:1024',
             'foto_factura' => 'required|image|max:1024',
             'foto_kit' => 'required|image|max:1024',
+            'direccion' => 'required|string',
+            'ciudad' => 'required|string'
         ]);
 
         $punto = PuntosVenta::where('nit', $this->nit)->first();
@@ -41,15 +49,11 @@ class RegistroPuntos extends Component
         if ($punto){
             $registro_exist = RegistroPunto::where([
                 ['pdv_id', $punto->id],
-                ['estado_id', '!=', 1]
+                ['estado_id', '!=', 3]
             ])->first();
         }else {
             return redirect()->back()->with('nit-error', '!Oops, este nit no se encuentra en nuestra base de datos.');
         }
-
-        // if (!$registro_exist){
-        //     return redirect()->back()->with('nit-error', '!Oops, este punto ya está activado en la promoción.');
-        // }
 
         if ($punto && !$registro_exist) {
             // Registro punto
@@ -61,12 +65,17 @@ class RegistroPuntos extends Component
             $registro->estado_id = 2;
             $registro->save();
 
+            // Punto venta
+            $punto->direccion = $this->direccion;
+            $punto->ciudad = $this->ciudad;
+            $punto->update();
+
             // Users
-            $this->user->puntos += 5;
+            $this->user->puntos += 5; 
             $this->user->save();
 
             $this->dispatch('codigo-registrado');
-            $this->reset(['nit', 'foto_factura', 'foto_kit', 'ciudad']);
+            $this->reset(['nit', 'foto_factura', 'foto_kit', 'ciudad', 'direccion', 'departamento']);
 
             return redirect()->back()->with('success', 'Felicidades! el punto se activó exitósamente.');
         }else {

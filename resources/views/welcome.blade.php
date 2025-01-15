@@ -107,17 +107,7 @@
                             <input id="direccion_register" name="direccion" value="{{ old('direccion') }}"
                                 placeholder="Dirección" />
 
-                            <label for="departamento_register">Departamento</label>
-                            <select id="departamento_register" name="departamento" placeholder="Departamento">
-                                <option value="1">Departamento</option>
-                                <option value="2">Proveedor</option>
-                            </select>
-
-                            <label for="ciudad_register">Ciudad</label>
-                            <select id="ciudad_register" name="ciudad" placeholder="Ciudad">
-                                <option value="1">Ciudad</option>
-                                <option value="2">Proveedor</option>
-                            </select>
+                            <livewire:ciudades-component>
 
                             <label for="password_register">Contraseña</label>
                             <input id="password_register" type="password" name="password" placeholder="Contraseña" />
@@ -131,12 +121,18 @@
 
                             <div class="checkbox-container">
                                 <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
-                                <label for="terminos_condiciones">Términos y condiciones</label>
+                                <label for="terminos_condiciones">
+                                    <a href="{{ asset('terminos_condiciones.pdf') }}" target="_blank">
+                                        Términos y condiciones
+                                    </a>
+                                </label>
                             </div>
 
                             <div class="checkbox-container">
                                 <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
-                                <label for="tratamiento_datos">Tratamiento de datos</label>
+                                <label for="tratamiento_datos">
+                                    Tratamiento de datos
+                                </label>
                             </div>
 
                             <button type="submit">Registrar</button>
@@ -154,9 +150,13 @@
                 @endguest
                 @auth
                     <div class="main-registro-codigos">
-                        {{-- <livewire:registro-codigos> --}}
+                        @if (auth()->user()->rol_id == 1)
+                            <livewire:registro-codigos>
+                        @elseif(auth()->user()->rol_id == 2)
                             <livewire:registro-puntos>
-                        <livewire:puntos-registrados>
+                            <livewire:puntos-registrados>
+                            <livewire:ranking-fuerza-venta>
+                        @endif
                     </div>
                 @endauth
             </div>

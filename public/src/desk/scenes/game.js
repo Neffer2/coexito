@@ -4,22 +4,26 @@ let ruleta, puntero, spinButton, tempButton, bars, bglight;
 let divisiones = 20, circumference = 260;
 
 let premios = [
-    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $50.000', 'codigo': 103},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $30.000', 'codigo': 102},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $100.000', 'codigo': 104},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': 'La ruleta nunca deja de sorprender. ¡Sigue intentando!', 'codigo': 555},
-    {'mensaje': '¡Felicitaciones! ganaste un Bono digital Gasolina Distracom $20.000', 'codigo': 101},
+    {'arte': '50mil', 'codigo': 103},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': '30mil', 'codigo': 102},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': '100mil', 'codigo': 104},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': '20mil', 'codigo': 101},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
 ];
 
 let rotate = false;
@@ -60,11 +64,11 @@ export class Game extends Phaser.Scene {
             spinButton.setScale(1);
         });
 
-        // bars.forEach((elem) => {
-        //     elem.on('pointerdown', function (pointer){
-        //         alert(elem.premio);
-        //     });
-        // });
+        bars.forEach((elem) => {
+            elem.on('pointerdown', function (pointer){
+                alert(elem.premio.arte);
+            });
+        });
 
     }
 
@@ -134,7 +138,7 @@ export class Game extends Phaser.Scene {
                 bar.disableBody(true, true);
                 puntero.disableBody(true, true);
                 if (bar.premio){
-                    alert(bar.premio.mensaje);
+                    mContext.popUp(bar.premio.arte);
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
@@ -198,7 +202,7 @@ export class Game extends Phaser.Scene {
         let copy2 = this.add.image((logo.x) + 148, (copy1.y) + 270, 'copy2');
 
         let luces = this.add.sprite((width/2) + 320, (height/2), 'luces');
-        ruleta = this.add.sprite((width/2) + 321, (height/2), 'ruleta');
+        ruleta = this.add.sprite((width/2) + 321, (height/2), 'ruleta').setScale(.84);
 
         puntero = this.physics.add.sprite((width/2) + 321, (height/4) + 22, 'puntero');
         puntero.setSize(true, 80, 10);
@@ -219,9 +223,8 @@ export class Game extends Phaser.Scene {
 
     popUp(premio){
         mContext.add.image((width/2), (height/2), 'bg-pop').setScale(1);
-        mContext.add.image((width/2), (height/2), `bgp-${premio}`).setScale(1);
-        bglight = mContext.add.image((width/2), (height/2), 'bg-light').setScale(1);
-        mContext.add.image((width/2) + 20, (height/2) - 40, `p-${premio}`).setScale(1);
+        bglight = mContext.add.image((width/2), (height/2), 'bg-light').setScale(2);
+        mContext.add.image((width/2), (height/2), premio).setScale(1);
         setTimeout(() => {
             location.reload();
         }, 8000);

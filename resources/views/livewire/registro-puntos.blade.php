@@ -13,22 +13,43 @@
         {{ session('success') }}
     @endsession
 
+    <label for="direccion">Digita la direcci&oacute;n del establecimmiento: </label>
+    <input id="direccion" wire:model.lazy="direccion" type="text">
+    @error('direccion')
+        {{ $message }}
+    @enderror
 
-    {{-- <label for="productos">Selecciona la ciudad del establecimiento</label>
-    <select id="productos" wire:model.change="ciudad">
-        <option value="">Seleccionar</option>
-        <option value="Bater&iacute;as para auto">Bogotá</option>
-        <option value="Bater&iacute;as para auto">Medellín</option>
-        <option value="Bater&iacute;as para auto">Barranquilla</option>
-    </select> --}}
+    <label for="departamento" class="register-form-label">Departamento</label>
+    <select wire:model.live="departamento" id="departamento" class="register-form-input" name="departamento" value="{{ old('departamento') }}" required>
+        <option>Seleccionar</option>
+        @foreach ($departamentos as $departamento)
+            <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}</option>
+        @endforeach
+    </select>
+    @error('departamento')
+        <p class="register-form-error">{{ $message }}</p>
+    @enderror
 
-    <label for="foto_factura">Sube una foto de tu factura</label>
+    <label for="ciudad" class="register-form-label">Ciudad</label>
+    <select id="ciudad" class="register-form-input" name="ciudad" wire:model.change="ciudad" value="{{ old('ciudad') }}" required>
+        <option>Seleccionar</option>
+        @if ($this->departamento)
+            @foreach ($departamentos->where('id', $this->departamento)->first()->ciudades as $ciudad)
+                <option value="{{ $ciudad->descripcion }}">{{ $ciudad->descripcion }}</option>
+            @endforeach
+        @endif
+    </select>
+    @error('ciudad')
+        <p class="register-form-error">{{ $message }}</p>
+    @enderror
+ 
+    <label for="foto_factura">Sube una foto de tu factura: </label>
     <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
         <input id="foto_factura" type="file" accept="image/*" style="display: none;">
         @if ($foto_factura)
             <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
         @else
-            <p>Click aquí para subir tu factura</p>
+            <p>Click aquí para subir tu factura</p> 
         @endif
     </div>
     @error('foto_factura')

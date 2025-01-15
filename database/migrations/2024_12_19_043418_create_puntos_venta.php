@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nit')->unique();
             $table->string('nom_cliente');
+            $table->string('direccion')->nullable();
+            $table->string('ciudad')->nullable();
             $table->timestamps();
         });
     }
