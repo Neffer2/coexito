@@ -197,13 +197,16 @@ export class Game extends Phaser.Scene {
         width = this.game.config.width;
         height = this.game.config.height;
 
-        // let background = this.add.image((width/2), (height/2), 'background').setOrigin(0.5, 0.5);
+        let base = this.add.image((width/2), (height - 280), 'base');
+        let logo = this.add.image((width/2), 110, 'logo');
+        let coljuegos = this.add.image((width) - 100, 40, 'coljuegos');
+
         let luces = this.add.sprite((width/2), (height/2) - 1.5, 'luces');
         ruleta = this.add.sprite((width/2), (height/2), 'ruleta');
 
         puntero = this.physics.add.sprite((width/2), (height/4) + 70, 'puntero');
         puntero.setSize(true, 80, 10);
-        spinButton = this.physics.add.sprite((width/2), (height - 200), 'girarBtn').setScale(1).setInteractive();
+        spinButton = this.physics.add.sprite((width/2), (height - 110), 'girarBtn').setScale(1).setInteractive();
 
         bars = this.setBars(divisiones, this);
         const circle = new Phaser.Geom.Circle((width/2), (height/2), circumference);

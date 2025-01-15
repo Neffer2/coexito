@@ -8,6 +8,7 @@ export class Preloader extends Phaser.Scene {
     {
         this.load.setPath('../../assets/ruleta/desk');
         this.load.image('background', 'bg.png');
+        this.load.image('bg-light-ruleta', '/lights.png');
         this.load.image('logo', 'logo-coexito.png');
         this.load.image('coljuegos', 'logo-coljuegos.png');
         this.load.image('bg-light', 'bg-light.png');
