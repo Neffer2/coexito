@@ -13,7 +13,7 @@ class RegistroCodigos extends Component
     use WithFileUploads;
 
     // Models
-    public $codigo, $foto_factura, $tipo_producto;
+    public $codigo, $foto_factura, $baterias_auto, $baterias_moto, $lubricantes_auto, $lubricantes_moto, $energiteca;
 
     // Useful vars
     public $user;
@@ -29,11 +29,14 @@ class RegistroCodigos extends Component
 
     public function register(){
         $this->validate([
+            'baterias_auto' => 'nullable|boolean',
+            'baterias_moto' => 'nullable|boolean',
+            'lubricantes_auto' => 'nullable|boolean',
+            'lubricantes_moto' => 'nullable|boolean',
+            'energiteca' => 'nullable|boolean',
             'foto_factura' => 'required|image|max:1024',
-            'tipo_producto' => 'required|string',
             'codigo' => 'required'
         ]);
-
         $codigo = Codigo::where([['codigo', $this->codigo],['estado_cod', 1]])->first();
 
         if ($codigo){
@@ -46,7 +49,11 @@ class RegistroCodigos extends Component
             $registro_codigo->codigo_id = $codigo->id;
             $registro_codigo->user_id = auth()->user()->id;
             $registro_codigo->foto_factura = $this->foto_factura->store(path: 'facturas-shopper');
-            $registro_codigo->tipo_producto = $this->tipo_producto;
+            $registro_codigo->baterias_auto = $this->baterias_auto;
+            $registro_codigo->baterias_moto = $this->baterias_moto;
+            $registro_codigo->lubricantes_auto = $this->lubricantes_auto;
+            $registro_codigo->lubricantes_moto = $this->lubricantes_moto;
+            $registro_codigo->energiteca = $this->energiteca;
             $registro_codigo->save();
 
             // User

@@ -1,15 +1,31 @@
 <div class="registro-codigos">
     <h2>Registro de códigos</h2>
 
-    <label for="productos">Selecciona tu producto</label>
-    <select id="productos" wire:model.change="tipo_producto">
-        <option value="">Seleccionar</option>
-        <option value="Bater&iacute;as para auto">Bater&iacute;as para auto</option>
-        <option value="Bater&iacute;as para mot">Bater&iacute;as para moto</option>
-        <option value="Lubricantes para auto">Lubricantes para auto</option>
-        <option value="Lubricantes para moto">Lubricantes para moto</option>
-        <option value="Productos y servicios en Energiteca y energiteca.com">Productos y servicios en Energiteca y energiteca.com</option>
-    </select>
+    <label for="productos">Selecciona los tipos de producto que compraste:</label>
+    <div>
+        <label for="baterias_auto">Bater&iacute;as para auto</label>
+        <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
+    </div>
+    @error('baterias_auto')
+        {{ $baterias_auto }}
+    @enderror
+    <div>
+        <label for="baterias_moto">Bater&iacute;as para moto</label>
+        <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
+    </div>
+    <div>
+        <label for="lubricantes_auto">Lubricantes para auto</label>
+        <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
+    </div>
+    <div>
+        <label for="lubricantes_moto">Lubricantes para moto</label>
+        <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
+    </div>
+    <div>
+        <label for="energiteca">Productos y servicios en Energiteca y energiteca.com</label>
+        <input id="energiteca" type="checkbox" wire:model.change="energiteca">
+    </div>
+
     @error('tipo_producto')
         {{ $message }}
     @enderror
