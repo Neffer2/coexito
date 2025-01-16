@@ -200,15 +200,15 @@ export class Game extends Phaser.Scene {
         let base = this.add.image((width/2) + 321, (height - 140), 'base');
         let logo = this.add.image(300, 110, 'logo');
         let coljuegos = this.add.image((width) - 280, 110, 'coljuegos');
-        let copy1 = this.add.image((logo.x) + 178, 650, 'copy1');
-        let copy2 = this.add.image((logo.x) + 155, 340, 'copy2');
+        let copy1 = this.add.image((logo.x) + 178, 660, 'copy1');
+        let copy2 = this.add.image((logo.x) + 155, 380, 'copy2');
 
         let luces = this.add.sprite((width/2) + 320, (height/2), 'luces');
         ruleta = this.add.sprite((width/2) + 321, (height/2), 'ruleta').setScale(.84);
 
         puntero = this.physics.add.sprite((width/2) + 321, (height/4) + 22, 'puntero');
         puntero.setSize(true, 80, 10);
-        spinButton = this.physics.add.sprite((logo.x) - 38, (height - 210), 'girarBtn').setScale(1).setInteractive();
+        spinButton = this.physics.add.sprite((logo.x) - 50, (height - 195), 'girarBtn').setScale(1).setInteractive();
 
         bars = this.setBars(divisiones, this);
         const circle = new Phaser.Geom.Circle((width/2) + 321, (height/2), circumference);
