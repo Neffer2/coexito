@@ -69,7 +69,8 @@
             <div class="info-video-container">
                 <div class="info-video-text">
                     <h2 class="info-video-text-title">Premios <span>que inspiran</span></h2>
-                    <p>Descubre cómo participar. <span>Sigue las instrucciones del video, inscribe tus códigos y participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
+                    <p>Descubre cómo participar. <span>Sigue las instrucciones del video, inscribe tus códigos y
+                            participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
                 </div>
                 <div class="info-video">
                     <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
@@ -87,17 +88,26 @@
             </div>
         </div>
         <div class="aliados-container">
-            <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
-            <img src="{{ asset('assets/mac-logo.png') }}" alt="">
-            <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
-            <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+            <div class="aliados-slider">
+                <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
+                <img src="{{ asset('assets/mac-logo.png') }}" alt="">
+                <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
+                <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+            </div>
+            <div class="aliados-slider">
+                <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
+                <img src="{{ asset('assets/mac-logo.png') }}" alt="">
+                <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
+                <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+            </div>
         </div>
         <div class="main-forms-container" id="main_forms_container">
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-terminos">
                         <h2 class="codigos-terminos-title">¡Gana bonos <span>de hasta 100 mil pesos!</span></h2>
-                        <p>Inscribe tus códigos y participa con una emocionante ruleta donde podrás ganar bonos de gasolina por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p>
+                        <p>Inscribe tus códigos y participa con una emocionante ruleta donde podrás ganar bonos de gasolina
+                            por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p>
                     </div>
                 </div>
                 <div class="login-register-container">
@@ -152,7 +162,8 @@
                                 <div class="checkbox-container">
                                     <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
                                     <label for="terminos_condiciones">
-                                        <a class="terminos-a" target="_blank" href="https://www.coexito.com.co/terminos-y-condiciones-campana-aniversario"
+                                        <a class="terminos-a" target="_blank"
+                                            href="https://www.coexito.com.co/terminos-y-condiciones-campana-aniversario"
                                             target="_blank">
                                             Términos y condiciones
                                         </a>
@@ -162,8 +173,8 @@
                                 <div class="checkbox-container">
                                     <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
                                     <label for="tratamiento_datos">
-                                        <a class="terminos-a" target="_blank" href="https://www.coexito.com.co/politica-datos"
-                                            target="_blank">
+                                        <a class="terminos-a" target="_blank"
+                                            href="https://www.coexito.com.co/politica-datos" target="_blank">
                                             Tratamiento de datos
                                         </a>
                                     </label>
@@ -209,18 +220,20 @@
                 <img src="{{ asset('assets/info2.png') }}" alt="">
                 <div class="info-promo-text">
                     <h2 class="info-promo-text-title">Gana una de las 3 motos</h2>
-                    <p>Imagina rodar por la ciudad en la impresionante Honda CB 190 R, una moto diseñada para atraer miradas y despertar emociones.</p>
+                    <p>Imagina rodar por la ciudad en la impresionante Honda CB 190 R, una moto diseñada para atraer
+                        miradas y despertar emociones.</p>
                 </div>
             </div>
             <div class="info-promo-container">
                 <img src="{{ asset('assets/info3.png') }}" alt="">
                 <div class="info-promo-text">
                     <h2 class="info-promo-text-title">Gana una de las 3 camionetas</h2>
-                    <p>Recorre cada camino con estilo, tecnología y eficiencia a bordo de la Kia Stonic, una camioneta que combina un diseño moderno y audaz con un rendimiento impecable.</p>
+                    <p>Recorre cada camino con estilo, tecnología y eficiencia a bordo de la Kia Stonic, una camioneta
+                        que combina un diseño moderno y audaz con un rendimiento impecable.</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="slider-cta">
             <div class="cta-container">
                 <div class="cta-text">
@@ -233,7 +246,8 @@
                         <a href="https://www.facebook.com/coexitocontigo/" target="_blank" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/co%C3%A9xito-s-a/?originalSubdomain=co" target="_blank" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/co%C3%A9xito-s-a/?originalSubdomain=co"
+                            target="_blank" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -310,7 +324,6 @@
             window.location.href = 'https://www.coexito.com.co/contacto';
         });
     }
-
 </script>
 
 </html>
