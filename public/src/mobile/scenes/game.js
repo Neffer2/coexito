@@ -206,7 +206,7 @@ export class Game extends Phaser.Scene {
         ruleta = this.add.sprite((width/2), (height/2) + 35, 'ruleta');
         let logo70 = this.add.image((width/2), (height/2) + 35, 'logo-70');
 
-        puntero = this.physics.add.sprite((width/2), (height/4) + 80, 'puntero');
+        puntero = this.physics.add.sprite((width/2), (height/4) + 108, 'puntero');
         puntero.setSize(true, 80, 10);
         spinButton = this.physics.add.sprite((width/2), (height - 95), 'girarBtn').setScale(1).setInteractive();
 
