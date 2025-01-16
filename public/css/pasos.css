@@ -113,6 +113,10 @@
 
 @media screen and (max-width: 768px) {
 
+    .main-pasos-container {
+        margin-bottom: 10px;
+    }
+
     .pasos-container {
         display: flex;
         justify-content: space-around;
@@ -130,17 +134,20 @@
         width: 90%;
     }
 
+    .pasos-text-container img {
+        width: 90%;
+    }
+
     /* Video */
 
     .info-video-container {
         flex-direction: column;
         width: 90%;
-        border-bottom-right-radius: 2px;
-        border-bottom-left-radius: 2px;
     }
 
     .info-video-main-container {
-        margin-bottom: 250px;
+        margin-top: 10px;
+        margin-bottom: 55px;
     }
 
     .info-video-text {
@@ -149,11 +156,12 @@
     }
 
     .info-video-text-title {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 
     .info-video-text p {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        font-weight: lighter;
         width: 100%;
     }
 
@@ -172,10 +180,8 @@
     }
 
     .info-video-mobile iframe {
-        position: absolute;
-        width: 100%;
+        width: 95%;
         height: 200px;
-        margin-top: 130px;
         right: 0;
     }
 

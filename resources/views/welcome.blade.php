@@ -35,9 +35,6 @@
             </div>
 
             <div class="top-container-info-mobile">
-                <div class="top-mobile-img">
-                    <img src="{{ asset('assets/titulo-top-mobile.png') }}" alt="">
-                </div>
 
                 <div class="top-mobile-info">
                     <img class="top-mobile-info-img-first" src="{{ asset('assets/coexito-logo-white.png') }}"
@@ -222,32 +219,22 @@
         </div>
         
         <div class="slider-cta">
-            <div class="cta-container cta-container-1">
+            <div class="cta-container">
                 <div class="cta-text">
-                    <h2 class="cta-text-title">¡Haz parte de nuestros clientes!</h2>
-                    <p>Regístrate y conoce las mejores marcas</p>
-                    <button aria-label="Regístrarme" id="registrame_btn">Regístrarme</button>
+                    <h2 class="cta-text-title">¡Síguenos en nuestras redes sociales!</h2>
+                    <p>Y celebremos juntos los 70 años de Coéxito recorriendo los caminos de Colombia.</p>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
-                <button class="slider-button left-button" aria-label="Anterior">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                </button>
-                <button class="slider-button right-button" aria-label="Siguiente">
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                </button>
-            </div>
-
-            <div class="cta-container cta-container-2">
-                <div class="cta-text">
-                    <h2 class="cta-text-title">¡Haz parte de nuestros clientes!</h2>
-                    <p>Regístrate y empieza a vender las mejores marcas</p>
-                    <button aria-label="Quiero ser cliente" id="cliente_btn">Quiero ser cliente</button>
-                </div>
-                <button class="slider-button left-button" aria-label="Anterior">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                </button>
-                <button class="slider-button right-button" aria-label="Siguiente">
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                </button>
             </div>
         </div>
 
@@ -321,39 +308,6 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const containers = document.querySelectorAll('.cta-container');
-        const leftButtons = document.querySelectorAll('.left-button');
-        const rightButtons = document.querySelectorAll('.right-button');
-
-        let currentIndex = 0;
-
-        function showContainer(index) {
-            containers.forEach((container, i) => {
-                if (i === index) {
-                    container.classList.add('active');
-                } else {
-                    container.classList.remove('active');
-                }
-            });
-        }
-
-        leftButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentIndex = (currentIndex === 0) ? containers.length - 1 : currentIndex - 1;
-                showContainer(currentIndex);
-            });
-        });
-
-        rightButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                currentIndex = (currentIndex === containers.length - 1) ? 0 : currentIndex + 1;
-                showContainer(currentIndex);
-            });
-        });
-
-        showContainer(currentIndex);
-    });
 </script>
 
 </html>

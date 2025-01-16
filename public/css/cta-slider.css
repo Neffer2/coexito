@@ -25,16 +25,6 @@
     transition: opacity 0.3s ease;
 }
 
-.cta-container-2 {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.cta-container.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
 .cta-text {
     display: flex;
     justify-content: center;
@@ -57,58 +47,23 @@
     margin-bottom: 30px;
 }
 
-.cta-text button {
-    padding: 10px 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: #FF6700;
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.social-icons a {
     color: #fff;
-    font-weight: bold;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 2.5em;
+    transition: color 0.3s ease; 
 }
 
-.cta-text button:hover {
-    background-color: #fff;
-    color: #FF6700;
+.social-icons a:hover {
+    color: #ff6700; 
 }
 
-.slider-button {
-    background: none;
-    border: none;
-    color: #FF6700;
-    font-size: 2rem;
-    cursor: pointer;
-    position: absolute;
-    padding: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: color 0.3s ease;
-}
-
-.slider-button:hover {
-    color: #fff;
-}
-
-.left-button {
-    left: 10px;
-}
-
-.right-button {
-    right: 10px;
-}
-
-/* Estilos para los botones del slider */
-
-
-.slider-button.left-button {
-    left: 10px;
-}
-
-.slider-button.right-button {
-    right: 10px;
-}
 
 /* Mobile media query */
 
@@ -124,28 +79,20 @@
     }
 
     .cta-text-title {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .cta-text p {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-bottom: 8px;
     }
 
-    .cta-text button {
-        padding: 10px 30px;
-        border: none;
-        border-radius: 5px;
-        background-color: #FF6700;
-        color: #fff;
-        font-weight: bold;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
+    .social-icons {
+        gap: 30px;
         margin-top: 10px;
     }
 
-    .slider-button {
-        font-size: 1.5rem;
+    .social-icons a {
+        font-size: 1.9em;
     }
 }

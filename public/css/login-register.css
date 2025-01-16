@@ -275,6 +275,18 @@
         gap: 20px;
         border: none;
         flex-direction: column;
+        background: none;
+    }
+
+    .codigos-terminos-title {
+        color: #FF6700;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .codigos-terminos p {
+        width: 100%;
+        text-align: center;
     }
 
     .codigos-terminos a {
