@@ -47,6 +47,11 @@
 /* Mobile media query */
 
 @media screen and (max-width: 768px) {
+
+    .main-container {
+        background-image: url('../assets/fondo-landing-mobile.png');
+    }
+
     .bottom-line {
         height: 10px;
     }

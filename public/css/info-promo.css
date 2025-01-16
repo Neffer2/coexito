@@ -20,7 +20,7 @@
 }
 
 .info-promo-container img {
-    width: 100%;
+    width: 75%;
 }
 
 .info-promo-text {
@@ -33,11 +33,17 @@
 
 
 .info-promo-text-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150%;
     font-family: 'MyriadPro Regular';
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
     color: #FF6700;
+    line-height: 0.8;
 }
 
 .info-promo-text p{
@@ -46,7 +52,7 @@
     align-items: center;
     text-align: center;
     color: #fff;
-    width: 100%;
+    width: 150%;
     font-family: 'MyriadPro Regular';
     font-size: 1.5rem;
 }
@@ -80,6 +86,7 @@
     }
 
     .info-promo-text-title {
+        width: 100%;
         font-size: 3rem;
     }
 

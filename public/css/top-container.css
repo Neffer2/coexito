@@ -23,6 +23,10 @@
     width: 280px;
 }
 
+.coexito-logo {
+    width: 380px !important;
+}
+
 /* Top Container Info */
 
 .top-container-info {
@@ -31,6 +35,7 @@
     flex-direction: row;
     width: 100%;
     gap: 50px;
+    margin-top: 50px;
     margin-bottom: 110px;
 }
 
@@ -47,6 +52,8 @@
     width: 50%;
 }
 
+
+
 .top-container-left-info img {
     width: 100%;
 }
@@ -61,8 +68,7 @@
 }
 
 .top-container-right-info img {
-    margin-top: -90px;
-    width: 50%;
+    width: 40%;
 }
 
 .top-container-right-info button {

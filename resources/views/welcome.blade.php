@@ -58,19 +58,21 @@
             </div>
         </div>
         <div class="bottom-line"></div>
-        <div class="pasos-container">
-            <img src="{{ asset('assets/pasos1.png') }}" alt="Paso 1">
-            <img class="flecha-pasos" src="{{ asset('assets/flecha.png') }}" alt="Paso 1">
-            <img src="{{ asset('assets/pasos2.png') }}" alt="Paso 2">
-            <img class="flecha-pasos" src="{{ asset('assets/flecha.png') }}" alt="Paso 1">
-            <img src="{{ asset('assets/pasos3.png') }}" alt="Paso 3">
+        <div class="main-pasos-container">
+            <div class="pasos-text-container">
+                <img src="{{ asset('assets/titulo-top-mobile.png') }}" alt="texto">
+            </div>
+            <div class="pasos-container">
+                <img src="{{ asset('assets/pasos1.png') }}" alt="Paso 1">
+                <img src="{{ asset('assets/pasos2.png') }}" alt="Paso 2">
+                <img src="{{ asset('assets/pasos3.png') }}" alt="Paso 3">
+            </div>
         </div>
         <div class="info-video-main-container">
             <div class="info-video-container">
                 <div class="info-video-text">
-                    <h2 class="info-video-text-title">Descubre <span>cómo participar</span></h2>
-                    <p>Registra tus códigos y participa en la rifa de 6 motos Honda CB100R y 3 camionetas Nissan Kicks
-                        2024.</p>
+                    <h2 class="info-video-text-title">Premios <span>que inspiran</span></h2>
+                    <p>Descubre cómo participar. <span>Sigue las instrucciones del video, inscribe tus códigos y participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
                 </div>
                 <div class="info-video">
                     <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
@@ -96,14 +98,9 @@
         <div class="main-forms-container" id="main_forms_container">
             @guest
                 <div class="codigos-form-container">
-                    <div class="codigos-form-text">
-                        <h2 class="codigos-form-text-title">Registra <span>tus códigos </span>ahora</h2>
-                    </div>
                     <div class="codigos-terminos">
-                        <p>Descarga <span>términos y condiciones</span></p>
-                        <a href="{{ asset('legal/coexito-tyc-70.pdf') }}" download>
-                            Aquí
-                        </a>
+                        <h2 class="codigos-terminos-title">¡Gana bonos <span>de hasta 100 mil pesos!</span></h2>
+                        <p>Inscribe tus códigos y participa con una emocionante ruleta donde podrás ganar bonos de gasolina por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p>
                     </div>
                 </div>
                 <div class="login-register-container">
@@ -204,25 +201,22 @@
             <div class="info-promo-container">
                 <img src="{{ asset('assets/info1.png') }}" alt="">
                 <div class="info-promo-text">
-                    <h2 class="info-promo-text-title">Más de 400 millones</h2>
-                    <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
-                        para ti.</p>
+                    <h2 class="info-promo-text-title">Más de 400 millones de pesos en premios</h2>
+                    <p>Inscribe tus códigos ahora y sé uno de los afortunados ganadores de increíbles premios.</p>
                 </div>
             </div>
             <div class="info-promo-container">
                 <img src="{{ asset('assets/info2.png') }}" alt="">
                 <div class="info-promo-text">
-                    <h2 class="info-promo-text-title">Gana una de las 6</h2>
-                    <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
-                    <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo
-                        una renovación de las mejores sport de Honda.</p>
+                    <h2 class="info-promo-text-title">Gana una de las 3 motos</h2>
+                    <p>Imagina rodar por la ciudad en la impresionante Honda CB 190 R, una moto diseñada para atraer miradas y despertar emociones.</p>
                 </div>
             </div>
             <div class="info-promo-container">
                 <img src="{{ asset('assets/info3.png') }}" alt="">
                 <div class="info-promo-text">
-                    <h2 class="info-promo-text-title">Gana una de las 3</h2>
-                    <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
+                    <h2 class="info-promo-text-title">Gana una de las 3 camionetas</h2>
+                    <p>Recorre cada camino con estilo, tecnología y eficiencia a bordo de la Kia Stonic, una camioneta que combina un diseño moderno y audaz con un rendimiento impecable.</p>
                 </div>
             </div>
         </div>
