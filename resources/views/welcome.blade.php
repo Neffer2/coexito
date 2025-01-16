@@ -68,7 +68,7 @@
         <div class="info-video-main-container">
             <div class="info-video-container">
                 <div class="info-video-text">
-                    <h2>Descubre <span>cómo participar</span></h2>
+                    <h2 class="info-video-text-title">Descubre <span>cómo participar</span></h2>
                     <p>Registra tus códigos y participa en la rifa de 6 motos Honda CB100R y 3 camionetas Nissan Kicks
                         2024.</p>
                 </div>
@@ -97,7 +97,7 @@
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-form-text">
-                        <h2>Registra <span>tus códigos </span>ahora</h2>
+                        <h2 class="codigos-form-text-title">Registra <span>tus códigos </span>ahora</h2>
                     </div>
                     <div class="codigos-terminos">
                         <p>Descarga <span>términos y condiciones</span></p>
@@ -108,21 +108,21 @@
                 </div>
                 <div class="login-register-container">
                     <div class="login-form">
-                        <h2>Iniciar sesión</h2>
+                        <h2 class="login-form-title">Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <label for="email_login">Correo electrónico</label>
                             <input type="text" id="email_login" name="email" placeholder="">
                             <label for="password_login">Contraseña</label>
                             <input type="password" id="password_login" name="password" placeholder="">
-                            <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Registrate
+                            <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Regístrate
                                     aquí</span>
                             </p>
                             <button type="submit">Aceptar</button>
                         </form>
                     </div>
                     <div class="register-form">
-                        <h2>Registro</h2>
+                        <h2 class="registro-form-title">Registro</h2>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="nombre_register">Nombre</label>
@@ -200,36 +200,37 @@
                 </div>
             @endauth
         </div>
-        <div class="info-promo-container">
-            <img src="{{ asset('assets/info1.png') }}" alt="">
-            <div class="info-promo-text">
-                <h2 class="info-promo-text-title">Más de 400 millones</h2>
-                <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
-                    para ti.</p>
+        <div class="main-info-promo-container">
+            <div class="info-promo-container">
+                <img src="{{ asset('assets/info1.png') }}" alt="">
+                <div class="info-promo-text">
+                    <h2 class="info-promo-text-title">Más de 400 millones</h2>
+                    <p>En premios al instante, participa y se uno de los ganadores de los increíbles premios que tenemos
+                        para ti.</p>
+                </div>
+            </div>
+            <div class="info-promo-container">
+                <img src="{{ asset('assets/info2.png') }}" alt="">
+                <div class="info-promo-text">
+                    <h2 class="info-promo-text-title">Gana una de las 6</h2>
+                    <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
+                    <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo
+                        una renovación de las mejores sport de Honda.</p>
+                </div>
+            </div>
+            <div class="info-promo-container">
+                <img src="{{ asset('assets/info3.png') }}" alt="">
+                <div class="info-promo-text">
+                    <h2 class="info-promo-text-title">Gana una de las 3</h2>
+                    <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
+                </div>
             </div>
         </div>
-
-        <div class="info-promo-container-second">
-            <img src="{{ asset('assets/info2.png') }}" alt="">
-            <div class="info-promo-text-second">
-                <h2 class="info-promo-text-title">Gana una de las 6</h2>
-                <p>Motos Honda Cb100R con diseño y Tecnología con ADN Deportivo</p>
-                <p>Su diseño deportivo, aspecto agresivo y robusto te hará sentir emociones en tu recorrido siendo
-                    una renovación de las mejores sport de Honda.</p>
-            </div>
-        </div>
-
-        <div class="info-promo-container">
-            <img src="{{ asset('assets/info3.png') }}" alt="">
-            <div class="info-promo-text">
-                <h2 class="info-promo-text-title">Gana una de las 3</h2>
-                <p>Camionetas Nissan Kicks 2024-SUV compactas con motos de 1.6 litros y 118 caballos de fuerza.</p>
-            </div>
-        </div>
+        
         <div class="slider-cta">
             <div class="cta-container cta-container-1">
                 <div class="cta-text">
-                    <h2>¡Haz parte de nuestros clientes!</h2>
+                    <h2 class="cta-text-title">¡Haz parte de nuestros clientes!</h2>
                     <p>Regístrate y conoce las mejores marcas</p>
                     <button aria-label="Regístrarme" id="registrame_btn">Regístrarme</button>
                 </div>
@@ -243,7 +244,7 @@
 
             <div class="cta-container cta-container-2">
                 <div class="cta-text">
-                    <h2>¡Haz parte de nuestros clientes!</h2>
+                    <h2 class="cta-text-title">¡Haz parte de nuestros clientes!</h2>
                     <p>Regístrate y empieza a vender las mejores marcas</p>
                     <button aria-label="Quiero ser cliente" id="cliente_btn">Quiero ser cliente</button>
                 </div>

@@ -7,7 +7,7 @@
     flex-direction: row;
     width: 100%;
     margin-bottom: 50px;
-    margin-top: -200px;
+    margin-top: 20px;
     padding: 50px;
     z-index: 1;
 }
@@ -16,12 +16,6 @@
     width: 23%;
 }
 
-.flecha-pasos {
-    width: 6% !important;
-    margin-left: -200px;
-    margin-right: -200px;
-    margin-top: 120px;
-}
 
 /* Info video container */
 
@@ -53,7 +47,7 @@
     padding: 50px;
 }
 
-.info-video-text h2 {
+.info-video-text-title {
     color: #fff;
     font-size: 3rem;
     margin-bottom: 15px;
@@ -114,10 +108,6 @@
         width: 90%;
     }
 
-    .flecha-pasos {
-        display: none;
-    }
-
     /* Video */
 
     .info-video-container {
@@ -136,7 +126,7 @@
         text-align: center;
     }
 
-    .info-video-text h2 {
+    .info-video-text-title {
         font-size: 2rem;
     }
 

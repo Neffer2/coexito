@@ -44,7 +44,7 @@
     text-align: center;
 }
 
-.cta-text h2 {
+.cta-text-title {
     color: #FF6700;
     font-size: 2.3rem;
     margin-bottom: 10px;
@@ -123,7 +123,7 @@
         width: 70%;
     }
 
-    .cta-text h2 {
+    .cta-text-title {
         font-size: 2rem;
     }
 
