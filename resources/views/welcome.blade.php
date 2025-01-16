@@ -116,7 +116,7 @@
                         </form>
                     </div>
                     <div class="register-form">
-                        <h2 class="registro-form-title">Registro</h2>
+                        <h2 class="register-form-title">Registro</h2>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="nombre_register">Nombre</label>
@@ -152,7 +152,7 @@
                                 <div class="checkbox-container">
                                     <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
                                     <label for="terminos_condiciones">
-                                        <a class="terminos-a" href="{{ asset('terminos_condiciones.pdf') }}"
+                                        <a class="terminos-a" target="_blank" href="https://www.coexito.com.co/terminos-y-condiciones-campana-aniversario"
                                             target="_blank">
                                             Términos y condiciones
                                         </a>
@@ -162,7 +162,10 @@
                                 <div class="checkbox-container">
                                     <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
                                     <label for="tratamiento_datos">
-                                        Tratamiento de datos
+                                        <a class="terminos-a" target="_blank" href="https://www.coexito.com.co/politica-datos"
+                                            target="_blank">
+                                            Tratamiento de datos
+                                        </a>
                                     </label>
                                 </div>
 
@@ -224,14 +227,14 @@
                     <h2 class="cta-text-title">¡Síguenos en nuestras redes sociales!</h2>
                     <p>Y celebremos juntos los 70 años de Coéxito recorriendo los caminos de Colombia.</p>
                     <div class="social-icons">
-                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
+                        <a href="https://www.instagram.com/coexitocol/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                        <a href="https://www.facebook.com/coexitocontigo/" target="_blank" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.linkedin.com/company/co%C3%A9xito-s-a/?originalSubdomain=co" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </div>

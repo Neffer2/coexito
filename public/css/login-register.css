@@ -317,7 +317,7 @@
         min-height: 0;
     }
 
-    .login-form-title, .register-form h2 {
+    .login-form-title, .register-form-title {
         font-size: 2.8rem;
     }
 
