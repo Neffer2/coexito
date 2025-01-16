@@ -128,7 +128,7 @@ export class Game extends Phaser.Scene {
 
     getPremio(){
         // Hace rotar las barras al ángulo del a ruleta (RotateAroundDistance funciona con radianes)
-        Phaser.Actions.RotateAroundDistance(bars, { x: (width/2), y: (height/2)}, ruleta.rotation, circumference);
+        Phaser.Actions.RotateAroundDistance(bars, { x: (width/2), y: (height/2) + 35}, ruleta.rotation, circumference);
         /*
             El comportamiento normal del evento es ser ejecutado todo el tiempo mientras este se cumpla.
             Con esto logro ejecutarlo solo una vez.
@@ -197,19 +197,21 @@ export class Game extends Phaser.Scene {
         width = this.game.config.width;
         height = this.game.config.height;
 
-        let base = this.add.image((width/2), (height - 280), 'base');
-        let logo = this.add.image((width/2), 110, 'logo');
+        let base = this.add.image((width/2), (height - 250), 'base');
         let coljuegos = this.add.image((width) - 100, 40, 'coljuegos');
+        let logo = this.add.image((width/2), 110, 'logo');
+        let banner = this.add.image((width/2), 250, 'banner').setScale(1.7);
 
-        let luces = this.add.sprite((width/2), (height/2) - 1.5, 'luces');
-        ruleta = this.add.sprite((width/2), (height/2), 'ruleta');
+        let luces = this.add.sprite((width/2), (height/2)+ 35, 'luces');
+        ruleta = this.add.sprite((width/2), (height/2) + 35, 'ruleta');
+        let logo70 = this.add.image((width/2), (height/2) + 35, 'logo-70');
 
-        puntero = this.physics.add.sprite((width/2), (height/4) + 70, 'puntero');
+        puntero = this.physics.add.sprite((width/2), (height/4) + 80, 'puntero');
         puntero.setSize(true, 80, 10);
-        spinButton = this.physics.add.sprite((width/2), (height - 110), 'girarBtn').setScale(1).setInteractive();
+        spinButton = this.physics.add.sprite((width/2), (height - 95), 'girarBtn').setScale(1).setInteractive();
 
         bars = this.setBars(divisiones, this);
-        const circle = new Phaser.Geom.Circle((width/2), (height/2), circumference);
+        const circle = new Phaser.Geom.Circle((width/2), (height/2) + 35, circumference);
         Phaser.Actions.PlaceOnCircle(bars, circle, 0);
 
         this.anims.create({

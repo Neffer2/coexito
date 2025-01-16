@@ -12,6 +12,8 @@ export class Preloader extends Phaser.Scene {
         this.load.image('puntero', 'puntero.png');
         this.load.image('ruleta', 'ruleta.png');
         this.load.image('logo', 'logo-coexito.png');
+        this.load.image('logo-70', 'logo-70.png');
+        this.load.image('banner', 'banner.png');
         this.load.image('coljuegos', 'logo-coljuegos.png');
         this.load.image('base', 'base.png');
         this.load.image('girarBtn', 'button.png');
