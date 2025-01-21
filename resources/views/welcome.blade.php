@@ -73,17 +73,17 @@
                             participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
                 </div>
                 <div class="info-video">
-                    {{-- <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
+                    <iframe src="https://www.youtube.com/embed/wNHXLV1krO8?si=PfQOPljqSOCBiVB6"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
 
                 <div class="info-video-mobile">
-                    {{-- <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
+                    <iframe src="https://www.youtube.com/embed/wNHXLV1krO8?si=PfQOPljqSOCBiVB6"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
