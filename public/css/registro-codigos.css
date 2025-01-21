@@ -319,7 +319,7 @@
 
 .ranking-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     height: 100%;
@@ -340,24 +340,23 @@
 .ranking-container table {
     width: 100%;
     border-collapse: collapse;
+    color: #fff; 
+    font-size: 1.2rem;
 }
 
 .ranking-container tr {
     border: 1px solid #fff;
-    background-color: #f2f2f2;
+    
 }
 
 .ranking-container td {
     border: 1px solid #fff;
+    background-color: #1085C5;
     padding: 8px;
 }
 
 .ranking-container tr:nth-child(even) {
     background-color: #f9f9f9;
-}
-
-.ranking-container tr:hover {
-    background-color: #ddd;
 }
 
 
@@ -383,6 +382,11 @@
     }
 
     .puntos-registrados {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .ranking-container {
         width: 95%;
         padding: 20px;
     }
@@ -423,7 +427,19 @@
     }
 
     .puntos-registrados h1 {
-        font-size: rem;
+        font-size: 2rem;
+    }
+
+    .ranking-container table {
+        width: 100%;
+    }
+
+    .ranking-container td {
+        padding: 5px;
+    }
+
+    .ranking-container h1 {
+        font-size: 2rem;
     }
 
     .registro-codigos-title {
@@ -438,11 +454,11 @@
         width: 95%;
         justify-content: center;
         align-items: center;
+        margin-top: 50px;
     }
 
-    .ranking-container {
-        width: 95%;
-        padding: 0;
+    .asesor-menu-item button {
+        font-size: 0.9rem;
     }
 }
 
