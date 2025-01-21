@@ -1,5 +1,5 @@
 <div class="registro-codigos">
-    <h2>Registro de códigos</h2>
+    <h2 class="registro-codigos-title">Registro de códigos</h2>
 
     <label for="productos">Selecciona los tipos de producto que compraste:</label>
     <div class="checkbox-container-codigos">

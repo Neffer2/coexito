@@ -1,4 +1,4 @@
-<div class="puntos-registrados">
+<div class="ranking-container">
     <h1>Ranking General</h1>
     <table>
         <tr>

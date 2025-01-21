@@ -204,7 +204,7 @@
                             <div class="main-asesor-container">
                                 <div class="asesor-menu">
                                     <div class="asesor-menu-item">
-                                        <button id="registro_puntos">Registrar Puntos</button>
+                                        <button class="btn-active" id="registro_puntos">Registrar Puntos</button>
                                     </div>
                                     <div class="asesor-menu-item">
                                         <button id="puntos_registrados">Puntos Registrados</button>
@@ -342,43 +342,48 @@
     const registroPuntos = document.getElementById('registro_puntos');
     const puntosRegistrados = document.getElementById('puntos_registrados');
     const rankingGeneral = document.getElementById('ranking_general');
+    const registroPuntosContainer = document.querySelector('.registro-puntos-container');
+    const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
+    const rankingGeneralContainer = document.querySelector('.ranking-general-container');
+
+    function setActive(element) {
+        document.querySelectorAll('.asesor-menu-item button').forEach(btn => {
+            btn.classList.remove('btn-active');
+        });
+        element.classList.add('btn-active');
+    }
 
     if (registroPuntos) {
         registroPuntos.addEventListener('click', () => {
-            const registroPuntosContainer = document.querySelector('.registro-puntos-container');
-            const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
-            const rankingGeneralContainer = document.querySelector('.ranking-general-container');
+
 
             registroPuntosContainer.style.display = 'flex';
             puntosRegistradosContainer.style.display = 'none';
             rankingGeneralContainer.style.display = 'none';
+
+            setActive(registroPuntos);
         });
     }
 
     if (puntosRegistrados) {
         puntosRegistrados.addEventListener('click', () => {
-            const registroPuntosContainer = document.querySelector('.registro-puntos-container');
-            const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
-            const rankingGeneralContainer = document.querySelector('.ranking-general-container');
-
             registroPuntosContainer.style.display = 'none';
             puntosRegistradosContainer.style.display = 'flex';
             rankingGeneralContainer.style.display = 'none';
+
+            setActive(puntosRegistrados);
         });
     }
 
     if (rankingGeneral) {
         rankingGeneral.addEventListener('click', () => {
-            const registroPuntosContainer = document.querySelector('.registro-puntos-container');
-            const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
-            const rankingGeneralContainer = document.querySelector('.ranking-general-container');
-
             registroPuntosContainer.style.display = 'none';
             puntosRegistradosContainer.style.display = 'none';
             rankingGeneralContainer.style.display = 'flex';
+
+            setActive(rankingGeneral);
         });
     }
-
 </script>
 
 </html>

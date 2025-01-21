@@ -18,6 +18,8 @@
 .main-asesor-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
@@ -34,15 +36,41 @@
     gap: 50px;
 }
 
+.btn-active {
+    border: none;
+    background: #FF6700 !important;
+    background-color: #FF6700 !important;
+}
+
+.asesor-menu-item button {
+    padding: 10px;
+    border: #FF6700 1px solid;
+    background: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.asesor-menu-item button:hover {
+    background-color: #FF6700;
+    color: #fff;
+}
+
 .registro-puntos-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .puntos-registrados-container, .ranking-general-container {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
@@ -261,20 +289,25 @@
     color: #fff;
     margin-bottom: 20px;
     font-size: 2.5rem;
+    width: 100%;
+    border-bottom: #FF6700 1px solid;
 }
 
 .puntos-registrados table {
-    width: 70%;
+    width: 100%;
     border-collapse: collapse;
+    color: #fff; 
+    font-size: 1.2rem;
 }
 
 .puntos-registrados tr {
     border: 1px solid #fff;
-    background-color: #f2f2f2;
+    
 }
 
 .puntos-registrados td {
     border: 1px solid #fff;
+    background-color: #1085C5;
     padding: 8px;
 }
 
@@ -282,9 +315,52 @@
     background-color: #f9f9f9;
 }
 
-.puntos-registrados tr:hover {
+/* Ranking */
+
+.ranking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 50px 200px;
+    border: #FF6700 1px solid;
+    background: linear-gradient(to top, #004A99, #007FC8);
+}
+
+.ranking-container h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    width: 100%;
+    border-bottom: #FF6700 1px solid;
+}
+
+.ranking-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-container tr {
+    border: 1px solid #fff;
+    background-color: #f2f2f2;
+}
+
+.ranking-container td {
+    border: 1px solid #fff;
+    padding: 8px;
+}
+
+.ranking-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.ranking-container tr:hover {
     background-color: #ddd;
 }
+
+
 
 /* Mobile media query */
 
@@ -302,12 +378,12 @@
     }
 
     .registro-puntos {
-        width: 90%;
+        width: 95%;
         padding: 20px;
     }
 
     .puntos-registrados {
-        width: 90%;
+        width: 95%;
         padding: 20px;
     }
 
@@ -347,15 +423,26 @@
     }
 
     .puntos-registrados h1 {
-        font-size: 2rem;
+        font-size: rem;
     }
 
-    .registro-codigos h2 {
+    .registro-codigos-title {
         font-size: 2rem;
     }
 
     .registro-puntos h2 {
         font-size: 2rem;
+    }
+
+    .asesor-menu {
+        width: 95%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ranking-container {
+        width: 95%;
+        padding: 0;
     }
 }
 
