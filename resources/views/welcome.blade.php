@@ -48,7 +48,7 @@
                     </div>
                     <div class="button-mobile">
 
-                        <button id="btn_scroll_to_form_mobile">Regístrate</button>
+                        <button id="btn_scroll_to_form_mobile">Participa aquí</button>
                     </div>
 
                 </div>
@@ -119,7 +119,8 @@
                             <input type="text" id="email_login" name="email" placeholder="">
                             <label for="password_login">Contraseña</label>
                             <input type="password" id="password_login" name="password" placeholder="">
-                            <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Regístrate aquí</span>
+                            <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Regístrate
+                                    aquí</span>
                             <p><a href="{{ route('password.request') }}">Olvid&eacute; mi contraseña </a></p>
                             <button type="submit">Aceptar</button>
                         </form>
@@ -189,7 +190,7 @@
                     @if (auth()->user()->rol_id == 1)
                         <div class="codigos-form-container">
                             <div class="codigos-form-text">
-                                <h2>Registra <span>tus códigos </span>ahora</h2>
+                                <h2 class="codigos-form-text-title">Registra <span>tus códigos ahora </span></h2>
                             </div>
                             <div class="codigos-terminos">
                                 <p>Descarga <span>términos y condiciones</span></p>
@@ -200,9 +201,31 @@
                         </div>
                         <livewire:registro-codigos>
                         @elseif(auth()->user()->rol_id == 2)
-                            <livewire:registro-puntos>
-                                <livewire:puntos-registrados>
-                                    <livewire:ranking-fuerza-venta>
+                            <div class="main-asesor-container">
+                                <div class="asesor-menu">
+                                    <div class="asesor-menu-item">
+                                        <button id="registro_puntos">Registrar Puntos</button>
+                                    </div>
+                                    <div class="asesor-menu-item">
+                                        <button id="puntos_registrados">Puntos Registrados</button>
+                                    </div>
+                                    <div class="asesor-menu-item">
+                                        <button id="ranking_general">Ranking General</button>
+                                    </div>
+                                </div>
+                                <div class="asesor-items">
+                                    <div class="registro-puntos-container">
+                                        <livewire:registro-puntos>
+                                    </div>
+                                    <div class="puntos-registrados-container">
+                                        <livewire:puntos-registrados>
+                                    </div>
+                                    <div class="ranking-general-container">
+                                        <livewire:ranking-fuerza-venta>
+                                    </div>
+                                </div>
+
+                            </div>
                     @endif
                 </div>
             @endauth
@@ -316,13 +339,6 @@
         });
     }
 
-    const clienteBtn = document.getElementById('cliente_btn');
-
-    if (clienteBtn) {
-        clienteBtn.addEventListener('click', () => {
-            window.location.href = 'https://www.coexito.com.co/contacto';
-        });
-    }
 </script>
 
 </html>

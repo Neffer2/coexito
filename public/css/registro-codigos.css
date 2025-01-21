@@ -15,6 +15,39 @@
     margin-bottom: 20px;
 }
 
+.main-asesor-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.asesor-items {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.asesor-menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+}
+
+.registro-puntos-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.puntos-registrados-container, .ranking-general-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
 .registro-codigos {
     display: flex;
     justify-content: center;
@@ -152,8 +185,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 33%;
-    padding: 50px;
+    width: 100%;
+    padding: 50px 200px;
     background: linear-gradient(to top, #004A99, #007FC8);
 }
 
