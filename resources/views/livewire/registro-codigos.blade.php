@@ -32,13 +32,13 @@
     @enderror
 
     <div class="upload-container-codigos">
-        <label for="foto_factura">Sube tu factura:</label>
+        <label for="foto_factura">Tómale foto a tu factura:</label>
         <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
             <input id="foto_factura" type="file" accept="image/*" style="display: none;">
             @if ($foto_factura)
                 <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
             @else
-                <p>Click aquí para subir tu factura</p>
+                <p class="camara-img"><i class="fas fa-camera"></i>
             @endif
         </div>
         @error('foto_factura')

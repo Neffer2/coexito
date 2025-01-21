@@ -178,7 +178,7 @@
     padding: 10px;
     border: #fff 2px solid;
     border-radius: 5px;
-    background: none;
+    background-color: #f9f9f9;
     margin-bottom: 20px;
     cursor: pointer;
     text-align: center;
@@ -193,6 +193,11 @@
 .upload-container p {
     color: #fff;
     font-size: 1rem;
+}
+
+.camara-img i{
+    font-size: 3rem;
+    color: #004A99;
 }
 
 /* Registro de puntos */
