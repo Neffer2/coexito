@@ -11,10 +11,10 @@ class PuntosRegistrados extends Component
 {
     use WithPagination;
 
-    #[On('codigo-registrado')]
+    #[On('punto-activado')]
     public function render()
     {
-        $registros = RegistroPunto::select('user_id', 'pdv_id', 'foto_factura', 'foto_kit', 'estado_id', 'created_at')
+        $registros = RegistroPunto::select('user_id', 'pdv_id', 'estado_id', 'created_at')
                     ->where('user_id', auth()->user()->id)
                     ->paginate(5);
 

@@ -7,17 +7,15 @@ use App\Models\PuntosVenta;
 use App\Models\RegistroPunto;
 use App\Models\Departamento;
 use App\Models\User;
-use Livewire\WithFileUploads;
 
 class RegistroPuntos extends Component
 {
-    use WithFileUploads;
 
     // Models
-    public $nit, $foto_factura, $foto_kit, $ciudad, $direccion, $departamento, $departamentos;
+    public $nit, $nombre, $telefono, $ciudad, $direccion, $departamento, $departamentos;
 
-    // Useful vars 
-    public $user; 
+    // Useful vars
+    public $user;
 
     public function render()
     {
@@ -37,9 +35,8 @@ class RegistroPuntos extends Component
     {
         $this->validate([
             'nit' => 'required|numeric',
-            'foto_factura' => 'required|image|max:1024',
-            'foto_factura' => 'required|image|max:1024',
-            'foto_kit' => 'required|image|max:1024',
+            'nombre' => 'required|string',
+            'telefono' => 'required|numeric',
             'direccion' => 'required|string',
             'ciudad' => 'required|string'
         ]);
@@ -60,23 +57,24 @@ class RegistroPuntos extends Component
             $registro = new RegistroPunto();
             $registro->user_id = $this->user->id;
             $registro->pdv_id = $punto->id;
-            $registro->foto_factura = $this->foto_factura->store(path: 'facturas-asesores');
-            $registro->foto_kit = $this->foto_kit->store(path: 'kits-asesores');
             $registro->estado_id = 2;
             $registro->save();
 
             // Punto venta
+            $punto->nombre_contacto = $this->nombre;
+            $punto->telefono = $this->telefono;
             $punto->direccion = $this->direccion;
             $punto->ciudad = $this->ciudad;
+            $punto->estado_id = 2;
             $punto->update();
 
             // Users
-            $this->user->puntos += 5; 
-            $this->user->save();
+            /* SUMA CUNADO SE APRUEBE POR BACKOFFICE*/
+            // $this->user->puntos += 5;
+            // $this->user->save();
 
-            $this->dispatch('codigo-registrado');
-            $this->reset(['nit', 'foto_factura', 'foto_kit', 'ciudad', 'direccion', 'departamento']);
-
+            $this->dispatch('punto-activado');
+            $this->reset(['nit', 'nombre', 'telefono', 'ciudad', 'direccion', 'departamento']);
             return redirect()->back()->with('success', 'Felicidades! el punto se activó exitósamente.');
         }else {
             return redirect()->back()->with('nit-error', '!Oops, este nit no existe o ya está activado en la promoción.');

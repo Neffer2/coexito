@@ -17,8 +17,6 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreign('pdv_id')->references('id')->on('puntos_venta');
             $table->foreignId('pdv_id');
-            $table->string('foto_factura');
-            $table->string('foto_kit');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id');
             $table->timestamps();

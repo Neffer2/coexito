@@ -10,7 +10,7 @@
         </tr>
         @foreach ($registros as $registro)
             <tr>
-                {{-- <td>{{ $registro->pdv->nom_cliente }}</td>
+                <td>{{ $registro->pdv->nombre_cliente }}</td>
                 <td>{{ $registro->pdv->nit }}</td>
                 <td>{{ $registro->pdv->ciudad }}</td>
                 <td>
@@ -22,15 +22,8 @@
                         Rechazado
                     @endif
                 </td>
-                <td>{{ $registro->created_at }}</td> --}}
+                <td>{{ $registro->created_at }}</td>
             </tr>
         @endforeach
-        <tr>
-            <td>Punto1</td>
-            <td>123456789</td>
-            <td>Medellin</td>
-            <td>Aprobado</td>
-            <td>2021-09-01</td>
-        </tr>
     </table>
 </div>

@@ -19,6 +19,18 @@
         {{ $message }}
     @enderror
 
+    <label for="nombre">Cont&aacute;cto (nombre): </label>
+    <input id="nombre" wire:model.lazy="nombre" type="text">
+    @error('nombre')
+        {{ $message }}
+    @enderror
+
+    <label for="telefono">Tel&eacute;fono: </label>
+    <input id="telefono" wire:model.lazy="telefono" type="text">
+    @error('telefono')
+        {{ $message }}
+    @enderror
+
     <label for="departamento" class="register-form-label">Departamento</label>
     <select wire:model.live="departamento" id="departamento" class="register-form-input" name="departamento" value="{{ old('departamento') }}" required>
         <option>Seleccionar</option>
@@ -41,32 +53,6 @@
     </select>
     @error('ciudad')
         <p class="register-form-error">{{ $message }}</p>
-    @enderror
- 
-    <label for="foto_factura">Sube una foto de tu factura: </label>
-    <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
-        <input id="foto_factura" type="file" accept="image/*" style="display: none;">
-        @if ($foto_factura)
-            <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
-        @else
-            <p>Click aquí para subir tu factura</p> 
-        @endif
-    </div>
-    @error('foto_factura')
-        {{ $message }}
-    @enderror
-
-    <label for="foto_kit">Sube una foto del Kit inicial: </label>
-    <div class="upload-container" onclick="document.getElementById('foto_kit').click()">
-        <input id="foto_kit" type="file" accept="image/*" style="display: none;">
-        @if ($foto_kit)
-            <img src="{{ $foto_kit->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
-        @else
-            <p>Sube una foto del Kit inicial</p>
-        @endif
-    </div>
-    @error('foto_kit')
-        {{ $message }}
     @enderror
 
     <button wire:click="ActivarPunto">Activar punto</button>
@@ -166,5 +152,5 @@
         </script>
     @endscript
 
-    
+
 </div>
