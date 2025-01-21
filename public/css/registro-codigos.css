@@ -420,7 +420,7 @@
 
     .puntos-registrados table {
         width: 100%;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .puntos-registrados td {
@@ -433,7 +433,7 @@
 
     .ranking-container table {
         width: 100%;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .ranking-container td {

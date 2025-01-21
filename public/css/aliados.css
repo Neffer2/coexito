@@ -4,6 +4,7 @@
     form {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-100%);
     }
@@ -63,6 +64,17 @@
         padding: 0;
         width: 100%;
         padding: 10px;
+    }
+
+    .aliados-slider {
+        display: inline-block;
+        width: 100%;
+        animation: 6s slide infinite linear;
+    }
+
+    .aliados-slider img {
+        margin: 5px;
+        width: 22%;
     }
 
 }
