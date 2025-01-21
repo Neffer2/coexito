@@ -1,5 +1,5 @@
 <div class="registro-puntos">
-    <h2>Registro de puntos</h2>
+    <h2 class="registro-puntos-title">Registro de puntos</h2>
 
     <label for="nit">Ingresa el Nit del establecimiento: </label>
     <input id="nit" wire:model.lazy="nit" type="text">

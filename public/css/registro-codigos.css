@@ -213,6 +213,12 @@
     background: linear-gradient(to top, #004A99, #007FC8);
 }
 
+.registro-puntos-title {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
 .registro-puntos input[type="text"],
 .registro-puntos button {
     width: 100%;
