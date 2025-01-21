@@ -13,9 +13,17 @@
 
 .codigos-form-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 33%;
     gap: 10px;
+}
+
+.codigos-form-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
 }
 
 .codigos-form-text-title {
@@ -27,6 +35,16 @@
 .codigos-form-text-title span {
     display: block;
     color: #fff;
+}
+
+.codigos-form-text p {
+    color: #fff;
+    font-size: 1.3rem;
+    width: 80%;
+}
+
+.codigos-form-text span {
+    display: block;
 }
 
 .codigos-terminos {
@@ -50,15 +68,6 @@
     margin-bottom: 20px;
 }
 
-.codigos-terminos p {
-    color: #fff;
-    font-size: 1.3rem;
-    width: 70%;
-}
-
-.codigos-terminos span {
-    display: block;
-}
 
 .codigos-terminos a {
     display: flex;
@@ -143,6 +152,7 @@
     color: #fff;
     font-size: 0.9rem;
 }
+
 /* Placeholder */
 .input-form form input::placeholder {
     color: #fff;
@@ -221,7 +231,8 @@
     height: 20px;
 }
 
-#terminos_condiciones, #tratamiento_datos {
+#terminos_condiciones,
+#tratamiento_datos {
     width: 20px;
 }
 
@@ -235,6 +246,32 @@
     color: #fff;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+/* Info codigos raspa y gana */
+
+.info-codigos-form-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 45%;
+    padding: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    border-right: none;
+}
+
+.image-raspaygana {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.image-raspaygana img {
+    width: 100%;
 }
 
 /* Mobile media query */
@@ -256,7 +293,7 @@
     .codigos-form-container {
         width: 100%;
         padding: 20px;
-        gap: 0; 
+        gap: 0;
         text-align: center;
         margin-bottom: 50px;
         margin-top: 50px;
@@ -264,6 +301,11 @@
 
     .codigos-form-text-title {
         font-size: 3.5rem;
+    }
+
+    .codigos-form-text p {
+        width: 100%;
+        text-align: center;
     }
 
     .codigos-terminos {
@@ -284,10 +326,7 @@
         margin-bottom: 20px;
     }
 
-    .codigos-terminos p {
-        width: 100%;
-        text-align: center;
-    }
+
 
     .codigos-terminos a {
         width: 50%;
@@ -301,7 +340,7 @@
         cursor: pointer;
         transition: all 0.3s ease;
     }
-    
+
     .codigos-terminos a:hover {
         background-color: #fff;
         color: #FF6700;
@@ -317,8 +356,20 @@
         min-height: 0;
     }
 
-    .login-form-title, .register-form-title {
+    .login-form-title,
+    .register-form-title {
         font-size: 2.8rem;
+    }
+
+    /* Info */
+
+    .info-codigos-form-container {
+        width: 100%;
+        padding: 20px;
+        gap: 0;
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: 50px;
     }
 
 }

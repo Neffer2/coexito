@@ -188,16 +188,15 @@
             @auth
                 <div class="main-registro-codigos">
                     @if (auth()->user()->rol_id == 1)
-                        <div class="codigos-form-container">
+                        <div class="info-codigos-form-container">
                             <div class="codigos-form-text">
                                 <h2 class="codigos-form-text-title">Registra <span>tus códigos ahora </span></h2>
+                                <p>Encuentra el código para participar <span>en la esquina señalada y gana premios al instante.</span></p>
                             </div>
-                            <div class="codigos-terminos">
-                                <p>Descarga <span>términos y condiciones</span></p>
-                                <a href="{{ asset('legal/coexito-tyc-70.pdf') }}" download>
-                                    Aquí
-                                </a>
+                            <div class="image-raspaygana">
+                                <img src="{{ asset('assets/raspa-y-gana.png') }}" alt="Imagenes raspa y gana">
                             </div>
+                            
                         </div>
                         <livewire:registro-codigos>
                         @elseif(auth()->user()->rol_id == 2)
