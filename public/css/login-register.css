@@ -287,7 +287,8 @@
 }
 
 .image-raspaygana img {
-    width: 100%;
+    width: 180%;
+    margin-right: 250px;
 }
 
 /* Mobile media query */
