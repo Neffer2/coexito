@@ -48,7 +48,7 @@
                     </div>
                     <div class="button-mobile">
 
-                        <button id="btn_scroll_to_form_mobile">Participa aquí</button>
+                        <button id="btn_scroll_to_form_mobile">¡Participa aquí!</button>
                     </div>
 
                 </div>
