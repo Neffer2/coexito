@@ -121,7 +121,7 @@
                             <input type="password" id="password_login" name="password" placeholder="">
                             <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Regístrate
                                     aquí</span>
-                            <p><a href="{{ route('password.request') }}">Olvid&eacute; mi contraseña </a></p>
+                            <p class="recuperar-cont"><a href="{{ route('password.request') }}">Olvid&eacute; mi contraseña </a></p>
                             <button type="submit">Aceptar</button>
                         </form>
                     </div>

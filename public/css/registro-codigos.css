@@ -9,12 +9,6 @@
     padding: 50px;
 }
 
-.main-registro-codigos h2 {
-    color: #fff;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
 .main-asesor-container {
     display: flex;
     flex-direction: column;
@@ -40,6 +34,12 @@
     border: none;
     background: #FF6700 !important;
     background-color: #FF6700 !important;
+}
+
+.registro-codigos-title {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
 }
 
 .asesor-menu-item button {
@@ -445,7 +445,7 @@
     }
 
     .registro-codigos-title {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     .registro-puntos h2 {
