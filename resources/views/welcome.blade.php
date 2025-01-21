@@ -73,17 +73,17 @@
                             participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
                 </div>
                 <div class="info-video">
-                    <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
+                    {{-- <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
                 </div>
 
                 <div class="info-video-mobile">
-                    <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
+                    {{-- <iframe src="https://www.youtube.com/embed/F9IN7aO4P8M?si=WCFZl4mVDm84-QuQ"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
                 </div>
             </div>
         </div>
@@ -336,6 +336,46 @@
     if (registrameBtn) {
         registrameBtn.addEventListener('click', () => {
             window.location.href = 'https://www.coexito.com.co/';
+        });
+    }
+
+    const registroPuntos = document.getElementById('registro_puntos');
+    const puntosRegistrados = document.getElementById('puntos_registrados');
+    const rankingGeneral = document.getElementById('ranking_general');
+
+    if (registroPuntos) {
+        registroPuntos.addEventListener('click', () => {
+            const registroPuntosContainer = document.querySelector('.registro-puntos-container');
+            const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
+            const rankingGeneralContainer = document.querySelector('.ranking-general-container');
+
+            registroPuntosContainer.style.display = 'flex';
+            puntosRegistradosContainer.style.display = 'none';
+            rankingGeneralContainer.style.display = 'none';
+        });
+    }
+
+    if (puntosRegistrados) {
+        puntosRegistrados.addEventListener('click', () => {
+            const registroPuntosContainer = document.querySelector('.registro-puntos-container');
+            const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
+            const rankingGeneralContainer = document.querySelector('.ranking-general-container');
+
+            registroPuntosContainer.style.display = 'none';
+            puntosRegistradosContainer.style.display = 'flex';
+            rankingGeneralContainer.style.display = 'none';
+        });
+    }
+
+    if (rankingGeneral) {
+        rankingGeneral.addEventListener('click', () => {
+            const registroPuntosContainer = document.querySelector('.registro-puntos-container');
+            const puntosRegistradosContainer = document.querySelector('.puntos-registrados-container');
+            const rankingGeneralContainer = document.querySelector('.ranking-general-container');
+
+            registroPuntosContainer.style.display = 'none';
+            puntosRegistradosContainer.style.display = 'none';
+            rankingGeneralContainer.style.display = 'flex';
         });
     }
 

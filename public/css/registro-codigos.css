@@ -120,17 +120,6 @@
     color: #FF6700;
 }
 
-.checkbox-container-codigos-main {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    gap: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 .checkbox-container-codigos {
     display: flex;
     justify-content: flex-start;
@@ -187,6 +176,7 @@
     flex-direction: column;
     width: 100%;
     padding: 50px 200px;
+    border: #FF6700 1px solid;
     background: linear-gradient(to top, #004A99, #007FC8);
 }
 
@@ -261,7 +251,10 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
-    width: 33%;
+    width: 100%;
+    padding: 50px 200px;
+    border: #FF6700 1px solid;
+    background: linear-gradient(to top, #004A99, #007FC8);
 }
 
 .puntos-registrados h1 {

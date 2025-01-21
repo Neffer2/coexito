@@ -2,30 +2,26 @@
     <h2>Registro de códigos</h2>
 
     <label for="productos">Selecciona los tipos de producto que compraste:</label>
-    <div class="checkbox-container-codigos-main">
-        <div class="checkbox-container-codigos">
-            <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
-            <label for="baterias_auto">Bater&iacute;as para auto</label>
-        </div>
-        @error('baterias_auto')
-            {{ $baterias_auto }}
-        @enderror
-        <div class="checkbox-container-codigos">
-            <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
-            <label for="baterias_moto">Bater&iacute;as para moto</label>
-        </div>
+    <div class="checkbox-container-codigos">
+        <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
+        <label for="baterias_auto">Bater&iacute;as para auto</label>
     </div>
-    <div class="checkbox-container-codigos-main">
-        <div class="checkbox-container-codigos-main">
-            <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
-            <label for="lubricantes_auto">Lubricantes para auto</label>
-        </div>
-        <div class="checkbox-container-codigos">
-            <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
-            <label for="lubricantes_moto">Lubricantes para moto</label>
-        </div>
+    @error('baterias_auto')
+        {{ $baterias_auto }}
+    @enderror
+    <div class="checkbox-container-codigos">
+        <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
+        <label for="baterias_moto">Bater&iacute;as para moto</label>
     </div>
-    
+    <div class="checkbox-container-codigos">
+        <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
+        <label for="lubricantes_auto">Lubricantes para auto</label>
+    </div>
+    <div class="checkbox-container-codigos">
+        <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
+        <label for="lubricantes_moto">Lubricantes para moto</label>
+    </div>
+
     <div class="checkbox-container-codigos">
         <input id="energiteca" type="checkbox" wire:model.change="energiteca">
         <label for="energiteca">Productos y servicios en Energiteca y energiteca.com</label>
@@ -50,7 +46,7 @@
         @enderror
     </div>
 
-    
+
 
     <label for="codigo">Ingresa tu código:</label>
     <input id="codigo" wire:model.lazy="codigo" type="text">
