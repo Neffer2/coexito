@@ -43,9 +43,9 @@
 }
 
 .asesor-menu-item button {
-    padding: 10px;
+    padding: 10px 30px;
     border: #FF6700 1px solid;
-    background: none;
+    background-color: #007FC8;
     color: #fff;
     font-weight: bold;
     font-size: 1.4rem;
@@ -420,6 +420,7 @@
 
     .puntos-registrados table {
         width: 100%;
+        font-size: 0.8rem;
     }
 
     .puntos-registrados td {
@@ -432,6 +433,7 @@
 
     .ranking-container table {
         width: 100%;
+        font-size: 0.8rem;
     }
 
     .ranking-container td {
@@ -459,6 +461,7 @@
 
     .asesor-menu-item button {
         font-size: 0.9rem;
+        padding: 10px;
     }
 }
 

@@ -1,7 +1,7 @@
 <div class="registro-codigos">
     <h2 class="registro-codigos-title">Registro de códigos</h2>
 
-    <label for="productos">Selecciona los tipos de producto que compraste:</label>
+    <label for="productos">Elige qué productos compraste:</label>
     <div class="checkbox-container-codigos">
         <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
         <label for="baterias_auto">Bater&iacute;as para auto</label>

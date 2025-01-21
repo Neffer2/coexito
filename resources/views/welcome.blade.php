@@ -30,7 +30,7 @@
 
                 <div class="top-container-right-info">
                     <img src="{{ asset('assets/img-70.png') }}" alt="">
-                    <button id="btn_scroll_to_form">Regístrate</button>
+                    <button id="btn_scroll_to_form">¡Participa aquí!</button>
                 </div>
             </div>
 
