@@ -7,7 +7,15 @@ use Illuminate\Support\Facades\Http;
 
 trait Mail
 {
-    public function mailPremio(){
+    public function welcome(){
+        $this->sendMail([
+            'subject' => "¡Te damos la bienvenida a la promo que premia tu fidelidad!",
+            'mail' => 'mails.bienvenida',
+            'altBody' => "¡Bienvenido!"
+        ]);
+    }
+
+    public function sendMail($data = null){
         require base_path("vendor/autoload.php");
         $mail = new PHPMailer(true);     // Passing `true` enables exceptions
 
@@ -26,15 +34,14 @@ trait Mail
             $mail->setFrom(env('MAIL_USERNAME'), 'Coexitocontigo');
             $mail->addAddress(auth()->user()->email, auth()->user()->name);
 
-            $mail->addAttachment("assets/mail/bienvenida.png", "Descrubre tu premio.png");
+            // $mail->addAttachment("assets/mail/bienvenida.png", "Descrubre tu premio.png");
 
             //Content
             $mail->isHTML(true);
             $mail->CharSet = 'UTF-8';
-            $mail->Subject = "¡Te damos la bienvenida a la promo que premia tu fidelidad!";
-            $mail->Body    = view('mails.bienvenida', ['user' => auth()->user()]);
-            $mail->AltBody = "¡Bienvenido!";
-
+            $mail->Subject =  $data['subject'];
+            $mail->Body    = view($data['mail'], ['user' => auth()->user()]);
+            $mail->AltBody = $data['altBody'];
             $mail->send();
 
         } catch (Exception $e) {
