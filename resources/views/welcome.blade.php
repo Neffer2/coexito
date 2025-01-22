@@ -202,7 +202,7 @@
                         </div>
                         <div class="registro-historial-codigos">
                             <div class="historial-codigos-btn">
-                                <button id="show_registro_codigos">Registro códigos</button>
+                                <button class="btn-active" id="show_registro_codigos">Registro códigos</button>
                                 <button id="show_historial_codigos">Historial códigos</button>
                             </div>
                             <livewire:registro-codigos>
