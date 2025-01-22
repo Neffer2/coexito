@@ -14,7 +14,7 @@ class ShopperController extends Controller
     use Mail;
 
     public function welcome(){
-        if (auth()->user()->rol_id == 1){
+        if (auth()->user() && auth()->user()->rol_id == 1){
             $registros_codigo = RegistroCodigo::where('user_id', auth()->user()->id)->get();
             return view('welcome', ['registros_codigo' => $registros_codigo]);
         }
