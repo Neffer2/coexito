@@ -24,11 +24,10 @@
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
                 <!-- Email Address -->
-                <div>
-                    <label for="email" :value="__('Email')">Digita tu correo</label>
+                    <h2>Recuperar Contraseña</h2>
+                    <label for="email" :value="__('Email')">Correo:</label>
                     <input id="email" type="email"  name="email" :value="old('email')" required autofocus />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                </div>
 
                 <div class="btn-container-recuperar">
                     <x-primary-button>

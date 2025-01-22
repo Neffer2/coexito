@@ -16,14 +16,20 @@
     margin-bottom: 50px;
 }
 
+.recuperar-container h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
 .recuperar-container form {
     width: 100%;
 }
 
 .recuperar-container label {
     color: #fff;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    margin-bottom: 5px;
     display: block;
 }
 
@@ -62,5 +68,25 @@
         width: 90%;
         min-width: 0;
         padding: 20px;
+    }
+
+    .recuperar-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .recuperar-container input[type="email"] {
+        padding: 8px;
+    }
+
+    .recuperar-container .btn-container-recuperar button {
+        padding: 8px 15px;
+    }
+
+    .recuperar-container .btn-container-recuperar button {
+        font-size: 0.9em;
+    }
+
+    .recuperar-container label {
+        font-size: 1em;
     }
 }
