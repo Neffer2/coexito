@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="main-container">
-        <div class="login-register-container">
+        <div class="recuperar-container">
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
                 <!-- Email Address -->
@@ -30,7 +30,7 @@
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="btn-container-recuperar">
                     <x-primary-button>
                         {{ __('Enviar correo de recuperación') }}
                     </x-primary-button>

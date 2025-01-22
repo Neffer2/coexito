@@ -1,3 +1,66 @@
 .main-container {
     height: 100vh;
 }
+
+.recuperar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    min-width: 300px;
+    padding: 50px;
+    background: linear-gradient(to top, #004A99, #007FC8);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.recuperar-container form {
+    width: 100%;
+}
+
+.recuperar-container label {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.recuperar-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.recuperar-container .btn-container-recuperar {
+    display: flex;
+    justify-content: center;
+}
+
+.recuperar-container .btn-container-recuperar button {
+    background-color: #ff6700;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recuperar-container .btn-container-recuperar button:hover {
+    background-color: #e65c00;
+}
+
+/* Mobile media query */
+@media (max-width: 768px) {
+    .recuperar-container {
+        width: 90%;
+        min-width: 0;
+        padding: 20px;
+    }
+}
