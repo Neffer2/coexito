@@ -7,12 +7,13 @@ use App\Models\PuntosVenta;
 use App\Models\RegistroPunto;
 use App\Models\Departamento;
 use App\Models\User;
+use Livewire\WithFileUploads;
 
 class RegistroPuntos extends Component
 {
-
+    use WithFileUploads;
     // Models
-    public $nit, $nombre, $telefono, $ciudad, $direccion, $departamento, $departamentos;
+    public $nit, $nombre, $telefono, $ciudad, $direccion, $departamento, $departamentos, $foto_punto;
 
     // Useful vars
     public $user;
@@ -38,7 +39,8 @@ class RegistroPuntos extends Component
             'nombre' => 'required|string',
             'telefono' => 'required|numeric',
             'direccion' => 'required|string',
-            'ciudad' => 'required|string'
+            'ciudad' => 'required|string',
+            'foto_punto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $punto = PuntosVenta::where('nit', $this->nit)->first();
@@ -65,6 +67,7 @@ class RegistroPuntos extends Component
             $punto->telefono = $this->telefono;
             $punto->direccion = $this->direccion;
             $punto->ciudad = $this->ciudad;
+            $punto->foto_punto = $this->foto_punto->store(path: 'public/fotos-puntos');
             $punto->estado_id = 2;
             $punto->update();
 
@@ -74,7 +77,7 @@ class RegistroPuntos extends Component
             // $this->user->save();
 
             $this->dispatch('punto-activado');
-            $this->reset(['nit', 'nombre', 'telefono', 'ciudad', 'direccion', 'departamento']);
+            $this->reset(['nit', 'nombre', 'telefono', 'ciudad', 'direccion', 'departamento', 'foto_punto']);
             return redirect()->back()->with('success', 'Felicidades! el punto se activó exitósamente.');
         }else {
             return redirect()->back()->with('nit-error', '!Oops, este nit no existe o ya está activado en la promoción.');

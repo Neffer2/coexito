@@ -55,6 +55,22 @@
         <p class="register-form-error">{{ $message }}</p>
     @enderror
 
+    <div class="upload-container-codigos">
+        <label for="foto_punto">Tómale foto al punto de venta:</label>
+        <div class="upload-container" onclick="document.getElementById('foto_punto').click()">
+            <input id="foto_punto" type="file" accept="image/*" style="display: none;">
+            <img id="imagePreviewFactura"
+                src="{{ $foto_punto ? $foto_punto->temporaryUrl(): '' }}">
+
+            @if (!$foto_punto)
+                <p class="camara-img"><i class="fas fa-camera"></i>
+            @endif
+        </div>
+        @error('foto_punto')
+            {{ $message }}
+        @enderror
+    </div>
+
     <button wire:click="ActivarPunto">Activar punto</button>
     @script
         <script>
@@ -63,10 +79,9 @@
             const MIME_TYPE = "image/jpeg";
             const QUALITY = 0.5;
 
-            const foto_factura = document.getElementById("foto_factura");
-            const foto_kit = document.getElementById("foto_kit");
+            const foto_punto = document.getElementById("foto_punto");
 
-            foto_factura.onchange = (ev) => {
+            foto_punto.onchange = (ev) => {
                 const file = ev.target.files[0]; // get the file
                 const blobURL = URL.createObjectURL(file);
                 const img = new Image();
@@ -87,35 +102,7 @@
                     ctx.drawImage(img, 0, 0, newWidth, newHeight);
                     canvas.toBlob(
                         blob => {
-                            upload_foto_factura(blob);
-                        },
-                        MIME_TYPE,
-                        QUALITY);
-                };
-            };
-
-            foto_kit.onchange = (ev) => {
-                const file = ev.target.files[0]; // get the file
-                const blobURL = URL.createObjectURL(file);
-                const img = new Image();
-                img.src = blobURL;
-
-                img.onerror = () => {
-                    URL.revokeObjectURL(this.src);
-                    // Handle the failure properly
-                    console.err("Cannot load image");
-                };
-                img.onload = () => {
-                    URL.revokeObjectURL(this.src);
-                    const [newWidth, newHeight] = calculateSize(img, MAX_WIDTH, MAX_HEIGHT);
-                    const canvas = document.createElement("canvas");
-                    canvas.width = newWidth;
-                    canvas.height = newHeight;
-                    const ctx = canvas.getContext("2d");
-                    ctx.drawImage(img, 0, 0, newWidth, newHeight);
-                    canvas.toBlob(
-                        blob => {
-                            upload_foto_kit(blob);
+                            upload_foto_punto(blob);
                         },
                         MIME_TYPE,
                         QUALITY);
@@ -142,15 +129,9 @@
                 return [width, height];
             }
 
-            const upload_foto_factura = (file) => {
-                $wire.upload('foto_factura', file, (uploadedFilename) => {});
-            }
-
-            const upload_foto_kit = (file) => {
-                $wire.upload('foto_kit', file, (uploadedFilename) => {});
+            const upload_foto_punto = (file) => {
+                $wire.upload('foto_punto', file, (uploadedFilename) => {});
             }
         </script>
     @endscript
-
-
 </div>

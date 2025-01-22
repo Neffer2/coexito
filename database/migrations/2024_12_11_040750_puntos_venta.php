@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->string('ciudad')->nullable();
+            $table->string('foto_punto')->nullable();
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id')->default(3);
             $table->timestamps();
