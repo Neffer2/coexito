@@ -207,7 +207,25 @@
                             </div>
                             <livewire:registro-codigos>
                                 <div class="historial-codigos">
-                                    <div>Hola soy el historial de códigos</div>
+                                    <table>
+                                        <tr>
+                                            <td>C&oacute;digo</td>
+                                            <td>Factura</td>
+                                            <td>Fecha</td>
+                                        </tr>
+                                        @foreach ($registros_codigo as $registro_codigo)
+                                            <tr>
+                                                <td>{{ $registro_codigo->codigo->codigo }}</td>
+                                                <td>
+                                                    @php
+                                                        $foto_factura = str_replace('public/', '', $registro_codigo->foto_factura);
+                                                    @endphp
+                                                    <a href='{{ asset("storage/$foto_factura") }}' target="_blank">Ver</a>
+                                                </td>
+                                                <td>{{ $registro_codigo->created_at }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
                                 </div>
                         </div>
                     @elseif(auth()->user()->rol_id == 2)

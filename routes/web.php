@@ -15,9 +15,7 @@ use App\Http\Controllers\ShopperController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home')->middleware(['shopper']);
+Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper'])->name('home');
 
 Route::get('ruleta', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
 Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);

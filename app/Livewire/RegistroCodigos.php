@@ -48,7 +48,7 @@ class RegistroCodigos extends Component
             $registro_codigo = new RegistroCodigo();
             $registro_codigo->codigo_id = $codigo->id;
             $registro_codigo->user_id = auth()->user()->id;
-            $registro_codigo->foto_factura = $this->foto_factura->store(path: 'facturas-shopper');
+            $registro_codigo->foto_factura = $this->foto_factura->store(path: 'public/facturas-shopper');
             $registro_codigo->baterias_auto = $this->baterias_auto;
             $registro_codigo->baterias_moto = $this->baterias_moto;
             $registro_codigo->lubricantes_auto = $this->lubricantes_auto;
