@@ -121,7 +121,8 @@
                             <input type="password" id="password_login" name="password" placeholder="">
                             <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Regístrate
                                     aquí</span>
-                            <p class="recuperar-cont"><a href="{{ route('password.request') }}">Olvid&eacute; mi contraseña </a></p>
+                            <p class="recuperar-cont"><a href="{{ route('password.request') }}">Olvid&eacute; mi
+                                    contraseña </a></p>
                             <button type="submit">Aceptar</button>
                         </form>
                     </div>
@@ -191,40 +192,50 @@
                         <div class="info-codigos-form-container">
                             <div class="codigos-form-text">
                                 <h2 class="codigos-form-text-title">Registra <span>tus códigos ahora </span></h2>
-                                <p>Encuentra el código para participar <span>en la esquina señalada y gana premios al instante.</span></p>
+                                <p>Encuentra el código para participar <span>en la esquina señalada y gana premios al
+                                        instante.</span></p>
                             </div>
                             <div class="image-raspaygana">
                                 <img src="{{ asset('assets/raspa-y-gana.png') }}" alt="Imagenes raspa y gana">
                             </div>
-                            
-                        </div>
-                        <livewire:registro-codigos>
-                        @elseif(auth()->user()->rol_id == 2)
-                            <div class="main-asesor-container">
-                                <div class="asesor-menu">
-                                    <div class="asesor-menu-item">
-                                        <button class="btn-active" id="registro_puntos">Registrar Puntos</button>
-                                    </div>
-                                    <div class="asesor-menu-item">
-                                        <button id="puntos_registrados">Puntos Registrados</button>
-                                    </div>
-                                    <div class="asesor-menu-item">
-                                        <button id="ranking_general">Ranking General</button>
-                                    </div>
-                                </div>
-                                <div class="asesor-items">
-                                    <div class="registro-puntos-container">
-                                        <livewire:registro-puntos>
-                                    </div>
-                                    <div class="puntos-registrados-container">
-                                        <livewire:puntos-registrados>
-                                    </div>
-                                    <div class="ranking-general-container">
-                                        <livewire:ranking-fuerza-venta>
-                                    </div>
-                                </div>
 
+                        </div>
+                        <div class="registro-historial-codigos">
+                            <div class="historial-codigos-btn">
+                                <button id="show_registro_codigos">Registro códigos</button>
+                                <button id="show_historial_codigos">Historial códigos</button>
                             </div>
+                            <livewire:registro-codigos>
+                                <div class="historial-codigos">
+                                    <div>Hola soy el historial de códigos</div>
+                                </div>
+                        </div>
+                    @elseif(auth()->user()->rol_id == 2)
+                        <div class="main-asesor-container">
+                            <div class="asesor-menu">
+                                <div class="asesor-menu-item">
+                                    <button class="btn-active" id="registro_puntos">Registrar Puntos</button>
+                                </div>
+                                <div class="asesor-menu-item">
+                                    <button id="puntos_registrados">Puntos Registrados</button>
+                                </div>
+                                <div class="asesor-menu-item">
+                                    <button id="ranking_general">Ranking General</button>
+                                </div>
+                            </div>
+                            <div class="asesor-items">
+                                <div class="registro-puntos-container">
+                                    <livewire:registro-puntos>
+                                </div>
+                                <div class="puntos-registrados-container">
+                                    <livewire:puntos-registrados>
+                                </div>
+                                <div class="ranking-general-container">
+                                    <livewire:ranking-fuerza-venta>
+                                </div>
+                            </div>
+
+                        </div>
                     @endif
                 </div>
             @endauth
@@ -381,6 +392,35 @@
             rankingGeneralContainer.style.display = 'flex';
 
             setActive(rankingGeneral);
+        });
+    }
+
+    const showRegistroCodigos = document.getElementById('show_registro_codigos');
+    const showHistorialCodigos = document.getElementById('show_historial_codigos');
+
+    if (showRegistroCodigos) {
+        showRegistroCodigos.addEventListener('click', () => {
+            const registroCodigos = document.querySelector('.registro-codigos');
+            const historialCodigos = document.querySelector('.historial-codigos');
+
+            registroCodigos.style.display = 'flex';
+            historialCodigos.style.display = 'none';
+
+            showRegistroCodigos.classList.add('btn-active');
+            showHistorialCodigos.classList.remove('btn-active');
+        });
+    }
+
+    if (showHistorialCodigos) {
+        showHistorialCodigos.addEventListener('click', () => {
+            const registroCodigos = document.querySelector('.registro-codigos');
+            const historialCodigos = document.querySelector('.historial-codigos');
+
+            registroCodigos.style.display = 'none';
+            historialCodigos.style.display = 'flex';
+
+            showRegistroCodigos.classList.remove('btn-active');
+            showHistorialCodigos.classList.add('btn-active');
         });
     }
 </script>

@@ -406,6 +406,7 @@
 
     .image-raspaygana img {
         width: 85%;
+        margin-right: 0;
     }
 
 }
