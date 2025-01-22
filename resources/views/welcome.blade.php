@@ -207,6 +207,7 @@
                             </div>
                             <livewire:registro-codigos>
                                 <div class="historial-codigos">
+                                    <h2 class="historial-codigos-title">Historial de códigos</h2>
                                     <table>
                                         <tr>
                                             <td>C&oacute;digo</td>
