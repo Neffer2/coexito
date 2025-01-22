@@ -35,7 +35,7 @@ class RegistroCodigos extends Component
             'lubricantes_moto' => 'nullable|boolean',
             'energiteca' => 'nullable|boolean',
             'foto_factura' => 'required|image|max:1024',
-            'codigo' => 'required'
+            'codigo' => 'required|string'
         ]);
         $codigo = Codigo::where([['codigo', $this->codigo],['estado_cod', 1]])->first();
 
@@ -62,7 +62,7 @@ class RegistroCodigos extends Component
 
             return redirect()->route('ruleta')->with('success', 'Código registrado con éxito');
         }else {
-            return redirect()->back()->with('codigo-error', '!Oops, éste código no existe o ya fue registrado');
+            return redirect()->back()->with('codigo_error', '!Oops, éste código no existe o ya fue registrado');
         }
     }
 
@@ -70,12 +70,6 @@ class RegistroCodigos extends Component
     public function updatedFotoFactura(){
         $this->validate([
             'foto_factura' => 'required|image|max:1024'
-        ]);
-    }
-
-    public function updatedTipoProducto(){
-        $this->validate([
-            'tipo_producto' => 'required|string'
         ]);
     }
 }

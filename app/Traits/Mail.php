@@ -48,7 +48,7 @@ trait Mail
 
         try{
             //Server settings
-            $mail->SMTPDebug = true;
+            // $mail->SMTPDebug = true;
             $mail->isSMTP();
             $mail->Host       = env('MAIL_HOST');
             $mail->SMTPAuth   = true;

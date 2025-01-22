@@ -1,5 +1,5 @@
 <div class="puntos-registrados">
-    <h1>Puntos registrados</h1>
+    <h1>Puntos Activados</h1>
     <table>
         <tr>
             <td>Punto de venta</td>

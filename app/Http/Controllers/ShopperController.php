@@ -17,10 +17,6 @@ class ShopperController extends Controller
         return view('ruleta');
     }
 
-    public function mail(){
-        $this->sigueIntentando();
-    }
-
     public function storePremio(Request $request){
         $request->validate([
             'premio' => 'required|numeric'
@@ -41,6 +37,8 @@ class ShopperController extends Controller
             // Stock
             $premio->stock -=1;
             $premio->save();
+        }else{
+            $this->sigueIntentando();
         }
 
         // User

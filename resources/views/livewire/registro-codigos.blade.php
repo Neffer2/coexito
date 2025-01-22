@@ -13,31 +13,39 @@
         <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
         <label for="baterias_moto">Bater&iacute;as para moto</label>
     </div>
+    @error('baterias_moto')
+        {{ $baterias_moto }}
+    @enderror
     <div class="checkbox-container-codigos">
         <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
         <label for="lubricantes_auto">Lubricantes para auto</label>
     </div>
+    @error('lubricantes_auto')
+        {{ $lubricantes_auto }}
+    @enderror
     <div class="checkbox-container-codigos">
         <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
         <label for="lubricantes_moto">Lubricantes para moto</label>
     </div>
-
+    @error('lubricantes_moto')
+        {{ $lubricantes_moto }}
+    @enderror
     <div class="checkbox-container-codigos">
         <input id="energiteca" type="checkbox" wire:model.change="energiteca">
         <label for="energiteca">Productos y servicios en Energiteca y energiteca.com</label>
     </div>
-
-    @error('tipo_producto')
-        {{ $message }}
+    @error('energiteca')
+        {{ $energiteca }}
     @enderror
 
     <div class="upload-container-codigos">
         <label for="foto_factura">Tómale foto a tu factura:</label>
-        <div class="upload-container" onclick="document.getElementById('foto_factura').click()">
-            <input id="foto_factura" type="file" accept="image/*" style="display: none;">
-            @if ($foto_factura)
-                <img src="{{ $foto_factura->temporaryUrl() }}" alt="Foto factura" height="350" width="350">
-            @else
+        <div class="upload-container" onclick="document.getElementById('foto_factura_elem').click()">
+            <input id="foto_factura_elem" type="file" accept="image/*" style="display: none;">
+            <img id="imagePreviewFactura"
+                src="{{ $foto_factura ? $foto_factura->temporaryUrl(): '' }}">
+
+            @if (!$foto_factura)
                 <p class="camara-img"><i class="fas fa-camera"></i>
             @endif
         </div>
@@ -46,15 +54,13 @@
         @enderror
     </div>
 
-
-
     <label for="codigo">Ingresa tu código:</label>
     <input id="codigo" wire:model.lazy="codigo" type="text">
     @error('codigo')
         {{ $message }}
     @enderror
-    @session('codigo-error')
-        {{ session('codigo-error') }}
+    @session('codigo_error')
+        {{ session('codigo_error') }}
     @endsession
 
     <button wire:click="register">Registrar</button>
@@ -65,9 +71,9 @@
             const MIME_TYPE = "image/jpeg";
             const QUALITY = 0.5;
 
-            const foto_factura = document.getElementById("foto_factura");
+            const foto_factura_elem = document.getElementById("foto_factura_elem");
 
-            foto_factura.onchange = (ev) => {
+            foto_factura_elem.onchange = (ev) => {
                 const file = ev.target.files[0]; // get the file
                 const blobURL = URL.createObjectURL(file);
                 const img = new Image();
