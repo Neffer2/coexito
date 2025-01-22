@@ -15,6 +15,33 @@ trait Mail
         ]);
     }
 
+    public function premio($premio_id){
+        $mail = "";
+        if ($premio_id == 101){
+            $mail = 'bono-20';
+        }elseif($premio_id == 102){
+            $mail = 'bono-30';
+        }elseif($premio_id == 103){
+            $mail = 'bono-50';
+        }elseif($premio_id == 103){
+            $mail = 'bono-100';
+        }
+
+        $this->sendMail([
+            'subject' => "¡Te damos la bienvenida a la promo que premia tu fidelidad!",
+            'mail' => 'mails.bienvenida',
+            'altBody' => "¡Bienvenido!"
+        ]);
+    }
+
+    public function sigueIntentando(){
+        $this->sendMail([
+            'subject' => "¡No te rindas!",
+            'mail' => 'mails.sigue-intentado',
+            'altBody' => "¡No te rindas!"
+        ]);
+    }
+
     public function sendMail($data = null){
         require base_path("vendor/autoload.php");
         $mail = new PHPMailer(true);     // Passing `true` enables exceptions

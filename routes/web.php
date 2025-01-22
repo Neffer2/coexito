@@ -17,7 +17,7 @@ use App\Http\Controllers\ShopperController;
 
 Route::get('/trial', [ShopperController::class, 'mail']);
 Route::get('/trial2', function(){
-    return view('mails.bienvenida');
+    return view('mails.sigue-intentado');
 });
 
 Route::get('/', function () {

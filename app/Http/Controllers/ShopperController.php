@@ -18,7 +18,7 @@ class ShopperController extends Controller
     }
 
     public function mail(){
-        $this->welcome();
+        $this->premio(1);
     }
 
     public function storePremio(Request $request){
