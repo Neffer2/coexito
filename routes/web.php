@@ -15,6 +15,11 @@ use App\Http\Controllers\ShopperController;
 |
 */
 
+Route::get('/trial', [ShopperController::class, 'mail']);
+Route::get('/trial2', function(){
+    return view('mails.bienvenida');
+});
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home')->middleware(['shopper']);

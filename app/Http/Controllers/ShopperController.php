@@ -7,11 +7,18 @@ use App\Models\User;
 use App\Models\RegistroCodigo;
 use App\Models\RegistroPremio;
 use App\Models\Premio;
+use App\Traits\Mail;
 
 class ShopperController extends Controller
 {
+    use Mail;
+
     public function index(){
         return view('ruleta');
+    }
+
+    public function mail(){
+        $this->mailPremio();
     }
 
     public function storePremio(Request $request){
