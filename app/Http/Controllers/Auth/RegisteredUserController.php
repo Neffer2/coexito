@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Traits\Mail;
 
 class RegisteredUserController extends Controller
 {
+    use Mail;
     /**
      * Display the registration view.
      */
@@ -60,6 +62,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        $this->welcome($user);
         return redirect(RouteServiceProvider::HOME);
     }
 }
