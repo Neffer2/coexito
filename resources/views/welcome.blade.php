@@ -93,12 +93,14 @@
                 <img src="{{ asset('assets/mac-logo.png') }}" alt="">
                 <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
                 <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+                <img src="{{ asset('assets/optima-logo.png') }}" alt="">
             </div>
             <div class="aliados-slider">
                 <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
                 <img src="{{ asset('assets/mac-logo.png') }}" alt="">
                 <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
                 <img src="{{ asset('assets/magna-logo.png') }}" alt="">
+                <img src="{{ asset('assets/optima-logo.png') }}" alt="">
             </div>
         </div>
         <div class="main-forms-container" id="main_forms_container">

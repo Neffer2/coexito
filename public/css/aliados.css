@@ -20,13 +20,15 @@
 
 .aliados-slider {
     display: inline-block;
-    width: 100%;
+    width: 115%;
     animation: 30s slide infinite linear;
 }
 
 .aliados-slider img {
+    display: inline-block;
     margin: 5px 50px;
-    width: 20%;
+    width: auto;
+    height: 100px;
 }
 
 /* Aliados bottom */
@@ -68,13 +70,14 @@
 
     .aliados-slider {
         display: inline-block;
-        width: 100%;
-        animation: 6s slide infinite linear;
+        width: 150%;
+        animation: 10s slide infinite linear;
     }
 
     .aliados-slider img {
         margin: 5px;
-        width: 22%;
+        width: 150px;
+        height: auto;
     }
 
 }
