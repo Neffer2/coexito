@@ -118,14 +118,20 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <label for="email_login">Correo electrónico</label>
-                            <input type="text" id="email_login" name="email" placeholder="">
+                            <input type="text" id="email_login" name="email" placeholder="" required>
+                            @error('email')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                             <label for="password_login">Contraseña</label>
-                            <input type="password" id="password_login" name="password" placeholder="">
+                            <input type="password" id="password_login" name="password" placeholder="" required>
+                            @error('password')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                             <p>¿No tienes una cuenta? <span class="register-show" id="register_show">Regístrate
                                     aquí</span>
                             <p class="recuperar-cont"><a href="{{ route('password.request') }}">Olvid&eacute; mi
                                     contraseña </a></p>
-                            <button type="submit">Aceptar</button>
+                            <button type="submit">Iniciar</button>
                         </form>
                     </div>
                     <div class="register-form">
@@ -133,31 +139,49 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="nombre_register">Nombre</label>
-                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="" />
+                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="" required/>
+                            @error('nombre')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
 
                             <label for="email_register">Correo electrónico</label>
-                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder="" />
+                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder="" required/>
+                            @error('email')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
 
                             <label for="documento_register">Documento</label>
-                            <input id="documento_register" name="documento" value="{{ old('documento') }}"
-                                placeholder="" />
+                            <input id="documento_register" name="documento" value="{{ old('documento') }}" placeholder="" required />
+                            @error('documento')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
 
                             <label for="telefono_register">Teléfono</label>
-                            <input id="telefono_register" name="telefono" value="{{ old('telefono') }}"
-                                placeholder="" />
+                            <input id="telefono_register" name="telefono" value="{{ old('telefono') }}" placeholder="" required />
+                            @error('telefono')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
 
                             <label for="direccion_register">Dirección</label>
-                            <input id="direccion_register" name="direccion" value="{{ old('direccion') }}"
-                                placeholder="" />
+                            <input id="direccion_register" name="direccion" value="{{ old('direccion') }}" placeholder="" required/>
+                            @error('direccion')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
 
                             <livewire:ciudades-component>
 
                                 <label for="password_register">Contraseña</label>
                                 <input id="password_register" type="password" name="password" placeholder="" />
+                                @error('password')
+                                    <span class="error">{{ $message }}</span>
+                                @enderror
 
                                 <label for="password_confirmation_register">Confirmar contraseña</label>
                                 <input id="password_confirmation_register" type="password" name="password_confirmation"
                                     placeholder="" />
+                                @error('password_confirmation')
+                                    <span class="error">{{ $message }}</span>
+                                @enderror
 
                                 <p>¿Ya tienes una cuenta? <span class="login-show" id="login_show">Inicia sesión</span>
                                 </p>
@@ -172,6 +196,9 @@
                                         </a>
                                     </label>
                                 </div>
+                                @error('terminos_condiciones')
+                                    <span class="error">{{ $message }}</span>
+                                @enderror
 
                                 <div class="checkbox-container">
                                     <input id="tratamiento_datos" type="checkbox" name="tratamiento_datos">
@@ -182,6 +209,9 @@
                                         </a>
                                     </label>
                                 </div>
+                                @error('tratamiento_datos')
+                                    <span class="error">{{ $message }}</span>
+                                @enderror
 
                                 <button type="submit">Registrar</button>
                         </form>
