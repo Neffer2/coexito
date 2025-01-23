@@ -164,7 +164,7 @@
                                     <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
                                     <label for="terminos_condiciones">
                                         <a class="terminos-a" target="_blank"
-                                            href="https://www.coexito.com.co/terminos-y-condiciones-campana-aniversario"
+                                            href="{{ asset('legal/tyc-coexitocontigo.pdf') }}"
                                             target="_blank">
                                             Términos y condiciones
                                         </a>
