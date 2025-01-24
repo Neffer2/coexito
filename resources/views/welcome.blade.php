@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/registro-codigos.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/top-container.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ time() }}">
+    <link rel="shortcut icon" href="{{ asset('assets/icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Coexitocontigo</title>
 </head>
