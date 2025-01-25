@@ -13,14 +13,19 @@ return new class extends Migration
     {
         Schema::create('puntos_venta', function (Blueprint $table) {
             $table->id();
-            $table->string('nit')->unique();
-            $table->string('nombre_cliente');
+            $table->string('num_pdv');
+            $table->string('nit');
+            $table->string('nombre_punto')->nullable();
+            $table->string('nombre_cliente')->nullable();
+            $table->string('zona')->nullable();
             $table->string('correo')->nullable();
             $table->string('nombre_contacto')->nullable();
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->string('ciudad')->nullable();
             $table->string('foto_punto')->nullable();
+            $table->foreign('asesor_id')->references('id')->on('users');
+            $table->foreignId('asesor_id');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id')->default(3);
             $table->timestamps();

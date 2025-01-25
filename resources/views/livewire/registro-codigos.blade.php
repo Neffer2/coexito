@@ -54,14 +54,31 @@
         @enderror
     </div>
 
-    <label for="codigo">Ingresa tu código:</label>
+    <label for="codigo">Ingresa tus códigos:</label>
     <input id="codigo" wire:model.lazy="codigo" type="text">
     @error('codigo')
+        {{ $message }}
+    @enderror
+    @error('codigos')
         {{ $message }}
     @enderror
     @session('codigo_error')
         {{ session('codigo_error') }}
     @endsession
+    <button wire:click="addCodigo">Añadir</button>
+
+    <table>
+        <tr>
+            <td>Codigo</td>
+            <td>Acciones</td>
+        </tr>
+        @foreach ($codigos as $key => $codigo)
+            <tr>
+                <td>{{ $codigo['codigo'] }}</td>
+                <td><button wire:click="removeCodigo({{ $key }})">X</button></td>
+            </tr>
+        @endforeach
+    </table>
 
     <button wire:click="register">Registrar</button>
     @script

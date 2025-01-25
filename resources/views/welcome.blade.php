@@ -196,7 +196,7 @@
                                             Términos y condiciones
                                         </a>
                                     </label>
-                                </div>
+                                </div> 
                                 @error('terminos_condiciones')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
@@ -252,7 +252,7 @@
                                                 <td>{{ $registro_codigo->codigo->codigo }}</td>
                                                 <td>
                                                     @php
-                                                        $foto_factura = str_replace('public/', '', $registro_codigo->foto_factura);
+                                                        $foto_factura = str_replace('public/', '', $registro_codigo->factura->foto_factura);
                                                     @endphp
                                                     <a href='{{ asset("storage/$foto_factura") }}' target="_blank">Ver</a>
                                                 </td>

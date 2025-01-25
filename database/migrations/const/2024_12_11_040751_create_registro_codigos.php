@@ -13,16 +13,12 @@ return new class extends Migration
     {
         Schema::create('registro_codigos', function (Blueprint $table) {
             $table->id();
+            $table->foreign('factura_id')->references('id')->on('registro_facturas');
+            $table->foreignId('factura_id');
             $table->foreign('codigo_id')->references('id')->on('codigos');
             $table->foreignId('codigo_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('user_id');
-            $table->string('foto_factura');
-            $table->boolean('baterias_auto')->nullable();
-            $table->boolean('baterias_moto')->nullable();
-            $table->boolean('lubricantes_auto')->nullable();
-            $table->boolean('lubricantes_moto')->nullable();
-            $table->boolean('energiteca')->nullable();
             $table->timestamps();
         });
     }
