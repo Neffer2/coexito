@@ -2,40 +2,60 @@
     <h2 class="registro-codigos-title">Registro de códigos</h2>
 
     <label for="productos">Elige qué productos compraste:</label>
-    <div class="checkbox-container-codigos">
-        <input id="baterias_auto" type="checkbox" wire:model.change="baterias_auto">
-        <label for="baterias_auto">Bater&iacute;as para auto</label>
+    <div class="select-container">
+        <label for="">Productos para auto</label>
+        <select wire:model.change="productos_auto" multiple>
+            <optgroup label="Bater&iacute;as">
+                <option value="Mac_auto">Bater&aacute;s Mac</option>
+                <option value="Baterias_coexito_auto">Coéxito baterías automotrices</option>
+                <option value="Varta_auto">Bater&aacute;s Varta</option>
+                <option value="Tudor_auto">Bater&aacute;s Tudor</option>
+                <option value="Taxi_auto">Bater&aacute;s Power Taxi</option>
+                <option value="Faico_auto">Bater&aacute;s Faico</option>
+                <option value="Magna_auto">Bater&aacute;s Magna</option>
+                <option value="optima_auto">Bater&aacute;s Optima</option>
+            </optgroup>
+            <optgroup label="Lubricantes">
+                <option value="Lubricantes_coexito_auto">Co&eacute;xito Lubricantes</option>
+            </optgroup>
+            <optgroup label="Repuestos">
+                <option value="Autopartes_coexito_auto">Co&eacute;ito Autopartes</option>
+            </optgroup>
+            <option value="">NO APLICA</option>
+        </select>
     </div>
-    @error('baterias_auto')
-        {{ $baterias_auto }}
+    @error('productos_auto')
+        <span class="error">{{ $message }}</span>
     @enderror
-    <div class="checkbox-container-codigos">
-        <input id="baterias_moto" type="checkbox" wire:model.change="baterias_moto">
-        <label for="baterias_moto">Bater&iacute;as para moto</label>
+
+    <div class="select-container">
+        <label for="">Productos para moto</label>
+        <select wire:model.change="productos_moto" multiple>
+            <optgroup label="Bater&iacute;as">
+                <option value="Magna_moto">Bater&aacute;s Magna</option>
+                <option value="Baterias_coexito_auto">Coéxito baterías para moto</option>
+            </optgroup>
+            <optgroup label="Lubricantes">
+                <option value="Lubricantes_magna_moto">Moto Magna Lub</option>
+            </optgroup>
+            <optgroup label="Repuestos">
+                <option value="Autopartes_coexito_moto">Co&eacute;xito Motopartes</option>
+            </optgroup>
+            <option value="">NO APLICA</option>
+        </select>
     </div>
-    @error('baterias_moto')
-        {{ $baterias_moto }}
+    @error('productos_moto')
+        <span class="error">{{ $message }}</span>
     @enderror
-    <div class="checkbox-container-codigos">
-        <input id="lubricantes_auto" type="checkbox" wire:model.change="lubricantes_auto">
-        <label for="lubricantes_auto">Lubricantes para auto</label>
+    <div class="select-container">
+        <label for="">Productos y servicios</label>
+        <select wire:model.change="productos_energiteca_servicios" multiple>
+            <option value="Energiteca">Energiteca</option>
+            <option value="">NO APLICA</option>
+        </select>
     </div>
-    @error('lubricantes_auto')
-        {{ $lubricantes_auto }}
-    @enderror
-    <div class="checkbox-container-codigos">
-        <input id="lubricantes_moto" type="checkbox" wire:model.change="lubricantes_moto">
-        <label for="lubricantes_moto">Lubricantes para moto</label>
-    </div>
-    @error('lubricantes_moto')
-        {{ $lubricantes_moto }}
-    @enderror
-    <div class="checkbox-container-codigos">
-        <input id="energiteca" type="checkbox" wire:model.change="energiteca">
-        <label for="energiteca">Productos y servicios en Energiteca y energiteca.com</label>
-    </div>
-    @error('energiteca')
-        {{ $energiteca }}
+    @error('productos_energiteca_servicios')
+        <span class="error">{{ $message }}</span>
     @enderror
 
     <div class="upload-container-codigos">
@@ -49,7 +69,7 @@
             @endif
         </div>
         @error('foto_factura')
-            {{ $message }}
+            <span class="error">{{ $message }}</span>
         @enderror
     </div>
     <label for="codigo">Ingresa tus códigos:</label>
@@ -63,13 +83,13 @@
         </div>
     </div>
     @error('codigo')
-        {{ $message }}
+        <span class="error">{{ $message }}</span>
     @enderror
     @error('codigos')
-        {{ $message }}
+        <span class="error">{{ $message }}</span>
     @enderror
     @session('codigo_error')
-        <div class="error">{{ session('codigo_error') }}</div>
+        <span class="error">{{ session('codigo_error') }}</span>
     @endsession
 
     <table class="codigos-table">

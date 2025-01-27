@@ -16,11 +16,9 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('user_id');
             $table->string('foto_factura');
-            $table->boolean('baterias_auto')->nullable();
-            $table->boolean('baterias_moto')->nullable();
-            $table->boolean('lubricantes_auto')->nullable();
-            $table->boolean('lubricantes_moto')->nullable();
-            $table->boolean('energiteca')->nullable();
+            $table->string('productos_auto')->nullable();
+            $table->string('productos_moto')->nullable();
+            $table->string('productos_energiteca_servicios')->nullable();
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id')->default(2);
             $table->timestamps();

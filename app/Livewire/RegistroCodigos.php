@@ -14,7 +14,7 @@ class RegistroCodigos extends Component
     use WithFileUploads;
 
     // Models
-    public $codigo, $foto_factura, $baterias_auto, $baterias_moto, $lubricantes_auto, $lubricantes_moto, $energiteca;
+    public $codigo, $foto_factura, $productos_auto, $productos_moto, $productos_energiteca_servicios;
 
     // Useful vars
     public $user, $codigos = [];
@@ -31,11 +31,9 @@ class RegistroCodigos extends Component
     public function register(){
         $this->validateCodigos();
         $this->validate([
-            'baterias_auto' => 'nullable|boolean',
-            'baterias_moto' => 'nullable|boolean',
-            'lubricantes_auto' => 'nullable|boolean',
-            'lubricantes_moto' => 'nullable|boolean',
-            'energiteca' => 'nullable|boolean',
+            'productos_auto' => 'nullable|array',
+            'productos_moto' => 'nullable|array',
+            'productos_energiteca_servicios' => 'nullable|array',
             'foto_factura' => 'required|image|max:1024'
         ]);
 
@@ -43,11 +41,9 @@ class RegistroCodigos extends Component
         $registro_factura = new RegistroFactura();
         $registro_factura->user_id = auth()->user()->id;
         $registro_factura->foto_factura = $this->foto_factura->store(path: 'public/facturas-shopper');
-        $registro_factura->baterias_auto = $this->baterias_auto;
-        $registro_factura->baterias_moto = $this->baterias_moto;
-        $registro_factura->lubricantes_auto = $this->lubricantes_auto;
-        $registro_factura->lubricantes_moto = $this->lubricantes_moto;
-        $registro_factura->energiteca = $this->energiteca;
+        $registro_factura->productos_auto = implode(", ", $this->productos_auto);
+        $registro_factura->productos_moto = implode(", ", $this->productos_moto);
+        $registro_factura->productos_energiteca_servicios = implode(", ", $this->productos_energiteca_servicios);
         $registro_factura->save();
 
         foreach ($this->codigos as $codigo){
