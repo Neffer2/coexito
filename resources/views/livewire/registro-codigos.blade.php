@@ -56,20 +56,21 @@
     <div class="ingresa-codigo-container">
         <div class="ingresa-codigo-input">
             <input id="codigo" wire:model.lazy="codigo" type="text">
-            @error('codigo')
-                {{ $message }}
-            @enderror
-            @error('codigos')
-                {{ $message }}
-            @enderror
-            @session('codigo_error')
-                {{ session('codigo_error') }}
-            @endsession
         </div>
+
         <div class="ingresa-codigo-button">
             <button wire:click="addCodigo">Añadir</button>
         </div>
     </div>
+    @error('codigo')
+        {{ $message }}
+    @enderror
+    @error('codigos')
+        {{ $message }}
+    @enderror
+    @session('codigo_error')
+        <div class="error">{{ session('codigo_error') }}</div>
+    @endsession
 
     <table class="codigos-table">
         <thead>
@@ -82,7 +83,8 @@
             @foreach ($codigos as $key => $codigo)
                 <tr class="table-row">
                     <td class="codigo-cell">{{ $codigo['codigo'] }}</td>
-                    <td class="acciones-cell"><button class="remove-button" wire:click="removeCodigo({{ $key }})">X</button></td>
+                    <td class="acciones-cell"><button class="remove-button"
+                            wire:click="removeCodigo({{ $key }})">X</button></td>
                 </tr>
             @endforeach
         </tbody>
