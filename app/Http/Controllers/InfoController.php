@@ -32,7 +32,7 @@ class InfoController extends Controller
     }
 
     public function getPuntoVenta($nit){
-        $puntoVenta = PuntosVenta::select('id', 'nit', 'nom_cliente')->where('nit', $nit)->first();
+        $puntoVenta = PuntosVenta::select('id', 'nit', 'nombre_cliente')->where('nit', $nit)->first();
         if(!$puntoVenta){
             return response()->json(['message' => 'Punto de venta no encontrado'], 404);
         }
@@ -91,20 +91,17 @@ class InfoController extends Controller
     public function registratServicio(Request $request){
         $request->validate([
             'recomendador_id' => 'required',
-            'serial' => 'required',
-            'foto_factura' => 'required'
+            'foto_factura' => 'required',
+            'num_factura' => 'required',
+            'num_bonos' => 'required'
         ]);
-
-        $codigo = Codigo::select('id')->where([['serial', 'LIKE', "%$request->serial%"],['estado_serial', 1]])->first();
-        if (!$codigo){ return response()->json(['message' => 'Codigo ya registrado', 'status' => 404], 404); }
-        $codigo->estado_serial = 3;
-        $codigo->save();
 
         $foto_factura = (!is_null($request->foto_factura)) ? $this->uploadFile($request->foto_factura) : null;
 
         $servicio = new RegistroServicio;
         $servicio->recomendador_id = $request->recomendador_id;
-        $servicio->codigo_id = $codigo->id;
+        $servicio->num_factura = $request->num_factura;
+        $servicio->num_bonos = $request->num_bonos;
         $servicio->foto_factura = $foto_factura;
 
         if ($servicio->save()){
