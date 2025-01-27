@@ -140,31 +140,36 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <label for="nombre_register">Nombre</label>
-                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder="" required/>
+                            <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder=""
+                                required />
                             @error('nombre')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
                             <label for="email_register">Correo electrónico</label>
-                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder="" required/>
+                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder=""
+                                required />
                             @error('email')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
                             <label for="documento_register">Documento</label>
-                            <input id="documento_register" name="documento" value="{{ old('documento') }}" placeholder="" required />
+                            <input id="documento_register" name="documento" value="{{ old('documento') }}"
+                                placeholder="" required />
                             @error('documento')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
                             <label for="telefono_register">Teléfono</label>
-                            <input id="telefono_register" name="telefono" value="{{ old('telefono') }}" placeholder="" required />
+                            <input id="telefono_register" name="telefono" value="{{ old('telefono') }}" placeholder=""
+                                required />
                             @error('telefono')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
                             <label for="direccion_register">Dirección</label>
-                            <input id="direccion_register" name="direccion" value="{{ old('direccion') }}" placeholder="" required/>
+                            <input id="direccion_register" name="direccion" value="{{ old('direccion') }}"
+                                placeholder="" required />
                             @error('direccion')
                                 <span class="error">{{ $message }}</span>
                             @enderror
@@ -191,12 +196,11 @@
                                     <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
                                     <label for="terminos_condiciones">
                                         <a class="terminos-a" target="_blank"
-                                            href="{{ asset('legal/tyc-coexitocontigo.pdf') }}"
-                                            target="_blank">
+                                            href="{{ asset('legal/tyc-coexitocontigo.pdf') }}" target="_blank">
                                             Términos y condiciones
                                         </a>
                                     </label>
-                                </div> 
+                                </div>
                                 @error('terminos_condiciones')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
@@ -252,9 +256,14 @@
                                                 <td>{{ $registro_codigo->codigo->codigo }}</td>
                                                 <td>
                                                     @php
-                                                        $foto_factura = str_replace('public/', '', $registro_codigo->factura->foto_factura);
+                                                        $foto_factura = str_replace(
+                                                            'public/',
+                                                            '',
+                                                            $registro_codigo->factura->foto_factura,
+                                                        );
                                                     @endphp
-                                                    <a href='{{ asset("storage/$foto_factura") }}' target="_blank">Ver</a>
+                                                    <a href='{{ asset("storage/$foto_factura") }}'
+                                                        target="_blank">Ver</a>
                                                 </td>
                                                 <td>{{ $registro_codigo->created_at }}</td>
                                             </tr>
@@ -355,17 +364,27 @@
 
     if (btnScrolltoForm) {
         btnScrolltoForm.addEventListener('click', function() {
-            document.getElementById('main_forms_container').scrollIntoView({
-                behavior: 'smooth'
-            });
+
+            const mainFormsContainer = document.getElementById('main_forms_container');
+
+            if (mainFormsContainer) {
+                mainFormsContainer.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     }
 
     if (btnScrolltoFormMobile) {
         btnScrolltoFormMobile.addEventListener('click', function() {
-            document.getElementById('main_login_register_container').scrollIntoView({
-                behavior: 'smooth'
-            });
+
+            const mainLoginRegisterContainer = document.getElementById('main_login_register_container');
+
+            if (mainLoginRegisterContainer) {
+                mainLoginRegisterContainer.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     }
 
