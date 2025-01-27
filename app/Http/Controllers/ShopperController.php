@@ -21,7 +21,7 @@ class ShopperController extends Controller
 
         return view('welcome');
     }
-    public function index(){
+    public function index($factura_id){
         return view('ruleta');
     }
 

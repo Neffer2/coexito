@@ -63,15 +63,15 @@ class RegistroCodigos extends Component
                 $registro_codigo->codigo_id = $codigo->id;
                 $registro_codigo->user_id = auth()->user()->id;
                 $registro_codigo->save();
-            }else { 
+            }else {
                 return redirect()->back()->with('codigo_error', "!Oops, el código ".$codigo." no existe o ya fue registrado");
             }
-        }        
+        }
 
         // User
         $this->user->estado_id = 4;
         $this->user->save();
-        return redirect()->route('ruleta')->with('success', 'Código registrado con éxito');
+        return redirect()->route('ruleta')->with('success', 'Código registrado con éxito', ['factura_id' => $registro_factura->id]);
     }
 
     public function validateCodigos(){
@@ -113,4 +113,4 @@ class RegistroCodigos extends Component
             'foto_factura' => 'required|image|max:1024'
         ]);
     }
-} 
+}

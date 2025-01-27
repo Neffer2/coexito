@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('registro_premios', function (Blueprint $table) {
             $table->id();
+            $table->foreign('factura_id')->references('id')->on('registro_facturas');
+            $table->foreignId('factura_id');
             $table->foreign('premio_id')->references('id')->on('premios');
             $table->foreignId('premio_id');
             $table->foreign('user_id')->references('id')->on('users');
