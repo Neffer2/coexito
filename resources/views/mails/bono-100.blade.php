@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="https://coexitocontigo.com/" target="_blank">
-        <img src="{{ asset('assets/mail/bono-intentando.png') }}" alt="Sigue intentado" width="800">
+        <img src="{{ asset('assets/mail/bono-100.png') }}" alt="Tu bono está en validación" width="800">
     </a>
 </body>
 </html>

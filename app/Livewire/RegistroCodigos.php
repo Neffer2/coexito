@@ -71,7 +71,7 @@ class RegistroCodigos extends Component
         // User
         $this->user->estado_id = 4;
         $this->user->save();
-        return redirect()->route('ruleta')->with('success', 'Código registrado con éxito', ['factura_id' => $registro_factura->id]);
+        return redirect()->route('ruleta', ['factura_id' => $registro_factura->id])->with('success', 'Código registrado con éxito');
     }
 
     public function validateCodigos(){

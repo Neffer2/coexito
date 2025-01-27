@@ -11,6 +11,9 @@
     <div id="game-container-desk"></div>
     <div id="game-container-mobile"></div>
 
+    <script>
+        let factura_id = <?php echo json_encode($factura_id); ?>;
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="{{ asset('src/phaser.min.js') }}"></script>
     <script type="module" src="{{ asset('src/desk/main.js') }}"></script>

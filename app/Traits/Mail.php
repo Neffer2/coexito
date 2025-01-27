@@ -18,19 +18,19 @@ trait Mail
     public function premio($premio_id){
         $mail = "";
         if ($premio_id == 101){
-            $mail = 'bono-20';
+            $mail = 'mails.bono-20';
         }elseif($premio_id == 102){
-            $mail = 'bono-30';
+            $mail = 'mails.bono-30';
         }elseif($premio_id == 103){
-            $mail = 'bono-50';
-        }elseif($premio_id == 103){
-            $mail = 'bono-100';
+            $mail = 'mails.bono-50';
+        }elseif($premio_id == 104){
+            $mail = 'mails.bono-100';
         }
 
         $this->sendMail([
-            'subject' => "¡Te damos la bienvenida a la promo que premia tu fidelidad!",
-            'mail' => 'mails.bienvenida',
-            'altBody' => "¡Bienvenido!"
+            'subject' => "¡Felicidades!",
+            'mail' => $mail,
+            'altBody' => "¡Felicidades!"
         ]);
     }
 

@@ -22,7 +22,7 @@ class ShopperController extends Controller
         return view('welcome');
     }
     public function index($factura_id){
-        return view('ruleta');
+        return view('ruleta', ['factura_id' => $factura_id]);
     }
 
     public function storePremio(Request $request){
@@ -38,10 +38,12 @@ class ShopperController extends Controller
         if ($premio){
             // Registro Premio
             $registro_premio = new RegistroPremio();
+            $registro_premio->factura_id = $request->factura_id;
             $registro_premio->premio_id = $premio->id;
             $registro_premio->user_id = auth()->user()->id;
             $registro_premio->save();
 
+            $this->premio($registro_premio->premio_id);
             // Stock
             $premio->stock -=1;
             $premio->save();

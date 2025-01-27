@@ -75,7 +75,7 @@
     <table class="codigos-table">
         <thead>
             <tr class="table-header">
-                <th>Codigo</th>
+                <th>C&oacute;digo</th>
                 <th>Acciones</th>
             </tr>
         </thead>

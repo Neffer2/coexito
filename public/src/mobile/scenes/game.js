@@ -145,6 +145,7 @@ export class Game extends Phaser.Scene {
                         if (enablePost){
                             enablePost = false;
                             axios.post('/store-premio', {
+                                factura_id: factura_id,
                                 premio: bar.premio.codigo
                             })
                             .then(function (response) {
