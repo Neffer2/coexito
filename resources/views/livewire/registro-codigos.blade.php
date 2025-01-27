@@ -42,8 +42,7 @@
         <label for="foto_factura">Tómale foto a tu factura:</label>
         <div class="upload-container" onclick="document.getElementById('foto_factura_elem').click()">
             <input id="foto_factura_elem" type="file" accept="image/*" style="display: none;">
-            <img id="imagePreviewFactura"
-                src="{{ $foto_factura ? $foto_factura->temporaryUrl(): '' }}">
+            <img id="imagePreviewFactura" src="{{ $foto_factura ? $foto_factura->temporaryUrl() : '' }}">
 
             @if (!$foto_factura)
                 <p class="camara-img"><i class="fas fa-camera"></i>
@@ -53,31 +52,40 @@
             {{ $message }}
         @enderror
     </div>
-
     <label for="codigo">Ingresa tus códigos:</label>
-    <input id="codigo" wire:model.lazy="codigo" type="text">
-    @error('codigo')
-        {{ $message }}
-    @enderror
-    @error('codigos')
-        {{ $message }}
-    @enderror
-    @session('codigo_error')
-        {{ session('codigo_error') }}
-    @endsession
-    <button wire:click="addCodigo">Añadir</button>
+    <div class="ingresa-codigo-container">
+        <div class="ingresa-codigo-input">
+            <input id="codigo" wire:model.lazy="codigo" type="text">
+            @error('codigo')
+                {{ $message }}
+            @enderror
+            @error('codigos')
+                {{ $message }}
+            @enderror
+            @session('codigo_error')
+                {{ session('codigo_error') }}
+            @endsession
+        </div>
+        <div class="ingresa-codigo-button">
+            <button wire:click="addCodigo">Añadir</button>
+        </div>
+    </div>
 
-    <table>
-        <tr>
-            <td>Codigo</td>
-            <td>Acciones</td>
-        </tr>
-        @foreach ($codigos as $key => $codigo)
-            <tr>
-                <td>{{ $codigo['codigo'] }}</td>
-                <td><button wire:click="removeCodigo({{ $key }})">X</button></td>
+    <table class="codigos-table">
+        <thead>
+            <tr class="table-header">
+                <th>Codigo</th>
+                <th>Acciones</th>
             </tr>
-        @endforeach
+        </thead>
+        <tbody>
+            @foreach ($codigos as $key => $codigo)
+                <tr class="table-row">
+                    <td class="codigo-cell">{{ $codigo['codigo'] }}</td>
+                    <td class="acciones-cell"><button class="remove-button" wire:click="removeCodigo({{ $key }})">X</button></td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
 
     <button wire:click="register">Registrar</button>
