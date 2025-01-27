@@ -359,6 +359,9 @@
 
 </body>
 <script>
+
+
+
     const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
     const btnScrolltoFormMobile = document.getElementById('btn_scroll_to_form_mobile');
 
@@ -387,6 +390,19 @@
             }
         });
     }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {     
+            const mainFormsContainer = document.getElementById('main_forms_container');
+
+            if (mainFormsContainer) {
+                mainFormsContainer.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }, 1000);
+    });
 
     const registroShow = document.getElementById('register_show');
 
