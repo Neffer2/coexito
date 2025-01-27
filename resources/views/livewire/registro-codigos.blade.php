@@ -19,7 +19,7 @@
                 <option value="Lubricantes_coexito_auto">Co&eacute;xito Lubricantes</option>
             </optgroup>
             <optgroup label="Repuestos">
-                <option value="Autopartes_coexito_auto">Co&eacute;ito Autopartes</option>
+                <option value="Autopartes_coexito_auto">Co&eacute;xito Autopartes</option>
             </optgroup>
             <option value="">NO APLICA</option>
         </select>
@@ -33,7 +33,7 @@
         <select wire:model.change="productos_moto" multiple>
             <optgroup label="Bater&iacute;as">
                 <option value="Magna_moto">Bater&aacute;s Magna</option>
-                <option value="Baterias_coexito_auto">Coéxito baterías para moto</option>
+                <option value="Baterias_coexito_auto">Co&eacute;xito baterías para moto</option>
             </optgroup>
             <optgroup label="Lubricantes">
                 <option value="Lubricantes_magna_moto">Moto Magna Lub</option>
