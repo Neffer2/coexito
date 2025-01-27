@@ -70,7 +70,7 @@
 
     .aliados-slider {
         display: inline-block;
-        width: 150%;
+        width: 230%;
         animation: 10s slide infinite linear;
     }
 
