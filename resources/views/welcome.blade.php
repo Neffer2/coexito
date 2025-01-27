@@ -113,7 +113,7 @@
                             por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p>
                     </div>
                 </div>
-                <div class="login-register-container">
+                <div class="login-register-container" id="main_login_register_container">
                     <div class="login-form">
                         <h2 class="login-form-title">Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
@@ -363,7 +363,7 @@
 
     if (btnScrolltoFormMobile) {
         btnScrolltoFormMobile.addEventListener('click', function() {
-            document.getElementById('main_forms_container').scrollIntoView({
+            document.getElementById('main_login_register_container').scrollIntoView({
                 behavior: 'smooth'
             });
         });
