@@ -7,10 +7,10 @@
         {{ $message }}
     @enderror
     @session('nit-error')
-        {{ session('nit-error') }}
+        <div class="error"> {{ session('nit-error') }}</div>
     @endsession
     @session('success')
-        {{ session('success') }}
+        <div class="error">{{ session('success') }}</div>
     @endsession
 
     <label for="direccion">Digita la direcci&oacute;n del establecimmiento: </label>
@@ -32,7 +32,8 @@
     @enderror
 
     <label for="departamento" class="register-form-label">Departamento</label>
-    <select wire:model.live="departamento" id="departamento" class="register-form-input" name="departamento" value="{{ old('departamento') }}" required>
+    <select wire:model.live="departamento" id="departamento" class="register-form-input" name="departamento"
+        value="{{ old('departamento') }}" required>
         <option>Seleccionar</option>
         @foreach ($departamentos as $departamento)
             <option value="{{ $departamento->id }}">{{ $departamento->descripcion }}</option>
@@ -43,7 +44,8 @@
     @enderror
 
     <label for="ciudad" class="register-form-label">Ciudad</label>
-    <select id="ciudad" class="register-form-input" name="ciudad" wire:model.change="ciudad" value="{{ old('ciudad') }}" required>
+    <select id="ciudad" class="register-form-input" name="ciudad" wire:model.change="ciudad"
+        value="{{ old('ciudad') }}" required>
         <option>Seleccionar</option>
         @if ($this->departamento)
             @foreach ($departamentos->where('id', $this->departamento)->first()->ciudades as $ciudad)
@@ -59,8 +61,7 @@
         <label for="foto_punto">Tómale foto al punto de venta:</label>
         <div class="upload-container" onclick="document.getElementById('foto_punto').click()">
             <input id="foto_punto" type="file" accept="image/*" style="display: none;">
-            <img id="imagePreviewFactura"
-                src="{{ $foto_punto ? $foto_punto->temporaryUrl(): '' }}">
+            <img id="imagePreviewFactura" src="{{ $foto_punto ? $foto_punto->temporaryUrl() : '' }}">
 
             @if (!$foto_punto)
                 <p class="camara-img"><i class="fas fa-camera"></i>
