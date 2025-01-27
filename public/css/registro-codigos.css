@@ -524,6 +524,16 @@
     background-color: #f9f9f9;
 }
 
+.select-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
 
 
 /* Mobile media query */

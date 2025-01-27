@@ -1,6 +1,6 @@
 <div>
     <div class="register-form-group">
-        <label for="departamento" class="register-form-label">Departamento</label>
+        <label for="departamento" class="register-form-label">Departamento:</label>
         <select wire:model.live="departamento" id="departamento" class="register-form-input" name="departamento" value="{{ old('departamento') }}" required>
             <option>Seleccionar</option>
             @foreach ($departamentos as $departamento)
@@ -13,7 +13,7 @@
     </div>
 
     <div class="register-form-group">
-        <label for="ciudad" class="register-form-label">Ciudad</label>
+        <label for="ciudad" class="register-form-label">Ciudad:</label>
         <select id="ciudad" class="register-form-input" name="ciudad" value="{{ old('ciudad') }}" required>
             @if ($this->departamento)
                 @foreach ($departamentos->where('id', $this->departamento)->first()->ciudades as $ciudad)

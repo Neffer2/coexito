@@ -118,12 +118,12 @@
                         <h2 class="login-form-title">Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <label for="email_login">Correo electrónico</label>
+                            <label for="email_login">Correo electrónico:</label>
                             <input type="text" id="email_login" name="email" placeholder="" required>
                             @error('email')
                                 <span class="error">{{ $message }}</span>
                             @enderror
-                            <label for="password_login">Contraseña</label>
+                            <label for="password_login">Contraseña:</label>
                             <input type="password" id="password_login" name="password" placeholder="" required>
                             @error('password')
                                 <span class="error">{{ $message }}</span>
@@ -139,35 +139,35 @@
                         <h2 class="register-form-title">Registro</h2>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <label for="nombre_register">Nombre</label>
+                            <label for="nombre_register">Nombre completo:</label>
                             <input id="nombre_register" name="nombre" value="{{ old('nombre') }}" placeholder=""
                                 required />
                             @error('nombre')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
-                            <label for="email_register">Correo electrónico</label>
+                            <label for="email_register">Correo electrónico:</label>
                             <input id="email_register" name="email" value="{{ old('email') }}" placeholder=""
                                 required />
                             @error('email')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
-                            <label for="documento_register">Documento</label>
+                            <label for="documento_register">Documento:</label>
                             <input id="documento_register" name="documento" value="{{ old('documento') }}"
                                 placeholder="" required />
                             @error('documento')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
-                            <label for="telefono_register">Teléfono</label>
+                            <label for="telefono_register">Teléfono:</label>
                             <input id="telefono_register" name="telefono" value="{{ old('telefono') }}" placeholder=""
                                 required />
                             @error('telefono')
                                 <span class="error">{{ $message }}</span>
                             @enderror
 
-                            <label for="direccion_register">Dirección</label>
+                            <label for="direccion_register">Dirección:</label>
                             <input id="direccion_register" name="direccion" value="{{ old('direccion') }}"
                                 placeholder="" required />
                             @error('direccion')
@@ -176,13 +176,13 @@
 
                             <livewire:ciudades-component>
 
-                                <label for="password_register">Contraseña</label>
+                                <label for="password_register">Contraseña:</label>
                                 <input id="password_register" type="password" name="password" placeholder="" />
                                 @error('password')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
 
-                                <label for="password_confirmation_register">Confirmar contraseña</label>
+                                <label for="password_confirmation_register">Confirmar contraseña:</label>
                                 <input id="password_confirmation_register" type="password" name="password_confirmation"
                                     placeholder="" />
                                 @error('password_confirmation')
