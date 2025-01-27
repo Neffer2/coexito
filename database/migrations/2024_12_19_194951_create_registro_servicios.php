@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreign('recomendador_id')->references('id')->on('recomendadores');
             $table->foreignId('recomendador_id');
-            $table->foreign('codigo_id')->references('id')->on('codigos');
-            $table->foreignId('codigo_id');
+            $table->string('num_factura');
             $table->string('foto_factura');
+            $table->integer('num_bonos');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id')->default(2);
             $table->timestamps();
