@@ -215,13 +215,13 @@ export class Game extends Phaser.Scene {
         const circle = new Phaser.Geom.Circle((width/2) + 321, (height/2), circumference);
         Phaser.Actions.PlaceOnCircle(bars, circle, 0);
 
-        // this.anims.create({
-        //     key: 'casino-lights',
-        //     frames: this.anims.generateFrameNumbers('luces', { start: 0, end: 1 }),
-        //     frameRate: 7,
-        //     repeat: -1
-        // });
-        // luces.anims.play('casino-lights', true);
+        this.anims.create({
+            key: 'casino-lights',
+            frames: this.anims.generateFrameNumbers('luces', { start: 0, end: 1 }),
+            frameRate: 7,
+            repeat: -1
+        });
+        luces.anims.play('casino-lights', true);
     }
 
     popUp(premio){
