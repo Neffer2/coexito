@@ -21,7 +21,7 @@
     <script type="module" src="{{ asset('src/phaser.min.js') }}"></script>
     <script type="module" src="{{ asset('src/mobile/main.js') }}"></script>
 
-    // <script type="module" src="{{ asset('src/mobile/tools/confetti.js') }}"></script>
-    // <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script type="module" src="{{ asset('src/mobile/tools/confetti.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 </body>
 </html>
