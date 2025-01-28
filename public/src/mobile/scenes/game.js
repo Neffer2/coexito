@@ -203,7 +203,7 @@ export class Game extends Phaser.Scene {
         let logo = this.add.image((width/2), 110, 'logo');
         let banner = this.add.image((width/2), 260, 'banner').setScale(1);
 
-        // let luces = this.add.sprite((width/2), (height/2)+ 35, 'luces');
+        let luces = this.add.sprite((width/2), (height/2)+ 35, 'luces');
         ruleta = this.add.sprite((width/2), (height/2) + 35, 'ruleta');
         let logo70 = this.add.image((width/2), (height/2) + 35, 'logo-70');
 
