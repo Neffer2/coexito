@@ -119,7 +119,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <label for="email_login">Correo electrónico:</label>
-                            <input type="text" id="email_login" name="email" placeholder="" required>
+                            <input type="email" id="email_login" name="email" placeholder="" required>
                             @error('email')
                                 <span class="error">{{ $message }}</span>
                             @enderror
@@ -147,7 +147,7 @@
                             @enderror
 
                             <label for="email_register">Correo electrónico:</label>
-                            <input id="email_register" name="email" value="{{ old('email') }}" placeholder=""
+                            <input type="email" id="email_register" name="email" value="{{ old('email') }}" placeholder=""
                                 required />
                             @error('email')
                                 <span class="error">{{ $message }}</span>
@@ -161,7 +161,7 @@
                             @enderror
 
                             <label for="telefono_register">Teléfono:</label>
-                            <input id="telefono_register" name="telefono" value="{{ old('telefono') }}" placeholder=""
+                            <input id="telefono_register" type="tel" name="telefono" value="{{ old('telefono') }}" placeholder=""
                                 required />
                             @error('telefono')
                                 <span class="error">{{ $message }}</span>
