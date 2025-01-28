@@ -74,17 +74,15 @@
                             participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
                 </div>
                 <div class="info-video">
-                    <iframe src="https://www.youtube.com/embed/wNHXLV1krO8?si=PfQOPljqSOCBiVB6"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <video controls>
+                        <source src="{{ asset('assets/coexito.mp4') }}" type="video/mp4">
+                    </video>
                 </div>
 
                 <div class="info-video-mobile">
-                    <iframe src="https://www.youtube.com/embed/wNHXLV1krO8?si=PfQOPljqSOCBiVB6"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <video controls>
+                        <source src="{{ asset('assets/coexito.mp4') }}" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
@@ -147,8 +145,8 @@
                             @enderror
 
                             <label for="email_register">Correo electrónico:</label>
-                            <input type="email" id="email_register" name="email" value="{{ old('email') }}" placeholder=""
-                                required />
+                            <input type="email" id="email_register" name="email" value="{{ old('email') }}"
+                                placeholder="" required />
                             @error('email')
                                 <span class="error">{{ $message }}</span>
                             @enderror
@@ -161,8 +159,8 @@
                             @enderror
 
                             <label for="telefono_register">Teléfono:</label>
-                            <input id="telefono_register" type="tel" name="telefono" value="{{ old('telefono') }}" placeholder=""
-                                required />
+                            <input id="telefono_register" type="tel" name="telefono" value="{{ old('telefono') }}"
+                                placeholder="" required />
                             @error('telefono')
                                 <span class="error">{{ $message }}</span>
                             @enderror
@@ -359,9 +357,6 @@
 
 </body>
 <script>
-
-
-
     const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
     const btnScrolltoFormMobile = document.getElementById('btn_scroll_to_form_mobile');
 
@@ -393,7 +388,7 @@
 
 
     document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {     
+        setTimeout(() => {
             const mainFormsContainer = document.getElementById('main_forms_container');
 
             if (mainFormsContainer) {
