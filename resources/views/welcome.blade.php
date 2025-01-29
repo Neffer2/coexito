@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="login-register-container" id="main_login_register_container">
-                    <div class="login-form">
+                    <div class="login-form" id="login_form_id">
                         <h2 class="login-form-title">Iniciar sesión</h2>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -389,9 +389,17 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
+
+            const mainLoginRegisterContainer = document.getElementById('main_login_register_container');
             const mainFormsContainer = document.getElementById('main_forms_container');
 
-            if (mainFormsContainer) {
+            if (mainLoginRegisterContainer) {
+                mainLoginRegisterContainer.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            else if (mainFormsContainer) {
                 mainFormsContainer.scrollIntoView({
                     behavior: 'smooth'
                 });
