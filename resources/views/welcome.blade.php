@@ -377,9 +377,16 @@
         btnScrolltoFormMobile.addEventListener('click', function() {
 
             const mainLoginRegisterContainer = document.getElementById('main_login_register_container');
+            const mainFormsContainer = document.getElementById('main_forms_container');
 
             if (mainLoginRegisterContainer) {
                 mainLoginRegisterContainer.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            else if (mainFormsContainer) {
+                mainFormsContainer.scrollIntoView({
                     behavior: 'smooth'
                 });
             }
