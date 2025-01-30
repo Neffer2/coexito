@@ -540,7 +540,7 @@
 }
 
 .btn-eliminar-punto {
-    background-color: #ff4d4d;
+    background-color: #FF6700;
     color: white;
     border: none;
     width: 100%;
@@ -552,7 +552,7 @@
 
 .btn-eliminar-punto:hover {
     background-color: #ffffff;
-    color: #ff4d4d;
+    color: #FF6700;
 }
 
 

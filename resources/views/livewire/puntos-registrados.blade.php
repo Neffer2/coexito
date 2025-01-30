@@ -28,10 +28,9 @@
             </tr>
         @endforeach
     </table>
-
-    {{ $registros->links() }}
-
-
+    <br>
+    {{ $registros->links('vendor.pagination.bootstrap-4') }}
+    <br>
     @session('success')
     <br>
         <div class="error">{{ session('success') }}</div>
