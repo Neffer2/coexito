@@ -51,7 +51,6 @@
         <label for="">Productos y servicios</label>
         <select wire:model.change="productos_energiteca_servicios" multiple>
             <option value="Energiteca">Energiteca</option>
-            <option value="N/A">NO APLICA</option>
         </select>
     </div>
     @error('productos_energiteca_servicios')

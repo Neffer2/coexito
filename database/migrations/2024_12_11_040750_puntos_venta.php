@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('puntos_venta', function (Blueprint $table) {
             $table->id();
-            $table->string('num_pdv');
             $table->string('nit');
             $table->string('nombre_punto')->nullable();
             $table->string('nombre_cliente')->nullable();
