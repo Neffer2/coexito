@@ -25,11 +25,14 @@ class PuntosRegistrados extends Component
     public function eliminarPunto($punto_id)
     {
         $registro_punto = RegistroPunto::find($punto_id);
-        $pdv_id = $registro_punto->pdv_id;
-        $registro_punto->delete();
+        $punto = PuntosVenta::find($registro_punto->pdv_id);
 
-        $punto = PuntosVenta::find($pdv_id);
-        $punto->delete();
+        if ($punto->recomendadores->isEmpty()){
+            $registro_punto->delete();
+            $punto->delete();
+        }else{
+            return redirect()->back()->with('error', 'No se puede eliminar el punto porque tiene recomendadores asociados');
+        }
 
         return redirect()->back()->with('success', 'Punto eliminado correctamente');
     }
