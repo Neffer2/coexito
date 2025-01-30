@@ -138,6 +138,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    color: #fff;
 }
 
 .puntos-registrados-container,
@@ -369,6 +370,13 @@
     margin-bottom: 20px;
 }
 
+.registro-puntos-subtitle {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .registro-puntos input[type="text"],
 .registro-puntos button {
     width: 100%;
@@ -377,6 +385,7 @@
     border-radius: 5px;
     background: none;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .registro-puntos select {
@@ -528,6 +537,22 @@
     width: 100%;
     margin-top: 5px;
     margin-bottom: 2px;
+}
+
+.btn-eliminar-punto {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-eliminar-punto:hover {
+    background-color: #ffffff;
+    color: #ff4d4d;
 }
 
 

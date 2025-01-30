@@ -24,7 +24,7 @@
                     @endif
                 </td>
                 <td>{{ $registro->created_at }}</td>
-                <td><button class="" wire:click="eliminarPunto({{ $registro->id }})">Eliminar punto</button></td>
+                <td><button class="btn-eliminar-punto" wire:click="eliminarPunto({{ $registro->id }})">Eliminar punto</button></td>
             </tr>
         @endforeach
     </table>
@@ -33,6 +33,7 @@
 
 
     @session('success')
+    <br>
         <div class="error">{{ session('success') }}</div>
     @endsession
 </div>
