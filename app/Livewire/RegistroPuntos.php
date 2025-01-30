@@ -42,7 +42,7 @@ class RegistroPuntos extends Component
             'telefono' => 'required|numeric',
             'direccion' => 'required|string',
             'ciudad' => 'required|string',
-            'maps' => 'url',
+            'maps' => 'nullable|url',
             'bonos_entregados' => 'required|numeric'
         ]);
 
