@@ -13,7 +13,7 @@ class RegistroPuntos extends Component
 {
     use WithFileUploads;
     // Models
-    public $razon_social, $nom_comercial, $nom_contacto, $nit, $maps, $telefono, $ciudad, $direccion, $departamento, $departamentos;
+    public $razon_social, $nom_comercial, $nom_contacto, $nit, $maps, $telefono, $ciudad, $direccion, $departamento, $departamentos, $bonos_entregados;
 
     // Useful vars
     public $user;
@@ -42,7 +42,8 @@ class RegistroPuntos extends Component
             'telefono' => 'required|numeric',
             'direccion' => 'required|string',
             'ciudad' => 'required|string',
-            'maps' => 'required|url'
+            'maps' => 'required|url',
+            'bonos_entregados' => 'required|numeric'
         ]);
 
         // Punto venta
@@ -64,6 +65,7 @@ class RegistroPuntos extends Component
         $registro->user_id = $this->user->id;
         $registro->pdv_id = $punto->id;
         $registro->estado_id = 2;
+        $registro->bonos_entregados = $this->bonos_entregados;
         $registro->save();
 
         // Users
@@ -72,7 +74,7 @@ class RegistroPuntos extends Component
         // $this->user->save();
 
         $this->dispatch('punto-activado');
-        $this->reset('nit', 'razon_social', 'nom_comercial', 'nom_contacto', 'telefono', 'direccion', 'ciudad', 'maps');
+        $this->reset('nit', 'razon_social', 'nom_comercial', 'nom_contacto', 'telefono', 'direccion', 'ciudad', 'maps', 'bonos_entregados');
         return redirect()->back()->with('success', 'Felicidades! el punto se registró exitósamente.');
     }
 }
