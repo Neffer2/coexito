@@ -5,6 +5,7 @@
             <td>Punto de venta</td>
             <td>Nit</td>
             <td>Ciudad</td>
+            <td>Bonos</td>
             <td>Estado</td>
             <td>Fecha</td>
             <td>Acciones</td>
@@ -15,6 +16,7 @@
                     <td>{{ $registro->pdv->nombre_comercial }}</td>
                     <td>{{ $registro->pdv->nit }}</td>
                     <td>{{ $registro->pdv->ciudad }}</td>
+                    <td>{{ $registro->bonos_entregados }}</td>
                     <td>
                         @if ($registro->estado_id == 1)
                             Aprobado
