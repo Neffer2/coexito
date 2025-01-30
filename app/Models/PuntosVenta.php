@@ -15,4 +15,8 @@ class PuntosVenta extends Model
         'nit',
         'nom_cliente',
     ];
+
+    public function recomendadores(){
+        return $this->hasMany(Recomendadores::class, 'pdv_id');
+    }
 }
