@@ -25,7 +25,8 @@
                         @endif
                     </td>
                     <td>{{ $registro->created_at }}</td>
-                    <td><button class="btn-eliminar-punto" wire:click="eliminarPunto({{ $registro->id }})">Eliminar punto</button></td>
+                    <td><button class="btn-eliminar-punto" wire:confirm="¿Estas seguro de eliminar este punto de venta?"
+                        wire:click="eliminarPunto({{ $registro->id }})">Eliminar punto</button></td>
                 @endif
             </tr>
         @endforeach
