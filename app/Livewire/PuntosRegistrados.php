@@ -15,7 +15,7 @@ class PuntosRegistrados extends Component
     #[On('punto-activado')]
     public function render()
     {
-        $registros = RegistroPunto::select('id', 'user_id', 'pdv_id', 'estado_id', 'created_at')
+        $registros = RegistroPunto::select('id', 'user_id', 'pdv_id', 'estado_id', 'bonos_entregados', 'created_at')
                     ->where('user_id', auth()->user()->id)
                     ->paginate(10);
 
