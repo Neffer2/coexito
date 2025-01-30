@@ -11,10 +11,10 @@
                 <td>{{ $key+=1 }}</td>
                 <td>{{ $asesor->nombre }}</td>
                 <td>{{ $asesor->puntos }}</td>
-            </tr> 
+            </tr>
         @endforeach
         <tr>
-            <td>{{ $user_rank }}</td>
+            <td>{{ $user_rank+=1 }}</td>
             <td>{{ auth()->user()->nombre }}</td>
             <td>{{ auth()->user()->puntos }}</td>
         </tr>

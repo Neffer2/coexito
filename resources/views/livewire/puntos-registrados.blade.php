@@ -7,10 +7,11 @@
             <td>Ciudad</td>
             <td>Estado</td>
             <td>Fecha</td>
+            <td>Acciones</td>
         </tr>
         @foreach ($registros as $registro)
             <tr>
-                <td>{{ $registro->pdv->nombre_cliente }}</td>
+                <td>{{ $registro->pdv->nombre_comercial }}</td>
                 <td>{{ $registro->pdv->nit }}</td>
                 <td>{{ $registro->pdv->ciudad }}</td>
                 <td>
@@ -23,7 +24,15 @@
                     @endif
                 </td>
                 <td>{{ $registro->created_at }}</td>
+                <td><button class="" wire:click="eliminarPunto({{ $registro->id }})">Eliminar punto</button></td>
             </tr>
         @endforeach
     </table>
+
+    {{ $registros->links() }}
+
+
+    @session('success')
+        <div class="error">{{ session('success') }}</div>
+    @endsession
 </div>

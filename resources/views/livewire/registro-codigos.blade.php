@@ -103,7 +103,7 @@
                 <tr class="table-row">
                     <td class="codigo-cell">{{ $codigo['codigo'] }}</td>
                     <td class="acciones-cell"><button class="remove-button"
-                            wire:click="removeCodigo({{ $key }})">X</button></td>
+                        wire:click="removeCodigo({{ $key }})">X</button></td>
                 </tr>
             @endforeach
         </tbody>

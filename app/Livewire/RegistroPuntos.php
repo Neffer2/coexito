@@ -13,7 +13,7 @@ class RegistroPuntos extends Component
 {
     use WithFileUploads;
     // Models
-    public $nit, $nombre, $telefono, $ciudad, $direccion, $departamento, $departamentos, $foto_punto;
+    public $razon_social, $nom_comercial, $nom_contacto, $nit, $maps, $telefono, $ciudad, $direccion, $departamento, $departamentos;
 
     // Useful vars
     public $user;
@@ -36,53 +36,44 @@ class RegistroPuntos extends Component
     {
         $this->validate([
             'nit' => 'required|numeric',
-            'nombre' => 'required|string',
+            'razon_social' => 'required|string|max:255',
+            'nom_comercial' => 'required|string|max:255',
+            'nom_contacto' => 'required|string|max:255',
             'telefono' => 'required|numeric',
             'direccion' => 'required|string',
             'ciudad' => 'required|string',
-            'foto_punto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'maps' => 'required|url'
         ]);
 
-        $punto = PuntosVenta::where('nit', $this->nit)->first();
+        // Punto venta
+        $punto = new PuntosVenta;
+        $punto->nit = $this->nit;
+        $punto->razon_social = $this->razon_social;
+        $punto->nombre_comercial = $this->nom_comercial;
+        $punto->nombre_contacto = $this->nom_contacto;
+        $punto->maps = $this->maps;
+        $punto->telefono = $this->telefono;
+        $punto->direccion = $this->direccion;
+        $punto->ciudad = $this->ciudad;
+        $punto->asesor_id = auth()->user()->id;
+        $punto->estado_id = 1;
+        $punto->save();
 
-        if ($punto){
-            $registro_exist = RegistroPunto::where([
-                ['pdv_id', $punto->id],
-                ['estado_id', '!=', 3]
-            ])->first();
-        }else {
-            return redirect()->back()->with('nit-error', '!Oops, este nit no se encuentra en nuestra base de datos.');
-        }
+        // Registro punto
+        $registro = new RegistroPunto();
+        $registro->user_id = $this->user->id;
+        $registro->pdv_id = $punto->id;
+        $registro->estado_id = 2;
+        $registro->save();
 
-        if ($punto && !$registro_exist) {
-            // Registro punto
-            $registro = new RegistroPunto();
-            $registro->user_id = $this->user->id;
-            $registro->pdv_id = $punto->id;
-            $registro->estado_id = 2;
-            $registro->save();
+        // Users
+        /* SUMA CUNADO SE APRUEBE POR BACKOFFICE*/
+        // $this->user->puntos += 5;
+        // $this->user->save();
 
-            // Punto venta
-            $punto->nombre_contacto = $this->nombre;
-            $punto->telefono = $this->telefono;
-            $punto->direccion = $this->direccion;
-            $punto->ciudad = $this->ciudad;
-            $punto->foto_punto = $this->foto_punto->store(path: 'public/fotos-puntos');
-            $punto->estado_id = 2;
-            $punto->update();
-
-            // Users
-            /* SUMA CUNADO SE APRUEBE POR BACKOFFICE*/
-            // $this->user->puntos += 5;
-            // $this->user->save();
-
-            $this->dispatch('punto-activado');
-            $this->reset(['nit', 'nombre', 'telefono', 'ciudad', 'direccion', 'departamento', 'foto_punto']);
-            return redirect()->back()->with('success', 'Felicidades! el punto se activó exitósamente.');
-        }else {
-            return redirect()->back()->with('nit-error', '!Oops, este nit no existe o ya está activado en la promoción.');
-        }
+        $this->dispatch('punto-activado');
+        $this->reset('nit', 'razon_social', 'nom_comercial', 'nom_contacto', 'telefono', 'direccion', 'ciudad', 'maps');
+        return redirect()->back()->with('success', 'Felicidades! el punto se registró exitósamente.');
     }
-
 }
 
