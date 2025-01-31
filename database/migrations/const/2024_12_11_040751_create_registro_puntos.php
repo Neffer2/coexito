@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('pdv_id');
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id');
+            $table->integer('bonos_entregados');
             $table->timestamps();
         });
     }

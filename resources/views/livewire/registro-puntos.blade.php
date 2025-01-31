@@ -61,6 +61,12 @@
         <p class="register-form-error">{{ $message }}</p>
     @enderror
 
+    <label for="bonos_entregados">Bonos entregados: </label>
+    <input id="bonos_entregados" wire:model.lazy="bonos_entregados" type="text">
+    @error('bonos_entregados')
+        <p class="register-form-error">{{ $message }}</p>
+    @enderror
+
     <label for="telefono">Tel&eacute;fono: </label>
     <input id="telefono" wire:model.lazy="telefono" type="text">
     @error('telefono')

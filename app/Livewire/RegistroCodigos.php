@@ -92,8 +92,15 @@ class RegistroCodigos extends Component
 
         $codigo = Codigo::where([['codigo', $this->codigo],['estado_cod', 1]])->first();
 
+        foreach ($this->codigos as $codigo){
+            if ($codigo['codigo'] == $this->codigo){
+                return redirect()->back()->with('codigo_error', '!Oops, éste código ya fue registrado');
+            }
+        }
+
         if ($codigo){
             array_push($this->codigos, ['codigo' => $this->codigo]);
+            $this->reset('codigo');
         }else {
             return redirect()->back()->with('codigo_error', '!Oops, éste código no existe o ya fue registrado');
         }
