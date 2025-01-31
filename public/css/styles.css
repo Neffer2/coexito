@@ -29,6 +29,7 @@
     height: 100%;
     background-image: url('../assets/fondo-landing.png');
     background-size: cover;
+    overflow: hidden;
 }
 
 
