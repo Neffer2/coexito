@@ -26,7 +26,7 @@ Route::get('/backoffice-shopper', function (){
 })->middleware(['backoffice'])->name('backoffice-shopper'); 
 
 Route::get('/backoffice-recomendador', function (){
-    return view('backoffice.recomendador.facturas'); 
+    return view('backoffice.recomendador.facturas');  
 })->middleware(['backoffice'])->name('backoffice-recomendador'); 
 
 
