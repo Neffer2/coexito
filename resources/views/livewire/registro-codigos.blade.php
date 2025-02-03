@@ -6,14 +6,14 @@
         <label for="">Productos para auto</label>
         <select wire:model.change="productos_auto" multiple required>>
             <optgroup label="Bater&iacute;as">
-                <option value="Mac_auto">Bater&aacute;s Mac</option>
+                <option value="Mac_auto">Bater&iacute;as Mac</option>
                 <option value="Baterias_coexito_auto">Coéxito baterías automotrices</option>
-                <option value="Varta_auto">Bater&aacute;s Varta</option>
-                <option value="Tudor_auto">Bater&aacute;s Tudor</option>
-                <option value="Taxi_auto">Bater&aacute;s Power Taxi</option>
-                <option value="Faico_auto">Bater&aacute;s Faico</option>
-                <option value="Magna_auto">Bater&aacute;s Magna</option>
-                <option value="optima_auto">Bater&aacute;s Optima</option>
+                <option value="Varta_auto">Bater&iacute;as Varta</option>
+                <option value="Tudor_auto">Bater&iacute;as Tudor</option>
+                <option value="Taxi_auto">Bater&iacute;as Power Taxi</option>
+                <option value="Faico_auto">Bater&iacute;as Faico</option>
+                <option value="Magna_auto">Bater&iacute;as Magna</option>
+                <option value="optima_auto">Bater&iacute;as Optima</option>
             </optgroup>
             <optgroup label="Lubricantes">
                 <option value="Lubricantes_coexito_auto">Co&eacute;xito Lubricantes</option>
@@ -32,7 +32,7 @@
         <label for="">Productos para moto</label>
         <select wire:model.change="productos_moto" multiple required>
             <optgroup label="Bater&iacute;as">
-                <option value="Magna_moto">Bater&aacute;s Magna</option>
+                <option value="Magna_moto">Bater&iacute;as Magna</option>
                 <option value="Baterias_coexito_auto">Co&eacute;xito baterías para moto</option>
             </optgroup>
             <optgroup label="Lubricantes">
@@ -56,7 +56,7 @@
     @error('productos_energiteca_servicios')
         <span class="error">{{ $message }}</span>
     @enderror
- 
+
     <div class="upload-container-codigos">
         <label for="foto_factura">Tómale foto a tu factura:</label>
         <div class="upload-container" onclick="document.getElementById('foto_factura_elem').click()">
