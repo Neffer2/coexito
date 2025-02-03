@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\backoffice\recomendador;
+namespace App\Livewire\Backoffice\Recomendador;
 
 use Livewire\Component;
 use App\Models\RegistroServicio;

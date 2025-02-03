@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\backOffice\shopper;
+namespace App\Livewire\BackOffice\Shopper;
 
 use App\Rules\num_factura; 
 use Livewire\Component;
