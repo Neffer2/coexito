@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Backoffice\Recomendador;
+namespace App\Livewire\backoffice\recomendador;
 
 use Livewire\Component;
 use App\Models\RegistroServicio;
-use Livewire\WithPagination;
+use Livewire\WithPagination; 
 
 class Facturas extends Component
 {

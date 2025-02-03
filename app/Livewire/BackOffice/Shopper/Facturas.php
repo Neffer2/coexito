@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Livewire\BackOffice\Shopper;
+namespace App\Livewire\backOffice\shopper;
 
 use App\Rules\num_factura; 
 use Livewire\Component;
 use App\Models\RegistroFactura;
 use Livewire\WithPagination;
 
-class Facturas extends Component
+class Facturas extends Component 
 {
     use WithPagination;
 
