@@ -297,7 +297,7 @@
 
                         </div>
                     @endif
-                </div>
+                </div> 
             @endauth
         </div>
         <div class="main-info-promo-container">

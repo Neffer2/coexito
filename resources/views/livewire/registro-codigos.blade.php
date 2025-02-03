@@ -4,7 +4,7 @@
     <label for="productos">Elige qué productos compraste:</label>
     <div class="select-container">
         <label for="">Productos para auto</label>
-        <select wire:model.change="productos_auto" multiple>
+        <select wire:model.change="productos_auto" multiple required>>
             <optgroup label="Bater&iacute;as">
                 <option value="Mac_auto">Bater&aacute;s Mac</option>
                 <option value="Baterias_coexito_auto">Coéxito baterías automotrices</option>
@@ -30,7 +30,7 @@
 
     <div class="select-container">
         <label for="">Productos para moto</label>
-        <select wire:model.change="productos_moto" multiple>
+        <select wire:model.change="productos_moto" multiple required>
             <optgroup label="Bater&iacute;as">
                 <option value="Magna_moto">Bater&aacute;s Magna</option>
                 <option value="Baterias_coexito_auto">Co&eacute;xito baterías para moto</option>
@@ -49,14 +49,14 @@
     @enderror
     <div class="select-container">
         <label for="">Productos y servicios</label>
-        <select wire:model.change="productos_energiteca_servicios" multiple>
+        <select wire:model.change="productos_energiteca_servicios" multiple required>>
             <option value="Energiteca">Energiteca</option>
         </select>
     </div>
     @error('productos_energiteca_servicios')
         <span class="error">{{ $message }}</span>
     @enderror
-
+ 
     <div class="upload-container-codigos">
         <label for="foto_factura">Tómale foto a tu factura:</label>
         <div class="upload-container" onclick="document.getElementById('foto_factura_elem').click()">

@@ -16,9 +16,19 @@ use App\Http\Controllers\ShopperController;
 */
 
 Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper'])->name('home');
+
 Route::get('/dashboard', function (){
-    dd("HOla");
-})->middleware(['backoffice'])->name('dashboard');
+    return view('backoffice.index');
+})->middleware(['backoffice'])->name('dashboard'); 
+
+Route::get('/backoffice-shopper', function (){
+    return view('backoffice.shopper.facturas'); 
+})->middleware(['backoffice'])->name('backoffice-shopper'); 
+
+Route::get('/backoffice-recomendador', function (){
+    return view('backoffice.recomendador.facturas'); 
+})->middleware(['backoffice'])->name('backoffice-recomendador'); 
+
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
 Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);

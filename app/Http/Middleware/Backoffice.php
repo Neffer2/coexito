@@ -17,7 +17,7 @@ class Backoffice
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-        if ($user->estado_id == 3) {
+        if ($user->rol_id == 3) {
             return $next($request);
         }
 

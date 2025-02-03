@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Recomendadores extends Model
+class Recomendador extends Model
 {
     use HasFactory;
 
@@ -20,4 +20,9 @@ class Recomendadores extends Model
         'pdv_id',
         'puntos',
     ];
+
+    public function pdv()
+    {
+        return $this->belongsTo(PuntosVenta::class, 'pdv_id');
+    }
 }
