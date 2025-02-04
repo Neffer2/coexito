@@ -195,7 +195,7 @@
                                     <input id="terminos_condiciones" type="checkbox" name="terminos_condiciones">
                                     <label for="terminos_condiciones">
                                         <a class="terminos-a" target="_blank"
-                                            href="{{ asset('legal/tyc-coexitocontigo.pdf') }}" target="_blank">
+                                            href="{{ asset('terminos_condiciones.pdf') }}" target="_blank">
                                             Términos y condiciones
                                         </a>
                                     </label>
