@@ -33,7 +33,7 @@ class RegistroCodigos extends Component
         $this->validate([
             'productos_auto' => 'nullable|array',
             'productos_moto' => 'nullable|array',
-            'productos_energiteca_servicios' => 'nullable|array',
+            'productos_energiteca_servicios' => 'nullable|boolean',
             'foto_factura' => 'required|image|max:1024'
         ]);
 
@@ -43,7 +43,7 @@ class RegistroCodigos extends Component
         $registro_factura->foto_factura = $this->foto_factura->store(path: 'public/facturas-shopper');
         $registro_factura->productos_auto = ($this->productos_auto) ? implode(", ", $this->productos_auto) : null;
         $registro_factura->productos_moto = ($this->productos_moto) ? implode(", ", $this->productos_moto) : null;
-        $registro_factura->productos_energiteca_servicios = ($this->productos_energiteca_servicios) ? implode(", ", $this->productos_energiteca_servicios) : null;
+        $registro_factura->productos_energiteca_servicios = $this->productos_energiteca_servicios;
         $registro_factura->save();
 
         foreach ($this->codigos as $codigo){

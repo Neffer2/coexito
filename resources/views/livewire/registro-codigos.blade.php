@@ -48,10 +48,8 @@
         <span class="error">{{ $message }}</span>
     @enderror
     <div class="select-container">
-        <label for="">Productos y servicios</label>
-        <select wire:model.change="productos_energiteca_servicios" multiple required>>
-            <option value="Energiteca">Energiteca</option>
-        </select>
+        <label for="">Compra de productos y servicios Energiteca</label>
+        <input type="checkbox" wire:model.change="productos_energiteca_servicios" value="Energiteca" required>
     </div>
     @error('productos_energiteca_servicios')
         <span class="error">{{ $message }}</span>
