@@ -16,7 +16,7 @@ class CiudadesComponent extends Component
     }
 
     public function getDepartamentos(){
-        $this->departamentos = Departamento::all();
+        $this->departamentos = Departamento::orderBy('descripcion', 'asc')->get();
     }
 
     public function mount(){
