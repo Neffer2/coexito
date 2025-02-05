@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nombre_contacto')->nullable();
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
-            $table->string('maps')->nullable();
+            $table->text('maps')->nullable();
             $table->string('ciudad')->nullable();
             $table->string('foto_punto')->nullable();
             $table->foreign('asesor_id')->references('id')->on('users');
