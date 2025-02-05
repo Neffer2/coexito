@@ -106,9 +106,6 @@ class RegistroCodigos extends Component
         }
     }
 
-    public function removeCodigo($index){
-        unset($this->codigos[$index]);
-    }
 
     // UPDATES
     public function updatedFotoFactura(){
