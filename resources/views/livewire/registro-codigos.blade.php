@@ -93,15 +93,16 @@
         <thead>
             <tr class="table-header">
                 <th>C&oacute;digo</th>
-                <th>Acciones</th>
+                <th>Aprobado</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($codigos as $key => $codigo)
                 <tr class="table-row">
                     <td class="codigo-cell">{{ $codigo['codigo'] }}</td>
-                    <td class="acciones-cell"><button class="remove-button"
-                        wire:click="removeCodigo({{ $key }})">X</button></td>
+                    <td class="acciones-cell">
+                        <i class="fas fa-check"></i>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
