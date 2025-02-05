@@ -11,7 +11,7 @@
 }
 
 .aliados-container {
-    width: 100%;
+    width: 140%;
     background-color: #fff;
     overflow: hidden;
     white-space: nowrap;
@@ -54,7 +54,7 @@
 @media (min-width: 1024px) and (max-width: 1440px) {
 
     .aliados-container {
-        width: 140%;
+        width: 200%;
         background-color: #fff;
         overflow: hidden;
         white-space: nowrap;
@@ -84,7 +84,7 @@
 
     .aliados-slider {
         display: inline-block;
-        width: 230%;
+        width: 275%;
         animation: 10s slide infinite linear;
     }
 

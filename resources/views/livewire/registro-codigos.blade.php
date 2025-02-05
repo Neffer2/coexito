@@ -47,8 +47,8 @@
     @error('productos_moto')
         <span class="error">{{ $message }}</span>
     @enderror
-    <div class="select-container">
-        <label for="">Compra de productos y servicios Energiteca</label>
+    <div class="select-container" id="select-container-check">
+        <label for="">Compra de productos y servicios Energiteca.</label>
         <input type="checkbox" wire:model.change="productos_energiteca_servicios" value="Energiteca" required>
     </div>
     @error('productos_energiteca_servicios')

@@ -94,6 +94,8 @@
                 <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
                 <img src="{{ asset('assets/magna-logo.png') }}" alt="">
                 <img src="{{ asset('assets/optima-logo.png') }}" alt="">
+                <img src="{{ asset('assets/tudor-logo.png') }}" alt="">
+                <img src="{{ asset('assets/varta-logo.png') }}" alt="">
             </div>
             <div class="aliados-slider">
                 <img src="{{ asset('assets/energiteca-logo.png') }}" alt="">
@@ -101,6 +103,8 @@
                 <img src="{{ asset('assets/coexito-logo.png') }}" alt="">
                 <img src="{{ asset('assets/magna-logo.png') }}" alt="">
                 <img src="{{ asset('assets/optima-logo.png') }}" alt="">
+                <img src="{{ asset('assets/tudor-logo.png') }}" alt="">
+                <img src="{{ asset('assets/varta-logo.png') }}" alt="">
             </div>
         </div>
         <div class="main-forms-container" id="main_forms_container">
@@ -297,7 +301,7 @@
 
                         </div>
                     @endif
-                </div> 
+                </div>
             @endauth
         </div>
         <div class="main-info-promo-container">
@@ -384,9 +388,7 @@
                 mainLoginRegisterContainer.scrollIntoView({
                     behavior: 'smooth'
                 });
-            }
-
-            else if (mainFormsContainer) {
+            } else if (mainFormsContainer) {
                 mainFormsContainer.scrollIntoView({
                     behavior: 'smooth'
                 });

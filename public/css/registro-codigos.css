@@ -539,6 +539,17 @@
     margin-bottom: 2px;
 }
 
+#select-container-check {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row-reverse;
+    width: 100%;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
 .btn-eliminar-punto {
     background-color: #ff4d4d;
     color: white;
