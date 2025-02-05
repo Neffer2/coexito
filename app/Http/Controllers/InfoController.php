@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Agente;
 use App\Models\PuntosVenta;
-use App\Models\Recomendadores;
+use App\Models\Recomendador;
 use App\Models\RegistroServicio;
-use App\Models\Codigo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -24,7 +22,7 @@ class InfoController extends Controller
     }
 
     public function getRecomendador($documento){
-        $recomendador = Recomendadores::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->get();
+        $recomendador = Recomendador::select('id', 'nombre', 'cedula', 'puntos')->where('cedula', $documento)->get();
         if(!$recomendador){
             return response()->json(['message' => 'Recomendadores no encontrados'], 404);
         }
@@ -43,14 +41,12 @@ class InfoController extends Controller
     /* VALIDATIONS */
     public function validateCedula($cedula, $rol){
         if($rol == 'recomendador'){
-            $user = Recomendadores::where('cedula', $cedula)->first();
+            $user = Recomendador::where('cedula', $cedula)->first();
             if($user){
                 return response()->json(['message' => 'Cedula ya registrada', 'status' => 404], 404);
             }
 
             return response()->json(['message' => 'Cedula disponible', 'status' => 200], 200);
-        }elseif($rol == 'agente'){
-
         }
 
         return response()->json(['message' => 'Rol invalido', 'status' => 404], 404);
@@ -58,14 +54,12 @@ class InfoController extends Controller
 
     public function validateCelular($celular, $rol){
         if($rol == 'recomendador'){
-            $user = Recomendadores::where('celular', $celular)->first();
+            $user = Recomendador::where('celular', $celular)->first();
             if($user){
                 return response()->json(['message' => 'Celular ya registrado', 'status' => 404], 404);
             }
 
             return response()->json(['message' => 'Celular disponible', 'status' => 200], 200);
-        }elseif($rol == 'agente'){
-
         }
 
         return response()->json(['message' => 'Rol invalido', 'status' => 404], 404);
@@ -73,14 +67,12 @@ class InfoController extends Controller
 
     public function validateCorreo($correo, $rol){
         if($rol == 'recomendador'){
-            $user = Recomendadores::where('correo', $correo)->first();
+            $user = Recomendador::where('correo', $correo)->first();
             if($user){
                 return response()->json(['message' => 'Correo ya registrado', 'status' => 404], 404);
             }
 
             return response()->json(['message' => 'Correo disponible', 'status' => 200], 200);
-        }elseif($rol == 'agente'){
-
         }
 
         return response()->json(['message' => 'Rol invalido', 'status' => 404], 404);
@@ -124,7 +116,7 @@ class InfoController extends Controller
             'ciudad' => 'required'
         ]);
 
-        $recomendador = Recomendadores::create([
+        $recomendador = Recomendador::create([
             'pdv_id' => $request->pdv_id,
             'nombre' => $request->nombre,
             'cedula' => $request->cedula,
