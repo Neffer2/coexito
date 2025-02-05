@@ -49,7 +49,7 @@
         <p class="register-form-error">{{ $message }}</p>
     @enderror
 
-    <label for="direccion">Digita la direcci&oacute;n del establecimmiento: </label>
+    <label for="direccion">Digita la direcci&oacute;n del establecimiento: </label>
     <input id="direccion" wire:model.lazy="direccion" type="text">
     @error('direccion')
         <p class="register-form-error">{{ $message }}</p>
