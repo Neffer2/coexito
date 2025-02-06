@@ -19,15 +19,19 @@ Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper'])-
 
 Route::get('/dashboard', function (){
     return view('backoffice.index');
-})->middleware(['backoffice'])->name('dashboard'); 
+})->middleware(['backoffice'])->name('dashboard');
 
 Route::get('/backoffice-shopper', function (){
-    return view('backoffice.shopper.facturas'); 
-})->middleware(['backoffice'])->name('backoffice-shopper'); 
+    return view('backoffice.shopper.facturas');
+})->middleware(['backoffice'])->name('backoffice-shopper');
 
 Route::get('/backoffice-recomendador', function (){
-    return view('backoffice.recomendador.facturas');  
-})->middleware(['backoffice'])->name('backoffice-recomendador'); 
+    return view('backoffice.recomendador.facturas');
+})->middleware(['backoffice'])->name('backoffice-recomendador');
+
+Route::get('/backoffice-fv', function (){
+    return view('backoffice.fuerza-ventas.puntos');
+})->middleware(['backoffice'])->name('backoffice-fv');
 
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');

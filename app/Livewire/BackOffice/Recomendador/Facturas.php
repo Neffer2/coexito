@@ -4,20 +4,20 @@ namespace App\Livewire\BackOffice\Recomendador;
 
 use Livewire\Component;
 use App\Models\RegistroServicio;
-use Livewire\WithPagination; 
+use Livewire\WithPagination;
 
 class Facturas extends Component
 {
     use WithPagination;
-    
+
     // Models
     public $RegistroServicio, $observaciones;
 
-    public function render() 
+    public function render()
     {
-        $RegistroServicios = RegistroServicio::where('estado_id', 2)->paginate(10);
+        $RegistroServicios = RegistroServicio::where('estado_id', 2)->orderBy('id', 'desc')->paginate(10);
         return view('livewire.backoffice.recomendador.facturas', ['RegistroServicios' => $RegistroServicios]);
-    }  
+    }
 
     public function getRegistro($registro_id)
     {
@@ -36,7 +36,7 @@ class Facturas extends Component
             $this->RegistroServicio->save();
 
             $this->RegistroServicio->recomendador->puntos += 1;
-            $this->RegistroServicio->recomendador->save(); 
+            $this->RegistroServicio->recomendador->save();
 
             $message = 'Factura APROBADA exitosamente.';
         }else {
@@ -65,4 +65,3 @@ class Facturas extends Component
         ]);
     }
 }
- 

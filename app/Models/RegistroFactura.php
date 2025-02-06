@@ -17,4 +17,8 @@ class RegistroFactura extends Model
     public function codigos(){
         return $this->hasMany(RegistroCodigo::class, 'factura_id', 'id');
     }
+
+    public function premios(){
+        return $this->hasMany(RegistroPremio::class, 'factura_id', 'id');
+    }
 }

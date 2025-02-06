@@ -15,5 +15,8 @@ class RegistroPunto extends Model
         return $this->belongsTo(PuntosVenta::class, 'pdv_id');
     }
 
-
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

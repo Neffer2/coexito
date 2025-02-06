@@ -2,12 +2,12 @@
 
 namespace App\Livewire\BackOffice\Shopper;
 
-use App\Rules\num_factura; 
+use App\Rules\num_factura;
 use Livewire\Component;
 use App\Models\RegistroFactura;
 use Livewire\WithPagination;
 
-class Facturas extends Component 
+class Facturas extends Component
 {
     use WithPagination;
 
@@ -16,7 +16,7 @@ class Facturas extends Component
 
     public function render()
     {
-        $RegistrosFactura = RegistroFactura::where('estado_id', 2)->paginate(10);
+        $RegistrosFactura = RegistroFactura::where('estado_id', 2)->orderBy('id', 'desc')->paginate(10);
         return view('livewire.backoffice.shopper.facturas', ['RegistrosFactura' => $RegistrosFactura]);
     }
 
@@ -57,6 +57,15 @@ class Facturas extends Component
             foreach ($this->RegistroFactura->codigos as $codigo){
                 $codigo->estado_id = 3;
                 $codigo->save();
+            }
+
+            foreach ($this->RegistroFactura->premios as $premio){
+                $premio->premio->stock = $premio->premio->stock + 1;
+                $premio->premio->update();
+            }
+
+            foreach ($this->RegistroFactura->premios as $premio){
+                $premio->delete();
             }
 
             $message = 'Factura RECHAZADA exitosamente.';
