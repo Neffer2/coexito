@@ -94,7 +94,7 @@ class RegistroCodigos extends Component
 
         if ($codigo){
             foreach ($this->codigos as $codigo){
-                if ($codigo['codigo'] == $codigo){
+                if ($codigo['codigo'] == $codigo || $codigo['codigo'] == $this->codigo){
                     return redirect()->back()->with('codigo_error', '!Oops, éste código ya fue registrado');
                 }
             }
