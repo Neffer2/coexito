@@ -1,9 +1,4 @@
 <div class="container my-5">
-    @if (session('success'))
-        <div class="alert alert-primary" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
     <div class="d-flex justify-content-end mb-3">
         <a href="#" class="btn btn-danger"
             onclick="event.preventDefault(); if(confirm('¿Estás seguro de que deseas cerrar sesión?')) { document.getElementById('logout-form').submit(); }">Cerrar
@@ -15,8 +10,24 @@
     <div class="card">
 
         <div class="card-header">
-            <h5>Registro de Servicios</h5>
-            <a href="{{ route('backoffice-recomendador-list') }}">Lista de facturas Recomendador</a>
+            <h5>Lista de registro de Servicios</h5>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="num_factura" class="form-control" placeholder="Número de factura">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="nombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="cedula" class="form-control" placeholder="Cédula">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="email" class="form-control" placeholder="Correo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12"><a href="{{ route('backoffice-recomendador') }}">Volver</a></div>
+            </div>
         </div>
         @isset($RegistroServicio)
             <div class="card-body">
@@ -47,6 +58,16 @@
                                 <span class="fw-bold">Punto de venta:</span>
                                 {{ $RegistroServicio->recomendador->pdv->nombre_comercial }}
                             </div>
+                            <div class="col-3">
+                                <span class="fw-bold">Estado:</span>
+                                @if ($RegistroServicio->estado_id == 1)
+                                    <span class="badge bg-success">Aprobado</span>
+                                @elseif($RegistroServicio->estado_id == 2)
+                                    <span class="badge bg-warning">Revisión</span>
+                                @else
+                                    <span class="badge bg-danger">Rechazado</span>
+                                @endif
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -69,15 +90,8 @@
                             <div class="col-8">
                                 <div class="form-group mb-2">
                                     <label for="">Observaciones:</label>
-                                    <textarea wire:model.lazy="observaciones" cols="30" rows="3" class="form-control"></textarea>
-                                    @error('observaciones')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <textarea disabled cols="30" rows="3" class="form-control">{{ $RegistroServicio->observaciones }}</textarea>
                                 </div>
-                                <button class="btn btn-success" wire:click="validacionRegistro(1)"
-                                    wire:confirm="¿Estas segur@ de APROBAR esta factura?"> Aprobar factura</button>
-                                <button class="btn btn-danger" wire:click="validacionRegistro(0)"
-                                    wire:confirm="¿Estas segur@ de RECHAZAR esta factura?"> Rechazar factura</button>
                             </div>
                         </div>
                     </div>
@@ -97,15 +111,25 @@
                                 <span class="fw-bold">Punto de venta:</span>
                                 {{ $RegistroServicio->recomendador->pdv->nombre_comercial }}
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <span class="fw-bold">Celular:</span>
                                 {{ $RegistroServicio->recomendador->celular }} <br>
                                 <span class="fw-bold">Cedula:</span>
                                 {{ $RegistroServicio->recomendador->cedula }}
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <span class="fw-bold">Fecha:</span>
                                 {{ $RegistroServicio->created_at }}
+                            </div>
+                            <div class="col-2">
+                                <span class="fw-bold">Estado:</span>
+                                @if ($RegistroServicio->estado_id == 1)
+                                    <span class="badge bg-success">Aprobado</span>
+                                @elseif($RegistroServicio->estado_id == 2)
+                                    <span class="badge bg-warning">Revisión</span>
+                                @else
+                                    <span class="badge bg-danger">Rechazado</span>
+                                @endif
                             </div>
                             <div class="col-2">
                                 <button wire:click="getRegistro({{ $RegistroServicio->id }})" class="btn btn-primary">

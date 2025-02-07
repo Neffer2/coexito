@@ -15,8 +15,24 @@
     <div class="card">
 
         <div class="card-header">
-            <h5>Registro de Puntos de venta</h5>
-            <a href="{{ route('backoffice-fv-list') }}">Lista de puntos Fuerza de ventas</a>
+            <h5>Lista de puntos Fuerza de ventas</h5>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="nit" class="form-control" placeholder="NIT">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="nombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="cedula" class="form-control" placeholder="Cédula">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="email" class="form-control" placeholder="Correo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12"><a href="{{ route('backoffice-fv') }}">Volver</a></div>
+            </div>
         </div>
         @isset($RegistroPunto)
             <div class="card-body">
@@ -42,6 +58,16 @@
                             <div class="col-4">
                                 <span class="fw-bold">Ciudad:</span>
                                 {{ $RegistroPunto->user->ciudad }}
+                            </div>
+                            <div class="col-2">
+                                <span class="fw-bold">Estado:</span>
+                                @if ($RegistroPunto->estado_id == 1)
+                                    <span class="badge bg-success">Aprobado</span>
+                                @elseif($RegistroPunto->estado_id == 2)
+                                    <span class="badge bg-warning">Revisión</span>
+                                @else
+                                    <span class="badge bg-danger">Rechazado</span>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -78,15 +104,8 @@
                             <div class="col-6">
                                 <div class="form-group mb-2">
                                     <label for="">Observaciones:</label>
-                                    <textarea wire:model.lazy="observaciones" cols="30" rows="1" class="form-control"></textarea>
-                                    @error('observaciones')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    <textarea disabled cols="30" rows="1" class="form-control">{{ $RegistroPunto->observaciones }}</textarea>
                                 </div>
-                                <button class="btn btn-success" wire:click="validacionRegistro(1)"
-                                    wire:confirm="¿Estas segur@ de APROBAR esta factura?"> Aprobar factura</button>
-                                <button class="btn btn-danger" wire:click="validacionRegistro(0)"
-                                    wire:confirm="¿Estas segur@ de RECHAZAR esta factura?"> Rechazar factura</button>
                             </div>
                         </div>
                     </div>
@@ -104,15 +123,25 @@
                                 <span class="fw-bold">Correo:</span>
                                 {{ $registroPunto->user->email }}
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <span class="fw-bold">Celular:</span>
                                 {{ $registroPunto->user->telefono }} <br>
                                 <span class="fw-bold">Cedula:</span>
                                 {{ $registroPunto->user->documento }}
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <span class="fw-bold">Fecha:</span>
                                 {{ $registroPunto->created_at }}
+                            </div>
+                            <div class="col-2">
+                                <span class="fw-bold">Estado:</span>
+                                @if ($registroPunto && $registroPunto->estado_id == 1)
+                                    <span class="badge bg-success">Aprobado</span>
+                                @elseif ($registroPunto && $registroPunto->estado_id == 2)
+                                    <span class="badge bg-warning">Revisión</span>
+                                @else
+                                    <span class="badge bg-danger">Rechazado</span>
+                                @endif
                             </div>
                             <div class="col-2">
                                 <button wire:click="getRegistro({{ $registroPunto->id }})" class="btn btn-primary">

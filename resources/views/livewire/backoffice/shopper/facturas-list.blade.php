@@ -1,9 +1,4 @@
 <div class="container my-5">
-    @if (session('success'))
-        <div class="alert alert-primary" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
     <div class="d-flex justify-content-end mb-3">
         <a href="#" class="btn btn-danger"
             onclick="event.preventDefault(); if(confirm('¿Estás seguro de que deseas cerrar sesión?')) { document.getElementById('logout-form').submit(); }">Cerrar
@@ -16,7 +11,23 @@
 
         <div class="card-header">
             <h5>Registro de facturas</h5>
-            <a href="{{ route('backoffice-shopper-list') }}">Lista de facturas Shopper</a>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="num_factura" class="form-control" placeholder="Número de factura">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="nombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="cedula" class="form-control" placeholder="Cédula">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="email" class="form-control" placeholder="Correo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12"><a href="{{ route('backoffice-shopper') }}">Volver</a></div>
+            </div>
         </div>
         @isset($RegistroFactura)
             <div class="card-body">
@@ -60,6 +71,16 @@
                                         {{ __('No') }}
                                     @endif
                                 </div>
+                                <div class="col-3">
+                                    <span class="fw-bold">Estado:</span>
+                                    @if ($RegistroFactura->estado_id == 1)
+                                        <span class="badge bg-success">Aprobado</span>
+                                    @elseif($RegistroFactura->estado_id == 2)
+                                        <span class="badge bg-warning">Revisión</span>
+                                    @else
+                                        <span class="badge bg-danger">Rechazado</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -82,10 +103,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="">N&uacute;mero de factura:</label>
-                                            <input wire:model.lazy="num_factura" type="text" class="form-control">
-                                            @error('num_factura')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                            <input disabled value="{{ $RegistroFactura->num_factura }}" type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -145,15 +163,8 @@
                                     <div class="col-12">
                                         <div class="form-group mb-2">
                                             <label for="">Observaciones:</label>
-                                            <textarea wire:model.lazy="observaciones" cols="30" rows="2" class="form-control"></textarea>
-                                            @error('observaciones')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
+                                            <textarea disabled wire:model.lazy="observaciones" cols="30" rows="2" class="form-control">{{ $RegistroFactura->observaciones }}</textarea>
                                         </div>
-                                        <button class="btn btn-success" wire:click="validacionRegistro(1)"
-                                            wire:confirm="¿Estas segur@ de APROBAR esta factura?"> Aprobar factura</button>
-                                        <button class="btn btn-danger" wire:click="validacionRegistro(0)"
-                                            wire:confirm="¿Estas segur@ de RECHAZAR esta factura?"> Rechazar factura</button>
                                     </div>
                                 </div>
                             </div>
@@ -173,15 +184,25 @@
                                 <span class="fw-bold">Correo:</span>
                                 {{ $RegistroFactura->user->email }}
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <span class="fw-bold">Celular:</span>
                                 {{ $RegistroFactura->user->telefono }} <br>
                                 <span class="fw-bold">Cedula:</span>
                                 {{ $RegistroFactura->user->documento }}
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <span class="fw-bold">Fecha:</span>
                                 {{ $RegistroFactura->created_at }}
+                            </div>
+                            <div class="col-2">
+                                <span class="fw-bold">Estado:</span>
+                                @if ($RegistroFactura->estado_id == 1)
+                                    <span class="badge bg-success">Aprobado</span>
+                                @elseif($RegistroFactura->estado_id == 2)
+                                    <span class="badge bg-warning">Revisión</span>
+                                @else
+                                    <span class="badge bg-danger">Rechazado</span>
+                                @endif
                             </div>
                             <div class="col-2">
                                 <button wire:click="getRegistro({{ $RegistroFactura->id }})" class="btn btn-primary">

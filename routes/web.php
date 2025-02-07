@@ -25,13 +25,25 @@ Route::get('/backoffice-shopper', function (){
     return view('backoffice.shopper.facturas');
 })->middleware(['backoffice'])->name('backoffice-shopper');
 
+Route::get('/backoffice-shopper-list', function (){
+    return view('backoffice.shopper.list');
+})->middleware(['backoffice'])->name('backoffice-shopper-list');
+
 Route::get('/backoffice-recomendador', function (){
     return view('backoffice.recomendador.facturas');
 })->middleware(['backoffice'])->name('backoffice-recomendador');
 
+Route::get('/backoffice-recomendador-list', function (){
+    return view('backoffice.recomendador.list');
+})->middleware(['backoffice'])->name('backoffice-recomendador-list');
+
 Route::get('/backoffice-fv', function (){
     return view('backoffice.fuerza-ventas.puntos');
 })->middleware(['backoffice'])->name('backoffice-fv');
+
+Route::get('/backoffice-fv-list', function (){
+    return view('backoffice.fuerza-ventas.list');
+})->middleware(['backoffice'])->name('backoffice-fv-list');
 
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
