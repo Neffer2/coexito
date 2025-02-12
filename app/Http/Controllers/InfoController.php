@@ -30,7 +30,10 @@ class InfoController extends Controller
     }
 
     public function getPuntoVenta($nit){
-        $puntoVenta = PuntosVenta::select('id', 'nit', 'nombre_comercial')->where('nit', $nit)->first();
+        $puntoVenta = PuntosVenta::select('id', 'nit', 'nombre_comercial')->where([
+            ['nit', $nit],
+            ['estado_id', 1]
+        ])->first();
         if(!$puntoVenta){
             return response()->json(['message' => 'Punto de venta no encontrado'], 404);
         }

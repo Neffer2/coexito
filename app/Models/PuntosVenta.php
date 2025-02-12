@@ -17,6 +17,6 @@ class PuntosVenta extends Model
     ];
 
     public function recomendadores(){
-        return $this->hasMany(Recomendadores::class, 'pdv_id');
+        return $this->hasMany(Recomendador::class, 'pdv_id');
     }
 }

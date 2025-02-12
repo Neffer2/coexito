@@ -17,11 +17,18 @@
         <div class="card-header">
             <h5>Registro de facturas</h5>
             <a href="{{ route('backoffice-shopper-list') }}">Lista de facturas Shopper</a>
+            <a href="{{ route('dashboard') }}">Men&uacute;</a>
         </div>
         @isset($RegistroFactura)
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="fw-bold">#</span>
+                                {{ $RegistroFactura->id }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-4">
                                 <span class="fw-bold">Usuario:</span>
@@ -166,6 +173,12 @@
             @foreach ($RegistrosFactura as $RegistroFactura)
                 <div class="card my-2">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="fw-bold">#</span>
+                                {{ $RegistroFactura->id }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-4">
                                 <span class="fw-bold">Usuario:</span>

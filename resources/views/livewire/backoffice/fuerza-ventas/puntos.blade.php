@@ -17,11 +17,18 @@
         <div class="card-header">
             <h5>Registro de Puntos de venta</h5>
             <a href="{{ route('backoffice-fv-list') }}">Lista de puntos Fuerza de ventas</a>
+            <a href="{{ route('dashboard') }}">Men&uacute;</a>
         </div>
         @isset($RegistroPunto)
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="fw-bold">#</span>
+                                {{ $RegistroPunto->id }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-4">
                                 <span class="fw-bold">Usuario:</span>
@@ -97,6 +104,12 @@
             @foreach ($registroPuntos as $registroPunto)
                 <div class="card my-2">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="fw-bold">#</span>
+                                {{ $registroPunto->id }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-4">
                                 <span class="fw-bold">Usuario:</span>

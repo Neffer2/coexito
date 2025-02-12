@@ -26,13 +26,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12"><a href="{{ route('backoffice-recomendador') }}">Volver</a></div>
+                <div class="col-12">
+                    <a href="{{ route('backoffice-recomendador') }}">Volver</a>
+                    <a href="{{ route('dashboard') }}">Men&uacute;</a>
+                </div>
             </div>
         </div>
         @isset($RegistroServicio)
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="fw-bold">#</span>
+                                {{ $RegistroServicio->id }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-4">
                                 <span class="fw-bold">Usuario:</span>
@@ -102,6 +111,12 @@
             @foreach ($RegistroServicios as $RegistroServicio)
                 <div class="card my-2">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="fw-bold">#</span>
+                                {{ $RegistroServicio->id }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-4">
                                 <span class="fw-bold">Usuario:</span>
