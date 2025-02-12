@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
         'ruleta' => \App\Http\Middleware\Ruleta::class,
         'shopper' => \App\Http\Middleware\Shopper::class,
         'backoffice' => \App\Http\Middleware\Backoffice::class,
+        'location' => \App\Http\Middleware\GeoLocation::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
