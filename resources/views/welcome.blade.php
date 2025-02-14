@@ -74,7 +74,7 @@
                     <p>Descubre cómo participar. <span>Sigue las instrucciones del video, inscribe tus códigos y
                             participa por la rifa de 3 motos Honda CB 190 R Y 3 camionetas KIA STONIC</span></p>
                 </div>
-                <div class="info-video">
+                {{-- <div class="info-video">
                     <video controls>
                         <source src="{{ asset('assets/coexito.mp4') }}" type="video/mp4">
                     </video>
@@ -84,7 +84,7 @@
                     <video controls>
                         <source src="{{ asset('assets/coexito.mp4') }}" type="video/mp4">
                     </video>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="aliados-container">
