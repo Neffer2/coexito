@@ -108,6 +108,7 @@
             </div>
         </div>
         <div class="main-forms-container" id="main_forms_container">
+            {{-- Cerrar sesion --}}
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-terminos">
@@ -244,6 +245,7 @@
                             <div class="historial-codigos-btn">
                                 <button class="btn-active" id="show_registro_codigos">Registro códigos</button>
                                 <button id="show_historial_codigos">Historial códigos</button>
+                                <a href="/logout">Cerrar sesión</a>
                             </div>
                             <livewire:registro-codigos>
                                 <div class="historial-codigos">
@@ -285,6 +287,9 @@
                                 </div>
                                 <div class="asesor-menu-item">
                                     <button id="ranking_general">Ranking General</button>
+                                </div>
+                                <div class="asesor-menu-item">
+                                    <button id="cerrar-sesion-btn">Cerrar sesión</button>
                                 </div>
                             </div>
                             <div class="asesor-items">
@@ -364,6 +369,13 @@
 <script>
     const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
     const btnScrolltoFormMobile = document.getElementById('btn_scroll_to_form_mobile');
+    const cerrarSesionBtn = document.getElementById('cerrar-sesion-btn');
+
+    if (cerrarSesionBtn) {
+        cerrarSesionBtn.addEventListener('click', () => {
+            window.location.href = '/logout';
+        });
+    }
 
     if (btnScrolltoForm) {
         btnScrolltoForm.addEventListener('click', function() {

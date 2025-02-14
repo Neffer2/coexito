@@ -42,7 +42,8 @@
     width: 100%;
 }
 
-.historial-codigos-btn button {
+.historial-codigos-btn button, .historial-codigos-btn a {
+    text-align: center;
     padding: 10px 30px;
     border-top: #FF6700 1px solid;
     border-right: #FF6700 1px solid;
@@ -51,15 +52,17 @@
     background-color: #007FC8;
     color: #fff;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.historial-codigos-btn button:hover {
+.historial-codigos-btn button:hover, .historial-codigos-btn a:hover {
     background-color: #FF6700;
     color: #fff;
 }
+
 
 .historial-codigos table {
     width: 100%;
@@ -116,7 +119,7 @@
     margin-bottom: 20px;
 }
 
-.asesor-menu-item button {
+.asesor-menu-item button, .asesor-menu-item a {
     padding: 10px 30px;
     border: #FF6700 1px solid;
     background-color: #007FC8;
@@ -127,7 +130,7 @@
     transition: all 0.3s ease;
 }
 
-.asesor-menu-item button:hover {
+.asesor-menu-item button:hover, .asesor-menu-item a:hover {
     background-color: #FF6700;
     color: #fff;
 }
@@ -583,7 +586,7 @@
         padding: 20px;
     }
 
-    .historial-codigos-btn button {
+    .historial-codigos-btn button, .historial-codigos-btn a {
         padding: 5px 20px;
         border: #FF6700 1px solid;
         background-color: #007FC8;
@@ -687,7 +690,7 @@
         margin-top: 50px;
     }
 
-    .asesor-menu-item button {
+    .asesor-menu-item button, .asesor-menu-item a {
         font-size: 0.9rem;
         padding: 10px;
     }
