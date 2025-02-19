@@ -364,6 +364,10 @@
         </div>
     </div>
     <div class="bottom-line"></div>
+    <a href="https://api.whatsapp.com/send?phone=+573214198536&text=Hola,%20tengo%20una%20pregunta%20sobre%20la%20campa%C3%B1a%20de%20Co%C3%A9xito%2070%20a%C3%B1os%20contigo.%20%C2%BFMe%20puedes%20ayudar?"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+    </a>
 
 </body>
 <script>
