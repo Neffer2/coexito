@@ -76,13 +76,13 @@
                 </div>
                 <div class="info-video">
                     <video controls>
-                        <source src="{{ asset('assets/coexito.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('assets/coexito-70.mp4') }}" type="video/mp4">
                     </video>
                 </div>
 
                 <div class="info-video-mobile">
                     <video controls>
-                        <source src="{{ asset('assets/coexito.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('assets/coexito-70.mp4') }}" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -108,6 +108,7 @@
             </div>
         </div>
         <div class="main-forms-container" id="main_forms_container">
+            {{-- Cerrar sesion --}}
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-terminos">
@@ -244,6 +245,7 @@
                             <div class="historial-codigos-btn">
                                 <button class="btn-active" id="show_registro_codigos">Registro códigos</button>
                                 <button id="show_historial_codigos">Historial códigos</button>
+                                <a href="/logout">Cerrar sesión</a>
                             </div>
                             <livewire:registro-codigos>
                                 <div class="historial-codigos">
@@ -285,6 +287,9 @@
                                 </div>
                                 <div class="asesor-menu-item">
                                     <button id="ranking_general">Ranking General</button>
+                                </div>
+                                <div class="asesor-menu-item">
+                                    <button id="cerrar-sesion-btn">Cerrar sesión</button>
                                 </div>
                             </div>
                             <div class="asesor-items">
@@ -359,11 +364,22 @@
         </div>
     </div>
     <div class="bottom-line"></div>
+    <a href="https://api.whatsapp.com/send?phone=+573214198536&text=Hola,%20tengo%20una%20pregunta%20sobre%20la%20campa%C3%B1a%20de%20Co%C3%A9xito%2070%20a%C3%B1os%20contigo.%20%C2%BFMe%20puedes%20ayudar?"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+    </a>
 
 </body>
 <script>
     const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
     const btnScrolltoFormMobile = document.getElementById('btn_scroll_to_form_mobile');
+    const cerrarSesionBtn = document.getElementById('cerrar-sesion-btn');
+
+    if (cerrarSesionBtn) {
+        cerrarSesionBtn.addEventListener('click', () => {
+            window.location.href = '/logout';
+        });
+    }
 
     if (btnScrolltoForm) {
         btnScrolltoForm.addEventListener('click', function() {

@@ -11,6 +11,12 @@
     margin-bottom: 50px;
 }
 
+
+.cerrar-sesion a:hover {
+    color: #FF6700;
+    background-color: #fff;
+}
+
 .codigos-form-container {
     display: flex;
     flex-direction: row;
@@ -305,6 +311,7 @@
         padding: 0;
         width: 100%;
     }
+
 
     .codigos-form-container {
         width: 100%;
