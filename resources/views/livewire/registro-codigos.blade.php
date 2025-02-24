@@ -114,7 +114,7 @@
             const MAX_WIDTH = 1020;
             const MAX_HEIGHT = 980;
             const MIME_TYPE = "image/jpeg";
-            const QUALITY = 0.5;
+            const QUALITY = 1;
 
             const foto_factura_elem = document.getElementById("foto_factura_elem");
 
