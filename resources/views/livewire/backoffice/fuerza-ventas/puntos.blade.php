@@ -18,6 +18,12 @@
             <h5>Registro de Puntos de venta</h5>
             <a href="{{ route('backoffice-fv-list') }}">Lista de puntos Fuerza de ventas</a>
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
+
+            <div class="row mt-2">
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_pdv" class="form-control" placeholder="ID" autocomplete="off">
+                </div>
+            </div>
         </div>
         @isset($RegistroPunto)
             <div class="card-body">

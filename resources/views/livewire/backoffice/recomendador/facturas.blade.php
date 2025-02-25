@@ -18,6 +18,12 @@
             <h5>Registro de Servicios</h5>
             <a href="{{ route('backoffice-recomendador-list') }}">Lista de facturas Recomendador</a>
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
+
+            <div class="row mt-2">
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_recomendador" class="form-control" placeholder="ID" autocomplete="off">
+                </div>
+            </div>
         </div>
         @isset($RegistroServicio)
             <div class="card-body">

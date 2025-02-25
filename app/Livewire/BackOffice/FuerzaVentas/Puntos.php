@@ -10,11 +10,18 @@ class Puntos extends Component
 {
     use WithPagination;
 
-    public $RegistroPunto, $observaciones;
+    public $RegistroPunto, $observaciones, $id_pdv;
 
     public function render()
     {
-        $registroPuntos = RegistroPunto::where('estado_id', 2)->orderBy('id', 'desc')->paginate(10);
+
+        $query = RegistroPunto::where('estado_id', 2);
+
+        if ($this->id_pdv) {
+            $query->where('id', $this->id_pdv);
+        }
+
+        $registroPuntos = $query->orderBy('id', 'desc')->paginate(10);
         return view('livewire.backoffice.fuerza-ventas.puntos', [
             'registroPuntos' => $registroPuntos
         ]);
