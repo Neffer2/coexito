@@ -14,7 +14,7 @@
     </div>
     <div class="card">
 
-        <div class="card-header">
+        <div class="card-header" id="top_header">
             <h5>Registro de Puntos de venta</h5>
             <a href="{{ route('backoffice-fv-list') }}">Lista de puntos Fuerza de ventas</a>
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
@@ -128,7 +128,7 @@
                                 {{ $registroPunto->created_at }}
                             </div>
                             <div class="col-2">
-                                <button wire:click="getRegistro({{ $registroPunto->id }})" class="btn btn-primary">
+                                <button wire:click="getRegistro({{ $registroPunto->id }})" class="btn btn-primary get_registro_btn">
                                     Ver mas </button>
                             </div>
                         </div>
@@ -141,3 +141,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    const topHeader = document.getElementById('top_header');
+    const getRegistroBtn = document.querySelectorAll('.get_registro_btn');
+    getRegistroBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            topHeader.scrollIntoView();
+        });
+    });
+</script>

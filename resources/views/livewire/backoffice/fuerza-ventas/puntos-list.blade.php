@@ -14,7 +14,7 @@
     </div>
     <div class="card">
 
-        <div class="card-header">
+        <div class="card-header" id="headingOne">
             <h5>Lista de puntos Fuerza de ventas</h5>
             <div class="row">
                 <div class="col-md-2">
@@ -159,8 +159,9 @@
                                 @endif
                             </div>
                             <div class="col-2">
-                                <button wire:click="getRegistro({{ $registroPunto->id }})" class="btn btn-primary">
-                                    Ver mas </button>
+                                <button wire:click="getRegistro({{ $registroPunto->id }})"
+                                    class="btn btn-primary get_registro_btn">
+                                    Ver más </button>
                             </div>
                         </div>
                     </div>
@@ -172,3 +173,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    const headingOne = document.getElementById('headingOne');
+    const getRegistroBtns = document.querySelectorAll('.get_registro_btn');
+
+    getRegistroBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            headingOne.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+
+</script>
