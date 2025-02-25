@@ -27,6 +27,8 @@ class GeoLocation
             return abort(404);
         }
 
+        // Pais
+
         return $next($request);
     }
 }

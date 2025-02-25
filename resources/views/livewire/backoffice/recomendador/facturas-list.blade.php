@@ -53,7 +53,9 @@
                                 <span class="fw-bold">Celular:</span>
                                 {{ $RegistroServicio->recomendador->celular }} <br>
                                 <span class="fw-bold">Cedula:</span>
-                                {{ $RegistroServicio->recomendador->cedula }}
+                                {{ $RegistroServicio->recomendador->cedula }} <br>
+                                <span class="fw-bold">Número bonos:</span>
+                                {{ $RegistroServicio->num_bonos }}
                             </div>
                             <div class="col-4">
                                 <span class="fw-bold">Fecha:</span>
@@ -130,7 +132,9 @@
                                 <span class="fw-bold">Celular:</span>
                                 {{ $RegistroServicio->recomendador->celular }} <br>
                                 <span class="fw-bold">Cedula:</span>
-                                {{ $RegistroServicio->recomendador->cedula }}
+                                {{ $RegistroServicio->recomendador->cedula }} <br>
+                                <span class="fw-bold">Número bonos:</span>
+                                {{ $RegistroServicio->num_bonos }}
                             </div>
                             <div class="col-2">
                                 <span class="fw-bold">Fecha:</span>
