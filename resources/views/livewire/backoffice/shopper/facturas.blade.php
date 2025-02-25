@@ -18,6 +18,12 @@
             <h5>Registro de facturas</h5>
             <a href="{{ route('backoffice-shopper-list') }}">Lista de facturas Shopper</a>
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
+
+            <div class="row mt-2">
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_shopper" class="form-control" placeholder="ID" autocomplete="off">
+                </div>
+            </div>
         </div>
         @isset($RegistroFactura)
             <div class="card-body">

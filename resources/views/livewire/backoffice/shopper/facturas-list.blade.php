@@ -10,7 +10,7 @@
     <div class="card">
 
         <div class="card-header">
-            <h5>Registro de facturas</h5>
+            <h5>Lista de registro de facturas</h5>
             <div class="row">
                 <div class="col-md-2">
                     <input type="text" wire:model.live="num_factura" class="form-control" placeholder="Número de factura">

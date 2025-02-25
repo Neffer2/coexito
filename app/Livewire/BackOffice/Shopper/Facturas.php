@@ -12,11 +12,18 @@ class Facturas extends Component
     use WithPagination;
 
     // Models
-    public $RegistroFactura, $num_factura, $observaciones;
+    public $RegistroFactura, $num_factura, $observaciones, $id_shopper;
 
     public function render()
     {
-        $RegistrosFactura = RegistroFactura::where('estado_id', 2)->orderBy('id', 'desc')->paginate(10);
+        $query = RegistroFactura::where('estado_id', 2);
+
+        if ($this->id_shopper) {
+            $query->where('id', $this->id_shopper);
+        }
+
+        $RegistrosFactura = $query->orderBy('id', 'desc')->paginate(10);
+
         return view('livewire.backoffice.shopper.facturas', ['RegistrosFactura' => $RegistrosFactura]);
     }
 
