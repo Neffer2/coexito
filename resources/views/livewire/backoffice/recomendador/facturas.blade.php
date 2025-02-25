@@ -114,7 +114,7 @@
                             </div>
                             <div class="col-3">
                                 <span class="fw-bold">Celular:</span>
-                                {{ $RegistroServicio->recomenddor->celular }} <br>
+                                {{ $RegistroServicio->recomendador->celular }} <br>
                                 <span class="fw-bold">Cedula:</span>
                                 {{ $RegistroServicio->recomendador->cedula }} <br>
                                 <span class="fw-bold">Número bonos:</span>
