@@ -4,7 +4,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <div class="d-flex justify-content-end mb-3">
+    <div class="d-flex justify-content-end mb-3" id="card_header">
         <a href="#" class="btn btn-danger"
             onclick="event.preventDefault(); if(confirm('¿Estás seguro de que deseas cerrar sesión?')) { document.getElementById('logout-form').submit(); }">Cerrar
             sesión</a>
@@ -106,20 +106,20 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-respondive">
-                                                     <table class="table">
-                                                         <tr>
-                                                             <td>#</td>
-                                                             <td>Codigo</td>
-                                                             <td>Fecha</td>
-                                                         </tr>
-                                                         @foreach ($RegistroFactura->codigos as $key => $codigo)
-                                                             <tr>
-                                                                 <td>{{ $key+=1 }}</td>
-                                                                 <td>{{ $codigo->codigo->codigo }}</td>
-                                                                 <td>{{ $codigo->created_at }}</td>
-                                                             </tr>
-                                                         @endforeach
-                                                     </table>
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>#</td>
+                                                            <td>Codigo</td>
+                                                            <td>Fecha</td>
+                                                        </tr>
+                                                        @foreach ($RegistroFactura->codigos as $key => $codigo)
+                                                            <tr>
+                                                                <td>{{ $key += 1 }}</td>
+                                                                <td>{{ $codigo->codigo->codigo }}</td>
+                                                                <td>{{ $codigo->created_at }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,20 +131,20 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-respondive">
-                                                     <table class="table">
-                                                         <tr>
-                                                             <td>#</td>
-                                                             <td>Premio</td>
-                                                             <td>Fecha</td>
-                                                         </tr>
-                                                         @foreach ($RegistroFactura->premios as $key => $premio)
-                                                             <tr>
-                                                                 <td>{{ $key+=1 }}</td>
-                                                                 <td>{{ $premio->premio->descripcion }}</td>
-                                                                 <td>{{ $premio->created_at }}</td>
-                                                             </tr>
-                                                         @endforeach
-                                                     </table>
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>#</td>
+                                                            <td>Premio</td>
+                                                            <td>Fecha</td>
+                                                        </tr>
+                                                        @foreach ($RegistroFactura->premios as $key => $premio)
+                                                            <tr>
+                                                                <td>{{ $key += 1 }}</td>
+                                                                <td>{{ $premio->premio->descripcion }}</td>
+                                                                <td>{{ $premio->created_at }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +160,8 @@
                                         <button class="btn btn-success" wire:click="validacionRegistro(1)"
                                             wire:confirm="¿Estas segur@ de APROBAR esta factura?"> Aprobar factura</button>
                                         <button class="btn btn-danger" wire:click="validacionRegistro(0)"
-                                            wire:confirm="¿Estas segur@ de RECHAZAR esta factura?"> Rechazar factura</button>
+                                            wire:confirm="¿Estas segur@ de RECHAZAR esta factura?"> Rechazar
+                                            factura</button>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +198,7 @@
                                 {{ $RegistroFactura->created_at }}
                             </div>
                             <div class="col-2">
-                                <button wire:click="getRegistro({{ $RegistroFactura->id }})" class="btn btn-primary">
+                                <button class="btn btn-primary get_registro_btn" wire:click="getRegistro({{ $RegistroFactura->id }})">
                                     Ver mas </button>
                             </div>
                         </div>
@@ -210,3 +211,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cardHeader = document.getElementById('card_header');
+        const getRegistroBtns = document.querySelectorAll('.get_registro_btn');
+
+        getRegistroBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                cardHeader.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
