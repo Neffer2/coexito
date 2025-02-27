@@ -23,6 +23,12 @@
                 <div class="col-md-2">
                     <input type="text" wire:model.live="id_shopper" class="form-control" placeholder="ID" autocomplete="off">
                 </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_shopper_cedula" class="form-control" placeholder="Cédula" autocomplete="off">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_shopper_correo" class="form-control" placeholder="Correo" autocomplete="off">
+                </div>
             </div>
         </div>
         @isset($RegistroFactura)

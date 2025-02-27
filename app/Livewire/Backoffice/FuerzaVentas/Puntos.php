@@ -10,7 +10,7 @@ class Puntos extends Component
 {
     use WithPagination;
 
-    public $RegistroPunto, $observaciones, $id_pdv;
+    public $RegistroPunto, $observaciones, $id_pdv, $id_correo;
 
     public function render()
     {
@@ -19,6 +19,12 @@ class Puntos extends Component
 
         if ($this->id_pdv) {
             $query->where('id', $this->id_pdv);
+        }
+
+        if ($this->id_correo) {
+            $query->whereHas('user', function ($q) {
+                $q->where('email', 'like', '%' . $this->id_correo . '%');
+            });
         }
 
         $registroPuntos = $query->orderBy('id', 'desc')->paginate(10);
