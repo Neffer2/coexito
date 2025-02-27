@@ -23,7 +23,7 @@ class Facturas extends Component
 
         if ($this->id_nit) {
             $query->whereHas('recomendador.pdv', function ($q) {
-                $q->where('nit', 'like', '%' . $this->nit . '%');
+                $q->where('nit', 'like', '%' . $this->id_nit . '%');
             });
         }
 
