@@ -11,7 +11,7 @@ class Facturas extends Component
     use WithPagination;
 
     // Models
-    public $RegistroServicio, $observaciones, $id_recomendador, $nit;
+    public $RegistroServicio, $observaciones, $id_recomendador, $id_nit;
 
     public function render()
     {
@@ -21,7 +21,7 @@ class Facturas extends Component
             $query->where('id', $this->id_recomendador);
         }
 
-        if ($this->nit) {
+        if ($this->id_nit) {
             $query->whereHas('recomendador.pdv', function ($q) {
                 $q->where('nit', 'like', '%' . $this->nit . '%');
             });

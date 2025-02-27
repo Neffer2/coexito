@@ -24,7 +24,7 @@
                     <input type="text" wire:model.live="id_recomendador" class="form-control" placeholder="ID" autocomplete="off">
                 </div>
                 <div class="col-md-2">
-                    <input type="text" wire:model.live="nit" class="form-control" placeholder="NIT" autocomplete="off">
+                    <input type="text" wire:model.live="id_nit" class="form-control" placeholder="NIT" autocomplete="off">
                 </div>
             </div>
         </div>
