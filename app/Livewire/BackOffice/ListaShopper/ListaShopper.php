@@ -14,13 +14,12 @@ class ListaShopper extends Component
 
     public function render()
     {
-        // Shopper
         $query = User::query();
 
         if ($this->nombre) {
             $query->where('nombre', 'like', '%' . $this->nombre . '%');
         }
-
+        // Busqueda por documento
         if ($this->documento) {
             $query->where('documento', 'like', '%' . $this->documento . '%');
         }
