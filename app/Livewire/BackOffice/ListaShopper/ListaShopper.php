@@ -14,6 +14,7 @@ class ListaShopper extends Component
 
     public function render()
     {
+        // Shopper
         $query = User::query();
 
         if ($this->nombre) {
