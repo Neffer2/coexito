@@ -19,7 +19,7 @@ class ListaShopper extends Component
         if ($this->nombre) {
             $query->where('nombre', 'like', '%' . $this->nombre . '%');
         }
-        // Busqueda por documento
+        // Busqueda por documento ---
         if ($this->documento) {
             $query->where('documento', 'like', '%' . $this->documento . '%');
         }
