@@ -23,6 +23,9 @@
                 <div class="col-md-2">
                     <input type="text" wire:model.live="id_recomendador" class="form-control" placeholder="ID" autocomplete="off">
                 </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="nit" class="form-control" placeholder="NIT" autocomplete="off">
+                </div>
             </div>
         </div>
         @isset($RegistroServicio)
@@ -61,6 +64,10 @@
                             <div class="col-4">
                                 <span class="fw-bold">Punto de venta:</span>
                                 {{ $RegistroServicio->recomendador->pdv->nombre_comercial }}
+                            </div>
+                            <div class="col-4">
+                                <span class="fw-bold">NIT:</span>
+                                {{ $RegistroServicio->recomendador->pdv->nit }}
                             </div>
                         </div>
                     </div>
@@ -128,7 +135,9 @@
                             </div>
                             <div class="col-3">
                                 <span class="fw-bold">Fecha:</span>
-                                {{ $RegistroServicio->created_at }}
+                                {{ $RegistroServicio->created_at }} <br>
+                                <span class="fw-bold">NIT:</span>
+                                {{ $RegistroServicio->recomendador->pdv->nit }}
                             </div>
                             <div class="col-2">
                                 <button wire:click="getRegistro({{ $RegistroServicio->id }})" class="btn btn-primary get_registro_btn">
