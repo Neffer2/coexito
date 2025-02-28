@@ -23,11 +23,11 @@ class GeoLocation
         $data = json_decode($response->getBody());
         $dataCollection = collect($data);
 
-        if ($dataCollection->get('country') !== 'CO') {
-            return abort(404);
-        }
+        // if ($dataCollection->get('country') !== 'CO') {
+        //     return abort(404);
+        // }
 
-        // Pais - 
+        // Pais -
 
         return $next($request);
     }

@@ -65,11 +65,11 @@ export class Game extends Phaser.Scene {
             spinButton.setScale(1);
         });
 
-        // bars.forEach((elem) => {
-        //     elem.on('pointerdown', function (pointer){
-        //         alert(elem.premio);
-        //     });
-        // });
+        bars.forEach((elem) => {
+            elem.on('pointerdown', function (pointer){
+                alert(elem.premio);
+            });
+        });
 
     }
 
