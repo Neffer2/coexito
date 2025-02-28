@@ -47,7 +47,7 @@ class Facturas extends Component
 
     public function validacionRegistro($validacion)
     {
-        if ($validacion) {
+        if ($validacion == 1) {
             $this->validate([
                 'num_factura' => ['required', 'alpha_num:ascii', new num_factura],
                 'observaciones' => ['required', 'string']
@@ -64,7 +64,7 @@ class Facturas extends Component
             }
 
             $message = 'Factura APROBADA exitosamente.';
-        } else {
+        } elseif ($validacion == 0) {
             $this->validate([
                 'observaciones' => ['required', 'string']
             ]);
@@ -89,6 +89,18 @@ class Facturas extends Component
             }
 
             $message = 'Factura RECHAZADA exitosamente.';
+        } elseif ($validacion == 2) {
+            $this->RegistroFactura->num_factura = null;
+            $this->RegistroFactura->estado_id = 3;
+            $this->RegistroFactura->observaciones = 'Factura rechazada por estar duplicada.';
+            $this->RegistroFactura->save();
+
+            foreach ($this->RegistroFactura->codigos as $codigo) {
+                $codigo->estado_id = 1;
+                $codigo->save();
+            }
+
+            $message = 'Factura marcada como DUPLICADA exitosamente.';
         }
 
         $this->reset(

@@ -174,6 +174,8 @@
                                         <button class="btn btn-danger" wire:click="validacionRegistro(0)"
                                             wire:confirm="¿Estas segur@ de RECHAZAR esta factura?"> Rechazar
                                             factura</button>
+                                        <button class="btn btn-warning" wire:click="validacionRegistro(2)"
+                                            wire:confirm="¿Estás segur@ de marcar esta factura cómo DUPLICADA? Esto aceptará automaticamente los códigos pero rechaza la factura.">Duplicado</button>
                                     </div>
                                 </div>
                             </div>
