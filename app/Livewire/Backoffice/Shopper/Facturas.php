@@ -100,6 +100,15 @@ class Facturas extends Component
                 $codigo->save();
             }
 
+            foreach ($this->RegistroFactura->premios as $premio) {
+                $premio->premio->stock = $premio->premio->stock + 1;
+                $premio->premio->update();
+            }
+
+            foreach ($this->RegistroFactura->premios as $premio) {
+                $premio->delete();
+            }
+
             $message = 'Factura marcada como DUPLICADA exitosamente.';
         }
 
