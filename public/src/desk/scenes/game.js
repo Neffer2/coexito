@@ -1,10 +1,15 @@
 let width, height, mContext;
 let ruleta, puntero, spinButton, tempButton, bars, bglight;
 // Divisiones de la ruleta
-let divisiones = 20, circumference = 260;
+let divisiones = 40, circumference = 260;
 
 let premios = [
     {'arte': '50mil', 'codigo': 103},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
@@ -14,13 +19,28 @@ let premios = [
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': '20mil', 'codigo': 101},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     // {'arte': '100mil', 'codigo': 104},
+    {'arte': '20mil', 'codigo': 101},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': '20mil', 'codigo': 101},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},

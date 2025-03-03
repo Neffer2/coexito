@@ -30,7 +30,7 @@ export class Preloader extends Phaser.Scene {
         this.load.image('sigue-intentando', '/popup/sigue_intentando.png');
 
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
-        rect2.generateTexture('rectangle', 84, 25);
+        rect2.generateTexture('rectangle', 40, 25);
     }
 
     create ()
