@@ -19,7 +19,7 @@
             <tbody>
                 @foreach ($registro_servicios as $registro)
                     <tr>
-                        <td class="codigo-cell">{{ $registro->num_factura }}</td>
+                        <td class="codigo-cell" id="num_factura">{{ $registro->num_factura }}</td>
                         <td class="codigo-cell">
                             @php
                                 $foto_factura = str_replace('public/', '', $registro->foto_factura);
