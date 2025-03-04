@@ -17,6 +17,10 @@ use App\Http\Controllers\ShopperController;
 
 Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper', 'location'])->name('home');
 
+Route::get('/recomendador-busqueda', function (){
+    return view('recomendador-busqueda');
+})->name('recomendador-busqueda');
+
 Route::get('/dashboard', function (){
     return view('backoffice.index');
 })->middleware(['backoffice', 'location'])->name('dashboard');

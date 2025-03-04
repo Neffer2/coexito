@@ -1,0 +1,103 @@
+.recomendadores-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px;
+    background-image: url('../assets/fondo-landing.png');
+}
+
+.search-container {
+    display: flex;
+    width: 33%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 50%;
+    border: #fff 2px solid;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    border: #FF6700 2px solid;
+}
+
+.search-button {
+    width: 20%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6700;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #fff;
+    color: #FF6700;
+}
+
+.historial-facturas {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.table-header {
+    background-color: #007FC8;
+    font-weight: bold;
+}
+
+.codigo-cell {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #1085C5;
+}
+
+
+/* Mobile media query */
+@media screen and (max-width: 768px) {
+    .recomendadores-container {
+        padding: 20px;
+    }
+
+    .search-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .search-input {
+        width: 100%;
+
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .historial-facturas {
+        font-size: 1rem;
+    }
+
+    .codigo-cell {
+        padding: 5px;
+    }
+}

@@ -245,6 +245,7 @@
                             <div class="historial-codigos-btn">
                                 <button class="btn-active" id="show_registro_codigos">Registro códigos</button>
                                 <button id="show_historial_codigos">Historial códigos</button>
+                                <button id="show_historial_facturas">Historial facturas</button>
                                 <a href="/logout">Cerrar sesión</a>
                             </div>
                             <livewire:registro-codigos>
@@ -271,6 +272,46 @@
                                                         target="_blank">Ver</a>
                                                 </td>
                                                 <td>{{ $registro_codigo->created_at }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
+
+                                <div class="historial-facturas">
+                                    <h2 class="historial-facturas-title">Historial de facturas</h2>
+                                    <table>
+                                        <tr>
+                                            <td>Factura</td>
+                                            <td>Estado</td>
+                                            <td>Observaciones</td>
+                                            <td>Fecha</td>
+                                        </tr>
+                                        @foreach ( $registros_factura as $registro_factura )
+                                            <tr>
+                                                <td>
+                                                    @php
+                                                        $foto_factura = str_replace(
+                                                            'public/',
+                                                            '',
+                                                            $registro_factura->foto_factura,
+                                                        );
+                                                    @endphp
+                                                    <a href='{{ asset("storage/$foto_factura") }}'
+                                                        target="_blank">Ver</a>
+                                                </td>
+                                                <td>
+                                                    @if ($registro_factura->estado_id == 1)
+                                                        Aprobado
+                                                    @elseif ($registro_factura->estado_id == 2)
+                                                        En Revisión
+                                                    @elseif ($registro_factura->estado_id == 3)
+                                                        Inactivo
+                                                    @else
+                                                        Desconocido
+                                                    @endif
+                                                </td>
+                                                <td>{{ $registro_factura->observaciones }}</td>
+                                                <td>{{ $registro_factura->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </table>
@@ -492,17 +533,21 @@
 
     const showRegistroCodigos = document.getElementById('show_registro_codigos');
     const showHistorialCodigos = document.getElementById('show_historial_codigos');
+    const showHistorialFacturas = document.getElementById('show_historial_facturas');
 
     if (showRegistroCodigos) {
         showRegistroCodigos.addEventListener('click', () => {
             const registroCodigos = document.querySelector('.registro-codigos');
             const historialCodigos = document.querySelector('.historial-codigos');
+            const historialFacturas = document.querySelector('.historial-facturas');
 
             registroCodigos.style.display = 'flex';
             historialCodigos.style.display = 'none';
+            historialFacturas.style.display = 'none';
 
             showRegistroCodigos.classList.add('btn-active');
             showHistorialCodigos.classList.remove('btn-active');
+            showHistorialFacturas.classList.remove('btn-active');
         });
     }
 
@@ -510,14 +555,35 @@
         showHistorialCodigos.addEventListener('click', () => {
             const registroCodigos = document.querySelector('.registro-codigos');
             const historialCodigos = document.querySelector('.historial-codigos');
+            const historialFacturas = document.querySelector('.historial-facturas');
 
             registroCodigos.style.display = 'none';
             historialCodigos.style.display = 'flex';
+            historialFacturas.style.display = 'none';
 
             showRegistroCodigos.classList.remove('btn-active');
             showHistorialCodigos.classList.add('btn-active');
+            showHistorialFacturas.classList.remove('btn-active');
         });
     }
+
+    if (showHistorialFacturas) {
+        showHistorialFacturas.addEventListener('click', () => {
+            const registroCodigos = document.querySelector('.registro-codigos');
+            const historialCodigos = document.querySelector('.historial-codigos');
+            const historialFacturas = document.querySelector('.historial-facturas');
+
+            registroCodigos.style.display = 'none';
+            historialCodigos.style.display = 'none';
+            historialFacturas.style.display = 'flex';
+
+            showRegistroCodigos.classList.remove('btn-active');
+            showHistorialCodigos.classList.remove('btn-active');
+            showHistorialFacturas.classList.add('btn-active');
+        });
+    }
+
+    
 </script>
 
 </html>

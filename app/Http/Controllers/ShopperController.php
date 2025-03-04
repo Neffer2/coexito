@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\RegistroCodigo;
+use App\Models\RegistroFactura;
 use App\Models\RegistroPremio;
 use App\Models\Premio;
 use App\Traits\Mail;
@@ -16,7 +17,8 @@ class ShopperController extends Controller
     public function welcome(){
         if (auth()->user() && auth()->user()->rol_id == 1){
             $registros_codigo = RegistroCodigo::where('user_id', auth()->user()->id)->get();
-            return view('welcome', ['registros_codigo' => $registros_codigo]);
+            $registros_factura = RegistroFactura::where('user_id', auth()->user()->id)->get();
+            return view('welcome', ['registros_codigo' => $registros_codigo], ['registros_factura' => $registros_factura]);
         }elseif (auth()->user() && auth()->user()->rol_id == 3){
             return redirect()->route('dashboard');
         }
