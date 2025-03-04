@@ -21,7 +21,10 @@
                     <tr>
                         <td class="codigo-cell">{{ $registro->num_factura }}</td>
                         <td class="codigo-cell">
-                            <a href="{{ asset('storage/' . $registro->foto_factura) }}" target="_blank">Ver</a>
+                            @php
+                                $foto_factura = str_replace('public/', '', $registro->foto_factura);
+                            @endphp
+                            <a href="{{ asset('storage/' . $foto_factura) }}" target="_blank">Ver</a>
                         </td>
                         <td class="codigo-cell">{{ $registro->num_bonos }}</td>
                         <td class="codigo-cell">
