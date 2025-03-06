@@ -1,8 +1,15 @@
 <!-- filepath: /c:/laragon/www/coexito/resources/views/livewire/consulta-recomendadores.blade.php -->
 <div class="recomendadores-container">
     <div class="search-container">
-        <input type="text" wire:model="search_recomendador" placeholder="Ingresa tu cédula" class="search-input">
+        <input type="text" wire:model="search_recomendador" placeholder="Ingresa tu cédula" class="search-input" value="0">
         <button wire:click="buscar" class="search-button">Buscar</button>
+        @if (!empty($registro_servicios))
+            <div class="recomendador-info">
+                <p>Nombre: {{ $registro_servicios->first()->recomendador->nombre ?? '' }}</p>
+                <p>Puntos: {{ $registro_servicios->first()->recomendador->puntos ?? '' }}</p>
+
+            </div>
+        @endif
     </div>
 
     <table class="historial-facturas">
@@ -38,7 +45,7 @@
                                 N/A
                             @endif
                         </td>
-                        <td class="codigo-cell">{{ $registro->observaciones ?? 'N/A' }}  </td>
+                        <td class="codigo-cell">{{ $registro->observaciones ?? 'N/A' }} </td>
                     </tr>
                 @endforeach
             </tbody>
