@@ -10,7 +10,7 @@ class ListaRecomendador extends Component
 {
     use WithPagination;
 
-    public $nombre, $cedula;
+    public $nombre, $cedula, $telefono;
 
     public function render()
     {
@@ -22,6 +22,10 @@ class ListaRecomendador extends Component
         // Busqueda por documento ---
         if ($this->cedula) {
             $query->where('cedula', 'like', '%' . $this->cedula . '%');
+        }
+
+        if ($this->telefono) {
+            $query->where('celular', 'like', '%' . $this->telefono . '%');
         }
 
         $recomendadores = $query->orderBy('id', 'desc')->paginate(10);

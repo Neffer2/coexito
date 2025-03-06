@@ -9,6 +9,9 @@
                     <input type="text" wire:model.live="cedula" class="form-control" placeholder="Número de documento">
                 </div>
                 <div class="col-md-2">
+                    <input type="text" wire:model.live="telefono" class="form-control" placeholder="Teléfono">
+                </div>
+                <div class="col-md-2">
                     <input type="text" wire:model.live="nombre" class="form-control" placeholder="Nombre">
                 </div>
             </div>
