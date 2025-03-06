@@ -53,6 +53,10 @@ Route::get('/backoffice-lista-shopper', function (){
     return view('backoffice.lista-shopper.lista-shopper');
 })->middleware(['backoffice', 'location'])->name('backoffice-lista-shopper');
 
+Route::get('/backoffice-lista-recomendador', function (){
+    return view('backoffice.lista-recomendador.lista-recomendador');
+})->middleware(['backoffice', 'location'])->name('backoffice-lista-recomendador');
+
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta', 'location'])->name('ruleta');
 Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);

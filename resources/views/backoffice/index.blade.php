@@ -14,6 +14,7 @@
             <li><a href="{{ route('backoffice-recomendador') }}">Recomendadores</a></li>
             <li><a href="{{ route('backoffice-fv') }}">Fuerza de Ventas</a></li>
             <li><a href="{{ route('backoffice-lista-shopper')}}">Lista de Shoppers</a></li>
+            <li><a href="{{ route('backoffice-lista-recomendador')}}">Lista de Recomendadores</a></li>
         </ul>
     </div>
 </body>
