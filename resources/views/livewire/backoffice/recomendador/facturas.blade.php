@@ -26,6 +26,12 @@
                 <div class="col-md-2">
                     <input type="text" wire:model.live="id_nit" class="form-control" placeholder="NIT" autocomplete="off">
                 </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_cedula" class="form-control" placeholder="Cédula" autocomplete="off">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="id_nombre" class="form-control" placeholder="Nombre" autocomplete="off">
+                </div>
             </div>
         </div>
         @isset($RegistroServicio)

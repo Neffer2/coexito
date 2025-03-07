@@ -11,7 +11,7 @@ class Facturas extends Component
     use WithPagination;
 
     // Models
-    public $RegistroServicio, $observaciones, $id_recomendador, $id_nit;
+    public $RegistroServicio, $observaciones, $id_recomendador, $id_nit, $id_cedula, $id_nombre;
 
     public function render()
     {
@@ -26,6 +26,20 @@ class Facturas extends Component
                 $q->where('nit', 'like', '%' . $this->id_nit . '%');
             });
         }
+
+        if ($this->id_cedula) {
+            $query->whereHas('recomendador', function ($q) {
+                $q->where('cedula', 'like', '%' . $this->id_cedula . '%');
+            });
+        }
+
+        if ($this->id_nombre) {
+            $query->whereHas('recomendador', function ($q) {
+                $q->where('nombre', 'like', '%' . $this->id_nombre . '%');
+            });
+        }
+
+
 
 
         $RegistroServicios = $query->orderBy('id', 'desc')->paginate(10);

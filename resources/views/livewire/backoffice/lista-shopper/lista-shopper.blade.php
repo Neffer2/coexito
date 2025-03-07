@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="card">
         <div class="card-header">
-            <h5>Lista de Usuarios - Shopper</h5>
+            <h5>Lista de Usuarios - Shopper - Asesores</h5>
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
             
             <div class="row mt-2">
@@ -23,6 +23,7 @@
                         <th>Teléfono</th>
                         <th>Dirección</th>
                         <th>Ciudad</th>
+                        <th>Rol</th>
                         <th>Email</th>
                     </tr>
                 </thead>
@@ -35,6 +36,17 @@
                             <td>{{ $user->telefono }}</td>
                             <td>{{ $user->direccion }}</td>
                             <td>{{ $user->ciudad }}</td>
+                            <td>
+                                @if ($user->rol_id == 1)
+                                    Shopper
+                                @elseif ($user->rol_id == 2)
+                                    Asesor
+                                @elseif ($user->rol_id == 3)
+                                    Backoffice
+                                @else
+                                    N/A
+                                @endif
+                            </td>
                             <td>{{ $user->email }}</td>
                         </tr>
                     @endforeach

@@ -13,6 +13,9 @@
             <h5>Lista de registro de Servicios</h5>
             <div class="row">
                 <div class="col-md-2">
+                    <input type="text" wire:model.live="id_list_recom" class="form-control" placeholder="ID">
+                </div>
+                <div class="col-md-2">
                     <input type="text" wire:model.live="num_factura" class="form-control" placeholder="Número de factura">
                 </div>
                 <div class="col-md-2">
