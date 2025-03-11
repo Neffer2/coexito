@@ -234,7 +234,10 @@
                             <div class="codigos-form-text">
                                 <h2 class="codigos-form-text-title">Registra <span>tus códigos ahora </span></h2>
                                 <p>Encuentra el código para participar <span>en la esquina señalada y gana premios al
-                                        instante.</span></p>
+                                        instante.</span></p> <br>
+                                <p>Recibe un raspa y gana por cada $80.000 en compras de productos para auto y $40.000 en
+                                    productos para moto
+                                    participantes.</p>
                             </div>
                             <div class="image-raspaygana">
                                 <img src="{{ asset('assets/raspa-y-gana.png') }}" alt="Imagenes raspa y gana">
@@ -286,7 +289,7 @@
                                             <td>Observaciones</td>
                                             <td>Fecha</td>
                                         </tr>
-                                        @foreach ( $registros_factura as $registro_factura )
+                                        @foreach ($registros_factura as $registro_factura)
                                             <tr>
                                                 <td>
                                                     @php
@@ -582,8 +585,6 @@
             showHistorialFacturas.classList.add('btn-active');
         });
     }
-
-    
 </script>
 
 </html>

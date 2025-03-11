@@ -119,6 +119,14 @@
     margin-bottom: 20px;
 }
 
+.copys-subtitle {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .asesor-menu-item button, .asesor-menu-item a {
     padding: 10px 30px;
     border: #FF6700 1px solid;

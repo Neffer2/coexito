@@ -1,6 +1,12 @@
 <div class="registro-codigos">
     <h2 class="registro-codigos-title">Registro de códigos</h2>
-
+    <div class="copys-subtitle">
+        <p>Sube tus facturas una única vez con los raspa y gana que recibiste, si quedan duplicadas, solo participará la
+            primera registrada.</p>
+            <br>
+        <p>El titular de la factura de compra y del participante registrado, deben ser el mismo.</p>
+        {{-- <p>Si el valor de tu compra es una cifra decimal, se redondeará hacia abajo para calcular la cantidad de raspa y gana que recibirás.</p> --}}
+    </div>
     <label for="productos">Elige qué productos compraste:</label>
     <div class="select-container">
         <label for="">Productos para auto</label>
@@ -57,6 +63,7 @@
 
     <div class="upload-container-codigos">
         <label for="foto_factura">Tómale foto a tu factura:</label>
+        
         <div class="upload-container" onclick="document.getElementById('foto_factura_elem').click()">
             <input id="foto_factura_elem" type="file" accept="image/*" style="display: none;">
             <img id="imagePreviewFactura" src="{{ $foto_factura ? $foto_factura->temporaryUrl() : '' }}">
@@ -68,6 +75,8 @@
         @error('foto_factura')
             <span class="error">{{ $message }}</span>
         @enderror
+        <label for="foto_factura">* El monto de la compra y la cantidad de raspa y gana registrados deben coincidir con estos valores.</label>
+        <br>
     </div>
     <label for="codigo">Ingresa tus códigos:</label>
     <div class="ingresa-codigo-container">
@@ -107,7 +116,6 @@
             @endforeach
         </tbody>
     </table>
-
     <button wire:click="register">Registrar</button>
     @script
         <script>
