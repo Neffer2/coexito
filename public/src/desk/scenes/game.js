@@ -4,7 +4,13 @@ let ruleta, puntero, spinButton, tempButton, bars, bglight;
 let divisiones = 40, circumference = 260;
 
 let premios = [
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': '50mil', 'codigo': 103},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
@@ -25,14 +31,6 @@ let premios = [
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
-    // {'arte': '100mil', 'codigo': 104},
-    {'arte': '20mil', 'codigo': 101},
-    {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
@@ -46,6 +44,8 @@ let premios = [
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
+     // {'arte': '100mil', 'codigo': 104},
 ];
 
 let rotate = false;
@@ -166,23 +166,23 @@ export class Game extends Phaser.Scene {
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
-                            // TODO: !Envio a back
-                            // axios.post('/store-premio', {
-                            //     factura_id: factura_id,
-                            //     premio: bar.premio.codigo
-                            // })
-                            // .then(function (response) {
-                            //     let data = response.data;
-                            //     if (data.status === 200){
+                            // !Envio a back
+                            axios.post('/store-premio', {
+                                factura_id: factura_id,
+                                premio: bar.premio.codigo
+                            })
+                            .then(function (response) {
+                                let data = response.data;
+                                if (data.status === 200){
 
-                            //     }else {
-                            //         alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
-                            //         location.reload();
-                            //     }
-                            // })
-                            // .catch(function (error) {
-                            //     console.log(error);
-                            // });
+                                }else {
+                                    alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
+                                    location.reload();
+                                }
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
                         }
                     }, 500);
                 }else {

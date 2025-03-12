@@ -32,7 +32,7 @@ export class Preloader extends Phaser.Scene {
         this.load.audio('win-sound', '/sound/tada.mp3');
 
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
-        rect2.generateTexture('rectangle', 38, 25);
+        rect2.generateTexture('rectangle', 39.5, 25);
     }
 
     create ()
