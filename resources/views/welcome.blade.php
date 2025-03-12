@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="{{ asset('css/registro-codigos.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/top-container.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/custom-swal.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom-pagination.css') }}?v={{ time() }}">
     <link rel="shortcut icon" href="{{ asset('assets/icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <title>Coexitocontigo</title>
 </head>
 
@@ -414,10 +416,28 @@
     </a>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     const btnScrolltoForm = document.getElementById('btn_scroll_to_form');
     const btnScrolltoFormMobile = document.getElementById('btn_scroll_to_form_mobile');
     const cerrarSesionBtn = document.getElementById('cerrar-sesion-btn');
+
+
+    @if ($errors->any())
+    Swal.fire({
+            title: 'Errores encontrados',
+            html: '{!! implode('<br>', $errors->all()) !!}',
+            icon: 'error',
+            confirmButtonText: 'Cerrar',
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'custom-swal-title',
+                htmlContainer: 'custom-swal-html',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button'
+            }
+        });
+    @endif
 
     if (cerrarSesionBtn) {
         cerrarSesionBtn.addEventListener('click', () => {
