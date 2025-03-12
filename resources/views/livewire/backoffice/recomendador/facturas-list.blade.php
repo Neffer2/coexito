@@ -50,7 +50,9 @@
                                 <span class="fw-bold">Usuario:</span>
                                 {{ $RegistroServicio->recomendador->nombre }} <br>
                                 <span class="fw-bold">Correo:</span>
-                                {{ $RegistroServicio->recomendador->correo }}
+                                {{ $RegistroServicio->recomendador->correo }} <br>
+                                <span class="fw-bold">NIT:</span> 
+                                {{ $RegistroServicio->recomendador->pdv->nit }} <br>
                             </div>
                             <div class="col-4">
                                 <span class="fw-bold">Celular:</span>
