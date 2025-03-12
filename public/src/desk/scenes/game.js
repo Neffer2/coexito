@@ -14,6 +14,7 @@ let premios = [
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
+    {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': '30mil', 'codigo': 102},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
@@ -85,12 +86,12 @@ export class Game extends Phaser.Scene {
             spinButton.setScale(1);
         });
 
-        // bars.forEach((elem) => {
-        //     elem.on('pointerdown', function (pointer){
-        //         alert(elem.premio.arte);
-        //     });
-        // });
-
+        // DEBUG
+        bars.forEach((elem) => {
+            elem.on('pointerdown', function (pointer){
+                alert(elem.premio.arte);
+            });
+        });
     }
 
     update(){
@@ -165,22 +166,23 @@ export class Game extends Phaser.Scene {
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
-                            axios.post('/store-premio', {
-                                factura_id: factura_id,
-                                premio: bar.premio.codigo
-                            })
-                            .then(function (response) {
-                                let data = response.data;
-                                if (data.status === 200){
+                            // TODO: !Envio a back
+                            // axios.post('/store-premio', {
+                            //     factura_id: factura_id,
+                            //     premio: bar.premio.codigo
+                            // })
+                            // .then(function (response) {
+                            //     let data = response.data;
+                            //     if (data.status === 200){
 
-                                }else {
-                                    alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
-                                    location.reload();
-                                }
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
+                            //     }else {
+                            //         alert("Opps, algo salió mal, inténtalo de nuevo mas tarde.");
+                            //         location.reload();
+                            //     }
+                            // })
+                            // .catch(function (error) {
+                            //     console.log(error);
+                            // });
                         }
                     }, 500);
                 }else {
