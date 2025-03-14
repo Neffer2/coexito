@@ -41,9 +41,11 @@ class RegistroCodigos extends Component
         $registro_factura = new RegistroFactura();
         $registro_factura->user_id = auth()->user()->id;
         $registro_factura->foto_factura = $this->foto_factura->store(path: 'public/facturas-shopper');
+        $registro_factura->estado_id = 1; //! Facturas aprobadas por defecto
         $registro_factura->productos_auto = ($this->productos_auto) ? implode(", ", $this->productos_auto) : null;
         $registro_factura->productos_moto = ($this->productos_moto) ? implode(", ", $this->productos_moto) : null;
         $registro_factura->productos_energiteca_servicios = $this->productos_energiteca_servicios;
+        $registro_factura->observaciones = 'Aprobado por defecto.'; //! Facturas aprobadas por defecto
         $registro_factura->save();
 
         foreach ($this->codigos as $codigo){
@@ -58,6 +60,7 @@ class RegistroCodigos extends Component
                 $registro_codigo->factura_id = $registro_factura->id;
                 $registro_codigo->codigo_id = $codigo->id;
                 $registro_codigo->user_id = auth()->user()->id;
+                $registro_codigo->estado_id = 1; //! Códigos aprobados por defecto
                 $registro_codigo->save();
             }else {
                 return redirect()->back()->with('codigo_error', "!Oops, el código ".$codigo." no existe o ya fue registrado");
