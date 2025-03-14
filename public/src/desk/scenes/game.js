@@ -166,7 +166,8 @@ export class Game extends Phaser.Scene {
                     setTimeout(() => {
                         if (enablePost){
                             enablePost = false;
-                            // !Envio a back
+                            // !Envio a back...
+                            // TODO: revisar funcionalidad
                             axios.post('/store-premio', {
                                 factura_id: factura_id,
                                 premio: bar.premio.codigo
@@ -181,7 +182,7 @@ export class Game extends Phaser.Scene {
                                 }
                             })
                             .catch(function (error) {
-                                console.log(error);
+                                console.log(error, 'error');
                             });
                         }
                     }, 500);
