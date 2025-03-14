@@ -19,6 +19,7 @@ const config = {
         arcade: {
             // gravity: { y: 1000 },
             // debug: true
+            // DEBUG PARA PRUEBAS
         }
     },
     transparent: true
