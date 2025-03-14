@@ -18,7 +18,7 @@ class ShopperController extends Controller
     {
         if (auth()->user() && auth()->user()->rol_id == 1) {
             $registros_codigo = RegistroCodigo::where('user_id', auth()->user()->id)->latest()->take(10)->get();
-            $registros_factura = RegistroFactura::where('user_id', auth()->user()->id)->latest()->take(10)->get();
+            $registros_factura = RegistroFactura::where('user_id', auth()->user()->id)->latest()->take(9)->get();
             return view('welcome', ['registros_codigo' => $registros_codigo], ['registros_factura' => $registros_factura]);
         } elseif (auth()->user() && auth()->user()->rol_id == 3) {
             return redirect()->route('dashboard');
