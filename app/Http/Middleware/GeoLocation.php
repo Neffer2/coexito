@@ -17,15 +17,15 @@ class GeoLocation
     public function handle(Request $request, Closure $next): Response
     {
         $client = new Client();
-        $response = $client->get("https://ipinfo.io/{$request->ip()}?token=25e53798e896ae");
-        // $response = $client->get("https://ipinfo.io/201.184.127.202?token=25e53798e896ae");
-        // Parse the JSON response
-        $data = json_decode($response->getBody());
-        $dataCollection = collect($data);
+        // $response = $client->get("https://ipinfo.io/{$request->ip()}?token=25e53798e896ae");
+        // // $response = $client->get("https://ipinfo.io/201.184.127.202?token=25e53798e896ae");
+        // // Parse the JSON response
+        // $data = json_decode($response->getBody());
+        // $dataCollection = collect($data);
 
-        if ($dataCollection->get('country') !== 'CO') {
-            return abort(404);
-        }
+        // if ($dataCollection->get('country') !== 'CO') {
+        //     return abort(404);
+        // }
 
         // Pais - 
 
