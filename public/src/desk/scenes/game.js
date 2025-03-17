@@ -87,11 +87,11 @@ export class Game extends Phaser.Scene {
         });
 
         // DEBUG
-        bars.forEach((elem) => {
-            elem.on('pointerdown', function (pointer){
-                alert(elem.premio.arte);
-            });
-        });
+        // bars.forEach((elem) => {
+        //     elem.on('pointerdown', function (pointer){
+        //         alert(elem.premio.arte);
+        //     });
+        // });
     }
 
     update(){
