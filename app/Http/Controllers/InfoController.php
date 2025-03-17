@@ -133,7 +133,7 @@ class InfoController extends Controller
             $valor_factura = floor($valor_factura_int/ 80000);
             if ($valor_factura == $num_bonos) {
                 $estado = 1;
-                $observacion = 'Aprobado por defecto';
+                $observacion = 'Aprobado';
                 $recomendador->puntos += 1;
             } else {
                 $estado = 3;
@@ -144,8 +144,8 @@ class InfoController extends Controller
         $servicio->valor_factura = $request->valor_factura;
         $servicio->estado_id = $estado;
         $servicio->observaciones = $observacion;
-        $servicio->recomendador->save();
         if ($servicio->save()) {
+            $recomendador->save();
             return response()->json(['message' => 'Registro exitoso', 'status' => 200], 200);
         } else {
             return response()->json(['message' => 'Error al registrar el servicio', 'status' => 404], 404);
