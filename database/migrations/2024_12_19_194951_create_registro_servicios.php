@@ -17,7 +17,9 @@ return new class extends Migration
             $table->foreignId('recomendador_id');
             $table->string('num_factura');
             $table->string('foto_factura');
+            $table->string('segmento')->default('NULL');
             $table->integer('num_bonos');
+            $table->integer('valor_factura')->default(0);
             $table->foreign('estado_id')->references('id')->on('estados');
             $table->foreignId('estado_id')->default(2);
             $table->string('observaciones')->nullable();
