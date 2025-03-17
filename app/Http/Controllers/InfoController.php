@@ -119,8 +119,7 @@ class InfoController extends Controller
         $observacion = 'Pendiente';
         if ($request->segmento == 'Moto') {
             $valor_factura = floor($valor_factura_int/ 40000);
-
-            if ($valor_factura === $num_bonos) {
+            if ($valor_factura == $num_bonos) {
                 $estado = 1;
                 $observacion = 'Aprobado';
                 $recomendador->puntos += 1;
@@ -132,8 +131,7 @@ class InfoController extends Controller
 
         if ($request->segmento == 'Carro') {
             $valor_factura = floor($valor_factura_int/ 80000);
-
-            if ($valor_factura === $num_bonos) {
+            if ($valor_factura == $num_bonos) {
                 $estado = 1;
                 $observacion = 'Aprobado por defecto';
                 $recomendador->puntos += 1;
