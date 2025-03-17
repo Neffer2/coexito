@@ -144,9 +144,8 @@ class InfoController extends Controller
         $servicio->valor_factura = $request->valor_factura;
         $servicio->estado_id = $estado;
         $servicio->observaciones = $observacion;
-        
+        $servicio->recomendador->save();
         if ($servicio->save()) {
-            $servicio->recomendador->save();
             return response()->json(['message' => 'Registro exitoso', 'status' => 200], 200);
         } else {
             return response()->json(['message' => 'Error al registrar el servicio', 'status' => 404], 404);
