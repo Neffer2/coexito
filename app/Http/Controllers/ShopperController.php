@@ -61,12 +61,12 @@ class ShopperController extends Controller
             $registro_premio->user_id = auth()->user()->id;
             $registro_premio->save();
 
-            $registro_factura = RegistroFactura::where('id', $request->factura_id)->first();
-            if ($registro_factura) {
-                $registro_factura->estado_id = 2;
-                $registro_factura->observaciones = NULL;
-                $registro_factura->save();
-            }
+            // $registro_factura = RegistroFactura::where('id', $request->factura_id)->first();
+            // if ($registro_factura) {
+            //     $registro_factura->estado_id = 2;
+            //     $registro_factura->observaciones = NULL;
+            //     $registro_factura->save();
+            // }
 
             $this->premio($registro_premio->premio_id);
             // Stock
