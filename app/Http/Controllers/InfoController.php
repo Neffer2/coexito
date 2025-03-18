@@ -93,7 +93,6 @@ class InfoController extends Controller
     {
         $request->validate([
             'recomendador_id' => 'required',
-            'num_factura' => 'required',
             'segmento' => 'required',
             'valor_factura' => 'required',
             'num_bonos' => 'required',
@@ -109,7 +108,7 @@ class InfoController extends Controller
         $servicio = new RegistroServicio;
         $recomendador = Recomendador::find($request->recomendador_id);
         $servicio->recomendador_id = $request->recomendador_id;
-        $servicio->num_factura = $request->num_factura;
+        $servicio->num_factura = NULL;
         $servicio->segmento = $request->segmento;
         $servicio->num_bonos = $num_bonos;
         $servicio->foto_factura = $foto_factura;
