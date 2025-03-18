@@ -108,7 +108,7 @@ class InfoController extends Controller
         $servicio = new RegistroServicio;
         $recomendador = Recomendador::find($request->recomendador_id);
         $servicio->recomendador_id = $request->recomendador_id;
-        $servicio->num_factura = NULL;
+        $servicio->num_factura = "N/A";
         $servicio->segmento = $request->segmento;
         $servicio->num_bonos = $num_bonos;
         $servicio->foto_factura = $foto_factura;
