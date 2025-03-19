@@ -19,6 +19,8 @@ class RegistroCodigos extends Component
     // Useful vars
     public $user, $codigos = [];
 
+    public $isSubmitting = false;
+
     public function render()
     {
         return view('livewire.registro-codigos');
@@ -29,6 +31,13 @@ class RegistroCodigos extends Component
     }
 
     public function register(){
+
+        if ($this->isSubmitting) {
+            return;
+        }
+
+        $this->isSubmitting = true;
+
         $this->validateCodigos();
         $this->validate([
             'productos_auto' => 'nullable|array',
@@ -71,6 +80,8 @@ class RegistroCodigos extends Component
         $this->user->estado_id = 4;
         // TODO: Cambiar en pruebas
         $this->user->save();
+
+        $this->isSubmitting = false;
         return redirect()->route('ruleta', ['factura_id' => $registro_factura->id])->with('success', 'Código registrado con éxito');
     }
 
