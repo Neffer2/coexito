@@ -116,7 +116,7 @@
             @endforeach
         </tbody>
     </table>
-    <button wire:click="register">Registrar</button>
+    <button wire:click="register" wire:loading.attr="disabled">Registrar</button>
     @script
         <script>
             const MAX_WIDTH = 1020;
