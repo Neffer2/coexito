@@ -180,12 +180,16 @@
                 $wire.upload('foto_factura', file, (uploadedFilename) => {});
             }
 
-            function disableButton() {
-                const button = document.getElementById('registerButton');
-                button.disabled = true;
-                setTimeout(() => {
-                    button.disabled = false;
-                }, 2000);
+            const button = document.getElementById('registerButton');
+            if (button) {
+
+                const disableButton = () => {
+                    const button = document.getElementById('registerButton');
+                    button.disabled = true;
+                    setTimeout(() => {
+                        button.disabled = false;
+                    }, 2000);
+                }
             }
         </script>
     @endscript
