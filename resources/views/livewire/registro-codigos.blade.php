@@ -117,8 +117,10 @@
             @endforeach
         </tbody>
     </table>
-    <button id="registerButton" wire:click="register" wire:loading.attr="disabled"
-        onclick="disableButton()">Registrar</button>
+    <button wire:click="register" wire:loading.attr="disabled">Registrar</button>
+    <div wire:loading>
+        Procesando registro, por favor espera...
+    </div>
     @script
         <script>
             const MAX_WIDTH = 1020;
@@ -178,20 +180,6 @@
 
             const upload_foto_factura = (file) => {
                 $wire.upload('foto_factura', file, (uploadedFilename) => {});
-            }
-
-            const button = document.getElementById('registerButton');
-            if (button) {
-
-                const disableButton = () => {
-                    const button = document.getElementById('registerButton');
-                    button.disabled = true;
-                    button.innerText = 'Cargando...';
-                    setTimeout(() => {
-                        button.disabled = false;
-                        button.innerText = 'Registrar';
-                    }, 1000);
-                }
             }
         </script>
     @endscript
