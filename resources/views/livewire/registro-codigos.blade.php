@@ -186,9 +186,11 @@
                 const disableButton = () => {
                     const button = document.getElementById('registerButton');
                     button.disabled = true;
+                    button.innerText = 'Cargando...';
                     setTimeout(() => {
                         button.disabled = false;
-                    }, 2000);
+                        button.innerText = 'Registrar';
+                    }, 1000);
                 }
             }
         </script>
