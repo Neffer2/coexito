@@ -15,7 +15,7 @@
     <table class="historial-facturas">
         <thead>
             <tr class="table-header">
-                <th>Num Factura</th>
+                <th>Número de factura</th>
                 <th>Foto Factura</th>
                 <th>Num Bonos</th>
                 <th>Estado</th>
@@ -25,8 +25,8 @@
         @if (!empty($registro_servicios))
             <tbody>
                 @foreach ($registro_servicios as $registro)
-                    <tr>
-                        <td class="codigo-cell" id="num_factura">{{ $registro->num_factura }}</td>
+                <tr>
+                        <td class="codigo-cell"> {{ $registro->id }}</td>
                         <td class="codigo-cell">
                             @php
                                 $foto_factura = str_replace('public/', '', $registro->foto_factura);
