@@ -117,10 +117,11 @@
             @endforeach
         </tbody>
     </table>
-    <button wire:click="register" wire:loading.attr="disabled">Registrar</button>
-    <div wire:loading>
-        Procesando registro, por favor espera...
-    </div>
+    <button type="button" wire:loading.class="redencion-loading" wire:click="register" wire:target="register"
+        class="btn-modal-premios-redimir">
+        <span id="registerText" wire:loading.remove wire:target="register">Registrar</span>
+        <span id="cargandoText" style="display: none;" wire:loading wire:target="register">Cargando...</span>
+    </button>
     @script
         <script>
             const MAX_WIDTH = 1020;
