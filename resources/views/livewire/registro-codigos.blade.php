@@ -3,7 +3,7 @@
     <div class="copys-subtitle">
         <p>Sube tus facturas una única vez con los raspa y gana que recibiste, si quedan duplicadas, solo participará la
             primera registrada.</p>
-            <br>
+        <br>
         <p>El titular de la factura de compra y del participante registrado, deben ser el mismo.</p>
         {{-- <p>Si el valor de tu compra es una cifra decimal, se redondeará hacia abajo para calcular la cantidad de raspa y gana que recibirás.</p> --}}
     </div>
@@ -63,7 +63,7 @@
 
     <div class="upload-container-codigos">
         <label for="foto_factura">Tómale foto a tu factura:</label>
-        
+
         <div class="upload-container" onclick="document.getElementById('foto_factura_elem').click()">
             <input id="foto_factura_elem" type="file" accept="image/*" style="display: none;">
             <img id="imagePreviewFactura" src="{{ $foto_factura ? $foto_factura->temporaryUrl() : '' }}">
@@ -75,7 +75,8 @@
         @error('foto_factura')
             <span class="error">{{ $message }}</span>
         @enderror
-        <label for="foto_factura">* El monto de la compra y la cantidad de raspa y gana registrados deben coincidir con estos valores.</label>
+        <label for="foto_factura">* El monto de la compra y la cantidad de raspa y gana registrados deben coincidir con
+            estos valores.</label>
         <br>
     </div>
     <label for="codigo">Ingresa tus códigos:</label>
@@ -116,7 +117,8 @@
             @endforeach
         </tbody>
     </table>
-    <button wire:click="register" wire:loading.attr="disabled" wire:target="register" :disabled="$isSubmitting">Registrar</button>
+    <button id="registerButton" wire:click="register" wire:loading.attr="disabled"
+        onclick="disableButton()">Registrar</button>
     @script
         <script>
             const MAX_WIDTH = 1020;
@@ -176,6 +178,14 @@
 
             const upload_foto_factura = (file) => {
                 $wire.upload('foto_factura', file, (uploadedFilename) => {});
+            }
+
+            function disableButton() {
+                const button = document.getElementById('registerButton');
+                button.disabled = true;
+                setTimeout(() => {
+                    button.disabled = false;
+                }, 2000);
             }
         </script>
     @endscript
