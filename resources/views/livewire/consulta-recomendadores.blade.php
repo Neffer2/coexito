@@ -18,6 +18,7 @@
                 <th>Número de factura</th>
                 <th>Foto Factura</th>
                 <th>Num Bonos</th>
+                <th>Valor de Factura</th>
                 <th>Estado</th>
                 <th>Observaciones</th>
             </tr>
@@ -34,6 +35,7 @@
                             <a href="{{ asset('storage/' . $foto_factura) }}" target="_blank">Ver</a>
                         </td>
                         <td class="codigo-cell">{{ $registro->num_bonos }}</td>
+                        <td class="codigo-cell">{{ $registro->valor_factura }}</td>
                         <td class="codigo-cell">
                             @if ($registro->estado_id == 1)
                                 Aprobado

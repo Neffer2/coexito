@@ -1,11 +1,12 @@
 <div class="registro-codigos">
     <h2 class="registro-codigos-title">Registro de códigos</h2>
     <div class="copys-subtitle">
-        <p>Sube tus facturas una única vez con los raspa y gana que recibiste, si quedan duplicadas, solo participará la
-            primera registrada.</p>
+        <p>Sube tu factura una única vez con los raspa y gana que recibiste, si quedan duplicadas, solo participará la
+            primera registrada.</p> 
+            {{-- con los rapsa y gana que recibiste Sube tu factura una unica vez, solo podras participar una unica vez por cada - ser mas claro con el copy --}}
         <br>
         <p>El titular de la factura de compra y del participante registrado, deben ser el mismo.</p>
-        {{-- <p>Si el valor de tu compra es una cifra decimal, se redondeará hacia abajo para calcular la cantidad de raspa y gana que recibirás.</p> --}}
+
     </div>
     <label for="productos">Elige qué productos compraste:</label>
     <div class="select-container">
