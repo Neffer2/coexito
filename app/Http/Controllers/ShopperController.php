@@ -45,7 +45,7 @@ class ShopperController extends Controller
         if ($existingRegistro) {
             return response()->json([
                 'status' => 400,
-                'message' => "Esta factura ya exitste ya existe"
+                'message' => "Esta factura ya exitste"
             ], 400);
         }
 
@@ -53,10 +53,10 @@ class ShopperController extends Controller
         ->orderBy('created_at', 'desc')
         ->first();
 
-        if ($lastRegistro && $lastRegistro->created_at->gt(Carbon::now()->subSeconds(30))) {
+        if ($lastRegistro && $lastRegistro->created_at->gt(Carbon::now()->subSeconds(10))) {
             return response()->json([
                 'status' => 400,
-                'message' => "Debes esperar 30 segundos antes de registrar otro premio"
+                'message' => "Debes esperar 10 segundos antes de registrar otro premio"
             ], 400);
         }
 
