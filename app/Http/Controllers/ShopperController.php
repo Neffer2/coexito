@@ -9,6 +9,7 @@ use App\Models\RegistroFactura;
 use App\Models\RegistroPremio;
 use App\Models\Premio;
 use App\Traits\Mail;
+use Carbon\Carbon;
 
 class ShopperController extends Controller
 {
@@ -45,6 +46,17 @@ class ShopperController extends Controller
             return response()->json([
                 'status' => 400,
                 'message' => "Esta factura ya exitste ya existe"
+            ], 400);
+        }
+
+        $lastRegistro = RegistroPremio::where('user_id', auth()->user()->id)
+        ->orderBy('created_at', 'desc')
+        ->first();
+
+        if ($lastRegistro && $lastRegistro->created_at->gt(Carbon::now()->subSeconds(30))) {
+            return response()->json([
+                'status' => 400,
+                'message' => "Debes esperar 30 segundos antes de registrar otro premio"
             ], 400);
         }
 
