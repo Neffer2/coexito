@@ -2,7 +2,7 @@
     <h2 class="registro-puntos-title">Registrar punto</h2>
     <h3 class="registro-puntos-subtitle">Registra los puntos de venta que deseas activar en la promo.</h3>
 
-    {{-- <label for="razon_social">Raz&oacute;n social: </label>
+    <label for="razon_social">Raz&oacute;n social: </label>
     <input id="razon_social" wire:model.lazy="razon_social" type="text">
     @error('razon_social')
         {{ $message }}
@@ -94,5 +94,5 @@
         <div class="error">{{ session('success') }}</div>
     @endsession
 
-    <button wire:click="ActivarPunto">Activar punto</button> --}}
+    <button wire:click="ActivarPunto">Activar punto</button>
 </div>
