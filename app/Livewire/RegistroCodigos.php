@@ -16,6 +16,8 @@ class RegistroCodigos extends Component
     // Models
     public $codigo, $foto_factura, $productos_auto, $productos_moto, $productos_energiteca_servicios;
 
+    public $buttonText = 'Añadir';
+
     // Useful vars
     public $user, $codigos = [];
 
@@ -24,11 +26,13 @@ class RegistroCodigos extends Component
         return view('livewire.registro-codigos');
     }
 
-    public function mount(){
+    public function mount()
+    {
         $this->user = User::where('id', auth()->user()->id)->first();
     }
 
-    public function register(){
+    public function register()
+    {
         $this->validateCodigos();
         $this->validate([
             'productos_auto' => 'nullable|array',
@@ -48,9 +52,9 @@ class RegistroCodigos extends Component
         $registro_factura->observaciones = 'Aprobado por defecto.'; //! Facturas aprobadas por defecto
         $registro_factura->save();
 
-        foreach ($this->codigos as $codigo){
-            $codigo = Codigo::where([['codigo', $codigo],['estado_cod', 1]])->first();
-            if ($codigo){
+        foreach ($this->codigos as $codigo) {
+            $codigo = Codigo::where([['codigo', $codigo], ['estado_cod', 1]])->first();
+            if ($codigo) {
                 // Codigo
                 $codigo->estado_cod = 3;
                 $codigo->save();
@@ -62,8 +66,8 @@ class RegistroCodigos extends Component
                 $registro_codigo->user_id = auth()->user()->id;
                 $registro_codigo->estado_id = 1; //! Códigos aprobados por defecto
                 $registro_codigo->save();
-            }else {
-                return redirect()->back()->with('codigo_error', "!Oops, el código ".$codigo." no existe o ya fue registrado");
+            } else {
+                return redirect()->back()->with('codigo_error', "!Oops, el código " . $codigo . " no existe o ya fue registrado");
             }
         }
 
@@ -74,45 +78,49 @@ class RegistroCodigos extends Component
         return redirect()->route('ruleta', ['factura_id' => $registro_factura->id])->with('success', 'Código registrado con éxito');
     }
 
-    public function validateCodigos(){
+    public function validateCodigos()
+    {
         $this->validate([
             'codigos' => 'required|array|min:1'
         ]);
 
-        foreach ($this->codigos as $codigo){
-            $tempCodigo = Codigo::where([['codigo', $codigo],['estado_cod', 1]])->first();
-            if (!$tempCodigo){
-                return redirect()->back()->with('codigo_error', "!Oops, el código ".$tempCodigo." no existe o ya fue registrado");
+        foreach ($this->codigos as $codigo) {
+            $tempCodigo = Codigo::where([['codigo', $codigo], ['estado_cod', 1]])->first();
+            if (!$tempCodigo) {
+                return redirect()->back()->with('codigo_error', "!Oops, el código " . $tempCodigo . " no existe o ya fue registrado");
             }
         }
 
         return true;
     }
 
-    public function addCodigo(){
+    public function addCodigo()
+    {
         $this->validate([
             'codigo' => 'required|string'
         ]);
 
         $codigo = Codigo::where([['codigo', $this->codigo], ['estado_cod', 1]])->first();
 
-        if ($codigo){
-            foreach ($this->codigos as $codigo){
-                if ($codigo['codigo'] == $codigo || $codigo['codigo'] == $this->codigo){
+        if ($codigo) {
+            foreach ($this->codigos as $codigo) {
+                if ($codigo['codigo'] == $codigo || $codigo['codigo'] == $this->codigo) {
                     return redirect()->back()->with('codigo_error', '!Oops, éste código ya fue registrado');
                 }
             }
 
             array_push($this->codigos, ['codigo' => $this->codigo]);
             $this->reset('codigo');
-        }else {
+            $this->buttonText = 'Añadir más';
+        } else {
             return redirect()->back()->with('codigo_error', '!Oops, éste código no existe o ya fue registrado');
         }
     }
 
 
     // UPDATES
-    public function updatedFotoFactura(){
+    public function updatedFotoFactura()
+    {
         $this->validate([
             'foto_factura' => 'required|image|max:1024'
         ]);

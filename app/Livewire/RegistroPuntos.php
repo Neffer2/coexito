@@ -13,7 +13,7 @@ class RegistroPuntos extends Component
 {
     use WithFileUploads;
     // Models
-    public $razon_social, $nom_comercial, $nom_contacto, $nit, $maps, $telefono, $ciudad, $direccion, $departamento, $departamentos, $bonos_entregados;
+    public $razon_social, $nom_comercial, $nom_contacto, $categoria, $nit, $maps, $telefono, $ciudad, $direccion, $departamento, $departamentos, $bonos_entregados;
 
     // Useful vars
     public $user;
@@ -38,6 +38,7 @@ class RegistroPuntos extends Component
             'nit' => 'required|numeric',
             'razon_social' => 'required|string|max:255',
             'nom_comercial' => 'required|string|max:255',
+            'categoria' => 'required|string',
             'nom_contacto' => 'required|string|max:255',
             'telefono' => 'required|numeric',
             'direccion' => 'required|string',
@@ -51,6 +52,7 @@ class RegistroPuntos extends Component
         $punto->nit = $this->nit;
         $punto->razon_social = $this->razon_social;
         $punto->nombre_comercial = $this->nom_comercial;
+        $punto->categoria = $this->categoria;
         $punto->nombre_contacto = $this->nom_contacto;
         $punto->maps = $this->maps;
         $punto->telefono = $this->telefono;
@@ -74,7 +76,7 @@ class RegistroPuntos extends Component
         // $this->user->save();
 
         $this->dispatch('punto-activado');
-        $this->reset('nit', 'razon_social', 'nom_comercial', 'nom_contacto', 'telefono', 'direccion', 'ciudad', 'maps', 'bonos_entregados');
+        $this->reset('nit', 'razon_social', 'nom_comercial','categoria', 'nom_contacto', 'telefono', 'direccion', 'ciudad', 'maps', 'bonos_entregados');
         return redirect()->back()->with('success', 'Felicidades! el punto se registró exitósamente.');
     }
 }

@@ -256,6 +256,7 @@
                             <livewire:registro-codigos>
                                 <div class="historial-codigos">
                                     <h2 class="historial-codigos-title">Historial de códigos</h2>
+                                    <div class="total-codigos"> Total códigos registrados: {{ $total_codigos }}</div>
                                     <table>
                                         <tr>
                                             <td>C&oacute;digo</td>
@@ -284,6 +285,7 @@
 
                                 <div class="historial-facturas">
                                     <h2 class="historial-facturas-title">Historial de facturas</h2>
+                                    {{-- <div class="total-codigos"> Total facturas registradas: {{ $total_facturas }}</div> --}}
                                     <table>
                                         <tr>
                                             <td>Factura</td>

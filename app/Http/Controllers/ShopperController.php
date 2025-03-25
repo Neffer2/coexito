@@ -19,8 +19,15 @@ class ShopperController extends Controller
     {
         if (auth()->user() && auth()->user()->rol_id == 1) {
             $registros_codigo = RegistroCodigo::where('user_id', auth()->user()->id)->latest()->take(10)->get();
+            $total_codigos = RegistroCodigo::where('user_id', auth()->user()->id)->count();
+            $total_facturas = RegistroFactura::where('user_id', auth()->user()->id)->count();
             $registros_factura = RegistroFactura::where('user_id', auth()->user()->id)->latest()->take(9)->get();
-            return view('welcome', ['registros_codigo' => $registros_codigo], ['registros_factura' => $registros_factura]);
+            return view('welcome', [
+                'registros_codigo' => $registros_codigo,
+                'registros_factura' => $registros_factura,
+                'total_codigos' => $total_codigos,
+                'total_facturas' => $total_facturas,
+            ]);
         } elseif (auth()->user() && auth()->user()->rol_id == 3) {
             return redirect()->route('dashboard');
         }
@@ -50,8 +57,8 @@ class ShopperController extends Controller
         }
 
         $lastRegistro = RegistroPremio::where('user_id', auth()->user()->id)
-        ->orderBy('created_at', 'desc')
-        ->first();
+            ->orderBy('created_at', 'desc')
+            ->first();
 
         if ($lastRegistro && $lastRegistro->created_at->gt(Carbon::now()->subSeconds(10))) {
             return response()->json([

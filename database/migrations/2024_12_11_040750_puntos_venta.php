@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nit');
             $table->string('razon_social')->nullable();
             $table->string('nombre_comercial')->nullable();
+            $table->string('categoria')->nullable();
             $table->string('nombre_contacto')->nullable();
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();

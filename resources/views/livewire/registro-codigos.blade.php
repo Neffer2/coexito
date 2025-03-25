@@ -86,8 +86,8 @@
             <input id="codigo" wire:model.lazy="codigo" type="text">
         </div>
 
-        <div class="ingresa-codigo-button">
-            <button wire:click="addCodigo">Añadir</button>
+    <div class="ingresa-codigo-button">
+            <button wire:click="addCodigo">{{ $buttonText }}</button>
         </div>
     </div>
     @error('codigo')

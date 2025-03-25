@@ -34,6 +34,12 @@
     margin-bottom: 20px;
 }
 
+.total-codigos {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
 .historial-codigos-btn {
     display: flex;
     justify-content: flex-start;
@@ -706,7 +712,12 @@
     /* Historial codigos */
 
     .historial-codigos-title, .historial-facturas-title {
+        margin-top: 10px;
         font-size: 1.9rem;
+    }
+
+    .total-codigos {
+        font-size: 1rem;
     }
 
     .historial-codigos table, .historial-facturas table {
