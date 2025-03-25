@@ -6,6 +6,7 @@
             <td>Nit</td>
             <td>Ciudad</td>
             <td>Bonos</td>
+            <td>Categoría</td>
             <td>Estado</td>
             <td>Fecha</td>
             <td>Acciones</td>
@@ -17,6 +18,7 @@
                     <td>{{ $registro->pdv->nit }}</td>
                     <td>{{ $registro->pdv->ciudad }}</td>
                     <td>{{ $registro->bonos_entregados }}</td>
+                    <td>{{ $registro->pdv->categoria }}</td>
                     <td>
                         @if ($registro->estado_id == 1)
                             Aprobado
