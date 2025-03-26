@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\RegistroFactura;
 use App\Models\RegistroCodigo;
 use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class RegistroCodigos extends Component
 {
@@ -33,6 +34,12 @@ class RegistroCodigos extends Component
 
     public function register()
     {
+        // Verificar si el usuario ha registrado una factura en los últimos 10 segundos
+        $lastRegistro = RegistroFactura::where('user_id', auth()->user()->id)->latest()->first();
+        if ($lastRegistro && $lastRegistro->created_at->gt(Carbon::now()->subSeconds(10))) {
+            return redirect()->back()->with('codigo_error', 'Oops, tienes que esperar para volver a subir una factura');
+        }
+
         $this->validateCodigos();
         $this->validate([
             'productos_auto' => 'nullable|array',
