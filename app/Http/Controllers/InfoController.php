@@ -136,6 +136,7 @@ class InfoController extends Controller
                 $observacion = 'Aprobado';
                 $recomendador->puntos += 1;
             } else {
+                $estado = 1;
                 $observacion = 'Aprobado';
                 $recomendador->puntos += 1;
             }
