@@ -123,8 +123,9 @@ class InfoController extends Controller
                 $observacion = 'Aprobado';
                 $recomendador->puntos += 1;
             } else {
-                $estado = 3;
-                $observacion = 'Rechazado: La cantidad de bonos no coincide con el valor de tu factura';
+                $estado = 1;
+                $observacion = 'Aprobado';
+                $recomendador->puntos += 1;
             }
         }
 
@@ -135,8 +136,8 @@ class InfoController extends Controller
                 $observacion = 'Aprobado';
                 $recomendador->puntos += 1;
             } else {
-                $estado = 3;
-                $observacion = 'Rechazado: La cantidad de bonos no coincide con el valor de tu factura';
+                $observacion = 'Aprobado';
+                $recomendador->puntos += 1;
             }
         }
 
