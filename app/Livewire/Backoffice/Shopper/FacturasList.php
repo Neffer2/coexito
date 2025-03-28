@@ -10,12 +10,16 @@ class FacturasList extends Component
 {
     use WithPagination;
 
-    public $RegistroFactura, $num_factura, $nombre ,$cedula, $email;
+    public $RegistroFactura, $id_list_shopper, $num_factura, $nombre ,$cedula, $email;
 
     public function render()
     {
         $filters_factura = [];
         $filters_user = [];
+
+        if ($this->id_list_shopper) {
+            $filters_factura[] = ['id', 'like', '%' . $this->id_list_shopper . '%'];
+        }
 
         if ($this->num_factura) {
             $filters_factura[] = ['num_factura', 'like', '%' . $this->num_factura . '%'];
