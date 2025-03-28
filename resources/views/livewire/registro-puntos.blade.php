@@ -19,7 +19,7 @@
         <option value="">Seleccionar</option>
         <option value="Silver">Silver</option>
         <option value="Gold">Gold</option>
-        <option value="latinum">Platinum</option>
+        <option value="Platinum">Platinum</option>
     </select>
     @error('categoria')
         {{ $message }}
