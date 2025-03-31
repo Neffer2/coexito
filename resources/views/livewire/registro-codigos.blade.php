@@ -1,8 +1,7 @@
 <div class="registro-codigos">
     <h2 class="registro-codigos-title">Registro de códigos</h2>
     <div class="copys-subtitle">
-        <p>Sube tu factura una única vez con los raspa y gana que recibiste, si quedan duplicadas, solo participará la
-            primera registrada.</p> 
+        <p>Sube tu factura una sola vez e incluye todos los raspa y gana que recibiste por tu compra. Si subes facturas duplicadas, solo participará la primera y no podrás acceder a los bonos de gasolina.</p> 
             {{-- con los rapsa y gana que recibiste Sube tu factura una unica vez, solo podras participar una unica vez por cada - ser mas claro con el copy --}}
         <br>
         <p>El titular de la factura de compra y del participante registrado, deben ser el mismo.</p>
