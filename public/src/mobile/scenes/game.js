@@ -85,7 +85,7 @@ export class Game extends Phaser.Scene {
         spinButton.on('pointerout', () => {
             spinButton.setScale(1);
         });
-
+        //! DEBUG
         // bars.forEach((elem) => {
         //     elem.on('pointerdown', function (pointer){
         //         alert(elem.premio.arte);
