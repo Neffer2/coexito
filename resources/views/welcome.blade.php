@@ -342,7 +342,7 @@
                             </div>
                             <div class="asesor-items">
                                 <div class="registro-puntos-container">
-                                    <livewire:registro-puntos>
+                                    {{-- <livewire:registro-puntos> --}}
                                 </div>
                                 <div class="puntos-registrados-container">
                                     <livewire:puntos-registrados>
