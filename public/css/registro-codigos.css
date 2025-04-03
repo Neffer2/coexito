@@ -149,16 +149,23 @@
     color: #fff;
 }
 
-.registro-puntos-container {
+/* .registro-puntos-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     color: #fff;
+} */
+
+.puntos-registrados-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.puntos-registrados-container,
 .ranking-general-container {
     display: none;
     flex-direction: column;

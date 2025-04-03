@@ -327,11 +327,11 @@
                     @elseif(auth()->user()->rol_id == 2)
                         <div class="main-asesor-container">
                             <div class="asesor-menu">
-                                <div class="asesor-menu-item">
+                                {{-- <div class="asesor-menu-item">
                                     <button class="btn-active" id="registro_puntos">Registrar Puntos</button>
-                                </div>
+                                </div> --}}
                                 <div class="asesor-menu-item">
-                                    <button id="puntos_registrados">Puntos Registrados</button>
+                                    <button class="btn-active" id="puntos_registrados">Puntos Registrados</button>
                                 </div>
                                 <div class="asesor-menu-item">
                                     <button id="ranking_general">Ranking General</button>
