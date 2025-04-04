@@ -15,7 +15,7 @@ use App\Http\Controllers\ShopperController;
 |
 */
 
-Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper', 'geolocation'])->name('home');
+Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper'])->name('home');
 
 Route::get('/recomendador-busqueda', function (){
     return view('recomendador-busqueda');
@@ -23,42 +23,42 @@ Route::get('/recomendador-busqueda', function (){
 
 Route::get('/dashboard', function (){
     return view('backoffice.index');
-})->middleware(['backoffice', 'location'])->name('dashboard');
+})->middleware(['backoffice'])->name('dashboard');
 
 Route::get('/backoffice-shopper', function (){
     return view('backoffice.shopper.facturas');
-})->middleware(['backoffice', 'location'])->name('backoffice-shopper');
+})->middleware(['backoffice'])->name('backoffice-shopper');
 
 Route::get('/backoffice-shopper-list', function (){
     return view('backoffice.shopper.list');
-})->middleware(['backoffice', 'location'])->name('backoffice-shopper-list');
+})->middleware(['backoffice'])->name('backoffice-shopper-list');
 
 Route::get('/backoffice-recomendador', function (){
     return view('backoffice.recomendador.facturas');
-})->middleware(['backoffice', 'location'])->name('backoffice-recomendador');
+})->middleware(['backoffice'])->name('backoffice-recomendador');
 
 Route::get('/backoffice-recomendador-list', function (){
     return view('backoffice.recomendador.list');
-})->middleware(['backoffice', 'location'])->name('backoffice-recomendador-list');
+})->middleware(['backoffice'])->name('backoffice-recomendador-list');
 
 Route::get('/backoffice-fv', function (){
     return view('backoffice.fuerza-ventas.puntos');
-})->middleware(['backoffice', 'location'])->name('backoffice-fv');
+})->middleware(['backoffice'])->name('backoffice-fv');
 
 Route::get('/backoffice-fv-list', function (){
     return view('backoffice.fuerza-ventas.list');
-})->middleware(['backoffice', 'location'])->name('backoffice-fv-list');
+})->middleware(['backoffice'])->name('backoffice-fv-list');
 
 Route::get('/backoffice-lista-shopper', function (){
     return view('backoffice.lista-shopper.lista-shopper');
-})->middleware(['backoffice', 'location'])->name('backoffice-lista-shopper');
+})->middleware(['backoffice'])->name('backoffice-lista-shopper');
 
 Route::get('/backoffice-lista-recomendador', function (){
     return view('backoffice.lista-recomendador.lista-recomendador');
-})->middleware(['backoffice', 'location'])->name('backoffice-lista-recomendador');
+})->middleware(['backoffice'])->name('backoffice-lista-recomendador');
 
 
-Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta', 'location'])->name('ruleta');
+Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
 Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);
 
 Route::middleware(['auth'])->group(function () {
