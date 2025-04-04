@@ -23,10 +23,10 @@ export class Preloader extends Phaser.Scene {
         // PopUp
         this.load.image('bg-pop', '/popup/bg-pop.png');
         this.load.image('bg-light', '/popup/bg-light.png');
-        this.load.image('20mil', '/popup/20mil.png');
-        this.load.image('30mil', '/popup/30mil.png');
-        this.load.image('50mil', '/popup/50mil.png');
-        this.load.image('100mil', '/popup/100mil.png');
+        this.load.image('20mil', '/popup/20mil_mobile.png');
+        this.load.image('30mil', '/popup/30mil_mobile.png');
+        this.load.image('50mil', '/popup/50mil_mobile.png');
+        this.load.image('100mil', '/popup/100mil_mobile.png');
         this.load.image('sigue-intentando', '/popup/sigue_intentando.png');
 
         let rect2 = this.make.graphics().fillStyle(0xFFFFFF).fillRect(50, 50, 150, 25);
