@@ -5,7 +5,7 @@
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
         </div>
         <div class="card-body">
-            <p>Total de premios en la plataforma: <strong>{{ $totalPremios }}</strong></p>
+            <p>Total de premios entregados en la plataforma: <strong>{{ $totalPremios }}</strong></p>
             <table class="table">
                 <thead>
                     <tr>
