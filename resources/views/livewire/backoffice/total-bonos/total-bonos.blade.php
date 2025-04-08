@@ -1,7 +1,7 @@
 <div class="container my-5">
     <div class="card">
         <div class="card-header">
-            <h5>Lista de Usuarios - Shopper - Asesores</h5>
+            <h5>Lista de Bonos</h5>
             <a href="{{ route('dashboard') }}">Men&uacute;</a>
         </div>
         <div class="card-body">
@@ -9,9 +9,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Premio</th>
+                        <th>Bono</th>
                         <th>Stock Inicial</th>
-                        <th>Total</th>
+                        <th>Total Premios Aprobados</th>
                         <th>Promedio Diario</th>
                     </tr>
                 </thead>
