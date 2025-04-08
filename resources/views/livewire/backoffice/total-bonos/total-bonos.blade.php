@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th>Premio</th>
+                        <th>Stock Inicial</th>
                         <th>Total</th>
                         <th>Promedio Diario</th>
                     </tr>
@@ -28,6 +29,19 @@
                                     100000
                                 @else
                                     {{ $premio->premio_id }}
+                                @endif
+                            </td>
+                            <td>
+                                @if ($premio->premio_id == 101)
+                                    2000
+                                @elseif ($premio->premio_id == 102)
+                                    1000
+                                @elseif ($premio->premio_id == 103)
+                                    500
+                                @elseif ($premio->premio_id == 104)
+                                    50
+                                @else
+                                    N/A
                                 @endif
                             </td>
                             <td>{{ $premio->total }}</td>
