@@ -4,6 +4,7 @@ namespace App\Livewire\BackOffice\TotalBonos;
 
 use Livewire\Component;
 use App\Models\RegistroPremio;
+use App\Models\Premio;
 use Livewire\WithPagination;
 
 class TotalBonos extends Component
@@ -13,6 +14,7 @@ class TotalBonos extends Component
     public $nombre, $documento;
     public $totalPremios; // Variable para almacenar el conteo total
     public $premiosPorCategoria; // Variable para almacenar el conteo por premio_id
+    public $premiosConStock; // Variable para almacenar los premios con su stock
 
     public function mount()
     {
@@ -30,6 +32,9 @@ class TotalBonos extends Component
             ->selectRaw('ROUND(COUNT(*) / ?, 2) as promedio_diario', [$diasTotales])
             ->groupBy('premio_id')
             ->get();
+
+        // Obtener los premios con su stock desde la tabla premios
+        $this->premiosConStock = Premio::select('id', 'stock')->get();
     }
 
     public function render()
@@ -37,6 +42,7 @@ class TotalBonos extends Component
         return view('livewire.backoffice.total-bonos.total-bonos', [
             'totalPremios' => $this->totalPremios,
             'premiosPorCategoria' => $this->premiosPorCategoria,
+            'premiosConStock' => $this->premiosConStock,
         ]);
     }
 }

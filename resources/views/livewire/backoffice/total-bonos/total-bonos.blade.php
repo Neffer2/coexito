@@ -11,6 +11,7 @@
                     <tr>
                         <th>Bono</th>
                         <th>Stock Inicial</th>
+                        <th>Stock Plataforma</th>
                         <th>Total Premios Aprobados</th>
                         <th>Promedio Diario</th>
                     </tr>
@@ -32,17 +33,24 @@
                                 @endif
                             </td>
                             <td>
-                                @if ($premio->premio_id == 101)
-                                    2000
-                                @elseif ($premio->premio_id == 102)
-                                    1000
-                                @elseif ($premio->premio_id == 103)
-                                    500
-                                @elseif ($premio->premio_id == 104)
-                                    50
-                                @else
-                                    N/A
-                                @endif
+                                @php
+                                    // Buscar el stock inicial en la colección de premios
+                                    $stockInicial = match($premio->premio_id) {
+                                        101 => 2000,
+                                        102 => 1000,
+                                        103 => 500,
+                                        104 => 50,
+                                        default => 'N/A',
+                                    };
+                                @endphp
+                                {{ $stockInicial }}
+                            </td>
+                            <td>
+                                @php
+                                    // Buscar el stock actual en la colección de premios
+                                    $stockActual = $premiosConStock->firstWhere('id', $premio->premio_id)->stock ?? 'N/A';
+                                @endphp
+                                {{ $stockActual }}
                             </td>
                             <td>{{ $premio->total }}</td>
                             <td>{{ $premio->promedio_diario }}</td>
