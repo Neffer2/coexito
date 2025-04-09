@@ -24,10 +24,10 @@ export class Preloader extends Phaser.Scene {
         // PopUp
         this.load.image('bg-pop', '/popup/bg-pop.png');
         this.load.image('bg-light', '/popup/bg-light.png');
-        this.load.image('20mil', '/popup/20mil.png');
-        this.load.image('30mil', '/popup/30mil.png');
-        this.load.image('50mil', '/popup/50mil.png');
-        this.load.image('100mil', '/popup/100mil.png');
+        this.load.image('20mil', '/popup/20mil_desk.png');
+        this.load.image('30mil', '/popup/30mil_desk.png');
+        this.load.image('50mil', '/popup/50mil_desk.png');
+        this.load.image('100mil', '/popup/100mil_desk.png');
         this.load.image('sigue-intentando', '/popup/sigue_intentando.png');
         this.load.audio('win-sound', '/sound/tada.mp3');
 
