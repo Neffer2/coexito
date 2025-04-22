@@ -17,6 +17,7 @@
             <li><a href="{{ route('backoffice-lista-recomendador')}}">Lista de Recomendadores</a></li>
             <li><a href="{{ route('backoffice-total-bonos') }}">Total de Bonos</a></li>
             <li><a href="{{ route('backoffice-filtro-recomendador') }}">Filtro Recomendador</a></li>
+            <li><a href="{{ route('backoffice-premios-pendientes') }}">Premios Pendientes</a></li>
         </ul>
     </div>
 </body>
