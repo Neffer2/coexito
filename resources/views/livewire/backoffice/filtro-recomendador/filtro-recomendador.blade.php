@@ -33,7 +33,7 @@
                                 <td>{{ $resultado->nit_punto_venta }}</td>
                                 <td>{{ $resultado->razon_social_punto_venta }}</td>
                                 <td>
-                                    <a href="{{ $resultado->foto_factura }}" target="_blank">
+                                    <a href="{{ str_replace('public/', 'storage/', $resultado->foto_factura) }}" target="_blank">
                                         Ver Foto
                                     </a>
                                 </td>
