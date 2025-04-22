@@ -61,6 +61,10 @@ Route::get('/backoffice-total-bonos', function (){
     return view('backoffice.total-bonos.total-bonos');
 })->middleware(['backoffice'])->name('backoffice-total-bonos');
 
+Route::get('/backoffice-filtro-recomendador', function (){
+    return view('backoffice.filtro-recomendador.filtro-recomendador');
+})->middleware(['backoffice'])->name('backoffice-filtro-recomendador');
+
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
 Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);

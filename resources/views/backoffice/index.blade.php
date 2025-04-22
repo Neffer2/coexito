@@ -16,6 +16,7 @@
             <li><a href="{{ route('backoffice-lista-shopper')}}">Lista de Usuarios Landing (Shopper - Asesores)</a></li>
             <li><a href="{{ route('backoffice-lista-recomendador')}}">Lista de Recomendadores</a></li>
             <li><a href="{{ route('backoffice-total-bonos') }}">Total de Bonos</a></li>
+            <li><a href="{{ route('backoffice-filtro-recomendador') }}">Filtro Recomendador</a></li>
         </ul>
     </div>
 </body>
