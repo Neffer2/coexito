@@ -10,7 +10,7 @@ class FacturasList extends Component
 {
     use WithPagination;
 
-    public $RegistroFactura, $id_list_shopper, $num_factura, $nombre ,$cedula, $email;
+    public $RegistroFactura, $id_list_shopper, $num_factura, $nombre, $cedula, $email, $codigo;
 
     public function render()
     {
@@ -39,7 +39,18 @@ class FacturasList extends Component
 
         $RegistrosFactura = RegistroFactura::whereHas('user', function ($query) use ($filters_user) {
             $query->where($filters_user);
-        })->where($filters_factura)->orderBy('id', 'desc')->paginate(10);
+        })
+            ->where($filters_factura)
+            ->when($this->codigo, function ($query) {
+                $query->whereHas('codigos', function ($subQuery) {
+                    $subQuery->whereHas('codigo', function ($codigoQuery) {
+                        $codigoQuery->where('codigo', 'like', '%' . $this->codigo . '%');
+                    });
+                });
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+
         return view('livewire.backoffice.shopper.facturas-list', ['RegistrosFactura' => $RegistrosFactura]);
     }
 

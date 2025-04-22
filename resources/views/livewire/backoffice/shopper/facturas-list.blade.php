@@ -13,10 +13,12 @@
             <h5>Lista de registro de facturas</h5>
             <div class="row">
                 <div class="col-md-2">
-                    <input type="text" wire:model.live="id_list_shopper" class="form-control" placeholder="Buscar por ID">
+                    <input type="text" wire:model.live="id_list_shopper" class="form-control"
+                        placeholder="Buscar por ID">
                 </div>
                 <div class="col-md-2">
-                    <input type="text" wire:model.live="num_factura" class="form-control" placeholder="Número de factura">
+                    <input type="text" wire:model.live="num_factura" class="form-control"
+                        placeholder="Número de factura">
                 </div>
                 <div class="col-md-2">
                     <input type="text" wire:model.live="nombre" class="form-control" placeholder="Nombre">
@@ -26,6 +28,9 @@
                 </div>
                 <div class="col-md-2">
                     <input type="text" wire:model.live="email" class="form-control" placeholder="Correo">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" wire:model.live="codigo" class="form-control" placeholder="Código">
                 </div>
             </div>
             <div class="row">
@@ -113,7 +118,8 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="">N&uacute;mero de factura:</label>
-                                            <input disabled value="{{ $RegistroFactura->num_factura }}" type="text" class="form-control">
+                                            <input disabled value="{{ $RegistroFactura->num_factura }}" type="text"
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -127,20 +133,20 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-respondive">
-                                                     <table class="table">
-                                                         <tr>
-                                                             <td>#</td>
-                                                             <td>Codigo</td>
-                                                             <td>Fecha</td>
-                                                         </tr>
-                                                         @foreach ($RegistroFactura->codigos as $key => $codigo)
-                                                             <tr>
-                                                                 <td>{{ $key+=1 }}</td>
-                                                                 <td>{{ $codigo->codigo->codigo }}</td>
-                                                                 <td>{{ $codigo->created_at }}</td>
-                                                             </tr>
-                                                         @endforeach
-                                                     </table>
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>#</td>
+                                                            <td>Codigo</td>
+                                                            <td>Fecha</td>
+                                                        </tr>
+                                                        @foreach ($RegistroFactura->codigos as $key => $codigo)
+                                                            <tr>
+                                                                <td>{{ $key += 1 }}</td>
+                                                                <td>{{ $codigo->codigo->codigo }}</td>
+                                                                <td>{{ $codigo->created_at }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -152,20 +158,20 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-respondive">
-                                                     <table class="table">
-                                                         <tr>
-                                                             <td>#</td>
-                                                             <td>Premio</td>
-                                                             <td>Fecha</td>
-                                                         </tr>
-                                                         @foreach ($RegistroFactura->premios as $key => $premio)
-                                                             <tr>
-                                                                 <td>{{ $key+=1 }}</td>
-                                                                 <td>{{ $premio->premio->descripcion }}</td>
-                                                                 <td>{{ $premio->created_at }}</td>
-                                                             </tr>
-                                                         @endforeach
-                                                     </table>
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>#</td>
+                                                            <td>Premio</td>
+                                                            <td>Fecha</td>
+                                                        </tr>
+                                                        @foreach ($RegistroFactura->premios as $key => $premio)
+                                                            <tr>
+                                                                <td>{{ $key += 1 }}</td>
+                                                                <td>{{ $premio->premio->descripcion }}</td>
+                                                                <td>{{ $premio->created_at }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
