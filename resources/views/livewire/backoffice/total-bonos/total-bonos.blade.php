@@ -12,6 +12,7 @@
                         <th>Bono</th>
                         <th>Stock Inicial</th>
                         <th>Stock Plataforma</th>
+                        <th>Total Premios por Aprobar</th>
                         <th>Total Premios Aprobados</th>
                         <th>Promedio Diario</th>
                     </tr>

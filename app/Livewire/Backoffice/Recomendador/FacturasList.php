@@ -11,7 +11,7 @@ class FacturasList extends Component
     use WithPagination;
 
     // Models
-    public $RegistroServicio, $id_list_recom, $num_factura, $nombre ,$cedula, $email;
+    public $RegistroServicio, $id_list_recom, $num_factura, $nombre ,$cedula, $email, $fecha_inicio;
 
     public function render()
     {
@@ -36,6 +36,12 @@ class FacturasList extends Component
 
         if ($this->email) {
             $filters_user[] = ['correo', 'like', '%' . $this->email . '%'];
+        }
+
+        // Filtro por fecha
+
+        if (!empty($this->fecha_inicio)) {
+            $filters_factura[] = ['created_at', '>=', date('Y-m-d', strtotime($this->fecha_inicio))];
         }
 
         $RegistroServicios = RegistroServicio::whereHas('recomendador', function ($query) use ($filters_user) {

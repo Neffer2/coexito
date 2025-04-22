@@ -16,7 +16,8 @@
                     <input type="text" wire:model.live="id_list_recom" class="form-control" placeholder="ID">
                 </div>
                 <div class="col-md-2">
-                    <input type="text" wire:model.live="num_factura" class="form-control" placeholder="Número de factura">
+                    <input type="text" wire:model.live="num_factura" class="form-control"
+                        placeholder="Número de factura">
                 </div>
                 <div class="col-md-2">
                     <input type="text" wire:model.live="nombre" class="form-control" placeholder="Nombre">
@@ -26,6 +27,10 @@
                 </div>
                 <div class="col-md-2">
                     <input type="text" wire:model.live="email" class="form-control" placeholder="Correo">
+                </div>
+                {{-- Filtro fecha --}}
+                <div class="col-md-2">
+                    <input type="date" wire:model.live="fecha_inicio" class="form-control" placeholder="Fecha">
                 </div>
             </div>
             <div class="row">
@@ -51,7 +56,7 @@
                                 {{ $RegistroServicio->recomendador->nombre }} <br>
                                 <span class="fw-bold">Correo:</span>
                                 {{ $RegistroServicio->recomendador->correo }} <br>
-                                <span class="fw-bold">NIT:</span> 
+                                <span class="fw-bold">NIT:</span>
                                 {{ $RegistroServicio->recomendador->pdv->nit }} <br>
                             </div>
                             <div class="col-4">
@@ -95,8 +100,7 @@
                                 <div class="form-group d-flex flex-column">
                                     <label for="">Foto de factura:</label>
                                     <a href="{{ asset("storage/$foto_factura") }}" target="_blank">
-                                        <img src="{{ asset("storage/$foto_factura") }}" height="250"
-                                            width="250">
+                                        <img src="{{ asset("storage/$foto_factura") }}" height="250" width="250">
                                     </a>
                                 </div>
                                 <div class="form-group d-flex flex-column">
@@ -156,7 +160,8 @@
                                 @endif
                             </div>
                             <div class="col-2">
-                                <button wire:click="getRegistro({{ $RegistroServicio->id }})" class="btn btn-primary get_registro_btn">
+                                <button wire:click="getRegistro({{ $RegistroServicio->id }})"
+                                    class="btn btn-primary get_registro_btn">
                                     Ver mas </button>
                             </div>
                         </div>
@@ -171,7 +176,6 @@
 </div>
 
 <script>
-
     const topHeader = document.getElementById('top_header');
     const getRegistroBtn = document.querySelectorAll('.get_registro_btn');
     getRegistroBtn.forEach(btn => {
@@ -179,5 +183,4 @@
             topHeader.scrollIntoView();
         });
     });
-
 </script>
