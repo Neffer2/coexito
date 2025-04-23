@@ -21,6 +21,10 @@ Route::get('/recomendador-busqueda', function (){
     return view('recomendador-busqueda');
 })->name('recomendador-busqueda');
 
+Route::get('/ruleta-sorteo', function (){
+    return view('ruleta-sorteo');
+})->name('ruleta-sorteo');
+
 Route::get('/dashboard', function (){
     return view('backoffice.index');
 })->middleware(['backoffice'])->name('dashboard');
