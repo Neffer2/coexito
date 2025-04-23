@@ -8,13 +8,17 @@
     <link rel="shortcut icon" href="{{ asset('assets/icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/ruleta-sorteo.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/custom-swal.css') }}?v={{ time() }}">
     <title>Ruleta Sorteo</title>
+    @livewireStyles
 </head>
 
 <body>
     <div>
         <livewire:ruleta-sorteo>
+            @livewireScripts
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
