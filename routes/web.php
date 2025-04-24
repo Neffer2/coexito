@@ -23,7 +23,7 @@ Route::get('/recomendador-busqueda', function (){
 
 Route::get('/ruleta-sorteo', function (){
     return view('ruleta-sorteo');
-})->name('ruleta-sorteo');
+})->middleware(['admin'])->name('ruleta-sorteo');
 
 Route::get('/dashboard', function (){
     return view('backoffice.index');

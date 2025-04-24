@@ -10,13 +10,6 @@
             onclick="girarRuleta()">
     </div>
 
-    <div class="texto">
-        @if ($participante)
-            <p>Has ganado un premio.</p>
-            <p>Nombre: {{ $participante->nombre }}</p>
-            <p>Código: {{ $participante->codigo }}</p>
-        @endif
-    </div>
     <script>
         let currentRotation = 0;
 
@@ -33,7 +26,21 @@
 
             setTimeout(() => {
                 // Llama al método Livewire directamente
-                @this.call('seleccionarParticipante');
+                @this.call('seleccionarParticipante').then(response => {
+                    Swal.fire({
+                        title: '¡Felicidades!',
+                        html: `<p>Nombre: <strong>${response.nombre}</strong></p><br><p>Código: <strong>${response.codigo}</strong></p>`,
+                        confirmButtonText: 'Cerrar',
+                        customClass: {
+                            popup: 'popup-ruleta-sorteo',
+                            title: 'popup-ruleta-sorteo-title',
+                            htmlContainer: 'popup-ruleta-sorteo-html',
+                            confirmButton: 'popup-ruleta-sorteo-confirm-button',
+                            cancelButton: 'popup-ruleta-sorteo-cancel-button'
+                        }
+                    });
+                });
+
                 girarBtn.style.pointerEvents = 'auto';
             }, 5000);
         };

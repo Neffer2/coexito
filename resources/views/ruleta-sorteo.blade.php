@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/ruleta-sorteo.css') }}?v={{ time() }}">
-    <link rel="stylesheet" href="{{ asset('css/custom-swal.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/custom-ruleta.css') }}?v={{ time() }}">
     <title>Ruleta Sorteo</title>
     @livewireStyles
 </head>

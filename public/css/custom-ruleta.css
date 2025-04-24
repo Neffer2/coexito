@@ -1,0 +1,19 @@
+.popup-ruleta-sorteo-title {
+    color: #fff; /* Color del título */
+    font-size: 3.5rem; /* Tamaño de fuente del título */
+}
+
+.popup-ruleta-sorteo-html {
+    color: #fff; /* Color del contenido HTML */
+    font-size: 1.3rem;
+}
+
+.popup-ruleta-sorteo-confirm-button {
+    background-color: #FF6700; /* Color de fondo del botón de confirmación */
+    color: #ffffff; /* Color del texto del botón de confirmación */
+    font-size: 1.2rem; /* Tamaño de fuente del botón de confirmación */
+}
+
+.popup-ruleta-sorteo {
+    background-color: #044E96; /* Color de fondo del popup */
+}

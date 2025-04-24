@@ -19,7 +19,8 @@ class RuletaSorteo extends Component
             ->where('rc.estado_id', 1)
             ->inRandomOrder()
             ->first();
-            
+
+        return $this->participante;
     }
 
     public function render()
