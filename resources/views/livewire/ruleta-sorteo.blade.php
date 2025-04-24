@@ -42,7 +42,7 @@
                 });
 
                 girarBtn.style.pointerEvents = 'auto';
-            }, 5000);
+            }, 4800);
         };
     </script>
 </div>
