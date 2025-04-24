@@ -6,6 +6,17 @@
     width: 100%;
     min-height: 100vh;
     background-image: url('../assets/fondo-landing.png');
+    overflow: hidden;
+}
+
+.logo-coexito {
+    position: absolute;
+    top: 30%;
+    left: 7%;
+}
+
+.logo-coexito img {
+    width: 50%;
 }
 
 .puntero-img {

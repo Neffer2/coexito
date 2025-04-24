@@ -1,4 +1,7 @@
 <div class="sorteo-container">
+    <div class="logo-coexito">
+        <img src="{{ asset('assets/img-70.png') }}" alt="Logo Coexito" class="logo-coexito-img">
+    </div>
     <div class="puntero-img">
         <img src="{{ asset('assets/ruleta/desk/puntero.png') }}" alt="puntero" class="puntero" id="puntero">
     </div>
