@@ -1,7 +1,4 @@
 <div class="sorteo-container">
-    <div class="logo-coexito">
-        <img src="{{ asset('assets/img-70.png') }}" alt="Logo Coexito" class="logo-coexito-img">
-    </div>
     <div class="puntero-img">
         <img src="{{ asset('assets/ruleta/desk/puntero.png') }}" alt="puntero" class="puntero" id="puntero">
     </div>
@@ -12,6 +9,7 @@
         <img src="{{ asset('assets/ruleta/desk/button.png') }}" alt="Girar" class="girar" id="girar-btn"
             onclick="girarRuleta()">
     </div>
+</div>
 
     <script>
         let currentRotation = 0;
@@ -32,7 +30,7 @@
                 @this.call('seleccionarParticipante').then(response => {
                     Swal.fire({
                         title: '¡Felicidades!',
-                        html: `<p>Nombre: <strong>${response.nombre}</strong></p><br><p>Código: <strong>${response.codigo}</strong></p>`,
+                        html: `<h4><strong>Eres uno de nuestros posibles ganadores</strong></h4><br><p>Código: <strong>${response.codigo}</strong></p>`,
                         confirmButtonText: 'Cerrar',
                         customClass: {
                             popup: 'popup-ruleta-sorteo',
