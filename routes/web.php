@@ -73,6 +73,9 @@ Route::get('/backoffice-premios-pendientes', function (){
     return view('backoffice.premios-pendientes.premios-pendientes');
 })->middleware(['backoffice'])->name('backoffice-premios-pendientes');
 
+Route::get('/backoffice-filtro-shopper', function (){
+    return view('backoffice.filtro-shopper.filtro-shopper');
+})->middleware(['backoffice'])->name('backoffice-filtro-shopper');
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
 Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);
