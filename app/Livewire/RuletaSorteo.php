@@ -17,6 +17,7 @@ class RuletaSorteo extends Component
             ->join('users as u', 'rc.user_id', '=', 'u.id')
             ->select('rc.codigo_id', 'c.codigo', 'rc.user_id', 'u.nombre')
             ->where('rc.estado_id', 1)
+            ->where('rc.created_at', '<', '2025-05-08 23:59:59')
             ->inRandomOrder()
             ->first();
 
