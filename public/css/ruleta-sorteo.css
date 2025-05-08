@@ -44,11 +44,11 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .ruleta {
-    width: 30%;
+    width: 26%;
 }
 
 .girar-img {
@@ -60,7 +60,7 @@
 }
 
 .girar {
-    width: 11%;
+    width: 10%;
     cursor: pointer;
 }
 
