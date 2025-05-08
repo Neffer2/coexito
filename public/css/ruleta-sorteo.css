@@ -5,9 +5,11 @@
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background-image: url('../assets/bg-ruleta-sorteo.png');
-    background-size: 100% 100%;
+    background-image: url(../assets/bg-ruleta-sorteo.png);
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
+    background-color: #0053A2;
     overflow: hidden;
 }
 
