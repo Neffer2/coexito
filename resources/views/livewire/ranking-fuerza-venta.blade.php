@@ -1,5 +1,5 @@
 <div class="ranking-container">
-    <h1>Ranking General - Corte Febrero</h1>
+    <h1>Ranking General - Corte Abril</h1>
     <table>
         <tr>
             <td>#</td>
