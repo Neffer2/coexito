@@ -1,0 +1,89 @@
+.sorteo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../assets/bg-ruleta-sorteo.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0053A2;
+    overflow: hidden;
+}
+
+
+.puntero-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.puntero {
+    width: 2%;
+    margin-bottom: -1rem;
+    z-index: 1000;
+    position: absolute;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 2));
+    
+    
+}
+
+.ruleta {
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+}
+
+.ruleta-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 0.8rem;
+}
+
+.ruleta {
+    width: 30%;
+}
+
+.girar-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.girar {
+    width: 10%;
+    cursor: pointer;
+}
+
+/* Mobile media query */
+
+@media (max-width: 768px) {
+
+    .sorteo-container {
+        background-image: url('../assets/bg-ruleta-sorteo-mobile.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .ruleta {
+        width: 80%;
+    }
+
+    .girar {
+        width: 30%;
+    }
+
+    .puntero {
+        width: 3%;
+        margin-bottom: -2rem;
+    }
+}

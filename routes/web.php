@@ -25,6 +25,10 @@ Route::get('/ruleta-sorteo', function (){
     return view('ruleta-sorteo');
 })->middleware(['admin'])->name('ruleta-sorteo');
 
+Route::get('/ruleta-recomendadores', function (){
+    return view('ruleta-recomendadores');
+})->middleware(['admin'])->name('ruleta-recomendadores');
+
 Route::get('/dashboard', function (){
     return view('backoffice.index');
 })->middleware(['backoffice'])->name('dashboard');
