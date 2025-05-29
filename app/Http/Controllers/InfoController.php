@@ -147,7 +147,7 @@ class InfoController extends Controller
         $servicio->observaciones = $observacion;
         if ($servicio->save()) {
             $recomendador->save();
-            return response()->json(['message' => 'Registro exitoso', 'status' => 200], 200);
+            return response()->json(['message' => 'Registro exitoso', 'status' => 201], 201);
         } else {
             return response()->json(['message' => 'Error al registrar el servicio', 'status' => 404], 404);
         }
