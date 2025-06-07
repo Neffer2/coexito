@@ -114,9 +114,9 @@
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-terminos">
-                        <h2 class="codigos-terminos-title">¡Gana bonos <span>de hasta 100 mil pesos!</span></h2>
-                        <p>Inscribe tus códigos y participa con una emocionante ruleta donde podrás ganar bonos de gasolina
-                            por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p>
+                        <h2 class="codigos-terminos-title">¡Sigue participando por dos camionetas y dos motos!</h2>
+                        {{-- <p>Inscribe tus códigos y participa con una emocionante ruleta donde podrás ganar bonos de gasolina
+                            por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p> --}}
                     </div>
                 </div>
                 <div class="login-register-container" id="main_login_register_container">
@@ -241,9 +241,9 @@
                                     productos para moto
                                     participantes.</p>
                             </div>
-                            <div class="image-raspaygana">
+                            {{-- <div class="image-raspaygana">
                                 <img src="{{ asset('assets/raspa-y-gana.png') }}" alt="Imagenes raspa y gana">
-                            </div>
+                            </div> --}}
 
                         </div>
                         <div class="registro-historial-codigos">
@@ -426,11 +426,27 @@
 
 
     @if ($errors->any())
-    Swal.fire({
+        Swal.fire({
             title: 'Errores encontrados',
             html: '{!! implode('<br>', $errors->all()) !!}',
             icon: 'error',
             confirmButtonText: 'Cerrar',
+            customClass: {
+                popup: 'custom-swal-popup',
+                title: 'custom-swal-title',
+                htmlContainer: 'custom-swal-html',
+                confirmButton: 'custom-swal-confirm-button',
+                cancelButton: 'custom-swal-cancel-button'
+            }
+        });
+    @endif
+
+    @if (session('popup'))
+        Swal.fire({
+            title: '¡Ya estás participando por 2 camionetas y 2 carros!',
+            html: '<small>Los bonos de gasolina disponibles según los términos y condiciones ya se han agotado, pero aún tienes la oportunidad de ganar una camioneta o una moto.</small>',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
             customClass: {
                 popup: 'custom-swal-popup',
                 title: 'custom-swal-title',
