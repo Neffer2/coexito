@@ -114,7 +114,7 @@
             @guest
                 <div class="codigos-form-container">
                     <div class="codigos-terminos">
-                        <h2 class="codigos-terminos-title">¡Sigue participando por dos camionetas y dos motos!</h2>
+                        <h2 class="codigos-terminos-title">¡Sigue participando por una de las camionetas o una de las motos!</h2>
                         {{-- <p>Inscribe tus códigos y participa con una emocionante ruleta donde podrás ganar bonos de gasolina
                             por 20.000, 30.000, 50.000 y 100.000 pesos al instante.</span></p> --}}
                     </div>
@@ -235,8 +235,7 @@
                         <div class="info-codigos-form-container">
                             <div class="codigos-form-text">
                                 <h2 class="codigos-form-text-title">Registra <span>tus códigos ahora </span></h2>
-                                <p>Encuentra el código para participar <span>en la esquina señalada y gana premios al
-                                        instante.</span></p> <br>
+                                <br>
                                 <p>Recibe un raspa y gana por cada $80.000 en compras de productos para auto y $40.000 en
                                     productos para moto
                                     participantes.</p>
@@ -443,7 +442,7 @@
 
     @if (session('popup'))
         Swal.fire({
-            title: '¡Ya estás participando por 2 camionetas y 2 carros!',
+            title: '¡Ya estás participando por 2 camionetas y 2 motos!',
             html: '<small>Los bonos de gasolina disponibles según los términos y condiciones ya se han agotado, pero aún tienes la oportunidad de ganar una camioneta o una moto.</small>',
             icon: 'success',
             confirmButtonText: 'Aceptar',
