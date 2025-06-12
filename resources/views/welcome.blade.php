@@ -442,7 +442,7 @@
 
     @if (session('popup'))
         Swal.fire({
-            title: '¡Ya estás participando por 2 camionetas y 2 motos!',
+            title: '¡Ya estás participando por una camioneta o una moto!',
             html: '<small>Los bonos de gasolina disponibles según los términos y condiciones ya se han agotado, pero aún tienes la oportunidad de ganar una camioneta o una moto.</small>',
             icon: 'success',
             confirmButtonText: 'Aceptar',
