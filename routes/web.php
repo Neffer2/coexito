@@ -82,7 +82,7 @@ Route::get('/backoffice-filtro-shopper', function (){
 })->middleware(['backoffice'])->name('backoffice-filtro-shopper');
 
 Route::get('ruleta/{factura_id}', [ShopperController::class, 'index'])->middleware(['auth', 'verified', 'ruleta'])->name('ruleta');
-Route::post('store-premio', [ShopperCsontroller::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);
+Route::post('store-premio', [ShopperController::class, 'storePremio'])->middleware(['auth', 'verified', 'ruleta']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
