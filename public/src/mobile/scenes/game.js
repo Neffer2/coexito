@@ -7,7 +7,7 @@ let premios = [
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': '30mil', 'codigo': 102}, // BONO
+    {'arte': '50mil', 'codigo': 103}, // BONO
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
