@@ -424,21 +424,21 @@
     const cerrarSesionBtn = document.getElementById('cerrar-sesion-btn');
 
 
-    @if ($errors->any())
-        Swal.fire({
-            title: 'Errores encontrados',
-            html: '{!! implode('<br>', $errors->all()) !!}',
-            icon: 'error',
-            confirmButtonText: 'Cerrar',
-            customClass: {
-                popup: 'custom-swal-popup',
-                title: 'custom-swal-title',
-                htmlContainer: 'custom-swal-html',
-                confirmButton: 'custom-swal-confirm-button',
-                cancelButton: 'custom-swal-cancel-button'
-            }
-        });
-    @endif
+    // @if ($errors->any())
+    //     Swal.fire({
+    //         title: 'Errores encontrados',
+    //         html: '{!! implode('<br>', $errors->all()) !!}',
+    //         icon: 'error',
+    //         confirmButtonText: 'Cerrar',
+    //         customClass: {
+    //             popup: 'custom-swal-popup',
+    //             title: 'custom-swal-title',
+    //             htmlContainer: 'custom-swal-html',
+    //             confirmButton: 'custom-swal-confirm-button',
+    //             cancelButton: 'custom-swal-cancel-button'
+    //         }
+    //     });
+    // @endif
 
     @if (session('popup'))
         Swal.fire({
