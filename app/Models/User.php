@@ -29,6 +29,7 @@ class User extends Authenticatable
         'tratamiento_datos',
         'estado_id',
         'rol_id',
+        'reestablecer_contrasena'
     ];
 
     /**

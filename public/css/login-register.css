@@ -218,6 +218,13 @@
     cursor: pointer;
 }
 
+.recuperar-container p {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 10px 0;
+    text-align: center
+}
+
 .login-form form button:hover,
 .register-form form button:hover {
     background-color: #fff;

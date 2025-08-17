@@ -28,6 +28,7 @@ return new class extends Migration
             $table->foreign('rol_id')->references('id')->on('roles');
             $table->foreignId('rol_id')->default(1);
             $table->integer('puntos')->default(0);
+            $table->boolean('reestablecer_contrasena')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

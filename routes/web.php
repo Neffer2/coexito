@@ -15,7 +15,7 @@ use App\Http\Controllers\ShopperController;
 |
 */
 
-Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper'])->name('home');
+Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper', 'force-reset-password'])->name('home');
 
 Route::get('/recomendador-busqueda', function (){
     return view('recomendador-busqueda');
@@ -89,5 +89,9 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/seguridad-coexitocontigo', function (){
+    return view('auth.force-reset-password');
+})->name('force-reset-password');
 
 require __DIR__.'/auth.php';
