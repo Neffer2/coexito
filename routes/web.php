@@ -15,7 +15,7 @@ use App\Http\Controllers\ShopperController;
 |
 */
 
-Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper', 'force-reset-password', 'geolocation'])->name('home');
+Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper', 'force-reset-password'])->name('home');
 
 Route::get('/recomendador-busqueda', function (){
     return view('recomendador-busqueda');
