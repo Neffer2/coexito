@@ -21,11 +21,12 @@ class Geolocalizacion
         $token = env('IPINFO_TOKEN');
 
         // Usar un servicio de geolocalización para obtener el país
-        $location = file_get_contents("http://api.ipinfo.io/lite/me?token={$token}");
+        $location = file_get_contents("http://api.ipinfo.io/lite/{$ip}?token={$token}");
         $locationData = json_decode($location, true);
+        dd($locationData['country_code']);
 
         // Verificar si el país es Colombia
-        if ($locationData['country'] !== 'Colombia') {
+        if ($locationData['country_code'] !== 'CO') {
             abort(403, 'Acceso restringido, promoción solo válida en Colombia.');
         }
 
