@@ -23,7 +23,6 @@ class Geolocalizacion
         // Usar un servicio de geolocalización para obtener el país
         $location = file_get_contents("http://api.ipinfo.io/lite/{$ip}?token={$token}");
         $locationData = json_decode($location, true);
-        dd($locationData['country_code']);
 
         // Verificar si el país es Colombia
         if ($locationData['country_code'] !== 'CO') {
