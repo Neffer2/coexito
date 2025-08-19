@@ -59,7 +59,6 @@ class Kernel extends HttpKernel
         'backoffice' => \App\Http\Middleware\Backoffice::class,
         'geolocation' => \App\Http\Middleware\Geolocalizacion::class,
         'force-reset-password' => \App\Http\Middleware\ResetPassword::class,
-        // 'location' => \App\Http\Middleware\GeoLocation::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
