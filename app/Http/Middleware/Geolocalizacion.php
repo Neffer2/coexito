@@ -26,7 +26,7 @@ class Geolocalizacion
 
         // Verificar si el país es Colombia
         if ($locationData['country_code'] !== 'CO') {
-            abort(403, 'Acceso restringido, promoción solo válida en Colombia.');
+            abort(403, 'Acceso restringido');
         }
 
         return $next($request);
