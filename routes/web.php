@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopperController;
+use App\Http\Controllers\Auth\OtpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use App\Http\Controllers\ShopperController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// OTP routes
+Route::get('/otp', [OtpController::class, 'show'])->name('otp.show');
+Route::post('/otp', [OtpController::class, 'validateOtp'])->name('otp.validate');
+Route::post('/otp/resend', [OtpController::class, 'resend'])->name('otp.resend');
 
 Route::get('/', [ShopperController::class, 'welcome'])->middleware(['shopper', 'force-reset-password', 'geolocation'])->name('home');
 
