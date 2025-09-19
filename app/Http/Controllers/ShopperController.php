@@ -52,7 +52,7 @@ class ShopperController extends Controller
         if ($existingRegistro) {
             return response()->json([
                 'status' => 400,
-                'message' => "Esta factura ya exitste"
+                'message' => "Esta factura ya existe"
             ], 400);
         }
 

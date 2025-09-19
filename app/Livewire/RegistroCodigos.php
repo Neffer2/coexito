@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Codigo;
 use App\Models\User;
 use App\Models\RegistroFactura;
+use App\Models\Premio;
 use App\Models\RegistroCodigo;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
@@ -79,13 +80,25 @@ class RegistroCodigos extends Component
         }
 
         // User
-        $this->user->estado_id = 1;
-        // TODO: Cambiar en pruebas
-        $this->user->save();
-        return redirect()->route('home', ['factura_id' => $registro_factura->id])
+
+        // Validación de stock para Bono $20.000 (ID 101)
+        $bono20000 = Premio::find(101);
+        // $bono30000 = Premio::find(102);
+        // $bono50000 = Premio::find(103);
+        // $bono100000 = Premio::find(104);
+
+
+        if ($bono20000 && $bono20000->stock > 0) {
+            $this->user->estado_id = 4;
+            $this->user->save();
+            return redirect()->route('ruleta', ['factura_id' => $registro_factura->id])->with('success', 'Código registrado con éxito');
+        } else {
+            $this->user->estado_id = 1;
+            $this->user->save();
+            return redirect()->route('home', ['factura_id' => $registro_factura->id])
             ->with('success', 'Código registrado con éxito')
             ->with('popup', true);
-        // return redirect()->route('ruleta', ['factura_id' => $registro_factura->id])->with('success', 'Código registrado con éxito');
+        }
     }
 
     public function validateCodigos()
