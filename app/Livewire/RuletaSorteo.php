@@ -12,13 +12,13 @@ class RuletaSorteo extends Component
 
     public function seleccionarParticipante()
     {
-
+        //!TODO Ajustas la fecha del sorteo
         $this->participante = DB::table('registro_codigos as rc')
             ->join('codigos as c', 'rc.codigo_id', '=', 'c.id')
             ->join('users as u', 'rc.user_id', '=', 'u.id')
             ->select('rc.codigo_id', 'c.codigo', 'rc.user_id', 'u.nombre')
             ->where('rc.estado_id', 1)
-            ->where('rc.created_at', '<', '2025-08-14 23:59:59')
+            ->where('rc.created_at', '<', '2025-12-12 23:59:59')
             ->inRandomOrder()
             ->first();
 

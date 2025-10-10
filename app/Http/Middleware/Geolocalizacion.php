@@ -16,6 +16,8 @@ class Geolocalizacion
      */
     public function handle(Request $request, Closure $next)
     {
+        // !TODO Comentar esta sección para funcionalidad en local 
+        // !TODO Descomentar para producción
         // Obtener la IP del usuario
         $ip = $request->ip();
         $token = env('IPINFO_TOKEN');
