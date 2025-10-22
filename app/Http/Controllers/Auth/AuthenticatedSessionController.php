@@ -39,13 +39,15 @@ class AuthenticatedSessionController extends Controller
             }
             \Illuminate\Support\Facades\RateLimiter::clear($request->throttleKey());
 
+            /*
+            OTP ON
             // Generar OTP
             $otp = rand(100000, 999999);
             UserOtp::create([
                 'user_id' => $user->id,
                 'otp' => $otp,
                 'expires_at' => Carbon::now()->addMinutes(5),
-                'validated' => false,
+                'validated' => false, 
             ]);
 
             // Enviar OTP por SMS
@@ -55,6 +57,13 @@ class AuthenticatedSessionController extends Controller
             $request->session()->put('otp_user_id', $user->id);
 
             return redirect()->route('otp.show');
+            */
+            
+            // OTP OFF
+            Auth::loginUsingId($user->id);
+            $request->session()->regenerateToken();
+
+            return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**
