@@ -16,20 +16,20 @@ class Geolocalizacion
      */
     public function handle(Request $request, Closure $next)
     {
-        // !TODO Comentar esta sección para funcionalidad en local 
+        // !TODO Comentar esta sección para funcionalidad en local
         // !TODO Descomentar para producción
         // Obtener la IP del usuario
-        $ip = $request->ip();
-        $token = env('IPINFO_TOKEN');
+        // $ip = $request->ip();
+        // $token = env('IPINFO_TOKEN');
 
         // Usar un servicio de geolocalización para obtener el país
-        $location = file_get_contents("http://api.ipinfo.io/lite/{$ip}?token={$token}");
-        $locationData = json_decode($location, true);
+        // $location = file_get_contents("http://api.ipinfo.io/lite/{$ip}?token={$token}");
+        // $locationData = json_decode($location, true);
 
         // Verificar si el país es Colombia
-        if ($locationData['country_code'] !== 'CO') {
-            abort(403, 'Acceso restringido');
-        }
+        // if ($locationData['country_code'] !== 'CO') {
+        //     abort(403, 'Acceso restringido');
+        // }
 
         return $next($request);
     }
