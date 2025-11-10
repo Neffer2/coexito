@@ -41,25 +41,25 @@ class AuthenticatedSessionController extends Controller
 
             // OTP ON
             // Generar OTP
-            $otp = rand(100000, 999999);
-            UserOtp::create([
-                'user_id' => $user->id,
-                'otp' => $otp,
-                'expires_at' => Carbon::now()->addMinutes(5),
-                'validated' => false,
-            ]);
+            // $otp = rand(100000, 999999);
+            // UserOtp::create([
+            //     'user_id' => $user->id,
+            //     'otp' => $otp,
+            //     'expires_at' => Carbon::now()->addMinutes(5),
+            //     'validated' => false,
+            // ]);
 
-            // Enviar OTP por SMS
-            SmsService::sendAction($user->telefono, "Tu código de Coéxitocontigo es: $otp");
+            // // Enviar OTP por SMS
+            // SmsService::sendAction($user->telefono, "Tu código de Coéxitocontigo es: $otp");
 
-            // Guardar user_id en sesión para el flujo OTP
-            $request->session()->put('otp_user_id', $user->id);
+            // // Guardar user_id en sesión para el flujo OTP
+            // $request->session()->put('otp_user_id', $user->id);
 
-            return redirect()->route('otp.show');
+            // return redirect()->route('otp.show');
 
             // OTP OFF
-            // Auth::loginUsingId($user->id);
-            // $request->session()->regenerateToken();
+            Auth::loginUsingId($user->id);
+            $request->session()->regenerateToken();
 
             return redirect()->intended(RouteServiceProvider::HOME);
     }
