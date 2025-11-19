@@ -83,13 +83,13 @@ class RegistroCodigos extends Component
         // !TODO: Cambiar estado del usuario dependiendo del stock de los bonos
         // Validación de stock para Bono $20.000 (ID 101)
         // $bono20000 = Premio::find(101);
-        $bono30000 = Premio::find(102);
-        // $bono50000 = Premio::find(103);
+        // $bono30000 = Premio::find(102);
+        $bono50000 = Premio::find(103);
         // $bono100000 = Premio::find(104);
 
         //!TODO Si hay stock, cambiar estado a 4 (con bono disponible), si no, estado 1 (sin bono)
         //!TODO Ajustar IF según en bono activo
-        if ($bono30000 && $bono30000->stock > 0) {
+        if ($bono50000 && $bono50000->stock > 0) {
             $this->user->estado_id = 4;
             $this->user->save();
             return redirect()->route('ruleta', ['factura_id' => $registro_factura->id])->with('success', 'Código registrado con éxito');
