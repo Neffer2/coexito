@@ -7,7 +7,7 @@ let premios = [
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
-    {'arte': '30mil', 'codigo': 103}, // !TODO Ajustar Bono dependiendo de stock
+    {'arte': '100mil', 'codigo': 104}, // !TODO Ajustar Bono dependiendo de stock
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
     {'arte': 'sigue-intentando', 'codigo': 555},
