@@ -232,7 +232,7 @@
             @auth
                 <div class="main-registro-codigos">
                     @if (auth()->user()->rol_id == 1)
-                        <div class="info-codigos-form-container">
+                        {{-- <div class="info-codigos-form-container">
                             <div class="codigos-form-text">
                                 <h2 class="codigos-form-text-title">Registra <span>tus códigos ahora </span></h2>
                                 <br>
@@ -240,12 +240,14 @@
                                     productos para moto
                                     participantes.</p>
                             </div>
-                            {{-- <div class="image-raspaygana">
-                                <img src="{{ asset('assets/raspa-y-gana.png') }}" alt="Imagenes raspa y gana">
-                            </div> --}}
+                            <!-- 
+                                <div class="image-raspaygana">
+                                    <img src="{{ asset('assets/raspa-y-gana.png') }}" alt="Imagenes raspa y gana">
+                                </div>                            
+                            -->
 
-                        </div>
-                        <div class="registro-historial-codigos">
+                        </div> --}}
+                        {{-- <div class="registro-historial-codigos">
                             <div class="historial-codigos-btn">
                                 <button class="btn-active" id="show_registro_codigos">Registro códigos</button>
                                 <button id="show_historial_codigos">Historial códigos</button>
@@ -284,7 +286,6 @@
 
                                 <div class="historial-facturas">
                                     <h2 class="historial-facturas-title">Historial de facturas</h2>
-                                    {{-- <div class="total-codigos"> Total facturas registradas: {{ $total_facturas }}</div> --}}
                                     <table>
                                         <tr>
                                             <td>Factura</td>
@@ -322,7 +323,7 @@
                                         @endforeach
                                     </table>
                                 </div>
-                        </div>
+                        </div> --}}
                     @elseif(auth()->user()->rol_id == 2)
                         <div class="main-asesor-container">
                             <div class="asesor-menu">
